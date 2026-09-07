@@ -83,6 +83,35 @@ Esto es lo que hace al skill *adelantarse*: ver cuándo despierta la demanda de 
 
 **Lectura:** identificar el mes/semana en que la búsqueda de la categoría empieza a subir → eso define con cuánto tiempo hay que tener la campaña lista (cruzar con las ventanas de lead-time de `event-calendar.md`). Si estas fuentes no están conectadas, seguir con Shopify + el calendario direccional, y marcar el gap.
 
+### Fuentes PÚBLICAS de previsión de búsqueda (cuando no hay Ahrefs/Semrush)
+Para la previsión de demanda del evento hay alternativas gratuitas — declararlas como la vía cuando el MCP de SEO no está o el plan es insuficiente:
+
+| Fuente | Qué da | Cómo usarla para el evento |
+|--------|--------|-----------------------------|
+| **Google Trends** (gratis, sin login) | Interés relativo (0–100) por término, país y tiempo | La mejor para **estacionalidad**: ver la curva anual de "electrolitos"/"cyber [categoría]" en Chile y confirmar cuándo despega la ola. Comparar términos y años. |
+| **Google Keyword Planner** (gratis con cuenta Google Ads) | Volumen mensual aprox + pujas | Dimensionar demanda absoluta y costo esperado del search paga para el evento. |
+| **Google Search Console** (gratis, del propio sitio) | Queries reales que ya traen tráfico al cliente | Ver qué términos propios crecen pre-evento y priorizar SEO/PMax sobre ellos. |
+| **Ubersuggest / Trends de marketplaces** | Volumen y términos relacionados | Complemento rápido si no hay lo anterior. |
+
+**Regla:** si no hay MCP de SEO ni acceso a estas fuentes en la sesión, decir explícitamente "previsión de búsqueda pendiente (falta Google Trends / Keyword Planner)" y proyectar solo desde el histórico propio. Nunca inventar volúmenes.
+
+---
+
+## 4. Qué más cruzar (checklist de fuentes complementarias)
+
+Más allá de las 3 señales núcleo, cruzar lo que haya disponible — cada cruce cierra un gap del brief:
+
+- **Competencia:** Meta Ad Library (`ads_library_search`) + Semrush shopping/paid → qué ofertas y ángulos corren los competidores en el evento, y cuándo entran.
+- **Google Trends / Keyword Planner:** estacionalidad y volumen (arriba) → la previsión de la ola.
+- **Klaviyo (si conecta):** tamaño y salud de la lista, flows activos, revenue owned fino (hoy se aproxima por `order_referrer_source='email'`).
+- **Logística / despacho:** deadline de envío pre-evento, cobertura por región (cruzar con `billing_region` de Shopify), quiebres históricos.
+- **Márgenes / costos:** metafields de costo por SKU (`graphql_query`) → qué tolera descuento real (define estacional vs always-on).
+- **Reviews / UGC / prueba social:** para la ficha y los creativos del evento.
+- **Calendario competitivo:** cuándo entran otros al mismo evento (Cyber.cl, retailers) → ventana de anticipo.
+- **Clima / estacionalidad física** (si aplica a la categoría, ej. hidratación en verano): refuerza o modera la proyección.
+
+Todo lo que no se pueda leer se declara como gap en el output.
+
 ---
 
 ## 3. Meta Ads — comportamiento paga pasado (si está)

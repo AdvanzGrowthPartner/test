@@ -43,15 +43,22 @@ El leverage no está en "hacer la campaña". Está en **entender, antes de mover
 
 **El skill pregunta antes de traer data o construir nada.** Nunca asume la marca, el evento ni el alcance; nunca abre con Shopify. Traer la data por MCP y proyectar es caro — primero se cierra el encargo con el cliente/consultor para que tenga certeza de qué se requiere, y recién con eso se sale a buscar la información y se levanta el brief.
 
-Preguntar (agrupado, no de a una) los 4 bloques del intake:
-- **A · Qué y dónde:** ¿qué sitio/marca/URL? ¿qué evento (Cyber, Black, Hot Sale, Navidad, propio…)? → apenas se nombra el evento, **confirmarlo por web** (nombre oficial, fechas y duración aproximada) y devolverlo: *"se viene [evento], ~N días, del X al Y — ¿es este?"*.
-- **B · Ambición:** ¿con cuánto quieres participar / cuál es la proyección u objetivo? ¿presupuesto aprox a invertir?
-- **C · Munición:** ¿tienes los productos declarados o los detecto del catálogo? ¿qué capacidad de ejecución hay (enviar correos, mover anuncios, mover el sitio, creativos, stock)?
-- **D · Conexiones:** inventariar qué conectores MCP hay (Shopify, Meta, Google, Klaviyo, Ahrefs/Semrush…) y usar lo que haya; lo que falte se declara como gap.
+Correr las **8 preguntas de pre-config** (agrupadas en una sola tanda, no de a una). Si el usuario ya respondió alguna, confirmarla; si no la define, seguir con default declarado y cubrirla con escenarios:
 
-Cerrar la Fase 0 con un **mini‑resumen del encargo** para que el cliente confirme *antes* de gastar en el pull. Solo tras el OK (o si el usuario ya dio todo y pidió avanzar) se corre el Gate 0 y el pull.
+1. **Sitio / marca / URL** (reutilizable: esta o cualquier tienda).
+2. **Evento objetivo** → identificar el **más cercano a hoy** y **listar los próximos y sus diferencias** (fechas, duración, mecánica), todo **confirmado por web**.
+3. **Vertical** (moda / consumible / skincare / otro) — autodetectar del catálogo y confirmar.
+4. **Ambición / objetivo** (volumen / margen / cohorte / liquidar) — puede quedar "por definir".
+5. **Presupuesto de inversión aprox** — puede quedar "por definir".
+6. **Productos a trabajar** — declarados o detectados del catálogo y propuestos.
+7. **Capacidad de ejecución** — correos · paid · sitio/CRO · creativos · stock.
+8. **Meta de resultado / proyección esperada** — meta propia o proyecto desde histórico.
 
-**El detalle de las preguntas, cómo confirmar el evento por web y el formato del resumen → `references/intake.md`.**
+> En paralelo, inventariar los conectores MCP disponibles y usar lo que haya; lo que falte se declara como gap.
+
+Cerrar la Fase 0 con un **mini‑resumen del encargo** para que el cliente confirme *antes* de gastar en el pull. Solo tras el OK (o si el usuario ya dio todo y pidió avanzar) se corre el Gate 0 y el pull, y **recién ahí el output visual**.
+
+**El detalle de las 8 preguntas, cómo confirmar el evento por web y el formato del resumen → `references/intake.md`.**
 
 ---
 

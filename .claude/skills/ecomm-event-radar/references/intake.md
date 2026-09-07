@@ -17,25 +17,20 @@ Las preguntas son baratas y le dan certeza al cliente. El pull es caro y va desp
 
 ---
 
-## Los 4 bloques del intake
+## Las 8 preguntas de pre-config (canónicas)
 
-Hacer las preguntas **agrupadas**, no de a una. Si el usuario ya respondió algo en su mensaje, no repreguntarlo — confirmarlo.
+**El intake son SIEMPRE estas 8 preguntas, en este orden.** Se hacen agrupadas (idealmente en una sola tanda), no de a una. Si el usuario ya respondió alguna en su mensaje, no repreguntarla — confirmarla. Si no la define ("aún no sé"), se sigue con default declarado y el brief lo cubre con escenarios. **Primero estas 8; recién después el pull y el output visual.**
 
-### Bloque A — Qué y dónde
-1. **¿Qué sitio / marca / URL?** (la tienda del cliente). Sin esto no hay radar.
-2. **¿Qué evento?** — Cyber, CyberDay, CyberMonday, Black Friday/Black Week, Hot Sale, Navidad, Día de la Madre/Padre, San Valentín, 18/Fiestas Patrias, liquidación, o **evento propio de marca**.
-   → Apenas se nombra el evento, el skill **lo confirma por web** (ver abajo): nombre oficial, fechas exactas y **duración aproximada**, y lo devuelve en una línea: *"Se viene [evento], ~[N] días, del [fecha] al [fecha]. ¿Es este?"*. Si es evento propio, preguntar fechas y duración al usuario.
+1. **Sitio / marca / URL.** ¿Qué tienda? Es lo único sin lo cual no hay radar. Si hay una sola tienda conectada, proponerla como default y confirmar. El skill es reutilizable: sirve para esta o cualquier tienda.
+2. **Evento objetivo.** ¿Cuál trabajamos? El skill **identifica el más cercano a la fecha de hoy y además lista los próximos eventos y sus diferencias** (fechas, duración, mecánica, vertical que más tracciona) desde `event-calendar.md`, todo **confirmado por web** (ver abajo). Devuelve: *"El más cercano es [evento] (del X al Y, ~N días). Después vienen [B] y [C]. ¿Vamos con el más cercano?"*. Si es evento propio, pedir fechas y duración.
+3. **Vertical / categoría.** ¿Moda, consumible, skincare, otro? Define mecánica, lead-time y qué no puede fallar (`product-classification.md`). Se autodetecta del catálogo y se confirma.
+4. **Ambición / objetivo.** ¿Volumen, margen, captar cohorte nuevo, o liquidar stock? ¿Qué tan fuerte jugarla? (Pregunta base — puede quedar "por definir" → el brief va con escenarios.)
+5. **Presupuesto de inversión aprox.** ¿Cuánto invertir en el evento (paid + producción)? Un rango basta. (Puede quedar "por definir".)
+6. **Productos a trabajar.** ¿Los tienes declarados o los detecto del catálogo y te los propongo para validar? (`product-classification.md`.)
+7. **Capacidad de ejecución.** ¿Qué palancas existen: enviar correos (email/SMS) · generar/mover anuncios (paid) · mover el sitio (CRO/ficha) · producir creativos · asegurar stock? El brief solo apalanca lo que existe — no recomendar paid si no hay quién lo prenda.
+8. **Meta de resultado / proyección esperada.** ¿Hay una meta de ventas/ROAS para el evento, o proyecto yo desde tu histórico? Esto ata la predicción del output.
 
-### Bloque B — Ambición y alcance
-3. **¿Con cuánto quieres participar / cuál es tu proyección?** — el objetivo (volumen / margen / captar cohorte / liquidar) y qué tan grande quiere jugarla. Define la escala del plan.
-4. **¿Presupuesto proyectado aprox?** — cuánto quiere invertir en el evento (paid + producción). No necesita ser exacto; un rango basta para dimensionar.
-
-### Bloque C — Munición
-5. **¿Tienes los productos declarados / claros que vas a trabajar?** — Si sí, cuáles. Si no, el skill los detecta del catálogo (`product-classification.md`) y los propone para validar.
-6. **¿Qué capacidad de ejecución tienes?** — ¿puede **enviar correos** (email/SMS)? ¿**generar/mover anuncios** (paid)? ¿**mover el sitio** (CRO/ficha)? ¿producir **creativos**? ¿asegurar **stock**? El brief solo apalanca las palancas que existen; no sirve recomendar paid si no hay quién lo prenda.
-
-### Bloque D — Conexiones (lo inventaría el skill, no es pregunta abierta)
-7. **¿Qué conectores MCP hay disponibles?** — Shopify, Meta, Google, Klaviyo, TikTok/Dashbo, Ahrefs/Semrush, etc. El skill revisa qué está conectado y usa **lo que tenga** para las previsiones de búsqueda y de producto. Lo que falte se declara como gap (no se inventa). Si falta Shopify, se exige conectarlo (Gate 0).
+> **Conectores MCP (no es pregunta, lo inventaría el skill):** en paralelo revisar qué hay conectado (Shopify, Meta, Google, Klaviyo, TikTok/Dashbo, Ahrefs/Semrush) y usar **lo que haya** para las previsiones de búsqueda y de producto. Lo que falte se declara como gap, no se inventa. Sin Shopify se exige conectarlo (Gate 0).
 
 ---
 

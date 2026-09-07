@@ -2,7 +2,18 @@
 
 El output central del skill es un **artifact HTML self-contained** que previsualiza la campaña y proyecta el resultado. Regla de oro: **cualquiera lo entiende en 60 segundos y ve dónde está la oportunidad y el foco de mayor leverage.** No es un dashboard de data — es un *preview de decisión*.
 
+**TODO es una declaración visual** (no párrafos): cada bloque se muestra como gráfico, timeline, matriz, barra o semáforo — texto solo para el veredicto y las etiquetas. El objetivo es dar claridad de "cómo se ve" ANTES de activar. Se construye **recién después de las 8 respuestas del intake** (`intake.md`), nunca antes.
+
 Construir con `web-artifacts-builder` (o `diagram-engine` para las piezas de mapa/matriz). Cargar `artifact-design` antes de escribir. Un solo archivo, responsive, theme-aware, sin dependencias externas fuera del allowlist.
+
+### Piezas visuales obligatorias
+- **Header "Análisis de marca → [URL]"** con las **variables analizadas** como chips (las 10 de la batería ecommerce en `intake.md`): facturación, AOV, zonas de mayor venta, avatar/recurrencia, colecciones, producto, canales, envío, tendencia, oportunidad/gap.
+- **Cronograma en GANTT** (barras por fase de producción sobre un eje de fechas T-N → evento → post), no una lista.
+- **Matriz de producto visual** con los 4 roles etiquetados: 🟢 **ganador** · 🔵 **sidekick (acompañamiento)** · 🟠 **fantasma** · ⚫ **zombie**.
+- **Tendencia** ("dónde se mueve la tendencia"): curva/heat del evento pasado + estacionalidad de demanda, marcando el peak y el valle.
+- **Estructura de oferta y campaña**: visual (tarjetas/arco), qué pack ancla, qué sube AOV, qué comunica cada fase.
+- **Tiempo de preparación**: legible del propio Gantt (semáforo 🟢/🟡/🔴 del reloj).
+- **Proyección**: rango visual (conservador/esperado/stretch) + confianza.
 
 ---
 

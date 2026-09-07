@@ -34,6 +34,28 @@ Las preguntas son baratas y le dan certeza al cliente. El pull es caro y va desp
 
 ---
 
+## Variables analizadas — batería FIJA por tipo de negocio
+
+Las 8 preguntas cierran el encargo; con el OK, el skill sale a analizar una **batería fija de variables** que depende del tipo de negocio. Es fija (siempre las mismas) para que el análisis sea comparable entre clientes y el cliente sepa de antemano qué se va a mirar.
+
+**Ecommerce DTC (batería estándar) — se leen del MCP, no se preguntan:**
+1. **Facturación / baseline** (run-rate diario, tendencia)
+2. **Ticket medio (AOV)** y su comportamiento en evento
+3. **Zonas de mayor venta** (región/ciudad — dónde concentra el revenue)
+4. **Avatar / recurrencia** (nuevo vs recurrente, returning rate, dispositivo)
+5. **Colecciones y valores** (catálogo, rango de precios, packs)
+6. **Comportamiento de producto** (ganador/sidekick/fantasma/zombie)
+7. **Canales rentables** (fuentes de tráfico, mix del evento pasado)
+8. **Envío / despacho** (deadline logístico, cobertura, umbral de envío gratis)
+9. **Estacionalidad / tendencia** (ola de búsquedas + curva del evento pasado)
+10. **Oportunidad, gap de mercado y zona gris** (síntesis: dónde hay leverage, qué no está capturando, qué es incierto)
+
+**Otro tipo de negocio (ej. SaaS):** la batería cambia — serían ~10 preguntas/variables fijas propias de ese modelo (activación, MRR, churn, expansión, ciclos de renovación, etc.). Este skill es SOLO ecommerce DTC; si algún día se extiende, cada vertical de negocio trae su propia batería fija.
+
+Todo lo que no se pueda leer del MCP se declara como **gap** en el output (no se inventa). Estas variables son exactamente las que el output visual muestra arriba en "Análisis de marca → [URL] · variables analizadas".
+
+---
+
 ## Confirmar el evento por WEB (parte del Bloque A)
 
 Las fechas de los eventos cambian cada año — **nunca asumirlas de memoria.** Apenas se nombra el evento, hacer una búsqueda web para confirmar:

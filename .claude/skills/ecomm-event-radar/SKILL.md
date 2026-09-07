@@ -1,6 +1,6 @@
 ---
 name: ecomm-event-radar
-description: "Radar de anticipación y previsualización de campañas para eventos comerciales de ecommerce DTC — CyberDay, CyberMonday, Black Friday, Hot Sale, Navidad, Día de la Madre/Padre, San Valentín, 18/Fiestas Patrias, liquidaciones y eventos propios. Se ADELANTA al evento: se conecta por MCP (Shopify + volumen de búsquedas + Meta), lee peaks pasados, fuentes de tráfico y comportamiento de productos, clasifica el catálogo (ganador/acompañamiento/fantasma/zombie) y la vertical (moda/consumible/skincare), fija fechas y cuánto tiempo de anticipación queda, distingue venta estacional (descuento, urgencia, remate) de always-on, detecta la oportunidad y el mayor leverage, y arma un ARTIFACT visual que previsualiza la campaña y proyecta el resultado vs el último evento. NO ejecuta — previsualiza y entrega una primera estrategia para que el consultor la apruebe. Usa SIEMPRE que digan: 'prepara el cyber/black/navidad de [cliente]', 'qué evento se viene', 'nos alcanza el tiempo', 'cuánto me queda para [evento]', 'previsualiza la campaña', 'arma la estrategia de [evento]', 'proyecta el [evento] vs el año pasado', 'qué productos meto', 'qué canales muevo', 'dónde está la oportunidad', 'hay leverage para [evento]', 'me conviene entrar', o cuando peguen una URL de tienda y pidan planear un evento. Entra ANTES del evento; la ejecución EN VIVO durante el evento → ecomm-cyber-audit. SOLO ecommerce DTC/B2C — NO B2B, SaaS ni lead gen."
+description: "Radar de anticipación y previsualización de campañas para eventos comerciales de ecommerce DTC — CyberDay, CyberMonday, Black Friday, Hot Sale, Navidad, Día de la Madre/Padre, San Valentín, 18/Fiestas Patrias, liquidaciones y eventos propios. ARRANCA preguntando (sitio/marca, qué evento, ambición, presupuesto, productos y capacidad de ejecución) y confirma la fecha y duración del evento por web ANTES de traer data. Recién ahí se conecta por MCP (Shopify + volumen de búsquedas + Meta), lee peaks pasados, fuentes de tráfico y comportamiento de productos, clasifica el catálogo (ganador/acompañamiento/fantasma/zombie) y la vertical (moda/consumible/skincare), fija fechas y cuánto tiempo de anticipación queda, distingue venta estacional (descuento, urgencia, remate) de always-on, detecta la oportunidad y el mayor leverage, y arma un ARTIFACT visual que previsualiza la campaña y proyecta el resultado vs el último evento. NO ejecuta — previsualiza y entrega una primera estrategia para que el consultor la apruebe. Usa SIEMPRE que digan: 'prepara el cyber/black/navidad de [cliente]', 'qué evento se viene', 'nos alcanza el tiempo', 'cuánto me queda para [evento]', 'previsualiza la campaña', 'arma la estrategia de [evento]', 'proyecta el [evento] vs el año pasado', 'qué productos meto', 'qué canales muevo', 'dónde está la oportunidad', 'hay leverage para [evento]', 'me conviene entrar', o cuando peguen una URL de tienda y pidan planear un evento. Entra ANTES del evento; la ejecución EN VIVO durante el evento → ecomm-cyber-audit. SOLO ecommerce DTC/B2C — NO B2B, SaaS ni lead gen."
 ---
 
 # Ecomm Event Radar
@@ -39,7 +39,23 @@ El leverage no está en "hacer la campaña". Está en **entender, antes de mover
 
 ---
 
-## Gate 0 — Conexión MCP (siempre primero, exigente pero guiando)
+## Fase 0 — Preparación / Intake (SIEMPRE lo primero, antes de tocar data)
+
+**El skill pregunta antes de traer data o construir nada.** Nunca asume la marca, el evento ni el alcance; nunca abre con Shopify. Traer la data por MCP y proyectar es caro — primero se cierra el encargo con el cliente/consultor para que tenga certeza de qué se requiere, y recién con eso se sale a buscar la información y se levanta el brief.
+
+Preguntar (agrupado, no de a una) los 4 bloques del intake:
+- **A · Qué y dónde:** ¿qué sitio/marca/URL? ¿qué evento (Cyber, Black, Hot Sale, Navidad, propio…)? → apenas se nombra el evento, **confirmarlo por web** (nombre oficial, fechas y duración aproximada) y devolverlo: *"se viene [evento], ~N días, del X al Y — ¿es este?"*.
+- **B · Ambición:** ¿con cuánto quieres participar / cuál es la proyección u objetivo? ¿presupuesto aprox a invertir?
+- **C · Munición:** ¿tienes los productos declarados o los detecto del catálogo? ¿qué capacidad de ejecución hay (enviar correos, mover anuncios, mover el sitio, creativos, stock)?
+- **D · Conexiones:** inventariar qué conectores MCP hay (Shopify, Meta, Google, Klaviyo, Ahrefs/Semrush…) y usar lo que haya; lo que falte se declara como gap.
+
+Cerrar la Fase 0 con un **mini‑resumen del encargo** para que el cliente confirme *antes* de gastar en el pull. Solo tras el OK (o si el usuario ya dio todo y pidió avanzar) se corre el Gate 0 y el pull.
+
+**El detalle de las preguntas, cómo confirmar el evento por web y el formato del resumen → `references/intake.md`.**
+
+---
+
+## Gate 0 — Conexión MCP (tras el intake, exigente pero guiando)
 
 Este skill vive de la data viva. Sin al menos Shopify conectado, es opinión, no radar.
 
@@ -54,6 +70,7 @@ Este skill vive de la data viva. Sin al menos Shopify conectado, es opinión, no
 
 | Tarea | Archivo |
 |-------|---------|
+| Preguntas del intake, cómo confirmar el evento por web, formato del resumen del encargo | `references/intake.md` |
 | Calendario anual de eventos, fechas, estacionalidad, cómo la posición-en-el-mes cambia el comportamiento, mecánica y ventana de lead-time por evento | `references/event-calendar.md` |
 | Qué llamar en cada MCP (Shopify, Ahrefs/Semrush volumen, Meta), en qué orden, con qué query; chequeo de conexión | `references/data-pull.md` |
 | Clasificación de productos (ganador / acompañamiento / fantasma / zombie) y de vertical (moda / consumible / skincare / otros), con cómo calcularla | `references/product-classification.md` |
@@ -68,10 +85,12 @@ Este skill vive de la data viva. Sin al menos Shopify conectado, es opinión, no
 
 ## El flujo de trabajo
 
+### 0. Intake — preguntar antes de traer data
+Correr la Fase 0 (arriba / `intake.md`): sitio, evento (+confirmación web de fechas y duración), ambición, presupuesto, productos, capacidad de ejecución y conectores disponibles. Cerrar con el resumen del encargo y confirmar. **No pasar a traer data sin esto.**
+
 ### 1. Resolver evento, cliente y reloj
-- ¿Qué evento? Si no lo dicen, mirar la fecha de hoy contra `event-calendar.md` y proponer el próximo relevante para su vertical.
-- ¿Qué cliente / tienda? Resolver por MCP (Gate 0).
-- **Calcular el reloj:** días hasta el evento (T-N) y contrastar con la ventana de lead-time mínima del evento (`event-calendar.md`). Esto define de entrada si se llega holgado, justo, o tarde — y el flujo de producción posible.
+- Con el evento confirmado por web, **calcular el reloj:** días hasta el evento (T-N) y contrastar con la ventana de lead-time mínima de la vertical (`event-calendar.md`). Define si se llega holgado, justo o tarde — y el flujo de producción posible.
+- Resolver la tienda por MCP (Gate 0).
 
 ### 2. Leer la historia por MCP
 - **Shopify (la verdad):** peaks pasados del mismo evento (curva hora/día), ventas, AOV, CVR, fuentes de tráfico (`order_referrer_source`), catálogo y comportamiento de cada SKU. → `data-pull.md`.
@@ -124,20 +143,23 @@ Método y reglas completas → `references/artifact-spec.md` (sección Proyecci�
 
 ## Principios operativos
 
-1. **Adelantarse es el producto.** El valor está en leer la ola antes de que llegue, no en reaccionar. Si el skill entra tarde, decirlo con todas sus letras (el reloj manda).
-2. **Previsualizar, no ejecutar.** Este skill nunca aprieta un botón. Entrega un preview y una proyección; el humano cierra.
-3. **Siempre proponer un movimiento.** Aunque la ola sea débil: entrada chica + riesgo marcado. Nunca un no-go seco.
-4. **Tosco con el margen y el tiempo.** No romantizar. Si un producto es zombie, no entra. Si no hay stock, no se empuja. Si no hay margen para descuento, no se descuenta — se hace always-on.
-5. **Baseline propio, no benchmark de industria.** El evento se proyecta como lift sobre el propio histórico del cliente.
-6. **La fecha importa tanto como el evento.** Un evento a fin de mes (post-sueldo) no se comporta como uno a mediados. Ajustar mecánica y proyección por eso.
-7. **Vertical primero.** Moda, consumible y skincare tienen lead-times, mecánicas y "qué no puede fallar" distintos. Definir la vertical antes de sugerir nada.
-8. **El artifact se entiende solo.** Cualquiera debe ver dónde está la oportunidad y el foco de mayor leverage sin explicación.
-9. **La data manda; el gap se declara.** Si falta una fuente, se dice y se guía a conectarla. Nunca proyectar sobre inventos.
+1. **Preguntar antes de traer data.** Primero el intake (Fase 0): sitio, evento, ambición, presupuesto, productos, capacidad, conectores. El pull por MCP es caro y va después del OK del encargo. Nunca abrir con Shopify ni construir el artifact sin intake.
+2. **Adelantarse es el producto.** El valor está en leer la ola antes de que llegue, no en reaccionar. Si el skill entra tarde, decirlo con todas sus letras (el reloj manda).
+3. **Previsualizar, no ejecutar.** Este skill nunca aprieta un botón. Entrega un preview y una proyección; el humano cierra.
+4. **Siempre proponer un movimiento.** Aunque la ola sea débil: entrada chica + riesgo marcado. Nunca un no-go seco.
+5. **Tosco con el margen y el tiempo.** No romantizar. Si un producto es zombie, no entra. Si no hay stock, no se empuja. Si no hay margen para descuento, no se descuenta — se hace always-on.
+6. **Baseline propio, no benchmark de industria.** El evento se proyecta como lift sobre el propio histórico del cliente.
+7. **La fecha importa tanto como el evento.** Un evento a fin de mes (post-sueldo) no se comporta como uno a mediados. Ajustar mecánica y proyección por eso.
+8. **Vertical primero.** Moda, consumible y skincare tienen lead-times, mecánicas y "qué no puede fallar" distintos. Definir la vertical antes de sugerir nada.
+9. **El artifact se entiende solo.** Cualquiera debe ver dónde está la oportunidad y el foco de mayor leverage sin explicación.
+10. **La data manda; el gap se declara.** Si falta una fuente, se dice y se guía a conectarla. Nunca proyectar sobre inventos.
 
 ---
 
 ## Anti-patrones a evitar
 
+- **NO construir el brief/artifact ni traer data antes del intake.** Preguntar primero (Fase 0); el pull va después del OK del encargo.
+- **NO asumir la marca ni las fechas del evento.** Confirmar el evento por web siempre.
 - **NO ejecutar nada** (crear campañas, correos, descuentos, aprobar budget). Solo preview.
 - **NO meter el catálogo entero al evento.** Entran ganadores + acompañamiento; fantasmas se arreglan o quedan fuera; zombies nunca.
 - **NO proyectar lineal** ni entregar número puntual sin rango y sin confianza.

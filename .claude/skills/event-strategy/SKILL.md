@@ -1,9 +1,9 @@
 ---
-name: ecomm-event-radar
-description: "Radar de anticipación y previsualización de campañas para eventos comerciales de ecommerce DTC — CyberDay, CyberMonday, Black Friday, Hot Sale, Navidad, Día de la Madre/Padre, San Valentín, 18/Fiestas Patrias, liquidaciones y eventos propios. ARRANCA preguntando (sitio/marca, qué evento, ambición, presupuesto, productos y capacidad de ejecución) y confirma la fecha y duración del evento por web ANTES de traer data. Recién ahí se conecta por MCP (Shopify + volumen de búsquedas + Meta), lee peaks pasados, fuentes de tráfico y comportamiento de productos, clasifica el catálogo (ganador/acompañamiento/fantasma/zombie) y la vertical (moda/consumible/skincare), fija fechas y cuánto tiempo de anticipación queda, distingue venta estacional (descuento, urgencia, remate) de always-on, detecta la oportunidad y el mayor leverage, y arma un ARTIFACT visual que previsualiza la campaña y proyecta el resultado vs el último evento. NO ejecuta — previsualiza y entrega una primera estrategia para que el consultor la apruebe. Usa SIEMPRE que digan: 'prepara el cyber/black/navidad de [cliente]', 'qué evento se viene', 'nos alcanza el tiempo', 'cuánto me queda para [evento]', 'previsualiza la campaña', 'arma la estrategia de [evento]', 'proyecta el [evento] vs el año pasado', 'qué productos meto', 'qué canales muevo', 'dónde está la oportunidad', 'hay leverage para [evento]', 'me conviene entrar', o cuando peguen una URL de tienda y pidan planear un evento. Entra ANTES del evento; la ejecución EN VIVO durante el evento → ecomm-cyber-audit. SOLO ecommerce DTC/B2C — NO B2B, SaaS ni lead gen."
+name: event-strategy
+description: "Radar de anticipación y previsualización de campañas para eventos comerciales de ecommerce DTC — CyberDay, CyberMonday, Black Friday, Hot Sale, Navidad, Día de la Madre/Padre, San Valentín, 18/Fiestas Patrias, liquidaciones y eventos propios. ARRANCA preguntando (sitio/marca, qué evento, ambición, presupuesto, productos y capacidad de ejecución) y confirma la fecha y duración del evento por web ANTES de traer data. Recién ahí se conecta por MCP (Shopify + volumen de búsquedas + Meta), lee peaks pasados, fuentes de tráfico y comportamiento de productos, clasifica el catálogo (ganador/acompañamiento/fantasma/zombie) y la vertical (moda/consumible/skincare), fija fechas y cuánto tiempo de anticipación queda, distingue venta estacional (descuento, urgencia, remate) de always-on, detecta la oportunidad y el mayor leverage, y arma un ARTIFACT visual que previsualiza la campaña y proyecta el resultado vs el último evento. NO ejecuta — previsualiza y entrega una primera estrategia para que el consultor la apruebe. También genera una LANDER pública genérica del evento con formulario de captura para nutrir y captar leads ANTES del ejercicio con conectores. Usa SIEMPRE que digan: 'prepara el cyber/black/navidad de [cliente]', 'qué evento se viene', 'nos alcanza el tiempo', 'cuánto me queda para [evento]', 'previsualiza la campaña', 'arma la estrategia de [evento]', 'proyecta el [evento] vs el año pasado', 'qué productos meto', 'qué canales muevo', 'dónde está la oportunidad', 'hay leverage para [evento]', 'me conviene entrar', 'arma la lander del evento', 'landing de captura del cyber', o cuando peguen una URL de tienda y pidan planear un evento. Entra ANTES del evento; la ejecución EN VIVO durante el evento → ecomm-cyber-audit. SOLO ecommerce DTC/B2C — NO B2B, SaaS ni lead gen."
 ---
 
-# Ecomm Event Radar
+# Event Strategy
 
 ## Propósito
 
@@ -13,7 +13,7 @@ No es solo "cyber". Entiende **el año completo de eventos** y cómo se comporta
 
 ### La división de trabajo (no confundir con `ecomm-cyber-audit`)
 
-| | **`ecomm-event-radar`** (este skill) | **`ecomm-cyber-audit`** |
+| | **`event-strategy`** (este skill) | **`ecomm-cyber-audit`** |
 |---|---|---|
 | Momento | ANTES del evento (T-60 a T-1) | DURANTE el evento (peak, cada 3-6h) |
 | Pregunta | ¿Me conviene? ¿Con qué? ¿Cuánto tiempo me queda? ¿Cómo se vería? | ¿Qué muevo AHORA? |
@@ -83,6 +83,7 @@ Este skill vive de la data viva. Sin al menos Shopify conectado, es opinión, no
 | Clasificación de productos (ganador / acompañamiento / fantasma / zombie) y de vertical (moda / consumible / skincare / otros), con cómo calcularla | `references/product-classification.md` |
 | Cómo puntuar oportunidad y leverage; estacional vs always-on; regla "siempre propone algo"; preguntas de discovery al consultor | `references/leverage-scoring.md` |
 | Especificación del artifact visual de preview + cómo construirlo | `references/artifact-spec.md` |
+| Lander pública genérica del evento con formulario de captura (nurture, pre-conectores) | `references/event-landing.md` |
 
 **Para previsualizar/planear un evento (flujo completo):** leer los 5.
 **Para solo entender qué evento se viene y si hay ola:** `event-calendar.md` + `leverage-scoring.md`.
@@ -134,6 +135,15 @@ Extrapolar lineal está mal — las ventas de evento no son uniformes.
 Método y reglas completas → `references/artifact-spec.md` (sección Proyección) y el patrón heredado de `ecomm-cyber-audit/owner-view.md`.
 
 ---
+
+## Dos salidas del skill
+
+| Salida | Naturaleza | Cuándo | Datos |
+|--------|-----------|--------|-------|
+| **Brief / preview visual** | Interno, específico del cliente | Tras el intake + conectores | Data privada del cliente (Shopify, Meta, búsquedas) |
+| **Lander pública del evento** | Genérica, de captura (nurture) | Antes del ejercicio con conectores de un prospecto | Sin data privada — habla del evento y captura leads con form |
+
+La **lander** (`references/event-landing.md`) es tope de funnel: genérica, pública, con formulario real de captura (usa una runtime capability del Artifact — cargar `artifact-capabilities` antes de escribirla). Se atrae y captura primero; con cada lead que entra, recién se corre el **brief** con sus conectores. Orden: brief interno (aprendizaje) → lander pública (nutrir + capturar) → ejercicio profundo por lead.
 
 ## Handoffs (este skill no ejecuta — deriva)
 

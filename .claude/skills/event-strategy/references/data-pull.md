@@ -101,6 +101,8 @@ Para la previsión de demanda del evento hay alternativas gratuitas — declarar
 
 Más allá de las 3 señales núcleo, cruzar lo que haya disponible — cada cruce cierra un gap del brief:
 
+- **Peaks de tráfico de años anteriores (multi-año, no solo el último):** traer la curva del mismo evento en 2-3 ediciones pasadas (Shopify `sessions`/`sales` por día en cada ventana histórica) → confirma que el patrón se repite, mide el crecimiento YoY real y hace la proyección más sólida que un solo año.
+- **Relevancia de producto entre eventos:** qué SKUs fueron ganadores en varios eventos (no solo el último) → los "ganadores recurrentes" son la apuesta más segura; los que ganaron una vez y no repitieron, mirarlos con cuidado. Cruzar top-productos de cada evento pasado.
 - **Competencia:** Meta Ad Library (`ads_library_search`) + Semrush shopping/paid → qué ofertas y ángulos corren los competidores en el evento, y cuándo entran.
 - **Google Trends / Keyword Planner:** estacionalidad y volumen (arriba) → la previsión de la ola.
 - **Klaviyo (si conecta):** tamaño y salud de la lista, flows activos, revenue owned fino (hoy se aproxima por `order_referrer_source='email'`).

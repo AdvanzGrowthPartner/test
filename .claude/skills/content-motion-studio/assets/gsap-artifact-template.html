@@ -1,0 +1,96 @@
+<!--
+  GSAP + Simple Icons standalone artifact template.
+  - GSAP + ScrollTrigger load from cdnjs (the only script CDN allowed inside claude.ai artifacts).
+  - Brand icons are inlined as <svg> (generate them with scripts/icon.mjs <slug>).
+  - Self-contained: paste the whole file as an HTML artifact, no build step.
+  Replace TEXT_*, the icon paths, and the palette. Keep it opinionated — avoid the
+  centered-everything / purple-gradient / uniform-rounded-corner "AI slop" default.
+-->
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Motion Artifact</title>
+<style>
+  :root {
+    --bg: #0b0b0f; --ink: #f5f5f4; --muted: #9aa0aa;
+    --accent: #7ab55c; --line: #23232b;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Space Grotesk", "Segoe UI", system-ui, sans-serif; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: clamp(24px, 5vw, 72px); }
+  .eyebrow { text-transform: uppercase; letter-spacing: .28em; font-size: 13px;
+    color: var(--accent); font-weight: 700; }
+  h1 { font-size: clamp(40px, 8vw, 108px); line-height: .96; font-weight: 800;
+    letter-spacing: -.03em; margin: 18px 0 0; }
+  h1 .word { display: inline-block; will-change: transform; }
+  .lead { color: var(--muted); font-size: clamp(18px, 2.4vw, 26px); max-width: 46ch;
+    margin: 28px 0 0; }
+  .rule { height: 6px; width: 0; background: var(--accent); border-radius: 3px; margin: 40px 0; }
+  .marquee { display: flex; gap: 40px; align-items: center; overflow: hidden;
+    border-block: 1px solid var(--line); padding: 26px 0; }
+  .marquee svg { height: 40px; width: 40px; flex: 0 0 auto; opacity: .85; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 64px; }
+  .card { background: var(--bg); padding: 32px; }
+  .card:nth-child(2n) { background: #101018; }
+  .card h3 { margin: 14px 0 6px; font-size: 22px; }
+  .card p { color: var(--muted); margin: 0; font-size: 16px; line-height: 1.5; }
+  .reveal { opacity: 0; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="eyebrow reveal">TEXT_EYEBROW</div>
+    <h1 aria-label="TEXT_HEADLINE"><span class="word">Content</span> <span class="word">que</span> <span class="word">se</span> <span class="word">mueve</span></h1>
+    <p class="lead reveal">TEXT_LEAD — cámbialo por tu propuesta de valor.</p>
+    <div class="rule" id="rule"></div>
+  </div>
+
+  <!-- Brand marquee. Swap these for icons from: node scripts/icon.mjs <slug> -->
+  <div class="marquee" id="marquee">
+    <svg viewBox="0 0 24 24" fill="#7AB55C"><title>Shopify</title><path d="M15.337 23.979l7.216-1.561s-2.604-17.613-2.625-17.73c-.018-.116-.114-.192-.211-.192s-1.929-.136-1.929-.136-1.275-1.274-1.439-1.411c-.045-.037-.075-.057-.121-.074l-.914 21.104 2.023-.001zM11.71 3.284s-.618.174-1.62.463C9.914 3.29 9.712 2.605 9.4 2.116c-.815.062-1.634.649-2.108 1.415-1.024.184-1.708.309-1.708.309-.514.146-.531.163-.594.647C4.926 4.921 3.58 15.408 3.58 15.408L14.32 17.29V3.239c-.116.008-.239.021-.371.036 0 0-.559-.183-1.293-.183-.401 0-.783.048-1.145.155-.058-.318-.145-.65-.278-.926-.484.099-.996.29-1.5.552 0 0 .618-1.169 1.417-1.71.24-.163.47-.253.663-.301z"/></svg>
+    <svg viewBox="0 0 24 24" fill="#635BFF"><title>Stripe</title><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.594-7.305h.003z"/></svg>
+    <svg viewBox="0 0 24 24" fill="#96BF48"><title>WooCommerce</title><path d="M12.001 2.4c-1.766 0-3.298.153-4.616.45C3.63 3.67 1.2 5.926 1.2 9.6v6.401c0 .988.812 1.799 1.8 1.799h.6l1.2 3.6 5.4-3.6h8.4c.988 0 1.8-.811 1.8-1.799V9.6c0-3.674-2.43-5.93-6.184-6.75-1.318-.297-2.85-.45-4.615-.45z"/></svg>
+    <svg viewBox="0 0 24 24" fill="#E4405F"><title>Instagram</title><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
+    <svg viewBox="0 0 24 24" fill="#0866FF"><title>Meta</title><path d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.294l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303z"/></svg>
+  </div>
+
+  <div class="wrap">
+    <div class="grid">
+      <div class="card reveal"><h3>TEXT_CARD1_TITLE</h3><p>TEXT_CARD1_BODY</p></div>
+      <div class="card reveal"><h3>TEXT_CARD2_TITLE</h3><p>TEXT_CARD2_BODY</p></div>
+      <div class="card reveal"><h3>TEXT_CARD3_TITLE</h3><p>TEXT_CARD3_BODY</p></div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero: staggered word entrance + accent rule wipe.
+    const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+    tl.from(".word", { yPercent: 120, opacity: 0, duration: 0.9, stagger: 0.08 })
+      .from(".eyebrow", { y: 20, opacity: 0, duration: 0.6 }, "-=0.6")
+      .from(".lead", { y: 20, opacity: 0, duration: 0.6 }, "-=0.4")
+      .to("#rule", { width: 220, duration: 0.7 }, "-=0.2")
+      .to(".eyebrow, .lead", { opacity: 1 }, 0);
+
+    // Infinite brand marquee.
+    gsap.to("#marquee", { xPercent: -8, repeat: -1, yoyo: true, duration: 6, ease: "sine.inOut" });
+
+    // Scroll-triggered card reveals.
+    gsap.utils.toArray(".grid .reveal").forEach((el, i) => {
+      gsap.to(el, {
+        opacity: 1, y: 0, duration: 0.7, ease: "power2.out",
+        scrollTrigger: { trigger: el, start: "top 85%" },
+        delay: i * 0.05,
+      });
+      gsap.set(el, { y: 30 });
+    });
+  </script>
+</body>
+</html>

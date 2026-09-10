@@ -1,0 +1,27 @@
+{
+  "name": "advanz-content-motion",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Stack de video + animación de Advanz para producir content: GSAP, Simple Icons y Remotion.",
+  "type": "module",
+  "scripts": {
+    "video:new": "bash .claude/skills/content-motion-studio/scripts/new-video.sh",
+    "video:studio": "remotion studio",
+    "video:render": "bash .claude/skills/content-motion-studio/scripts/render-video.sh",
+    "icon": "node .claude/skills/content-motion-studio/scripts/icon.mjs"
+  },
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "simple-icons": "^13.15.0",
+    "remotion": "^4.0.0",
+    "@remotion/cli": "^4.0.0",
+    "@remotion/bundler": "^4.0.0",
+    "@remotion/renderer": "^4.0.0",
+    "@remotion/gif": "^4.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.1"
+  }
+}

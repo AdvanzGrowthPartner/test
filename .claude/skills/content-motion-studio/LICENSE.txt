@@ -1,0 +1,15 @@
+Content Motion Studio — skill scaffolding, templates and scripts in this directory
+are provided as-is for use within this repository.
+
+This skill orchestrates three third-party tools, each under its own license:
+
+- GSAP (gsap)          — GreenSock Standard "No Charge" License. Free for most uses,
+                         including commercial. Review https://gsap.com/community/standard-license/
+- Simple Icons         — CC0 1.0 (the icon files). Brand logos remain the trademarks of
+                         their respective owners; use them to reference a brand, not to
+                         imply endorsement. https://github.com/simple-icons/simple-icons
+- Remotion (remotion)  — Remotion License. FREE for individuals and small teams, but
+                         COMPANIES may need a paid company license depending on team size.
+                         Confirm before shipping client work: https://remotion.dev/license
+
+Using these tools is your responsibility under their respective terms.

@@ -1,0 +1,10 @@
+# Dependencies
+node_modules/
+
+# Remotion / video build outputs
+videos/**/out/
+.remotion/
+
+# OS / editor
+.DS_Store
+*.log

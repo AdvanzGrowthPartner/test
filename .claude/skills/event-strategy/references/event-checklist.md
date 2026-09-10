@@ -99,4 +99,15 @@ Todo evento de alta velocidad se prepara con el **mismo checklist maestro**. Va 
 - **Email:** welcome + carrito (secuencia 1 y 2) ajustados; campañas pre · día 1 · día 2 · últimas horas · post/recuperación.
 - **Ads:** estáticos (4 pilares) + video UGC; Meta (fríos + remarketing) + Google (PMax + Search marca/categoría).
 
-**En el artifact este checklist va clickeable** (checkbox con estado en localStorage, try/catch), agrupado por estas áreas, con contador de avance.
+**En el artifact este checklist va clickeable** (checkbox con estado en localStorage, try/catch), con contador de avance.
+
+## Agrupación canónica del checklist en el artifact — 6 áreas
+El checklist se presenta **por área** (así lo pidió el cliente), y **cada área se verifica por etapa** (pre → durante → post) a medida que avanza el evento:
+1. **Producto y stock** — precios/creativo=web, Merchant, stock de packs, proyección de stock por SKU, COGS/margen, stacking off.
+2. **Web & CRO** — checkout, envío gratis (home/PDP/carrito), countdown, packs pos 1‑2, upsell, reviews, redirect, mobile <3s, banners, **+2 blogs SEO "electrolitos cyber" (FOMO + posicionamiento)**.
+3. **Social Media** — piezas aprobadas por adelantado, stories/countdown, reels de packs, todos los creadores el D1, UGC, DMs <1h.
+4. **Campañas (Google y Meta)** — UTMs, pixel/CAPI value dinámico, fríos + remarketing, PMax + Search marca/categoría, split + frontload, gate 48h, excluir compradores.
+5. **Email marketing y flujos** — deliverability, welcome + carrito (sec. 1 y 2), envío 20:00, secuencia pre/D1/D2/últimas/post, segmentación, UTMs.
+6. **Revisor final** — preview en placements, sin rechazos, doble check precio, dashboard KPIs, primera compra atribuida, plan de retención del cohorte, reporte + Do´s/Don´ts.
+
+**SEO/GEO del evento:** sumar 1‑2 blogs que posicionen la keyword del evento (ej. "electrolitos cyber") con anticipación → FOMO + captura de búsqueda estacional. Deriva a `advanz-shopify-blog-publisher` / `advanz-seo-geo-engine`.

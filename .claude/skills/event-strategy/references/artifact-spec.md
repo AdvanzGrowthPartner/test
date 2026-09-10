@@ -44,6 +44,15 @@ El output evolucionó de "preview" a **war room**: además de lo anterior, inclu
 - **Landing `/cyber`:** **emular visualmente la página** (mock con barra de URL, hero, productos) + qué medir y por qué.
 - Todo interactivo es JS vanilla o Chart.js (UMD desde cdnjs, pinneado); sin dependencias fuera del allowlist del Artifact.
 
+### Refinamientos de detalle (aprendidos en cliente)
+- **Fondo con aura de marca:** base clara con auras radiales suaves de los colores de la marca (Advanz) detrás del contenido (`body::before`, opacidad baja). Nunca compite con la data.
+- **Gantt con rol + qué verificar por etapa:** cada fila del Gantt lleva su **rol** y su **checklist de verificación** inline; sin chips decorativos sueltos debajo. Barras grandes.
+- **Oferta = AHORRO primero:** el héroe del mensaje es el ahorro (en sticks, en producto y en envío), no el precio bajo. El **GWP (regalo) va SIEMPRE atado al pack, nunca suelto** (regalar suelto = regalar margen). El carrito muestra precio tachado + "ahorras $X".
+- **Proyección:** los supuestos (inversión/ROAS por escenario) van en una **mini-tabla lateral** que acompaña las barras, no en texto chico. Escenario tope = "todo sale bien" (no inflar; respetar el ROAS techo histórico de la cuenta).
+- **Distribución de inversión conectada al planificador:** las barras de $ por fase se recalculan con el slider de inversión y el split (no valores hardcodeados); mostrar la referencia del evento anterior.
+- **Landing con 3 vistas (home · PDP · carrito), las 3 obligatorias**, con **marcadores numerados flotantes** en el mock conectados por número (01, 02…) a la checklist de must-haves. Envío gratis y countdown visibles en las 3.
+- **Checklist por área + por etapa:** 6 áreas (Producto y stock · Web & CRO · Social Media · Campañas · Email · Revisor final), cada una verificable pre/durante/post. Ver `event-checklist.md`.
+
 ---
 
 ## Encabezado (lo primero que se ve)

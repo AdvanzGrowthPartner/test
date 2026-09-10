@@ -20,6 +20,7 @@ El output evolucionó de "preview" a **war room**: además de lo anterior, inclu
 - **Gráficos combinados reales** (usar Chart.js UMD desde cdnjs, pinneado; temear leyendo las CSS vars):
   - *Tendencia*: **barras sesiones + barras ventas + línea CR%** (diario del evento pasado). El insight suele ser que el CR sube y el tráfico es plano.
   - *A quién le vendes vs conversión*: **barras (sesiones/ventas) + línea CR%** por dispositivo / segmento / canal.
+  - *Zonas de venta y conversión*: gráfico **vertical**, con **todas las regiones/zonas con venta** (no solo el top). Las barras van en **volumen de pedidos**, no en facturación (el volumen ordena mejor la cola larga y evita que una zona con ticket alto distorsione), + **línea CR% por región** en eje secundario. Ordenar por pedidos desc.
 - **Oferta irresistible (visual):** el mix como stack **ancla (bundle) → upsell de carrito → crosssell**, + una **matriz de test** (variante × hipótesis × métrica × qué ganó) para ver cómo testear antes del peak.
 - **Proyección interactiva:** slider de **inversión media** + split Meta/Google + ROAS editable → **calcula revenue por canal (Google y Meta) y MER en vivo** (JS vanilla). Declarar que el ROAS es supuesto de planificación.
 - **Calculadora de volumen de creativos:** slider de inversión + mezcla video/estático → **# de conceptos, videos (UGC/creador) y estáticos recomendados**, con la lógica de *volumen mínimo para que la plataforma distribuya* ("con poca plata no dispersar; con mucha, necesitas volumen real").

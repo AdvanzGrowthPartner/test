@@ -123,7 +123,7 @@ La data de **inversión en pauta, ROAS/MER y aprendizajes de eventos pasados** n
 - Inversión real por plataforma (Meta / Google), CPA/CPC, campañas ganadoras.
 - Revenue del evento (puede diferir del corte de Shopify por ventana distinta — usar el número del reporte como oficial y decir la ventana).
 - Aprendizajes: mejores horarios de email, flujos que rindieron, % de carrito abandonado, base de datos, regiones rentables vs no.
-Ojo: un DTC puede facturar mucho con **pauta mínima** (motor brand/email/orgánico) → un MER blended altísimo no es error; significa que el paid está **sub-invertido** = oportunidad de escala. Declararlo así.
+**Cuidado con la cifra que se lee:** un reporte puede mostrar una "inversión inicial" que NO es el total del evento (ej. Amazing Care: el reporte de octubre abría con $384K, pero el reporte de Paid Media confirmó **$3,27M totales** con **ROAS 7,9×**). Leer SIEMPRE el reporte de cierre / Paid Media completo (inversión total, ROAS por canal, campañas ganadoras), no la primera cifra. Y contrastar revenue del reporte con Shopify (ventanas distintas dan números distintos).
 
 ### Imágenes de producto (limitación de entorno)
 Las fotos reales se sacan por MCP (`featuredImage` de Shopify). PERO en entornos con **egress restringido, el CDN de Shopify (`cdn.shopify.com`) suele estar bloqueado** → no se pueden descargar para embeber como data URI, y la CSP del Artifact tampoco deja hotlinkearlo. Si pasa: decirlo explícito, usar placeholders, y proponer (a) que el entorno allowliste `cdn.shopify.com`, o (b) correr en un entorno con acceso. **No prometer imágenes que el entorno no permite bajar.**

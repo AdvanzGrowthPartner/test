@@ -84,6 +84,7 @@ Este skill vive de la data viva. Sin al menos Shopify conectado, es opinión, no
 | Cómo puntuar oportunidad y leverage; estacional vs always-on; regla "siempre propone algo"; preguntas de discovery al consultor | `references/leverage-scoring.md` |
 | Especificación del artifact visual de preview + cómo construirlo | `references/artifact-spec.md` |
 | Lander pública genérica del evento con formulario de captura (nurture, pre-conectores) | `references/event-landing.md` |
+| Checklist operativo canónico del evento (clickeable en el artifact) por área | `references/event-checklist.md` |
 
 **Para previsualizar/planear un evento (flujo completo):** leer los 5.
 **Para solo entender qué evento se viene y si hay ola:** `event-calendar.md` + `leverage-scoring.md`.

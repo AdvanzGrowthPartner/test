@@ -27,9 +27,22 @@ El output evolucionó de "preview" a **war room**: además de lo anterior, inclu
 - **Salida orgánica + email + anuncios:** playbook visual (qué avisar/postear/links; secuencia teaser→live→last + flujos carrito/browse/post‑compra; estáticos vs video UGC según inversión).
 - **Landing de campaña `/cyber` (o `/black`):** medir tráfico y CR de la URL del evento por fuente, aislado del resto del sitio; base de retarget.
 
-### UX (no negociable)
-- **Tema claro y aireado**, legible en light y dark (dark = slate, no negro). **Proteger marcos y rangos**: nada se sale de su caja; ejes con min/max declarados; contenedores con overflow controlado. Fechas y badges grandes; leyendas **laterales**, no bajo el gráfico.
-- Todo interactivo es JS vanilla (sliders/calculadoras) o Chart.js; sin dependencias fuera del allowlist del Artifact.
+### UX (no negociable) — estética Shopify / Polaris
+- **Look & feel tipo admin de Shopify (Polaris):** ground gris claro, cards blancas con borde sutil y radio ~12–14, verde marca #008060, tipografía Inter + IBM Plex Mono para datos. Claro y aireado; dark = slate, nunca negro. Si el usuario ofrece pantallazos de su Shopify, pedirlos para calibrar.
+- **Header STICKY que funciona de índice:** barra fija arriba con anclas a cada sección (`#s1`…`#sN`) + `scroll-behavior:smooth` y `scroll-margin-top`. Permite saltar directo a cualquier punto.
+- **Cards siempre "normal vs cyber":** cada métrica clave se muestra comparada — día normal → día evento + el multiplicador (facturación, órdenes, CR, AOV). El evento no sube el ticket: multiplica volumen y conversión.
+- **Canales reales, no lumps:** nunca escribir "owned+search". Desglosar los canales que corren de verdad (Google, Meta [IG+FB], Directo/Marca, Orgánico, Email/Owned) con su revenue real y estado (corriendo / por conectar). Email suele caer en "directo" por falta de UTM → marcarlo.
+- **Proteger marcos y rangos:** nada se sale de su caja; ejes con min/max; overflow controlado. Fechas y badges grandes; leyendas **laterales**.
+- **Días del evento separados** (ej. 5 · 6 · 7, no "5–7") con su % esperado de venta por día.
+- **Gantt con "qué definir / qué comunicar / qué asegurar / qué calentar"** desglosado en boxes, no solo la barra. Incluir la fase de **comunicación** (teaser/anticipo) y la de **retención** post-evento.
+- **Productos con imágenes reales** vía MCP (Shopify `featuredImage`) en tabs (Ganadores / Colecciones). Si el proxy bloquea el CDN de Shopify (no se pueden bajar para embeber como data URI), usar placeholders y **pedir pantallazos** al usuario para incrustarlas.
+- **Oferta con la lógica del porqué** (por qué el GWP, por qué el upsell, por qué el crosssell), visual, con imágenes de producto.
+- **Proyección:** escenario del evento **fijo/normalizado** (no movible) + un **planificador de pauta interactivo** aparte (slider de inversión con tope realista — p.ej. $10M en cyber — que alimenta a TODOS los outputs siguientes, incluida la calculadora de creativos, sin re-mover). Meta = azul, Google = amarillo. Incluir **MER explicado con fórmula**, **ROAS medio sin evento / en eventos** (por validar si no hay data de ads), e **histórico real de eventos** (año, inversión, revenue, MER).
+- **Volumen de creativos:** slider **video↔estático** (el video convierte mejor) enganchado a la MISMA inversión; # conceptos escala con presupuesto (volumen mínimo para que la plataforma distribuya).
+- **Distribución por rendimiento:** barras **verticales agrupadas** (fase × canal), no barras laterales.
+- **Salida = comportamiento del evento en el tiempo:** un flujo temporal (teaser→VIP→live→proof→last→cola) + orgánico/email/anuncios.
+- **Landing `/cyber`:** **emular visualmente la página** (mock con barra de URL, hero, productos) + qué medir y por qué.
+- Todo interactivo es JS vanilla o Chart.js (UMD desde cdnjs, pinneado); sin dependencias fuera del allowlist del Artifact.
 
 ---
 

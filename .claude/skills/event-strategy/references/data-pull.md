@@ -125,8 +125,14 @@ La data de **inversión en pauta, ROAS/MER y aprendizajes de eventos pasados** n
 - Aprendizajes: mejores horarios de email, flujos que rindieron, % de carrito abandonado, base de datos, regiones rentables vs no.
 **Cuidado con la cifra que se lee:** un reporte puede mostrar una "inversión inicial" que NO es el total del evento (ej. Amazing Care: el reporte de octubre abría con $384K, pero el reporte de Paid Media confirmó **$3,27M totales** con **ROAS 7,9×**). Leer SIEMPRE el reporte de cierre / Paid Media completo (inversión total, ROAS por canal, campañas ganadoras), no la primera cifra. Y contrastar revenue del reporte con Shopify (ventanas distintas dan números distintos).
 
-### Imágenes de producto (limitación de entorno)
-Las fotos reales se sacan por MCP (`featuredImage` de Shopify). PERO en entornos con **egress restringido, el CDN de Shopify (`cdn.shopify.com`) suele estar bloqueado** → no se pueden descargar para embeber como data URI, y la CSP del Artifact tampoco deja hotlinkearlo. Si pasa: decirlo explícito, usar placeholders, y proponer (a) que el entorno allowliste `cdn.shopify.com`, o (b) correr en un entorno con acceso. **No prometer imágenes que el entorno no permite bajar.**
+### Imágenes de producto y creativos (feature + limitación de entorno)
+**Traerlas SIEMPRE** — es parte del output. Query MCP Shopify: `search_products` / `get-product` devuelve `featuredMedia.preview.image.url` (URL del CDN), precio, stock y estado por SKU. Con eso se arma un **catálogo en JS** dentro del artifact y se renderiza galería de producto, vista previa de anuncio (1:1 / 4:5 / 9:16) y miniaturas del carrito (ver `artifact-spec.md`).
+
+**Patrón que sí funciona:** `<img src="{url CDN}" onerror="this.remove()">` **encima de un tile/fondo de marca por sabor o tipo**. Así:
+- Donde el CDN es alcanzable (Claude Code local, HTML descargado y abierto en el navegador, sitio del cliente) → se ven las **fotos reales**.
+- Donde el visor de claude.ai aplica CSP (bloquea hosts externos) → cae al **tile de marca** y no se ve roto.
+
+**Limitación dura del entorno remoto:** el egress restringido suele bloquear `cdn.shopify.com` (403 por policy) → **no se pueden bajar los bytes** para embeberlos como data URI, y la CSP del Artifact tampoco deja hotlinkear. Consecuencia: dentro del **preview de claude.ai** se ve el fallback de marca, no la foto. Mitigación: **entregar también el archivo HTML** (`SendUserFile`), que el usuario abre en su navegador con las fotos reales; y decirlo explícito. Para fotos reales *dentro* del preview de claude.ai hace falta **allowlistear `cdn.shopify.com`** en el egress (única vía para bajar los bytes → data URI). **No prometer fotos reales en el preview sin ese allowlist.**
 
 Todo lo que no se pueda leer se declara como gap en el output.
 

@@ -15,6 +15,22 @@ Construir con `web-artifacts-builder` (o `diagram-engine` para las piezas de map
 - **Tiempo de preparación**: legible del propio Gantt (semáforo 🟢/🟡/🔴 del reloj).
 - **Proyección**: rango visual (conservador/esperado/stretch) + confianza.
 
+### Módulos ampliados (war room de campaña)
+El output evolucionó de "preview" a **war room**: además de lo anterior, incluir cuando la data lo permita —
+- **Gráficos combinados reales** (usar Chart.js UMD desde cdnjs, pinneado; temear leyendo las CSS vars):
+  - *Tendencia*: **barras sesiones + barras ventas + línea CR%** (diario del evento pasado). El insight suele ser que el CR sube y el tráfico es plano.
+  - *A quién le vendes vs conversión*: **barras (sesiones/ventas) + línea CR%** por dispositivo / segmento / canal.
+- **Oferta irresistible (visual):** el mix como stack **ancla (bundle) → upsell de carrito → crosssell**, + una **matriz de test** (variante × hipótesis × métrica × qué ganó) para ver cómo testear antes del peak.
+- **Proyección interactiva:** slider de **inversión media** + split Meta/Google + ROAS editable → **calcula revenue por canal (Google y Meta) y MER en vivo** (JS vanilla). Declarar que el ROAS es supuesto de planificación.
+- **Calculadora de volumen de creativos:** slider de inversión + mezcla video/estático → **# de conceptos, videos (UGC/creador) y estáticos recomendados**, con la lógica de *volumen mínimo para que la plataforma distribuya* ("con poca plata no dispersar; con mucha, necesitas volumen real").
+- **Distribución por rendimiento:** cómo repartir budget por canal pre‑evento vs peak, y la regla viva (+20% al que supera ROAS objetivo, 3x kill, proteger lo que funciona) → deriva a `ecomm-cyber-audit`.
+- **Salida orgánica + email + anuncios:** playbook visual (qué avisar/postear/links; secuencia teaser→live→last + flujos carrito/browse/post‑compra; estáticos vs video UGC según inversión).
+- **Landing de campaña `/cyber` (o `/black`):** medir tráfico y CR de la URL del evento por fuente, aislado del resto del sitio; base de retarget.
+
+### UX (no negociable)
+- **Tema claro y aireado**, legible en light y dark (dark = slate, no negro). **Proteger marcos y rangos**: nada se sale de su caja; ejes con min/max declarados; contenedores con overflow controlado. Fechas y badges grandes; leyendas **laterales**, no bajo el gráfico.
+- Todo interactivo es JS vanilla (sliders/calculadoras) o Chart.js; sin dependencias fuera del allowlist del Artifact.
+
 ---
 
 ## Encabezado (lo primero que se ve)

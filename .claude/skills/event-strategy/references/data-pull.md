@@ -111,6 +111,12 @@ Más allá de las 3 señales núcleo, cruzar lo que haya disponible — cada cru
 - **Reviews / UGC / prueba social:** para la ficha y los creativos del evento.
 - **Calendario competitivo:** cuándo entran otros al mismo evento (Cyber.cl, retailers) → ventana de anticipo.
 - **Clima / estacionalidad física** (si aplica a la categoría, ej. hidratación en verano): refuerza o modera la proyección.
+- **ROAS/MER de equilibrio:** el mínimo para no perder margen con el descuento del evento → define cuánto se puede escalar sin quemar caja.
+- **Capacidad de despacho:** pedidos/día que aguanta la operación sin romper la promesa de envío (un peak de 108→300 órdenes/día puede reventar fulfillment).
+- **Techo de stock por SKU → techo de venta:** cuánto revenue máximo soporta el inventario antes del quiebre del ganador.
+- **Ventana de aprendizaje de plataformas:** días de warm-up que necesita cada campaña para entrar al peak con learning resuelto, no en frío.
+- **Tramos de descuento vs margen:** simular 20/30/40% y ver dónde se cae el margen (define la profundidad de la oferta).
+- **LTV del cohorte del evento:** % de compradores nuevos recomprable post-evento → el cyber no es solo la venta del día, es adquisición de base.
 
 Todo lo que no se pueda leer se declara como gap en el output.
 

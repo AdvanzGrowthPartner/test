@@ -5,6 +5,10 @@ node_modules/
 videos/**/out/
 .remotion/
 
+# Heavy input assets (source clips) and scratch working files
+videos/**/public/
+work/
+
 # OS / editor
 .DS_Store
 *.log

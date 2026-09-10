@@ -118,6 +118,16 @@ Más allá de las 3 señales núcleo, cruzar lo que haya disponible — cada cru
 - **Tramos de descuento vs margen:** simular 20/30/40% y ver dónde se cae el margen (define la profundidad de la oferta).
 - **LTV del cohorte del evento:** % de compradores nuevos recomprable post-evento → el cyber no es solo la venta del día, es adquisición de base.
 
+### Inversión, ROAS e histórico de eventos → el Notion del cliente
+La data de **inversión en pauta, ROAS/MER y aprendizajes de eventos pasados** normalmente NO está en Shopify — vive en los **reportes del cliente en Notion** (ej. "Reportes Mensuales" → año → mes, con el reporte del evento como "Octubre (Cyber)"). Leerla **dato a dato** con el MCP de Notion antes de dejar nada "por validar":
+- Inversión real por plataforma (Meta / Google), CPA/CPC, campañas ganadoras.
+- Revenue del evento (puede diferir del corte de Shopify por ventana distinta — usar el número del reporte como oficial y decir la ventana).
+- Aprendizajes: mejores horarios de email, flujos que rindieron, % de carrito abandonado, base de datos, regiones rentables vs no.
+Ojo: un DTC puede facturar mucho con **pauta mínima** (motor brand/email/orgánico) → un MER blended altísimo no es error; significa que el paid está **sub-invertido** = oportunidad de escala. Declararlo así.
+
+### Imágenes de producto (limitación de entorno)
+Las fotos reales se sacan por MCP (`featuredImage` de Shopify). PERO en entornos con **egress restringido, el CDN de Shopify (`cdn.shopify.com`) suele estar bloqueado** → no se pueden descargar para embeber como data URI, y la CSP del Artifact tampoco deja hotlinkearlo. Si pasa: decirlo explícito, usar placeholders, y proponer (a) que el entorno allowliste `cdn.shopify.com`, o (b) correr en un entorno con acceso. **No prometer imágenes que el entorno no permite bajar.**
+
 Todo lo que no se pueda leer se declara como gap en el output.
 
 ---

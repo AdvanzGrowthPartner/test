@@ -1,0 +1,13 @@
+{
+  "name": "amazing-command-center",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Command Center de Amazing Care — Cloudflare Pages + Functions (Meta, Google Ads, Klaviyo en vivo).",
+  "scripts": {
+    "dev": "wrangler pages dev public",
+    "deploy": "wrangler pages deploy public --project-name amazing-command-center"
+  },
+  "devDependencies": {
+    "wrangler": "^3.80.0"
+  }
+}

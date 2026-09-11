@@ -1,0 +1,10 @@
+name = "amazing-command-center"
+pages_build_output_dir = "public"
+compatibility_date = "2024-11-01"
+
+# Secrets are NOT set here — set them with `wrangler pages secret put <NAME>`
+# or in the Cloudflare dashboard (Pages project → Settings → Variables and Secrets).
+# Non-secret defaults can go here:
+[vars]
+FX_CLP_PER_USD = "950"
+GOOGLE_ADS_CURRENCY = "CLP"

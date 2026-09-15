@@ -43,12 +43,14 @@ Sigue `references/store-blueprint.md` para las llamadas exactas (MCP + Admin Gra
 4. **Stack de apps** — para la inferencia pública rápida, **rutea a `advanz-shopify-detector`**. Complementa con lo visible por Admin API (canales, script tags, app embeds en templates). No repitas la lógica del detector aquí.
 5. **Modelo de datos** — metafields y metaobjects en uso (producto/colección), selling plans (suscripciones), descuentos activos, mercados. Son "lo armado a mano" invisible en el HTML.
 6. **Forma del catálogo** — nº de productos, nº y tipo de colecciones (smart vs. custom) vía `search_products` / `search_collections`.
+7. **Tramo reseller / multi-producto** — si hay ~15-20+ productos o 3+ categorías con fichas heterogéneas, es un caso reseller: define el enfoque de PDP (data-driven, no plantillas infinitas) y la **tarifa por tramo de productos**. Detección, arquitectura y tabla de tarifas en `references/reseller-scaling.md`. Repórtalo en el Blueprint (nº de productos, heterogeneidad, tramo, fee).
 
 **Entregable Fase 0 — Store Blueprint** (persistir en Notion vía `advanz-notion-builder`, esquema en `references/notion-schema.md`):
 - Ficha: plan, theme publicado + familia, resumen del stack.
 - Mapa de superficies: qué secciones/archivos componen home, PDP, colección, carrito.
 - **Riesgos de construcción**: pila de themes sin limpiar, artefactos de app, secciones custom frágiles, personalizaciones que un cambio podría pisar.
 - Zonas "no tocar sin cuidado" (lo muy customizado a mano).
+- **Tramo reseller y fee** (si aplica): nº de productos, heterogeneidad, tramo de tarifa y enfoque data-driven — ver `references/reseller-scaling.md`.
 
 ---
 
@@ -58,7 +60,7 @@ Diagnostica cada superficie con `references/surface-playbooks.md`. Para cada sup
 
 Superficies (en orden de impacto típico en conversión):
 
-1. **PDP / ficha de producto** — la superficie con más apalancamiento.
+1. **PDP / ficha de producto** — la superficie con más apalancamiento. En resellers/catálogos heterogéneos, la PDP no se resuelve con más plantillas sino con **una plantilla dinámica alimentada por datos** (metafields/metaobjects) — ver `references/reseller-scaling.md`.
 2. **Carrito** (drawer o página) — dónde amazingcare ya tuvo un "Pre Fix Carrito".
 3. **Checkout** — acotado por el plan; foco en lo editable (trust, express pay, upsell post-compra si hay app).
 4. **Colecciones / PLP** — filtros, orden, merchandising, construcción de colecciones (smart rules vs. curado).
@@ -78,6 +80,8 @@ Cada hallazgo se etiqueta: `superficie · severidad (alta/media/baja) · archivo
    - **Esfuerzo** de implementación.
    - **Riesgo a lo ya construido** — ¿el cambio toca una sección custom, un bloque de app, o una zona "no tocar" del Blueprint? Alto riesgo = más QA y aprobación explícita.
 3. **Roadmap**: lista ordenada de cambios, cada uno con superficie, hipótesis, archivos afectados, esfuerzo, riesgo y cómo se mediría el resultado.
+
+**Scoping reseller**: si es un caso multi-producto, incluye en el roadmap el **fee por tramo de productos** y el enfoque data-driven (tabla en `references/reseller-scaling.md`). Sobre 26 productos aclara "personalización limitada"; sobre 2.000 **no** cotices automático — escala a revisión con owner Shopify.
 
 **Entregable Fase 2**: reporte de conversión (diagnóstico + gaps + roadmap priorizado), en Notion con el estándar `advanz-notion-builder`. En modo `audit` este es el entregable final; ofrece pasar a `implement` sobre los ítems de bajo riesgo / alto impacto.
 
@@ -137,3 +141,4 @@ Frontera clave: **UI del carrito on-site = este motor / clarity; recuperación o
 - `references/safe-implementation.md` — Fase 3: protocolo de deploy sin romper, mutations de theme, QA de regresión, rollback, camino CLI.
 - `references/orchestration.md` — ruteo a skills hermanas y reglas de frontera para no duplicar.
 - `references/notion-schema.md` — esquema del Blueprint y del Change/Decision Log (la memoria).
+- `references/reseller-scaling.md` — resellers/multi-producto: plantilla dinámica data-driven (no infinitas) + tabla de tarifas por tramo de productos.

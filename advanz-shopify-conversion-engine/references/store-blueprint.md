@@ -88,6 +88,7 @@ Los metafields suelen alimentar secciones custom de la PDP (ingredientes, modo d
 ## 6. Forma del catálogo
 - `search_products` → nº de productos, estados, tipos.
 - `search_collections` → nº y tipo (`collection_type:custom` vs `smart`). Las smart tienen reglas; las custom son curado manual. Esto importa para la Fase de colecciones.
+- **Tramo reseller**: con el nº de productos y de categorías, determina si es un caso multi-producto y qué **tramo de tarifa** aplica. Chequea también heterogeneidad (¿muchos `templates/product.*.json` distintos? = "plantillas infinitas", bandera roja). Detección, arquitectura data-driven y tabla de tarifas en `reseller-scaling.md`.
 
 ## 7. Entregable
 Store Blueprint (a Notion, esquema en `notion-schema.md`):

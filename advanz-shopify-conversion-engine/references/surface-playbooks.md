@@ -15,6 +15,7 @@ La superficie de mayor apalancamiento. Revisar:
 - **Velocidad y mobile**: peso de la galería, LCP, sticky ATC en mobile.
 "Bien": el usuario entiende qué es, por qué le sirve y confía, sin salir de la pantalla; ATC siempre alcanzable.
 Límite: apps de reviews/bundles inyectan bloques propios — edítalos vía su app, no hardcodeando.
+**Reseller / catálogo heterogéneo (15-20+ productos o 3+ categorías):** no resuelvas con una plantilla por SKU. Usa **una sección dinámica que itera metafields/metaobjects** (beneficios, objetivos, modo de uso por producto) + 2-3 templates de layout como máximo. Agregar producto = llenar datos, no abrir plantilla. Arquitectura y tarifa por tramo en `reseller-scaling.md`.
 
 ## 2. Carrito (drawer o página)  → `templates/cart.json`, `sections/cart-*`, snippets de drawer
 Revisar:

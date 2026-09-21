@@ -4,6 +4,8 @@ Para cada superficie: **qué revisar**, cómo se ve **"bien"** en DTC, los **lí
 
 Etiqueta cada hallazgo: `superficie · severidad · archivo/sección · ¿zona frágil del Blueprint?`.
 
+**Vertical supps/electrolitos:** contrasta cada superficie contra el estándar de categoría y el checklist de gaps en `supps-benchmark.md` (suscripción real como default, reviews con foto, PDP transparente de ingredientes/dosis, garantía, bundles/variety, quiz goal-based, barra de envío gratis, + capa Chile: WhatsApp, cuotas, medios de pago locales).
+
 ---
 
 ## 1. PDP / ficha de producto  → `templates/product.json`, `sections/main-product.*`

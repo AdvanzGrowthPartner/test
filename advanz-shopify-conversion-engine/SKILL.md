@@ -74,7 +74,7 @@ Cada hallazgo se etiqueta: `superficie · severidad (alta/media/baja) · archivo
 
 ## Fase 2 — GAPS & ROADMAP
 
-1. **Gaps propios** = delta entre lo que hay hoy (Blueprint + Audit) y lo que un DTC de este tier necesita. Para el "debería" usa los benchmarks de **`advanz-ecomm-intelligence`** (no adivines cifras). Si el usuario quiere comparación contra rivales, **rutea a `ecomm-benchmark-agent`**.
+1. **Gaps propios** = delta entre lo que hay hoy (Blueprint + Audit) y lo que un DTC de este tier necesita. Para el "debería" usa los benchmarks de **`advanz-ecomm-intelligence`** (no adivines cifras). Si el usuario quiere comparación contra rivales, **rutea a `ecomm-benchmark-agent`**. **Si la tienda es de suplementos/electrolitos**, corre el **checklist de gaps** de `references/supps-benchmark.md` — es la vara del estándar de categoría (suscripción real, reviews con foto, PDP transparente, garantía, bundles, quiz) más la capa Chile (WhatsApp, cuotas, S&S casi ausente localmente = diferenciador barato).
 2. **Prioriza** cada gap por tres ejes — el tercero es propio de este motor:
    - **Impacto** en conversión (usa el scoring de fugas de clarity si aplica).
    - **Esfuerzo** de implementación.
@@ -142,3 +142,4 @@ Frontera clave: **UI del carrito on-site = este motor / clarity; recuperación o
 - `references/orchestration.md` — ruteo a skills hermanas y reglas de frontera para no duplicar.
 - `references/notion-schema.md` — esquema del Blueprint y del Change/Decision Log (la memoria).
 - `references/reseller-scaling.md` — resellers/multi-producto: plantilla dinámica data-driven (no infinitas) + tabla de tarifas por tramo de productos.
+- `references/supps-benchmark.md` — estándar de conversión supps/hidratación (líderes globales + Chile) y checklist de gaps para el vertical.

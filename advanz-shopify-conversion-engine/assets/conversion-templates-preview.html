@@ -1,0 +1,297 @@
+<title>Anatomía que Convierte</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#eef0f3; --surface:#ffffff; --surface-2:#e6e9ef; --surface-3:#f4f5f8;
+  --ink:#181a1f; --muted:#575d69; --faint:#899; --line:#d8dbe2;
+  --must-bg:#1f2937; --must-fg:#ffffff;
+  --star:#f2a63b;
+  --accent:#0e9384; --accent-fg:#ffffff;
+  --shadow:0 1px 2px rgba(20,24,33,.06),0 8px 24px rgba(20,24,33,.06);
+  --radius:14px;
+  --display:'Fraunces',Georgia,serif; --ui:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+:root:not([data-theme="light"]){
+  @media (prefers-color-scheme:dark){
+    --paper:#0e1013; --surface:#171a1f; --surface-2:#252a34; --surface-3:#1b1f26;
+    --ink:#eceef2; --muted:#a4aab6; --faint:#727886; --line:#2b303b;
+    --must-bg:#e5e7eb; --must-fg:#14171c;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0e1013; --surface:#171a1f; --surface-2:#252a34; --surface-3:#1b1f26;
+  --ink:#eceef2; --muted:#a4aab6; --faint:#727886; --line:#2b303b;
+  --must-bg:#e5e7eb; --must-fg:#14171c;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--ui);line-height:1.5;margin:0}
+.wrap{max-width:920px;margin:0 auto;padding-inline:16px;padding-block:0}
+
+/* header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{padding-block:14px;display:flex;flex-direction:column;gap:12px}
+.brand{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.brand .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(22px,4.6vw,30px);margin:0;letter-spacing:-.01em;text-wrap:balance}
+.sub{color:var(--muted);font-size:13.5px;max-width:62ch}
+.controls{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.seg{display:inline-flex;background:var(--surface-2);border-radius:999px;padding:3px;gap:2px}
+.seg button{font:inherit;font-size:13px;font-weight:500;border:0;background:transparent;color:var(--muted);padding:7px 14px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:.15s}
+.seg button .dot{width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.5}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+.seg button[aria-pressed="true"] .dot{background:var(--accent);opacity:1}
+.pagenav{display:flex;flex-wrap:wrap;gap:4px}
+.pagenav button{font:inherit;font-size:13px;font-weight:500;border:1px solid transparent;background:transparent;color:var(--muted);padding:7px 13px;border-radius:9px;cursor:pointer;transition:.15s}
+.pagenav button:hover{color:var(--ink)}
+.pagenav button[aria-pressed="true"]{color:var(--ink);background:var(--surface);border-color:var(--line);box-shadow:var(--shadow)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--muted);align-items:center}
+.legend .k{display:inline-flex;align-items:center;gap:6px}
+.tag{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:6px;white-space:nowrap}
+.tag.must{background:var(--must-bg);color:var(--must-fg)}
+.tag.reco{background:transparent;color:var(--muted);border:1px solid var(--line)}
+
+/* page intro */
+main .wrap{padding-block:22px 60px}
+.pagehead{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:16px;flex-wrap:wrap}
+.pagehead h2{font-family:var(--display);font-weight:600;font-size:clamp(19px,3.6vw,24px);margin:0}
+.pagehead p{margin:4px 0 0;color:var(--muted);font-size:13px;max-width:56ch}
+.count{font-family:var(--mono);font-size:11.5px;color:var(--muted);white-space:nowrap}
+.count b{color:var(--accent)}
+
+/* browser frame */
+.browser{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.chrome{display:flex;align-items:center;gap:10px;padding:11px 14px;background:var(--surface-3);border-bottom:1px solid var(--line)}
+.dots{display:flex;gap:6px}.dots i{width:11px;height:11px;border-radius:50%;background:var(--surface-2)}
+.url{flex:1;min-width:0;font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:6px 12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.url b{color:var(--ink);font-weight:500}
+.canvas{padding:16px;display:flex;flex-direction:column;gap:14px}
+
+/* block */
+.block{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}
+.bhead{display:flex;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid var(--line);background:var(--surface-3)}
+.bhead .ix{font-family:var(--mono);font-size:12px;color:var(--faint)}
+.bhead h3{margin:0;font-size:14px;font-weight:600;flex:1}
+.wire{padding:14px}
+.why{margin:0;padding:11px 14px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--muted);background:color-mix(in srgb,var(--accent) 5%,var(--surface))}
+.why b{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);display:inline-block;margin-right:8px}
+
+/* wireframe primitives */
+.ph{background:repeating-linear-gradient(135deg,var(--surface-2),var(--surface-2) 9px,color-mix(in srgb,var(--surface-2) 60%,var(--surface)) 9px,color-mix(in srgb,var(--surface-2) 60%,var(--surface)) 18px);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--faint);font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:6px}
+.bars{display:flex;flex-direction:column;gap:7px}.bars i{height:9px;border-radius:5px;background:var(--surface-2);display:block}
+.row{display:flex;gap:12px}.row>*{min-width:0}
+.grow{flex:1}
+.wbtn{display:inline-flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:600;padding:9px 14px;border-radius:8px;background:var(--surface-2);color:var(--ink);text-align:center}
+.wbtn.pri{background:var(--accent);color:var(--accent-fg);width:100%}
+.wchip{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;padding:5px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:var(--surface)}
+.wchip.on{border-color:var(--accent);color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,var(--surface))}
+.chips{display:flex;gap:7px;flex-wrap:wrap}
+.stars{font-size:12px;color:var(--muted);letter-spacing:.02em}.stars .s{color:var(--star);letter-spacing:1px}.stars b{color:var(--ink)}
+.price{font-family:var(--display);font-size:22px;font-weight:600}
+.strike{color:var(--faint);text-decoration:line-through;font-size:14px;font-weight:400;font-family:var(--ui);margin-left:8px}
+.lab{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
+.pillrow{display:flex;gap:8px;flex-wrap:wrap;font-size:11.5px}
+.note{font-size:12px;color:var(--muted)}
+.mini{display:grid;gap:10px}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{border:1px solid var(--line);border-radius:9px;padding:8px;display:flex;flex-direction:column;gap:7px;background:var(--surface)}
+.bar-progress{height:8px;border-radius:6px;background:var(--surface-2);overflow:hidden}.bar-progress i{display:block;height:100%;width:72%;background:var(--accent)}
+.foot{display:flex;justify-content:space-between;color:var(--faint);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding-top:4px}
+.disc{color:var(--faint);font-size:12px;text-align:center;margin-top:26px;font-family:var(--mono);letter-spacing:.04em}
+@media (max-width:560px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(2,1fr)}.row.stackm{flex-direction:column}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <span class="kicker">Advanz · Conversion Engine</span>
+    </div>
+    <h1>La anatomía que convierte, página por página</h1>
+    <p class="sub">Plantilla de referencia: qué bloques deben existir en cada página de un ecommerce para vender, y por qué. Cambia de vertical y de página. Productos, precios y datos son ejemplos.</p>
+    <div class="controls">
+      <div class="seg" id="vseg" role="group" aria-label="Vertical"></div>
+      <div class="legend">
+        <span class="k"><span class="tag must">Imprescindible</span> no convierte sin esto</span>
+        <span class="k"><span class="tag reco">Recomendado</span> sube la tasa</span>
+      </div>
+    </div>
+    <div class="pagenav" id="pnav" role="tablist" aria-label="Página"></div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="pagehead">
+      <div><h2 id="pgTitle"></h2><p id="pgBlurb"></p></div>
+      <div class="count" id="pgCount"></div>
+    </div>
+    <div class="browser">
+      <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url" id="url"></span></div>
+      <div class="canvas" id="canvas"></div>
+    </div>
+    <p class="disc" id="disc"></p>
+  </div>
+</main>
+
+<script>
+"use strict";
+/* ---------- helpers to draw schematic wireframes ---------- */
+const ph=(h,l)=>`<div class="ph" style="height:${h}px">${l||''}</div>`;
+const bars=(n,w)=>`<div class="bars">${Array.from({length:n},(_,i)=>`<i style="width:${(w||[94,82,70,88,64,76])[i%6]}%"></i>`).join('')}</div>`;
+const chips=(arr,onIdx)=>`<div class="chips">${arr.map((c,i)=>`<span class="wchip${i===onIdx?' on':''}">${c}</span>`).join('')}</div>`;
+const stars=(r,c)=>`<span class="stars"><span class="s">★★★★★</span> <b>${r}</b> · ${c} reseñas</span>`;
+const card=(inner)=>`<div class="card">${inner}</div>`;
+const grid=(cls,items)=>`<div class="mini ${cls}">${items.join('')}</div>`;
+
+/* ---------- vertical data (example content) ---------- */
+const V={
+  moda:{label:'Moda',accent:'#c0396a',domain:'atelier-terra.cl',
+    p:{name:'Chaqueta Bomber Terra',price:'$89.990',compare:'$119.990',rating:'4.8',reviews:'312'},
+    varLabel:'Talla',vars:['XS','S','M','L','XL'],varOn:2,
+    swLabel:'Color',sw:['Arena','Negro','Oliva'],
+    freeShip:'Envío gratis sobre $50.000',
+    nav:['Novedades','Chaquetas','Pantalones','Accesorios','Sale'],
+    facets:['Categoría','Talla','Color','Precio','Material'],
+    paths:{home:'/',coleccion:'/collections/chaquetas',pdp:'/products/bomber-terra',carrito:'/cart',checkout:'/checkout',blog:'/blogs/estilo/como-combinar-una-bomber'}},
+  suplementos:{label:'Suplementos',accent:'#0e9384',domain:'vitalsupp.cl',
+    p:{name:'Electrolitos Hidratación · 30 sticks',price:'$19.990',compare:'',rating:'4.9',reviews:'1.204'},
+    varLabel:'Sabor',vars:['Limón','Frutos rojos','Naranja'],varOn:0,
+    swLabel:'',sw:[],
+    freeShip:'Envío gratis sobre $30.000',
+    nav:['Por objetivo','Hidratación','Energía','Sueño','Packs'],
+    facets:['Objetivo','Formato','Sabor','Precio','Sin azúcar'],
+    paths:{home:'/',coleccion:'/collections/hidratacion',pdp:'/products/electrolitos',carrito:'/cart',checkout:'/checkout',blog:'/blogs/salud/cuando-tomar-electrolitos'}},
+  muebles:{label:'Muebles',accent:'#a4602c',domain:'casanordica.cl',
+    p:{name:'Sofá Modular Nórdico · 3 cuerpos',price:'$549.990',compare:'$690.000',rating:'4.7',reviews:'86'},
+    varLabel:'Configuración',vars:['2 cuerpos','3 cuerpos','Seccional L'],varOn:1,
+    swLabel:'Tapiz',sw:['Gris piedra','Arena','Verde bosque'],
+    freeShip:'Despacho gratis en RM sobre $300.000',
+    nav:['Living','Comedor','Dormitorio','Oficina','Ofertas'],
+    facets:['Tipo','Material','Color','Dimensiones','Precio'],
+    paths:{home:'/',coleccion:'/collections/sofas',pdp:'/products/sofa-nordico',carrito:'/cart',checkout:'/checkout',blog:'/blogs/guias/como-elegir-sofa'}}
+};
+
+/* vertical-specific fragment for the PDP "value" block */
+function pdpValue(vk,v){
+  if(vk==='suplementos') return `<div class="lab">Compra recurrente</div>
+    <div class="row"><span class="wchip on">Suscríbete −15% · $16.990</span><span class="wchip">Compra única · $19.990</span></div>
+    <div class="note" style="margin-top:8px">Pausa o cancela cuando quieras · Envío gratis en cada entrega · <b>Garantía 30 días o te devolvemos tu dinero</b></div>`;
+  if(vk==='moda') return `<div class="lab">Talla y calce</div>
+    <div class="row" style="align-items:center;justify-content:space-between"><span class="wchip">📏 Guía de tallas</span><span class="note">El modelo mide 1,78 m y usa talla M</span></div>
+    <div class="note" style="margin-top:8px"><b>Cambios y devoluciones gratis por 30 días</b> · Despacho 24–48 h</div>`;
+  return `<div class="lab">Lo que necesitas saber antes de comprar</div>
+    <div class="pillrow"><span class="wchip">Medidas 220 × 90 × 85 cm</span><span class="wchip">Roble macizo + tela antimanchas</span></div>
+    <div class="note" style="margin-top:8px">Despacho 10–15 días hábiles · <b>Armado incluido en Santiago</b> · Garantía 5 años · <b>6× $91.665 sin interés</b></div>`;
+}
+function pdpBullets(vk){
+  if(vk==='suplementos') return ['Sodio 1.000 mg · Potasio 200 mg · Magnesio 60 mg por stick','Sin azúcar ni endulzantes artificiales','Formulado para deporte, calor y post-resaca'];
+  if(vk==='moda') return ['Nylon reciclado con forro térmico','Corte regular · cierre YKK','Lavable en máquina · resistente al agua'];
+  return ['Estructura de roble macizo certificado FSC','Espuma alta densidad D30 · 5 años sin hundimiento','Fundas removibles y lavables'];
+}
+function pdpTrust(vk){
+  if(vk==='suplementos') return ['Registro ISP','Sin azúcar','Vegano','Hecho en Chile'];
+  if(vk==='moda') return ['Pago seguro','Cambios gratis','Envío 24–48h','Empresa chilena'];
+  return ['12 cuotas','Armado incluido','Garantía 5 años','Retiro en showroom'];
+}
+function crossTitle(vk){return vk==='moda'?'Completa el look':vk==='suplementos'?'Frecuentemente comprados juntos':'Combina con tu living';}
+
+/* ---------- page definitions: blocks = {n,name,tag,wire(vk,v),why} ---------- */
+const PAGES={
+ home:{title:'Home',blurb:'La portada tiene 5 segundos para decir qué vendes, a quién y por qué confiar, con un camino obvio a comprar.',blocks:[
+   {name:'Barra de anuncio',tag:'must',wire:(vk,v)=>`<div class="ph" style="height:34px">${v.freeShip} · Envíos a todo Chile</div>`,why:'Fija el umbral de envío gratis arriba de todo: sube el ticket promedio y baja la fricción antes de que el usuario mire precio.'},
+   {name:'Header · nav + buscador + carrito',tag:'must',wire:(vk,v)=>`<div class="row" style="align-items:center"><div class="ph" style="height:26px;width:90px">Logo</div><div class="grow ph" style="height:26px">Buscador</div><div class="ph" style="height:26px;width:40px">🛒</div></div><div class="chips" style="margin-top:10px">${v.nav.map(n=>`<span class="wchip">${n}</span>`).join('')}</div>`,why:'La navegación por objetivo/categoría y un buscador visible resuelven el descubrimiento. El carrito siempre accesible.'},
+   {name:'Hero · promesa + 1 CTA',tag:'must',wire:(vk,v)=>`<div class="ph" style="height:150px">Imagen / video del producto en uso</div><div style="margin-top:12px"><div class="bars" style="max-width:70%"><i style="width:80%"></i><i style="width:55%"></i></div><div style="margin-top:12px;max-width:220px">${`<span class="wbtn pri">${vk==='muebles'?'Ver colección':vk==='suplementos'?'Empieza a hidratarte':'Comprar novedades'}</span>`}</div></div>`,why:'Una promesa clara + un solo CTA a la ruta de compra. Varios CTAs compitiendo diluyen la conversión.'},
+   {name:'Prueba social temprana',tag:'must',wire:(vk,v)=>`<div class="row stackm" style="justify-content:space-between;align-items:center">${stars(v.p.rating,v.p.reviews)}<span class="note">+50.000 clientes · Aparecimos en prensa</span></div>`,why:'Confianza antes del scroll: rating agregado, número de clientes, logos de medios. Reduce el riesgo percibido.'},
+   {name:vk=>vk==='suplementos'?'Quiz · ¿qué producto es para ti?':vk==='muebles'?'Inspiración por ambiente':'Compra por categoría / lookbook',tag:'reco',wire:(vk,v)=> vk==='suplementos'?`<div class="ph" style="height:70px">Quiz de recomendación → enruta a producto/pack</div>`: grid(vk==='muebles'?'g3':'g4', v.nav.slice(1,vk==='muebles'?4:5).map(n=>card(ph(70,n)))),why:'Ayuda a autoseleccionar en catálogos amplios. El quiz goal-based es un diferenciador raro en LATAM y sube conversión en supps.'},
+   {name:'Destacados / best sellers con quick-add',tag:'must',wire:(vk,v)=>grid('g3',[0,1,2].map(i=>card(`${ph(90,'Producto')}<div class="bars"><i style="width:80%"></i></div><b style="font-size:13px">${v.p.price}</b>${stars(v.p.rating,'')}<span class="wbtn">+ Agregar</span>`))),why:'Curaduría de lo que más vende + quick-add: acorta el camino a la compra desde la home.'},
+   {name:'Propuestas de valor',tag:'must',wire:(vk,v)=>grid('g4',pdpTrust(vk).map(t=>card(`<div class="ph" style="height:30px">◇</div><div class="note" style="text-align:center">${t}</div>`))),why:'Envío, devolución, garantía y pago local resumidos en íconos: responde las objeciones de confianza sin hacer scroll.'},
+   {name:'UGC / comunidad',tag:'reco',wire:(vk,v)=>grid('g4',[0,1,2,3].map(()=>card(ph(80,'@cliente')))),why:'Contenido real de clientes valida el producto en contexto y alimenta redes. Barato y alto impacto en confianza.'},
+   {name:'Captura de email + WhatsApp',tag:'must',wire:(vk,v)=>`<div class="row stackm"><div class="grow ph" style="height:40px">Suscríbete y obtén 10% off</div><span class="wbtn pri" style="width:auto">Registrarme</span></div><div style="margin-top:10px"><span class="wchip on">💬 Escríbenos por WhatsApp</span></div>`,why:'Captura el 95% que no compra hoy y abre WhatsApp (casi obligatorio en Chile) como canal de soporte y venta asistida.'},
+   {name:'Footer de confianza',tag:'must',wire:(vk,v)=>`<div class="row" style="justify-content:space-between"><div class="bars grow" style="max-width:40%"><i style="width:70%"></i><i style="width:50%"></i></div><div class="pillrow"><span class="wchip">Webpay</span><span class="wchip">Mercado Pago</span><span class="wchip">Cuotas</span></div></div><div class="note" style="margin-top:8px">Boleta/factura SII · Empresa chilena · Políticas de cambio y privacidad</div>`,why:'Medios de pago locales, cuotas y datos de empresa (SII) cierran la confianza del comprador chileno.'},
+ ]},
+ coleccion:{title:'Colección / PLP',blurb:'La página de listado debe dejar filtrar rápido y llegar al producto correcto. Aquí se decide qué PDP se visita.',blocks:[
+   {name:'Encabezado + banner de colección',tag:'reco',wire:(vk,v)=>`<div class="ph" style="height:60px">Banner de la colección</div><h3 style="margin:12px 0 4px;font-family:var(--display)">${v.nav[1]}</h3><div class="bars" style="max-width:60%"><i style="width:90%"></i></div>`,why:'H1 + intro breve dan contexto y SEO. Un banner de merchandising empuja la oferta o el best seller.'},
+   {name:'Filtros / facetas',tag:'must',wire:(vk,v)=>`<div class="lab">Filtrar por</div><div class="chips">${v.facets.map((f,i)=>`<span class="wchip${i===0?' on':''}">${f} ▾</span>`).join('')}</div>`,why:`Facetas útiles y específicas del rubro (${V[vk].facets.slice(0,3).join(', ')}…) — no genéricas. Filtrar mal = abandonar el listado.`},
+   {name:'Orden con lógica comercial',tag:'must',wire:()=>`<div class="row" style="justify-content:flex-end"><span class="wchip">Ordenar: Más vendidos ▾</span></div>`,why:'Orden por más vendidos / relevancia (no "destacados" fijo) pone adelante lo que convierte.'},
+   {name:'Tarjeta de producto',tag:'must',wire:(vk,v)=>grid('g3',[0,1,2].map(i=>card(`${ph(96,'Foto')}${v.sw.length?`<div class="chips">${v.sw.slice(0,3).map(()=>'<span class="wchip" style="width:16px;height:16px;padding:0;border-radius:50%"></span>').join('')}</div>`:''}<div class="bars"><i style="width:85%"></i></div><div><b style="font-size:13px">${v.p.price}</b>${v.p.compare?`<span class="strike">${v.p.compare}</span>`:''}</div>${stars(v.p.rating,v.p.reviews)}<span class="wbtn">${vk==='muebles'?'Ver detalle':'+ Agregar'}</span>`))),why:'Cada tarjeta: foto, precio (y precio unitario si aplica), rating, swatches y quick-add. Es la mini-PDP que gana el clic.'},
+   {name:'Conteo + carga',tag:'reco',wire:()=>`<div class="foot"><span>128 productos</span><span>Cargar más ▾</span></div>`,why:'Conteo y paginación/carga clara dan control y evitan la sensación de lista infinita sin fin.'},
+   {name:'Bloque de valor / captura',tag:'reco',wire:(vk,v)=>`<div class="ph" style="height:56px">Envío gratis · Devolución fácil · ${vk==='muebles'?'Cuotas sin interés':'Suscripción −15%'}</div>`,why:'Recordatorio de valor a mitad del listado + captura de email para el que aún no decide.'},
+ ]},
+ pdp:{title:'PDP · Ficha de producto',blurb:'La superficie de mayor apalancamiento. Funciona como una máquina de decisión: informa, prueba, quita fricción y cierra.',blocks:[
+   {name:'Galería multimedia',tag:'must',wire:(vk,v)=>`<div class="row"><div class="grow ph" style="height:200px">Foto principal · zoom</div><div style="display:flex;flex-direction:column;gap:8px">${[1,2,3].map(n=>`<div class="ph" style="height:58px;width:54px">${n}</div>`).join('')}</div></div>`,why:'Varias fotos reales, video y zoom. En muebles y moda la imagen ES el producto; sin galería fuerte no hay venta.'},
+   {name:'Título + precio + rating',tag:'must',wire:(vk,v)=>`<h3 style="margin:0;font-family:var(--display);font-size:19px">${v.p.name}</h3><div style="margin:8px 0">${stars(v.p.rating,v.p.reviews)}</div><div class="price">${v.p.price}${v.p.compare?`<span class="strike">${v.p.compare}</span>`:''}</div>`,why:'Jerarquía clara arriba del pliegue: qué es, cuánto vale, qué opinan. El rating junto al precio ancla la decisión.'},
+   {name:vk=>V[vk].varLabel+' / variante',tag:'must',wire:(vk,v)=>`<div class="lab">${v.varLabel}</div>${chips(v.vars,v.varOn)}${v.sw.length?`<div class="lab" style="margin-top:12px">${v.swLabel}</div>${chips(v.sw,0)}`:''}`,why:'Selección de variante inequívoca (talla/sabor/config/color). Ambigüedad aquí = carrito abandonado.'},
+   {name:'CTA add-to-cart + pago express (sticky)',tag:'must',wire:(vk,v)=>`<span class="wbtn pri">Agregar al carrito — ${v.p.price}</span><div class="row" style="margin-top:8px"><span class="wbtn grow">Pagar con 1 clic</span><span class="wbtn grow">Webpay</span></div>`,why:'CTA siempre alcanzable (sticky en mobile) + pago express. Cada scroll sin ATC visible pierde ventas.'},
+   {name:vk=>vk==='suplementos'?'Suscripción por default + garantía':vk==='moda'?'Guía de tallas + calce + devolución':'Medidas, materiales, despacho y cuotas',tag:'must',wire:pdpValue,why:'El bloque que resuelve la objeción #1 del rubro: recurrencia+garantía (supps), talla+devolución (moda), medidas+despacho+financiamiento (muebles).'},
+   {name:'Beneficios / transparencia',tag:'must',wire:(vk,v)=>`<div class="lab">Por qué funciona</div>${bars(0)}<ul style="margin:0;padding-left:18px;font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:6px">${pdpBullets(vk).map(b=>`<li>${b}</li>`).join('')}</ul>`,why:'Bullets benefit-led + transparencia (dosis, materiales, specs). En catálogos grandes esto vive en metafields, no en copy manual.'},
+   {name:'Reseñas con foto / UGC',tag:'must',wire:(vk,v)=>`<div class="row stackm" style="justify-content:space-between;align-items:center">${stars(v.p.rating,v.p.reviews)}<span class="wchip">Con fotos</span></div>${grid('g3',[0,1,2].map(()=>card(`${ph(48,'Foto')}<div class="bars"><i style="width:90%"></i><i style="width:60%"></i></div>`)))}`,why:'Reseñas verificadas con foto (Okendo/Yotpo/Loox) y volumen. Casi ausentes en Chile: diferenciador barato y de alto lift.'},
+   {name:'Sellos de confianza / certificaciones',tag:'must',wire:(vk,v)=>`<div class="pillrow">${pdpTrust(vk).map(t=>`<span class="wchip">${t}</span>`).join('')}</div>`,why:'Certificaciones y badges escaneables (por SKU, data-driven). En salud/YMYL legitiman los claims; en muebles cubren garantía/armado.'},
+   {name:crossTitle(vk),tag:'must',wire:(vk,v)=>grid('g3',[0,1,2].map(()=>card(`${ph(70,'Producto')}<b style="font-size:12px">${v.p.price}</b><span class="wbtn">+ Agregar</span>`))),why:'Bundle / frequently-bought / complete-the-look sube el AOV desde la ficha, donde la intención es máxima.'},
+   {name:'FAQ + envío y devoluciones',tag:'reco',wire:(vk,v)=>`<div class="lab">Preguntas frecuentes</div><div class="chips"><span class="wchip">¿Cómo se usa? ▾</span><span class="wchip">${vk==='muebles'?'¿Cuánto demora el despacho? ▾':vk==='suplementos'?'¿Cómo cancelo la suscripción? ▾':'¿Cómo cambio la talla? ▾'}</span></div>`,why:'FAQ con schema resuelve dudas de último minuto (y gana rich snippets). Deja explícito despacho/devolución.'},
+ ]},
+ carrito:{title:'Carrito',blurb:'Última milla antes del checkout: subir el ticket sin distraer y empujar a pagar con cero dudas.',blocks:[
+   {name:'Barra de progreso de envío gratis',tag:'must',wire:(vk,v)=>`<div class="note" style="margin-bottom:6px">Te faltan $6.010 para ${vk==='muebles'?'despacho gratis':'envío gratis'}</div><div class="bar-progress"><i></i></div>`,why:'El nudge psicológico más rentable del carrito: empuja a agregar un ítem más para cruzar el umbral.'},
+   {name:'Line items editables',tag:'must',wire:(vk,v)=>[0,1].map(i=>`<div class="row" style="align-items:center;margin-bottom:10px"><div class="ph" style="height:54px;width:54px">Foto</div><div class="grow"><div class="bars"><i style="width:70%"></i></div><div class="note">${v.varLabel}: ${v.vars[v.varOn]}</div></div><div><span class="wchip">− 1 +</span></div><b style="font-size:13px">${v.p.price}</b></div>`).join(''),why:'Editar cantidad/variante sin recargar. Ver claramente qué se lleva evita el abandono por duda.'},
+   {name:vk=>vk==='suplementos'?'Súmalo a tu suscripción':vk==='muebles'?'Agrega servicio de armado':'¿Sumamos algo más?',tag:'must',wire:(vk,v)=>`<div class="lab">${vk==='suplementos'?'Ahorra repitiendo':'Order bump'}</div>${grid('g3',[0,1,2].map(()=>card(`${ph(56,'Ítem')}<b style="font-size:12px">${v.p.price}</b><span class="wbtn">+ Agregar</span>`)))}`,why:'Cross-sell/upsell en el carrito (suscripción, armado, complementos) sube el AOV sin fricción.'},
+   {name:'Cuotas + medios de pago',tag:'reco',wire:()=>`<div class="pillrow"><span class="wchip">Hasta 12 cuotas</span><span class="wchip">Webpay</span><span class="wchip">Mercado Pago</span></div>`,why:'Mostrar cuotas sin interés antes del checkout es un factor de confianza clave en Chile.'},
+   {name:'Confianza + cupón discreto',tag:'reco',wire:()=>`<div class="row" style="justify-content:space-between"><span class="note">Compra protegida · Devolución fácil</span><span class="wchip">¿Tienes un código? +</span></div>`,why:'Reaseguro de confianza; el cupón queda discreto (no un campo grande que dispare "voy a buscar un descuento").'},
+   {name:'CTA checkout + pago express',tag:'must',wire:(vk,v)=>`<span class="wbtn pri">Ir a pagar — ${v.p.price}</span><div class="row" style="margin-top:8px"><span class="wbtn grow">Shop Pay</span><span class="wbtn grow">Google Pay</span></div>`,why:'Un CTA inequívoco + pago express arriba y abajo: el pago express salta pasos y sube la conversión móvil.'},
+ ]},
+ checkout:{title:'Checkout',blurb:'En Shopify el checkout es casi intocable sin Plus. Se optimiza lo editable: pasos mínimos, pago express, confianza y pago local.',blocks:[
+   {name:'Pago express arriba',tag:'must',wire:()=>`<div class="row"><span class="wbtn grow">Shop Pay</span><span class="wbtn grow">Google Pay</span><span class="wbtn grow">Apple Pay</span></div><div class="note" style="text-align:center;margin-top:8px">— o paga con tus datos —</div>`,why:'Los botones express colapsan el checkout a un toque. Puestos arriba capturan al comprador recurrente al instante.'},
+   {name:'Checkout como invitado',tag:'must',wire:()=>`<div class="ph" style="height:38px">Email para el pedido</div><div class="note" style="margin-top:6px">Sin obligar a crear cuenta</div>`,why:'Obligar a registrarse es una de las principales causas de abandono. Cuenta opcional al final.'},
+   {name:'Pasos mínimos · 1 columna',tag:'must',wire:()=>`<div class="bars">${''}</div>${['Contacto','Despacho','Pago'].map((s,i)=>`<div class="row" style="align-items:center;gap:8px;margin-top:8px"><span class="wchip on" style="width:22px;height:22px;padding:0;justify-content:center">${i+1}</span><div class="grow ph" style="height:30px">${s}</div></div>`).join('')}`,why:'Menos campos, un solo flujo, progreso visible. Cada campo extra cuesta conversión.'},
+   {name:'Resumen de orden sticky',tag:'must',wire:(vk,v)=>`<div class="card"><div class="row" style="justify-content:space-between"><span class="note">Subtotal</span><b>${v.p.price}</b></div><div class="row" style="justify-content:space-between"><span class="note">Envío</span><span class="note">${vk==='muebles'?'Por calcular':'Gratis'}</span></div></div>`,why:'El resumen siempre visible (sticky) evita sorpresas de costo, la causa #1 de abandono en checkout.'},
+   {name:'Medios de pago locales + cuotas',tag:'must',wire:()=>`<div class="pillrow"><span class="wchip on">Webpay Plus</span><span class="wchip">Mercado Pago</span><span class="wchip">Khipu</span><span class="wchip">Hasta 12 cuotas sin interés</span></div>`,why:'Sin Shopify Payments en Chile, ofrecer Webpay/agregadores y cuotas sin interés es imprescindible para cerrar.'},
+   {name:vk=>vk==='muebles'?'Opciones de envío + fecha estimada':'Opciones de envío',tag:'must',wire:(vk,v)=>`<div class="chips"><span class="wchip on">${vk==='muebles'?'Despacho 10–15 días':'Estándar 24–48h'}</span><span class="wchip">${vk==='muebles'?'Retiro en showroom':'Retiro en tienda'}</span></div>`,why:'Opciones claras y fecha estimada (crítico en muebles por lead time largo) alinean expectativas y evitan el abandono.'},
+   {name:'Señales de seguridad',tag:'must',wire:()=>`<div class="pillrow"><span class="wchip">🔒 Pago cifrado</span><span class="wchip">Compra protegida</span><span class="wchip">Boleta/Factura</span></div>`,why:'Sellos de seguridad y respaldo (SII) en el momento de dar la tarjeta reducen el miedo final.'},
+   {name:'Upsell post-compra / gracias',tag:'reco',wire:(vk,v)=>`<div class="ph" style="height:44px">Página de gracias · oferta 1-clic + seguimiento del pedido</div>`,why:'Upsell post-compra (sin re-ingresar pago) suma ingreso sin tocar la conversión del checkout.'},
+ ]},
+ blog:{title:'Blog / Contenido',blurb:'El blog convierte cuando responde la pregunta arriba (SEO/GEO), demuestra autoridad y enruta al producto sin ser un folleto.',blocks:[
+   {name:'H1 + respuesta directa (patrón dual)',tag:'must',wire:(vk,v)=>`<h3 style="margin:0;font-family:var(--display);font-size:19px">${vk==='suplementos'?'¿Cuándo tomar electrolitos?':vk==='muebles'?'Cómo elegir el sofá ideal':'Cómo combinar una bomber'}</h3><div class="ph" style="height:46px;margin-top:10px">Respuesta directa en 2–3 líneas (para Google y para LLMs)</div>`,why:'Responder la pregunta arriba capta el featured snippet y las citas en ChatGPT/Perplexity (GEO), luego se expande.'},
+   {name:'Autor + E-E-A-T + fecha',tag:'must',wire:(vk,v)=>`<div class="row" style="align-items:center"><div class="ph" style="height:34px;width:34px;border-radius:50%">👤</div><div class="grow"><div class="bars"><i style="width:40%"></i></div><div class="note">${vk==='suplementos'?'Revisado por nutricionista · Colegiada':'Por el equipo editorial'} · Actualizado hoy</div></div></div>`,why:'Autoría y credenciales (crítico en YMYL de salud/supps) construyen la confianza que Google y los LLMs premian.'},
+   {name:'TL;DR / índice',tag:'reco',wire:()=>`<div class="lab">En resumen</div>${bars(3,[90,80,70])}`,why:'Un resumen escaneable retiene al lector y da estructura que los buscadores y LLMs entienden.'},
+   {name:'Cuerpo con subtítulos',tag:'must',wire:()=>`${['Subtítulo H2','Subtítulo H2'].map(h=>`<div class="lab" style="margin-top:10px">${h}</div>${bars(3)}`).join('')}`,why:'Contenido profundo y bien jerarquizado sostiene el ranking y la autoridad temática (clúster).'},
+   {name:'Schema JSON-LD (Article/FAQ)',tag:'must',wire:()=>`<div class="ph" style="height:32px;font-family:var(--mono)">&lt;script type="application/ld+json"&gt; … &lt;/script&gt;</div>`,why:'El marcado estructurado habilita rich snippets y ayuda a que los LLMs citen el artículo con atribución.'},
+   {name:'CTA a producto/colección in-content',tag:'must',wire:(vk,v)=>`<div class="card"><div class="row" style="align-items:center"><div class="ph" style="height:46px;width:46px">Foto</div><div class="grow"><b style="font-size:13px">${v.p.name}</b><div class="note">${v.p.price}</div></div><span class="wbtn pri" style="width:auto">Ver producto</span></div></div>`,why:'El puente del contenido a la venta: un CTA contextual al producto relevante dentro del artículo, no solo al final.'},
+   {name:'Productos relacionados',tag:'must',wire:(vk,v)=>grid('g3',[0,1,2].map(()=>card(`${ph(62,'Producto')}<b style="font-size:12px">${v.p.price}</b><span class="wbtn">Ver</span>`))),why:'Cierra el loop editorial→comercial y aumenta páginas por sesión hacia la compra.'},
+   {name:'FAQ (con schema)',tag:'must',wire:()=>`<div class="chips"><span class="wchip">Pregunta 1 ▾</span><span class="wchip">Pregunta 2 ▾</span><span class="wchip">Pregunta 3 ▾</span></div>`,why:'Las FAQ responden long-tail, ganan snippets de "People also ask" y alimentan las respuestas de los LLMs.'},
+   {name:'Enlaces internos + captura',tag:'reco',wire:()=>`<div class="row stackm" style="justify-content:space-between"><span class="note">→ Artículos del clúster relacionados</span><span class="wchip on">Suscríbete al newsletter</span></div>`,why:'Enlazado interno reparte autoridad al clúster y la captura convierte al lector en contacto.'},
+ ]}
+};
+
+/* ---------- render ---------- */
+const ORDER=[['home','Home'],['coleccion','Colección'],['pdp','PDP · Ficha'],['carrito','Carrito'],['checkout','Checkout'],['blog','Blog']];
+let vk='suplementos', pk='home';
+try{const s=JSON.parse(localStorage.getItem('advanz-preview')||'{}');if(V[s.vk])vk=s.vk;if(PAGES[s.pk])pk=s.pk;}catch(e){}
+
+const vseg=document.getElementById('vseg'), pnav=document.getElementById('pnav');
+Object.keys(V).forEach(k=>{const b=document.createElement('button');b.innerHTML=`<span class="dot"></span>${V[k].label}`;b.onclick=()=>{vk=k;save();render();};b.dataset.k=k;vseg.appendChild(b);});
+ORDER.forEach(([k,label])=>{const b=document.createElement('button');b.textContent=label;b.setAttribute('role','tab');b.onclick=()=>{pk=k;save();render();};b.dataset.k=k;pnav.appendChild(b);});
+
+function save(){try{localStorage.setItem('advanz-preview',JSON.stringify({vk,pk}));}catch(e){}}
+function resolve(field,vkey,v){return typeof field==='function'?field(vkey,v):field;}
+
+function render(){
+  const v=V[vk];
+  document.documentElement.style.setProperty('--accent',v.accent);
+  vseg.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===vk));
+  pnav.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===pk));
+  const pg=PAGES[pk];
+  document.getElementById('pgTitle').textContent=pg.title;
+  document.getElementById('pgBlurb').textContent=pg.blurb;
+  const musts=pg.blocks.filter(b=>b.tag==='must').length, recos=pg.blocks.length-musts;
+  document.getElementById('pgCount').innerHTML=`<b>${musts}</b> imprescindibles · ${recos} recomendados`;
+  document.getElementById('url').innerHTML=`https://<b>${v.domain}</b>${v.paths[pk]}`;
+  const c=document.getElementById('canvas');
+  c.innerHTML=pg.blocks.map((b,i)=>`<article class="block">
+      <div class="bhead"><span class="ix">${String(i+1).padStart(2,'0')}</span><h3>${resolve(b.name,vk,v)}</h3><span class="tag ${b.tag}">${b.tag==='must'?'Imprescindible':'Recomendado'}</span></div>
+      <div class="wire">${b.wire(vk,v)}</div>
+      <p class="why"><b>Por qué convierte</b>${resolve(b.why,vk,v)}</p>
+    </article>`).join('');
+  document.getElementById('disc').textContent=`Vertical: ${v.label} · tienda ejemplo ${v.domain} · productos, precios y reseñas son ilustrativos.`;
+}
+render();
+</script>

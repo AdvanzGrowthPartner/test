@@ -4,6 +4,8 @@ Para cada superficie: **qué revisar**, cómo se ve **"bien"** en DTC, los **lí
 
 Etiqueta cada hallazgo: `superficie · severidad · archivo/sección · ¿zona frágil del Blueprint?`.
 
+**Plantilla visual de referencia:** `assets/conversion-templates-preview.html` es un preview interactivo de la anatomía que convierte por página (Home, Colección, PDP, Carrito, Checkout, Blog) con switch entre Moda / Suplementos / Muebles — úsalo para mostrarle al cliente "qué bloques deben existir y por qué" y como checklist de bloques por superficie.
+
 **Vertical supps/electrolitos:** contrasta cada superficie contra el estándar de categoría y el checklist de gaps en `supps-benchmark.md` (suscripción real como default, reviews con foto, PDP transparente de ingredientes/dosis, garantía, bundles/variety, quiz goal-based, barra de envío gratis, + capa Chile: WhatsApp, cuotas, medios de pago locales).
 
 ---

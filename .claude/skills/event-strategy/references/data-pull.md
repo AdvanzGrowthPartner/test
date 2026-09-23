@@ -132,7 +132,11 @@ La data de **inversión en pauta, ROAS/MER y aprendizajes de eventos pasados** n
 - Donde el CDN es alcanzable (Claude Code local, HTML descargado y abierto en el navegador, sitio del cliente) → se ven las **fotos reales**.
 - Donde el visor de claude.ai aplica CSP (bloquea hosts externos) → cae al **tile de marca** y no se ve roto.
 
-**Limitación dura del entorno remoto:** el egress restringido suele bloquear `cdn.shopify.com` (403 por policy) → **no se pueden bajar los bytes** para embeberlos como data URI, y la CSP del Artifact tampoco deja hotlinkear. Consecuencia: dentro del **preview de claude.ai** se ve el fallback de marca, no la foto. Mitigación: **entregar también el archivo HTML** (`SendUserFile`), que el usuario abre en su navegador con las fotos reales; y decirlo explícito. Para fotos reales *dentro* del preview de claude.ai hace falta **allowlistear `cdn.shopify.com`** en el egress (única vía para bajar los bytes → data URI). **No prometer fotos reales en el preview sin ese allowlist.**
+**Limitación DURA del entorno (confirmada, no teórica):** el egress bloquea `cdn.shopify.com` con **403 por policy en TODOS los entornos probados** — el remoto normal y también una sesión Cowork en "red de confianza" (se lanzó `create_session` y las descargas cayeron 403 igual). O sea: **no se pueden bajar los bytes** para embeberlos como data URI desde ningún entorno de agente, y la CSP del Artifact tampoco deja hotlinkear hosts externos. Consecuencia: dentro del **preview de claude.ai** se ve el fallback de marca, no la foto. **No prometer fotos reales en el preview** sin resolver una de las dos vías reales:
+1. **Allowlistear `cdn.shopify.com`** en la política de egress del entorno (única vía para que el agente baje los bytes → data URI).
+2. **El usuario pega las fotos en el chat** → aterrizan en disco (`/tmp/.../images/*.png`) y se embeben como data URI (esto **sí** evade el egress porque el byte ya está local). Es el camino más rápido cuando no se puede tocar el allowlist.
+
+Mientras tanto: **entregar también el archivo HTML** (`SendUserFile`), que el usuario abre en su navegador donde el CDN sí carga por hotlink; y decir el estado con todas sus letras. No inventar que las fotos "ya cargan".
 
 Todo lo que no se pueda leer se declara como gap en el output.
 
@@ -143,18 +147,59 @@ Todo lo que no se pueda leer se declara como gap en el output.
 Para saber qué canal/creativo rindió en eventos anteriores y cómo proyectar el paid.
 - `ads_get_ad_accounts` → resolver la cuenta del cliente.
 - `ads_get_ad_entities` / insights con date range del evento pasado → ROAS, spend, campañas ganadoras, fatiga.
-- `ads_library_search` → qué está corriendo la competencia para el evento (ángulos, ofertas).
 
 Si Meta no está conectado: proyectar el paid sobre supuestos declarados (spend plan × ROAS histórico de Shopify por canal) y marcarlo.
+
+### Radar de competencia — `ads_library_search` (ranking real, no impresión)
+El bloque de competidores del artifact NO se rellena "a ojo". Se rankea con conteo real de anuncios activos:
+- `mcp__Meta_MCP__ads_library_search` con `search_terms` = marca del competidor, `countries=["CL"]`, `ad_active_status="ACTIVE"` (y un `client_conversation_id` de 20 chars). Repetir por cada competidor.
+- **Métricas que sí se pueden afirmar:** nº de anuncios activos, cuánto tiempo llevan corriendo (recencia / fecha de inicio), ángulos y ofertas visibles en los creativos, y el link directo a la Ad Library de cada uno (para que el consultor verifique).
+- **Ranking = quién es más agresivo** (más anuncios activos + más recientes). Ese es el orden del bloque. Complementar con seguidores/alcance solo si hay fuente (Ahrefs social, o dato manual) — si no, decir "alcance/seguidores pendiente", no inventar.
+- Cruce útil: "qué hizo el competidor el evento pasado" (creativos que ya no corren) vs "qué corre ahora" → anticipa su jugada.
+
+---
+
+## 3b. Klaviyo — el funnel owned fino (captura, carro, venta)
+
+Shopify aproxima el email por `order_referrer_source='email'`, pero el **funnel de captura y recuperación** —que es donde suele estar la fuga más grande y barata de tapar— vive en Klaviyo. Si el connector está, sacarlo; es lo que hace el bloque de "captura vs add-to-cart vs recuperación vs venta".
+
+**Resolver IDs primero** (no hardcodear los de otro cliente): `get_metrics` lista las métricas con su ID; `get_lists` / `get_flows` dan listas y flujos. Las métricas núcleo a ubicar por nombre:
+- **Viewed Form** y **Submitted Form** → el funnel del popup de captura.
+- **Added to Cart** (o **Checkout Started**) → intención.
+- **Placed Order** → venta.
+
+**a) Funnel de captura del popup** (¿cuántos ven el form vs cuántos dejan el correo?):
+```
+query_metric_aggregates:
+  metric_id = <Viewed Form>   → volumen de vistas del popup
+  metric_id = <Submitted Form> → volumen de submits (correos capturados)
+  measurement = count, interval = day, rango = últimos 30-90d
+```
+La **tasa view→submit** es el KPI. Si es baja (form pesado, oferta débil, timing malo), es leverage barato pre-evento: más capturas = más base a la que dispararle el evento. Segmentar por device si el schema deja (`session_device_type` en Shopify, o el breakdown de Klaviyo) — el form suele rendir distinto en mobile vs desktop.
+
+**b) Recuperación de carro — normal vs evento** (`get_flow_report`):
+```
+get_flow_report:
+  flow_id = <flujo de carro abandonado>
+  conversion_metric_id = <Placed Order>
+  rango normal (baseline)  vs  rango del evento pasado
+```
+Muestra cuánto revenue **recupera** el flujo y cuánto queda en la mesa. En evento el volumen de carros abandonados se dispara → si el flujo no está afinado (timing, nº de toques, oferta de rescate), la fuga crece. El brief compara **carro normal vs carro en evento** para dimensionar esa fuga.
+
+**c) Salud de la lista y flows activos:** `get_lists` (tamaño), `get_flows` (qué está prendido: welcome, carro, post-compra, winback). Un flujo apagado en evento es dinero regalado.
+
+**Lectura para el brief:** el funnel completo se dibuja horizontal — **vistas de form → correos capturados → add-to-cart → carros recuperados → venta** — con la tasa de caída en cada paso y la comparación normal vs evento. Ahí se ve la fuga barata de tapar antes del peak. Si Klaviyo no conecta: aproximar por `order_referrer_source='email'` de Shopify y **declarar** que el funnel fino de captura/carro queda pendiente. Nunca inventar sends/opens/recuperación.
 
 ---
 
 ## Orden de llamada recomendado
 
 1. `get-shop-info` (Gate 0).
-2. Shopify: baseline (b) → peak anterior (a) → tráfico (c) → producto+stock (d).
-3. Volumen de búsquedas (ola) — Ahrefs/Semrush.
-4. Meta (paid pasado) si está.
-5. Recién ahí: clasificar (`product-classification.md`), puntuar leverage (`leverage-scoring.md`), construir el artifact (`artifact-spec.md`).
+2. Shopify: baseline (b) → peak anterior (a) → tráfico (c) → producto+stock+imágenes (d).
+3. Volumen de búsquedas (ola) — Ahrefs/Semrush/Google Trends.
+4. Meta (paid pasado + `ads_library_search` para el radar de competencia) si está.
+5. Klaviyo (funnel de captura + recuperación de carro, §3b) si conecta.
+6. Notion del cliente (inversión/ROAS/aprendizajes de eventos pasados) — dato a dato.
+7. Recién ahí: clasificar (`product-classification.md`), puntuar leverage (`leverage-scoring.md`), construir el artifact (`artifact-spec.md`).
 
 **Regla de honestidad:** cada fuente que no respondió o no está conectada se declara en el output ("Meta no conectado — el paid va proyectado sobre spend plan × ROAS histórico"). Un consultor que sabe qué falta decide mejor que uno que confía en un número inventado.

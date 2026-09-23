@@ -79,10 +79,10 @@ Este skill vive de la data viva. Sin al menos Shopify conectado, es opinión, no
 |-------|---------|
 | Preguntas del intake, cómo confirmar el evento por web, formato del resumen del encargo | `references/intake.md` |
 | Calendario anual de eventos, fechas, estacionalidad, cómo la posición-en-el-mes cambia el comportamiento, mecánica y ventana de lead-time por evento | `references/event-calendar.md` |
-| Qué llamar en cada MCP (Shopify, Ahrefs/Semrush volumen, Meta), en qué orden, con qué query; chequeo de conexión | `references/data-pull.md` |
-| Clasificación de productos (ganador / acompañamiento / fantasma / zombie) y de vertical (moda / consumible / skincare / otros), con cómo calcularla | `references/product-classification.md` |
+| Qué llamar en cada MCP (Shopify, Ahrefs/Semrush volumen, Meta + Ad Library de competencia, Klaviyo funnel de captura/carro, Notion de inversión), en qué orden, con qué query; chequeo de conexión; límite duro de imágenes de producto por egress | `references/data-pull.md` |
+| Clasificación de productos (ganador / acompañamiento / fantasma / zombie), lectura de la matriz 2×2, mecánica del ganador (despacho + GWP atado + upsell), unit economics/rentabilidad (margen · CAC · AOV · volumen vs margen), y vertical (moda / consumible / skincare / otros) | `references/product-classification.md` |
 | Cómo puntuar oportunidad y leverage; estacional vs always-on; regla "siempre propone algo"; preguntas de discovery al consultor | `references/leverage-scoring.md` |
-| Especificación del artifact visual de preview + cómo construirlo | `references/artifact-spec.md` |
+| Especificación del artifact visual de preview + cómo construirlo; **war room v2** (módulos canónicos: funnel horizontal, matriz, bundles, ángulos, Gantt por canal, competencia, rentabilidad) + sistema visual (light + brand, ≤5 tamaños, heatmaps, GSAP) | `references/artifact-spec.md` |
 | Lander pública genérica del evento con formulario de captura (nurture, pre-conectores) | `references/event-landing.md` |
 | Checklist operativo canónico del evento (clickeable en el artifact) por área | `references/event-checklist.md` |
 
@@ -104,7 +104,8 @@ Correr la Fase 0 (arriba / `intake.md`): sitio, evento (+confirmación web de fe
 ### 2. Leer la historia por MCP
 - **Shopify (la verdad):** peaks pasados del mismo evento (curva hora/día), ventas, AOV, CVR, fuentes de tráfico (`order_referrer_source`), catálogo y comportamiento de cada SKU. → `data-pull.md`.
 - **Volumen de búsquedas (la ola que viene):** cuándo sube la demanda de la categoría cada año — para saber con cuánto tiempo adelantarse. → `data-pull.md`.
-- **Meta (comportamiento paga pasado):** qué campañas/creativos rindieron en eventos previos, si está conectado.
+- **Meta (comportamiento paga pasado + radar de competencia):** qué campañas/creativos rindieron en eventos previos, y `ads_library_search` para rankear a la competencia por anuncios activos/recencia. → `data-pull.md`.
+- **Klaviyo (owned fino):** funnel de captura del popup (view→submit) y recuperación de carro normal vs evento — la fuga barata de tapar antes del peak, si conecta. → `data-pull.md` §3b.
 
 ### 3. Clasificar catálogo y vertical
 - Definir la vertical (moda / consumible / skincare / otros) — cambia la mecánica, el lead-time y qué no puede fallar. → `product-classification.md`.

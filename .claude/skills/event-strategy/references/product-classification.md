@@ -21,7 +21,34 @@ Se calcula cruzando 3 señales de Shopify (`data-pull.md` §1d): **vistas** (dem
 - **Margen-aware:** si el ganador no tiene margen para descuento real, va a always-on (precio plano, más presión de canal), no a oferta profunda.
 - Un fantasma bien diagnosticado es el mayor leverage escondido del evento: la demanda ya existe, solo falta desatascar la conversión.
 
-**Cómo se ve en el artifact:** matriz 2×2 (vistas en un eje, ventas en el otro) con los SKU ubicados por cuadrante y coloreados por los 4 tipos. Ver `artifact-spec.md`.
+**Cómo se ve en el artifact:** matriz 2×2 con los SKU ubicados por cuadrante y coloreados por los 4 tipos. Aprendido en producción: la matriz **no se explica sola** si solo pinta boxes — hay que rotular los ejes con palabras y dar la lectura. Regla de diseño (ver `artifact-spec.md`):
+- **Eje X = ventas/conversión** (izq: poco vende → der: mucho vende). **Eje Y = atención/vistas** (abajo: nadie mira → arriba: mucho miran). Escribir el eje con esas palabras, no solo "vistas/ventas".
+- Cada cuadrante lleva **una línea de lectura**: 🟢 arriba-der "miran y compran → escalar" · 🟠 arriba-izq "miran y NO compran → arreglar ficha" · 🔵 abajo-der (o medio) "compra de acompañamiento → bundle" · ⚫ abajo-izq "ni miran ni compran → fuera".
+- Nunca dejar la matriz como decoración: cada SKU real ubicado, con su color de tipo.
+
+### La mecánica del ganador (qué se le ata, y por qué)
+El ganador no se empuja "a secas" — se le monta una mecánica que sube AOV y protege margen. Patrón canónico (adaptar por vertical):
+- **Despacho gratis sobre el pack** (no sobre la unidad suelta) → mueve a multipack y sube ticket.
+- **GWP (regalo) atado al pack, nunca suelto** (ej. vaso/botella): el regalo es gancho de AOV, no un SKU que se regala aislado. Si el GWP se puede comprar solo, deja de traccionar el pack.
+- **Upsell de acompañamiento en PDP y carrito** (ej. un complemento de alto margen o un lanzamiento): se ofrece donde ya hay intención de compra, con el *por qué* visible (completar la rutina / el ahorro / el uso).
+- El **héroe del mensaje es el AHORRO** (por unidad, en producto, envío incluido), no "precio bajo". El precio ancla; el ahorro convence.
+
+Esto se dibuja en el artifact como fichas de producto (foto + rol + qué se le ata), no como texto corrido. Ver `artifact-spec.md` (bundles Shopify-style, upsell chips).
+
+---
+
+## A′. Rentabilidad y unit economics — la raya para la suma
+
+Clasificar qué entra es la mitad; la otra es **si el número cierra**. Antes de cerrar la oferta, resolver la economía unitaria del evento y ponerla en el brief como "raya para la suma":
+
+- **Margen del producto:** cuánto tolera descuento real. Un ganador sin margen va a always-on (precio plano + presión de canal), no a oferta profunda. Leer costo por metafield (`data-pull.md` §1e).
+- **CAC techo:** el costo de adquisición máximo que el cliente acepta pagar por una orden. Sobre ese techo, escalar quema caja.
+- **AOV objetivo:** el ticket que hace que el CAC techo sea rentable. La mecánica del ganador (multipack + GWP + upsell) existe para **subir el AOV por encima del punto donde el CAC cierra**.
+- **La lógica de volumen vs margen:** muchos DTC de consumible **ganan por volumen, no por margen unitario** — aceptan un CAC alto (hasta el techo) porque el LTV/recompra y el ticket lo sostienen. Hay que decir explícito bajo qué lógica juega el cliente: *"rentable hasta CAC $X porque gana por volumen y recompra, no por margen del día"*. No aplicar la lógica de margen a un negocio de volumen ni viceversa.
+- **ROAS/MER de equilibrio:** el mínimo para no perder con el descuento del evento. Definir el breakeven y sobre él el objetivo. Regla práctica común: ROAS objetivo ≥ ~5× marca terreno rentable en eventos de consumible con estos números — pero **calcularlo desde el margen real del cliente, no asumirlo**.
+- **Comparar los últimos eventos** (2-3 ediciones): inversión / revenue / ROAS / CAC / AOV lado a lado, para ver **dónde se mueve la aguja** y qué palanca (más spend, mejor AOV, mejor CVR) mueve más el resultado.
+
+En el artifact esto es el bloque de **rentabilidad**: P&L simple del evento (revenue − COGS − pauta − operación = contribución), unit economics (margen · CAC techo · AOV · ROAS breakeven vs objetivo) y la tabla comparativa de eventos. Números del cliente, patrón reusable. Ver `artifact-spec.md`.
 
 ---
 

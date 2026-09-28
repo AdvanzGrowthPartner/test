@@ -1,0 +1,16 @@
+{
+  "name": "advanz-ecomm",
+  "owner": {
+    "name": "Advanz Growth Partner"
+  },
+  "metadata": {
+    "description": "Skills de ecommerce DTC/B2C de Advanz, transferibles a cualquier tienda."
+  },
+  "plugins": [
+    {
+      "name": "advanz-ecomm-skills",
+      "source": "./",
+      "description": "Skills de ecommerce DTC/B2C transferibles a cualquier tienda."
+    }
+  ]
+}

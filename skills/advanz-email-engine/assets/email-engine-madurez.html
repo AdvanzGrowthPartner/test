@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3">
+<title>Email Engine · Mapa de madurez y carga del canal</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2FAFE; --grad-from:#0CB7F2; --grad-to:#0995C5; --ink:#08222E;
+  --text:#0C2A38; --mut:#5B7A88; --line:rgba(12,183,242,.28);
+  --glass:rgba(255,255,255,.72); --brd:rgba(12,183,242,.16);
+  --ok:#1BB673; --warn:#F5A623; --bad:#E8553B; --idle:#9DB4BE; --ai:#7C5CFF;
+  --shadow:0 10px 30px rgba(12,90,122,.10);
+  /* type colors */
+  --t-base:#0995C5; --t-clave:#1BB673; --t-data:#7C5CFF; --t-opt:#F5A623; --t-exec:#0CB7F2; --t-vol:#E8553B; --t-rev:#E86FB0;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--text);overflow:hidden;
+  background:radial-gradient(1000px 700px at 8% -12%, rgba(12,183,242,.12), transparent 58%),radial-gradient(800px 600px at 116% 4%, rgba(124,92,255,.07), transparent 55%),var(--bg);}
+header{position:fixed;inset:0 0 auto 0;z-index:30;background:rgba(242,250,254,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--brd)}
+.hrow{display:flex;align-items:center;justify-content:space-between;padding:12px 22px 8px;gap:14px;flex-wrap:wrap}
+.brand{font-weight:900;letter-spacing:-.03em;font-size:17px;display:flex;align-items:center;gap:10px}
+.brand .eng{background:linear-gradient(135deg,var(--grad-from),var(--grad-to));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.brand .ring{width:22px;height:22px;border-radius:50%;border:2.5px solid var(--grad-from);border-top-color:transparent;animation:spin 3s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.sub{font-size:11.5px;color:var(--mut);margin-top:1px;font-weight:500}
+.controls{display:flex;gap:8px;align-items:center}
+.btn{font:inherit;font-size:12.5px;font-weight:600;color:var(--text);cursor:pointer;background:var(--glass);border:1px solid var(--brd);border-radius:10px;padding:7px 13px;transition:.2s}
+.btn:hover{border-color:var(--grad-from);background:#fff}
+.btn.on{background:linear-gradient(135deg,var(--grad-from),var(--grad-to));color:#fff;border-color:transparent}
+.scoreband{display:flex;align-items:center;gap:9px;background:var(--glass);border:1px solid var(--brd);border-radius:10px;padding:5px 12px}
+.scoreband .lvl{font-size:12.5px;font-weight:800}
+.scoreband .barwrap{width:90px;height:7px;border-radius:99px;background:#E3EEF3;overflow:hidden}
+.scoreband .barwrap i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--warn),var(--ok));width:0;transition:width .5s}
+.scoreband .pct{font-size:12px;font-weight:700;color:var(--mut);min-width:34px;text-align:right}
+/* revenue tabs */
+.tabs{display:flex;gap:0;padding:2px 22px 0;overflow-x:auto}
+.tab{flex:0 0 auto;position:relative;padding:10px 16px 12px;cursor:pointer;border:none;background:none;font:inherit;font-size:12.5px;font-weight:700;color:var(--mut);transition:.18s;white-space:nowrap}
+.tab .rv{font-size:14px;font-weight:900;color:var(--text)}
+.tab .lvl{display:block;font-size:9.5px;font-weight:700;color:var(--mut);margin-top:1px}
+.tab.on{color:var(--grad-to)}
+.tab.on .rv{color:var(--grad-to)}
+.tab.on::after{content:"";position:absolute;left:12px;right:12px;bottom:0;height:3px;border-radius:3px 3px 0 0;background:linear-gradient(90deg,var(--grad-from),var(--grad-to))}
+/* stage context bar */
+.ctxbar{background:linear-gradient(135deg,rgba(12,183,242,.08),rgba(124,92,255,.05));border-bottom:1px solid var(--brd);padding:9px 22px;display:flex;gap:22px;align-items:center;flex-wrap:wrap;font-size:12px}
+.ctxbar .ci{display:flex;align-items:center;gap:7px;color:var(--mut);font-weight:600}
+.ctxbar .ci b{color:var(--text);font-weight:800;font-size:13px}
+.ctxbar .ci .ic{font-size:15px}
+.ctxbar .team{display:flex;align-items:center;gap:5px}
+.ctxbar .dot{width:8px;height:8px;border-radius:50%;background:var(--grad-from)}
+
+#wrap{position:absolute;inset:150px 0 0 0;overflow:hidden;cursor:grab}
+#wrap:active{cursor:grabbing}
+#stage{transform-origin:0 0;transition:transform .06s linear;padding:30px 46px 50px}
+.intro{text-align:center;max-width:860px;margin:0 auto 22px}
+.intro .kick{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--grad-to);font-weight:800}
+.intro h1{font-size:23px;font-weight:900;letter-spacing:-.03em;margin:5px 0 7px}
+.intro p{font-size:13px;color:var(--mut);line-height:1.5}
+.rail{display:flex;gap:0;align-items:stretch;justify-content:center;flex-wrap:nowrap;min-width:max-content;margin:0 auto}
+.stage-col{position:relative;width:220px;padding:0 9px;display:flex;flex-direction:column;transition:opacity .3s}
+.stage-head{position:relative;text-align:center;margin-bottom:10px}
+.stage-num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;font-weight:800;font-size:13px;color:#fff;background:linear-gradient(135deg,var(--grad-from),var(--grad-to));box-shadow:0 4px 12px rgba(12,183,242,.35);margin-bottom:7px}
+.stage-name{font-weight:800;font-size:13.5px;letter-spacing:-.01em}
+.stage-q{font-size:10.5px;color:var(--mut);margin-top:2px;line-height:1.35;min-height:26px}
+.stage-arrow{position:absolute;top:12px;right:-10px;color:var(--grad-from);font-size:20px;z-index:2;opacity:.55;font-weight:700}
+.stage-col:last-child .stage-arrow{display:none}
+.stage-load{font-size:10px;color:var(--mut);text-align:center;margin-bottom:8px;font-weight:600}
+.stage-load b{color:var(--grad-to);font-weight:800}
+.health{height:5px;border-radius:99px;margin:0 14px 12px;background:#E3EEF3;overflow:hidden}
+.health i{display:block;height:100%;border-radius:99px;transition:width .5s;width:0}
+.nodes{display:flex;flex-direction:column;gap:16px;flex:1}
+.nodewrap{position:relative}
+/* TYPE LABEL outside card */
+.tlabels{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:5px;padding-left:2px}
+.tl{font-size:8.5px;font-weight:800;letter-spacing:.03em;text-transform:uppercase;padding:2px 7px;border-radius:6px;color:#fff}
+.tl.base{background:var(--t-base)}.tl.clave{background:var(--t-clave)}.tl.data{background:var(--t-data)}
+.tl.opt{background:var(--t-opt);color:#3a2700}.tl.exec{background:var(--t-exec)}.tl.vol{background:var(--t-vol)}.tl.rev{background:var(--t-rev)}
+.node{position:relative;padding:11px 12px 10px 34px;border-radius:13px;background:var(--glass);backdrop-filter:blur(12px);border:1px solid var(--brd);box-shadow:var(--shadow);cursor:pointer;transition:.2s;text-align:left}
+.node:hover{transform:translateY(-2px);border-color:transparent;box-shadow:0 0 0 1.5px var(--grad-from),0 0 18px rgba(12,183,242,.25),var(--shadow)}
+.node .nt{font-weight:700;font-size:12.5px;line-height:1.25}
+.node .nd{font-size:10.5px;color:var(--mut);margin-top:4px;line-height:1.4}
+.node .ntime{font-size:9.5px;color:var(--grad-to);font-weight:700;margin-top:6px;display:flex;align-items:center;gap:4px}
+.node.core{background:linear-gradient(135deg,#0CB7F2,#0995C5);border-color:transparent}
+.node.core .nt,.node.core .nd{color:#fff}.node.core .nd{color:rgba(255,255,255,.85)}.node.core .ntime{color:#fff}
+.node.loop{border:1px dashed var(--ai);background:rgba(124,92,255,.07)}
+.node.loop .nt{color:#5a3fd6}
+.chk{position:absolute;left:10px;top:14px;width:17px;height:17px;border-radius:5px;border:1.8px solid var(--idle);background:#fff;cursor:pointer;transition:.18s;display:grid;place-items:center;z-index:3}
+.chk:hover{border-color:var(--ok)}
+.node.done .chk{background:var(--ok);border-color:var(--ok)}
+.node.done .chk::after{content:"✓";color:#fff;font-size:11px;font-weight:800}
+.node.done{opacity:.72}.node.done .nt{text-decoration:line-through;text-decoration-color:rgba(27,182,115,.5)}
+.nodewrap.off{opacity:.32;filter:grayscale(.6)}
+.nodewrap.off .node{pointer-events:auto}
+.futuretag{position:absolute;top:-8px;right:6px;z-index:4;font-size:8px;font-weight:800;background:#9DB4BE;color:#fff;padding:2px 7px;border-radius:99px;text-transform:uppercase;letter-spacing:.03em;display:none}
+.nodewrap.off .futuretag{display:block}
+.axis{margin:26px auto 0;max-width:1180px;background:linear-gradient(135deg,rgba(12,183,242,.10),rgba(124,92,255,.06));border:1px solid var(--brd);border-radius:18px;padding:16px 24px;display:flex;align-items:center;gap:20px}
+.axis .ax-ic{font-size:28px}
+.axis .ax-t{font-weight:800;font-size:14.5px;margin-bottom:3px}
+.axis .ax-d{font-size:12.5px;color:var(--mut);line-height:1.5}
+.axis .ax-d b{color:var(--grad-to)}
+.engine-conn{margin:16px auto 0;max-width:1180px;background:#fff;border:1px solid var(--brd);border-radius:16px;padding:16px 22px}
+.engine-conn h4{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);font-weight:800;margin-bottom:11px}
+.engine-conn .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.ecell{display:flex;gap:9px;align-items:flex-start;font-size:12px;line-height:1.45}
+.ecell .ei{font-size:17px;flex:0 0 auto}
+.ecell b{color:var(--grad-to)}
+.ecell .em{color:var(--text);font-weight:600}.ecell .es{color:var(--mut)}
+.legend{position:fixed;bottom:13px;left:13px;z-index:30;display:flex;gap:10px;flex-wrap:wrap;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border:1px solid var(--brd);border-radius:12px;padding:8px 13px;font-size:10.5px;color:var(--mut);font-weight:700;max-width:min(94vw,760px)}
+.legend span{display:flex;align-items:center;gap:5px}
+.legend .sw{width:9px;height:9px;border-radius:3px}
+.legend .base{background:var(--t-base)}.legend .clave{background:var(--t-clave)}.legend .data{background:var(--t-data)}.legend .opt{background:var(--t-opt)}.legend .exec{background:var(--t-exec)}.legend .vol{background:var(--t-vol)}.legend .rev{background:var(--t-rev)}
+#scrim{position:fixed;inset:0;z-index:39;background:rgba(8,34,46,.34);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:.28s}
+#scrim[data-open]{opacity:1;pointer-events:auto}
+#panel{position:fixed;top:0;right:0;bottom:0;width:432px;max-width:95vw;z-index:40;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);border-left:1px solid var(--brd);transform:translateX(106%);transition:transform .34s cubic-bezier(.34,1.15,.4,1);padding:26px 28px 40px;overflow-y:auto;box-shadow:-14px 0 50px rgba(12,90,122,.18)}
+#panel[data-open]{transform:none}
+#panel .ptag{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:99px;margin-bottom:11px;color:#fff}
+#panel h3{font-size:22px;font-weight:900;letter-spacing:-.03em;line-height:1.16;margin-bottom:4px}
+#panel .psub{font-size:13px;color:var(--mut);margin-bottom:14px}
+#panel .close{position:absolute;top:16px;right:16px;cursor:pointer;color:var(--mut);font-size:22px;background:none;border:none;z-index:2}
+#panel .close:hover{color:var(--text)}
+#panel .ptypes{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+#panel h4{font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--mut);margin:18px 0 8px;font-weight:800}
+#panel p{font-size:13.5px;line-height:1.6;margin-bottom:6px}
+.mock{border:1px solid var(--brd);border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 6px 20px rgba(12,90,122,.1);margin:4px 0 6px}
+.mock .mfrom{padding:9px 13px 4px;font-size:11px;color:var(--mut)}.mock .mfrom b{color:var(--text);font-weight:700}
+.mock .msubj{padding:0 13px 9px;font-size:13px;font-weight:800;color:var(--text);border-bottom:1px solid #EEF4F8}
+.mock .mbody{padding:13px}
+.mock .mhero{height:60px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:10px}
+.mock .mline{height:8px;border-radius:99px;background:#E9F0F5;margin-bottom:6px}.mock .mline.s{width:70%}.mock .mline.m{width:88%}
+.mock .mcta{margin-top:11px;text-align:center;font-size:12px;font-weight:800;color:#fff;padding:9px;border-radius:9px;background:linear-gradient(135deg,var(--grad-from),var(--grad-to))}
+.mock .mnote{font-size:9.5px;color:var(--mut);text-align:center;padding:6px}
+.mseq{display:flex;gap:5px;margin:4px 0 2px}
+.mseq .me{flex:1;border:1px solid var(--brd);border-radius:8px;padding:7px 5px;text-align:center;background:#fff}
+.mseq .me .t{font-size:8px;font-weight:800;color:var(--grad-to);text-transform:uppercase}
+.mseq .me .ic{font-size:15px;margin:3px 0}.mseq .me .w{font-size:8.5px;color:var(--mut);font-weight:600}
+.mseq .arrow{align-self:center;color:var(--grad-from);font-weight:800;font-size:12px}
+.effort{background:#F5FAFD;border:1px solid var(--brd);border-radius:12px;padding:13px 15px;margin:6px 0}
+.effort .er{display:flex;justify-content:space-between;gap:12px;font-size:12.5px;padding:5px 0}
+.effort .er b{font-weight:800;color:var(--grad-to);text-align:right}
+.effort .ehint{font-size:11.5px;color:var(--mut);line-height:1.5;margin-top:8px;padding-top:9px;border-top:1px dashed var(--brd)}
+.effort .ehint b{color:var(--text)}
+.diffbar{display:flex;align-items:center;gap:9px;margin:2px 0}
+.diffdots{display:flex;gap:4px}.diffdots i{width:11px;height:11px;border-radius:50%;background:#E3EEF3}.diffdots i.on{background:var(--warn)}
+.difflbl{font-size:12.5px;font-weight:800}.diffwho{font-size:11.5px;color:var(--mut);margin-top:3px}
+.metric{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--brd);font-size:12.5px}
+.metric:last-child{border-bottom:none}.metric b{font-weight:800;text-align:right;color:var(--grad-to)}
+.needs{display:flex;flex-wrap:wrap;gap:6px}.needs span{font-size:11px;font-weight:600;background:#EEF6FB;border:1px solid var(--brd);border-radius:8px;padding:5px 9px;color:var(--text)}
+.chklist{margin:2px 0}
+.chkitem{display:flex;gap:9px;align-items:flex-start;padding:8px 0;border-bottom:1px dashed var(--brd);font-size:12.5px;line-height:1.45;cursor:pointer}
+.chkitem:last-child{border-bottom:none}
+.chkbox{width:16px;height:16px;border-radius:5px;border:1.8px solid var(--idle);flex:0 0 auto;margin-top:1px;display:grid;place-items:center;transition:.15s}
+.chkitem.on .chkbox{background:var(--ok);border-color:var(--ok)}.chkitem.on .chkbox::after{content:"✓";color:#fff;font-size:11px;font-weight:800}
+.chkitem.on span{color:var(--mut);text-decoration:line-through}
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+.dd .col{border-radius:12px;padding:11px 13px}
+.dd .col.do{background:rgba(27,182,115,.09);border:1px solid rgba(27,182,115,.25)}
+.dd .col.dont{background:rgba(232,85,59,.07);border:1px solid rgba(232,85,59,.22)}
+.dd .col h5{font-size:11px;font-weight:800;margin-bottom:7px}.dd .col.do h5{color:var(--ok)}.dd .col.dont h5{color:var(--bad)}
+.dd .col ul{list-style:none;margin:0;padding:0}
+.dd .col li{font-size:11px;line-height:1.4;margin-bottom:7px;padding-left:14px;position:relative;color:var(--text)}
+.dd .col.do li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:800}
+.dd .col.dont li::before{content:"✕";position:absolute;left:0;color:var(--bad);font-weight:800}
+.connbox{background:rgba(124,92,255,.07);border:1px solid rgba(124,92,255,.2);border-radius:12px;padding:13px 15px;margin:6px 0}
+.connbox h4{margin:0 0 7px;color:#5a3fd6}
+.connbox .ci{display:flex;gap:8px;font-size:12px;line-height:1.45;margin-bottom:7px}
+.connbox .ci:last-child{margin-bottom:0}.connbox .ci .a{font-weight:800;color:#5a3fd6;flex:0 0 auto}
+.svc{display:inline-block;font-size:11px;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--grad-from),var(--grad-to));padding:6px 13px;border-radius:99px;margin-top:6px}
+.metricnote{font-size:10.5px;color:var(--mut);margin-top:8px;line-height:1.5;font-style:italic}
+@media(max-width:760px){
+  #wrap{inset:196px 0 0 0}
+  #panel{top:auto;left:0;right:0;bottom:0;width:100%;max-width:100%;border-left:none;border-top:1px solid var(--brd);border-radius:18px 18px 0 0;max-height:88vh;transform:translateY(106%)}
+  #panel[data-open]{transform:none}
+  .intro h1{font-size:19px}.dd{grid-template-columns:1fr}.legend{font-size:9px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="hrow">
+    <div>
+      <div class="brand"><span class="ring"></span><span>Email <span class="eng">Engine</span></span></div>
+      <div class="sub">Qué acciones sostener por nivel de facturación · cuánto tiempo cuestan · cuándo pedir más manos</div>
+    </div>
+    <div class="controls">
+      <div class="scoreband" title="Madurez del canal según lo que marcas como listo">
+        <span class="lvl" id="lvlTxt">Nivel 1</span>
+        <span class="barwrap"><i id="lvlBar"></i></span>
+        <span class="pct" id="lvlPct">0%</span>
+      </div>
+      <button class="btn on" onclick="resetView()">Centrar</button>
+    </div>
+  </div>
+  <div class="tabs" id="tabs">
+    <button class="tab on" data-rev="0"><span class="rv">Primeros 5k</span><span class="lvl">Arranque · lo mínimo</span></button>
+    <button class="tab" data-rev="1"><span class="rv">15k / mes</span><span class="lvl">Base operando</span></button>
+    <button class="tab" data-rev="2"><span class="rv">30k / mes</span><span class="lvl">Flujos vivos</span></button>
+    <button class="tab" data-rev="3"><span class="rv">60k / mes</span><span class="lvl">Multiplicación</span></button>
+    <button class="tab" data-rev="4"><span class="rv">100k / mes</span><span class="lvl">Sistema · célula</span></button>
+  </div>
+  <div class="ctxbar" id="ctxbar"></div>
+</header>
+
+<div id="wrap">
+  <div id="stage">
+    <div class="intro">
+      <div class="kick">Una vuelta del engine de email</div>
+      <h1>Cómo se sostiene el canal a medida que crece</h1>
+      <p>Cada nivel de facturación activa más acciones, y cada acción cuesta tiempo. El canal solo no se sostiene: naturalmente pide más manos — producción, revisión, análisis. Elige tu facturación arriba para ver qué flujos aplican, cuánto pesan y cuándo necesitas equipo.</p>
+    </div>
+    <div class="rail" id="rail"></div>
+
+    <div class="axis">
+      <div class="ax-ic">🧭</div>
+      <div>
+        <div class="ax-t">Cómo se alimentan entre sí</div>
+        <div class="ax-d">La <b>captura</b> abre la base (1) · el <b>Welcome</b> convierte esa intención en 1ª compra (2) · el <b>A/B</b> aprende y lo devuelve a campañas (3→4) · el <b>carrito</b> cierra al caliente (5) · <b>post-compra, referidos y suscripción</b> hacen volver y multiplican (6) · el <b>review</b> genera prueba social que alimenta a Welcome y Carrito (7→2,5) · y el <b>reporting</b> cierra el círculo devolviendo data a la fase 1 (8→1).</div>
+      </div>
+    </div>
+
+    <div class="engine-conn">
+      <h4>⚠️ El email solo no funciona — depende del resto del Growth Engine</h4>
+      <div class="grid">
+        <div class="ecell"><span class="ei">🌐</span><span><span class="em">Tráfico (Acquisition)</span><br><span class="es">Sin visitas que captar, la lista no crece. El email <b>amplifica</b> tráfico, no lo genera.</span></span></div>
+        <div class="ecell"><span class="ei">🎯</span><span><span class="em">Oferta (Offer)</span><br><span class="es">El Welcome ancla el bundle. Si la oferta no está armada, el correo no tiene qué vender.</span></span></div>
+        <div class="ecell"><span class="ei">🛍️</span><span><span class="em">Tienda / PDP (CRO)</span><br><span class="es">El correo lleva al sitio; si la PDP no convierte, el clic se pierde.</span></span></div>
+        <div class="ecell"><span class="ei">📦</span><span><span class="em">Producto (Retention)</span><br><span class="es">Referidos y suscripción solo rinden si el producto satisface. El email no salva un mal producto.</span></span></div>
+        <div class="ecell"><span class="ei">📊</span><span><span class="em">Data / Reporting (Systems)</span><br><span class="es">Sin fuente de datos limpia, no sabes qué flujo escalar. El reporting cierra el loop.</span></span></div>
+        <div class="ecell"><span class="ei">✍️</span><span><span class="em">Contenido & Diseño</span><br><span class="es">Cada campaña necesita copy y arte. A más volumen, más producción — o el canal se estanca.</span></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="scrim" onclick="C()"></div>
+<aside id="panel">
+  <button class="close" onclick="C()">&#10005;</button>
+  <div id="p-tag" class="ptag"></div>
+  <h3 id="p-title"></h3>
+  <div class="psub" id="p-sub"></div>
+  <div class="ptypes" id="p-types"></div>
+  <div id="p-body"></div>
+</aside>
+
+<div class="legend">
+  <span><span class="sw base"></span>Base</span>
+  <span><span class="sw clave"></span>Clave</span>
+  <span><span class="sw data"></span>Data</span>
+  <span><span class="sw exec"></span>Ejecución</span>
+  <span><span class="sw vol"></span>Volumen</span>
+  <span><span class="sw opt"></span>Optimización</span>
+  <span><span class="sw rev"></span>Revisión semanal</span>
+  <span>☑ marca lo que tienes</span>
+</div>
+
+<script>
+const TC={LIVE:'#1BB673',GAP:'#E8553B',WIP:'#F5A623',NEXT:'#0995C5',AI:'#7C5CFF',CORE:'#0CB7F2'};
+const TYPE={base:['Base','base'],clave:['Clave','clave'],data:['Data','data'],opt:['Optimización','opt'],exec:['Ejecución','exec'],vol:['Volumen','vol'],rev:['Revisión semanal','rev']};
+
+/* revenue levels: which node keys are active at each tab index */
+const REV=[
+  {name:'Primeros 5k',lvl:'Arranque',active:['captura','deliverability','welcome','carrito'],actions:'4–5 acciones · ~1 campaña/semana',time:'6–10 h/mes',team:'1 persona part-time (o el/la founder)'},
+  {name:'15k / mes',lvl:'Base operando',active:['captura','segmentacion','deliverability','welcome','oferta','abtest','campanas','carrito','checkout'],actions:'9 acciones · 2 campañas/semana',time:'20–30 h/mes',team:'1 encargado de email dedicado'},
+  {name:'30k / mes',lvl:'Flujos vivos',active:['captura','segmentacion','deliverability','welcome','oferta','abtest','campanas','browse','carrito','checkout','postcompra','review','winback'],actions:'13 acciones · 2–3 campañas/semana + flujos',time:'40–55 h/mes',team:'1 encargado + apoyo de producción (diseño/copy)'},
+  {name:'60k / mes',lvl:'Multiplicación',active:['captura','segmentacion','deliverability','welcome','oferta','abtest','quiz','campanas','browse','carrito','checkout','postcompra','referidos','review','winback','reporting'],actions:'16 acciones · 3 campañas/semana + loops',time:'70–90 h/mes',team:'Encargado + diseñador/a + apoyo análisis'},
+  {name:'100k / mes',lvl:'Sistema',active:['captura','segmentacion','deliverability','welcome','oferta','abtest','quiz','campanas','browse','carrito','checkout','postcompra','referidos','suscripcion','review','winback','automatizacion','reporting'],actions:'18 acciones · todo vivo + optimización continua',time:'110–140 h/mes',team:'Célula: estratega + producción + análisis'}
+];
+
+/* nodes with stage, type labels, time, effort scaling, engine connections */
+const N={
+  captura:{stage:1,core:false,loop:false,tc:'NEXT',types:['base','exec'],title:'Captura de lista',sub:'La puerta de entrada al canal',
+    time:'2–3 h setup · casi 0 mantención',
+    what:'El mecanismo que convierte un visitante anónimo en contacto: popup, form o landing con incentivo claro.',
+    needs:['Plataforma de email','Popup / form','Incentivo (cupón)','1 campo de segmentación'],diff:1,who:'Cualquiera · sin equipo técnico',
+    metrics:[['Tasa de captura','2–5% del tráfico'],['Incentivo típico','10–15% off']],
+    effort:[['Setup inicial','2–3 h una vez'],['Mantención','casi 0 (automático)']],ehint:'Se configura una vez y corre solo. <b>No suma carga recurrente</b>, pero depende 100% de que llegue tráfico.',
+    conn:[['Acquisition','sin tráfico no hay a quién captar'],['CRO','el popup vive en el sitio']],
+    chk:['Popup o form activo con incentivo','Incentivo definido','Pide 1 dato para segmentar','Conecta al flujo Welcome'],
+    dos:['Ofrecer valor real por el email','Pedir el mínimo de campos','Conectar directo al Welcome'],donts:['Pedir demasiados datos','Popup al instante','Lista sin incentivo'],svc:'CRO · Captura'},
+  segmentacion:{stage:1,core:false,loop:false,tc:'NEXT',types:['base','data'],title:'Segmentación por intención',sub:'A quién le habla cada correo',
+    time:'2–3 h setup · 1 h/mes ajuste',
+    what:'Agrupar la base en cohortes por comportamiento. El mismo correo rinde hasta 6× distinto según a quién llega.',
+    needs:['Eventos de tracking','Segmentos dinámicos','Definición de cohortes'],diff:2,who:'Encargado / con apoyo',
+    metrics:[['Cohortes base','4–6'],['Uplift vs blast','2–6× por cohorte']],
+    effort:[['Setup inicial','2–3 h una vez'],['Ajuste','~1 h/mes']],ehint:'Los segmentos dinámicos se actualizan solos. Suma <b>poca carga</b>, pero es lo que hace eficiente todo lo demás.',
+    conn:[['Systems','el reporting devuelve data que afina las cohortes'],['Todo el canal','cada flujo se ancla a un segmento']],
+    chk:['4–6 cohortes por comportamiento','Segmentos dinámicos (no listas fijas)','Cada flujo anclado a una cohorte','Segmento de no-activos para excluir del blast'],
+    dos:['Segmentos dinámicos','Separar activos de no-activos','Anclar cada flujo a una cohorte'],donts:['Mandar a "toda la base"','Listas estáticas','Ignorar no-abridores'],svc:'Estrategia de datos · CRO'},
+  deliverability:{stage:1,core:false,loop:false,tc:'NEXT',types:['base','rev'],title:'Setup de deliverability',sub:'Que los correos lleguen a la bandeja',
+    time:'3–5 h setup · 30 min/semana monitoreo',
+    what:'La base técnica invisible: autenticar el dominio (SPF, DKIM, DMARC) y calentarlo. Si falla, todo cae en spam.',
+    needs:['Acceso al DNS','Dominio de envío','Monitor de reputación'],diff:3,who:'Requiere apoyo técnico',
+    metrics:[['Spam rate objetivo','< 0,3%'],['Bounce sano','< 2%']],
+    effort:[['Setup inicial','3–5 h + calentamiento'],['Monitoreo','~30 min/semana']],ehint:'Necesita <b>revisión semanal</b> ligera. Si se descuida, arrastra la reputación de toda la cuenta.',
+    conn:[['Systems','la reputación se vigila en el reporting'],['Feedback','win-back y sunset la protegen']],
+    chk:['SPF, DKIM y DMARC verificados','Dominio dedicado y calentado','Spam rate < 0,3% monitoreado','Limpieza de rebotes activa'],
+    dos:['Autenticar antes del 1º envío','Calentar gradualmente','Monitorear reputación semanal'],donts:['Enviar masivo desde dominio nuevo','Comprar listas','Ignorar hard bounces'],svc:'Email · Deliverability'},
+  welcome:{stage:2,core:true,loop:false,tc:'CORE',types:['clave','exec'],title:'Welcome Series',sub:'El flujo de mayor conversión',
+    time:'6–8 h setup · 1 h/mes ajuste',
+    what:'Serie automática al suscribirse — el pico de intención. Educa el problema, presenta el bundle y entrega el incentivo con urgencia.',
+    needs:['Lista con captura','3–4 emails','Cupón de bienvenida'],diff:2,who:'Encargado de email',
+    metrics:[['Open rate','40–55%'],['CV%','8–15%'],['Rev/contacto','el más alto del sistema']],
+    effort:[['Setup inicial','6–8 h (copy+diseño+armado)'],['Mantención','~1 h/mes']],ehint:'Alto esfuerzo una vez, casi nulo después. Es <b>lo primero que debe existir</b>: rinde solo mientras entra tráfico.',
+    conn:[['Offer','ancla el bundle; sin oferta no hay qué vender'],['Acquisition','se llena con la captura']],
+    chk:['Flujo Welcome activo (no draft)','Mínimo 3 emails','Entrega el incentivo prometido','Split por apertura','Salida automática al comprar'],
+    dos:['1º correo al instante','Anclar el bundle','Cerrar con urgencia'],donts:['Tardar en el 1º correo','Vender sin educar','Olvidar salida al comprar'],svc:'Email · Offer'},
+  oferta:{stage:2,core:false,loop:false,tc:'LIVE',types:['clave'],title:'Bundle / producto de entrada',sub:'La oferta arquitectada, no el stick suelto',
+    time:'Definición de producto · 0 h recurrente en email',
+    what:'El Welcome ancla el bundle como producto de entrada, no la unidad. El cliente entra con ticket alto y percibe la marca como solución integral.',
+    needs:['Bundle armado','PDP del bundle','Comparativa de precio'],diff:2,who:'Encargado + producto',
+    metrics:[['Uplift AOV','+15–25%'],['vs unidad suelta','ticket 2–3×']],
+    effort:[['Trabajo','vive en Offer/producto'],['En email','0 h recurrente']],ehint:'No es carga de email: es una <b>decisión de oferta</b> que el correo ejecuta. Depende del área de producto.',
+    conn:[['Offer','esta pieza ES parte de Offer'],['CRO','la PDP del bundle debe convertir']],
+    chk:['Bundle como producto de entrada','Welcome destaca el bundle','Muestra el ahorro vs suelto','CTA a la PDP del bundle'],
+    dos:['Mostrar el ahorro','Posicionar como solución integral','Bundle como CTA principal'],donts:['Empujar la unidad barata','Esconder el precio','Demasiadas opciones'],svc:'Offer · CRO'},
+  abtest:{stage:3,core:false,loop:false,tc:'NEXT',types:['data','rev'],title:'A/B de asunto y oferta',sub:'Cada envío es un test',
+    time:'+15 min por campaña · revisión semanal',
+    what:'Cada campaña prueba dos versiones y el ganador se replica. Convierte el envío en un experimento que mejora con data.',
+    needs:['Volumen mínimo por variante','Registro de resultados'],diff:1,who:'Encargado de email',
+    metrics:[['Muestra mínima','~1.000 por variante'],['Ganador','+10–30% open típico']],
+    effort:[['Por campaña','+15 min'],['Revisión','semanal de ganadores']],ehint:'Suma poco tiempo por envío pero exige <b>disciplina de revisión semanal</b>. Sin registro, no aprende.',
+    conn:[['Systems','los ganadores se documentan en el reporting'],['Alcance','el aprendizaje mejora las campañas']],
+    chk:['A/B de asunto en cada campaña','Prueba oferta dura vs blanda','El ganador se documenta y replica','Registro de aprendizajes mensual'],
+    dos:['Una variable a la vez','Esperar significancia','Documentar cada ganador'],donts:['Cambiar 5 cosas a la vez','Decidir con muestra chica','No registrar'],svc:'Email · Reporting'},
+  quiz:{stage:3,core:false,loop:true,tc:'AI',types:['data','opt'],title:'Quiz / zero-party data',sub:'Dato declarado por el propio cliente',
+    time:'8–12 h setup · casi 0 mantención',
+    what:'Un quiz ("encuentra tu producto") captura preferencia declarada. Es el dato más limpio para segmentar y recomendar.',
+    needs:['Herramienta de quiz','Mapa respuesta→producto','Integración con la base'],diff:3,who:'Con apoyo (setup) · luego autónomo',
+    metrics:[['CV% quiz','hasta ~46%'],['vs directo a PDP','~3%']],
+    effort:[['Setup inicial','8–12 h'],['Mantención','casi 0']],ehint:'Optimización de nivel medio-alto. <b>No urge al arranque</b>; entra cuando ya hay tráfico que vale la pena calificar.',
+    conn:[['Foundations','el dato vuelve a la segmentación'],['Acquisition','puente entre contenido y producto']],
+    chk:['Quiz corto disponible','Cada respuesta mapea a cohorte/producto','El resultado personaliza el Welcome','Escribe en el perfil'],
+    dos:['Corto (3–5 preguntas)','Recomendar un producto','Guardar respuestas'],donts:['Largo y tedioso','Sin resultado accionable','Perder el dato'],svc:'CRO · Data'},
+  campanas:{stage:4,core:false,loop:false,tc:'LIVE',types:['vol','exec','rev'],title:'Campañas · el alcance',sub:'El motor de volumen',
+    time:'2–4 h por campaña · recurrente semanal',
+    what:'El envío manual a la base (calendario + eventos). Genera volumen y presencia; su eficiencia depende de cuán segmentado esté.',
+    needs:['Calendario de contenido','Segmentos','Plantilla de evento','Copy + diseño por envío'],diff:2,who:'Encargado + producción',
+    metrics:[['Open rate','25–35%'],['CV%','0,1–0,2%'],['Frecuencia','1–3/semana']],
+    effort:[['Por campaña','2–4 h (copy+arte+armado)'],['A 2/semana','~24–32 h/mes'],['A 3/semana','~36–48 h/mes']],ehint:'<b>La mayor carga recurrente del canal.</b> Cada campaña es copy + diseño + armado. A más volumen, necesitas <b>producción dedicada</b> o el ritmo se cae.',
+    conn:[['Contenido & Diseño','cada envío consume producción'],['Validation','el A/B mejora cada campaña']],
+    chk:['Calendario mensual definido','Campañas segmentadas (no "a todos")','No-activos excluidos del blast','Plantilla de evento lista'],
+    dos:['Versionar por cohorte','Excluir no-activos','Plantilla de evento lista'],donts:['Lo mismo a toda la base','Sobre-enviar','Improvisar en fechas clave'],svc:'Email · Contenido'},
+  browse:{stage:4,core:false,loop:true,tc:'AI',types:['opt','exec'],title:'Browse Abandonment',sub:'Captura la intención temprana',
+    time:'3–4 h setup · casi 0 mantención',
+    what:'Se dispara cuando alguien ve un producto pero no lo agrega al carrito. Recupera intención antes de que se enfríe.',
+    needs:['Evento "vio producto"','Bloque de producto dinámico'],diff:2,who:'Encargado de email',
+    metrics:[['Open rate','30–40%'],['CV%','0,4–0,8%']],
+    effort:[['Setup inicial','3–4 h'],['Mantención','casi 0 (automático)']],ehint:'Se arma una vez y corre solo. <b>Optimización que suma poca carga</b> pero recupera tráfico tibio que se perdía.',
+    conn:[['Acquisition','captura intención del tráfico entrante'],['CRO','depende de que la PDP registre la vista']],
+    chk:['Flujo Browse activo','Recordatorio dinámico del producto','Filtro que lo separa de Carrito','Salida al agregar carrito o comprar'],
+    dos:['Mostrar el producto exacto','Aportar valor','Salir si avanza a carrito'],donts:['Agresivo con quien solo mira','Descuento muy pronto','Solaparse con carrito'],svc:'Email · CRO'},
+  carrito:{stage:5,core:true,loop:false,tc:'CORE',types:['clave','exec'],title:'Carrito Abandonado',sub:'El flujo más rentable en eventos',
+    time:'5–7 h setup · 1 h/mes ajuste',
+    what:'Se dispara al agregar al carrito sin comprar. Intención máxima: ya eligió. Recordatorio → objeción → incentivo con urgencia.',
+    needs:['Evento de carrito','3 emails','Cupón de cierre'],diff:2,who:'Encargado de email',
+    metrics:[['Open rate','40–50%'],['CV%','3–5%'],['Recupera','5–11% de carritos']],
+    effort:[['Setup inicial','5–7 h'],['Mantención','~1 h/mes'],['En eventos','+2 h por versión especial']],ehint:'Junto al Welcome, <b>lo segundo que debe existir</b>. Automático, pero en eventos requiere una versión especial programada 48h antes.',
+    conn:[['Offer','recuerda el bundle elegido'],['CRO','depende del checkout de la tienda']],
+    chk:['Flujo Carrito activo','1er correo sin descuento','Escalado de incentivo en el 3º','Salida al comprar','Versión de evento 48h antes'],
+    dos:['Recordar sin descuento primero','Resolver objeción','Cerrar con urgencia real'],donts:['Descuento en el 1º correo','Esperar mucho el 1º envío','Activar tarde en eventos'],svc:'Email · Workflows'},
+  checkout:{stage:5,core:false,loop:true,tc:'AI',types:['opt','exec'],title:'Checkout Abandonado',sub:'Recupera al que casi paga',
+    time:'2–3 h setup · casi 0 mantención',
+    what:'Llegó a la página de pago y se cayó. Intención altísima, flujo corto y directo, con foco en resolver fricción.',
+    needs:['Evento "checkout started"','2 emails'],diff:2,who:'Encargado de email',
+    metrics:[['Open rate','45–55%'],['CV%','4–8%']],
+    effort:[['Setup inicial','2–3 h'],['Mantención','casi 0']],ehint:'Corto y automático. <b>Baja carga</b>. Complementa al carrito recuperando al que ya intentó pagar.',
+    conn:[['CRO','a veces revela fricción técnica del checkout'],['Workflows','se separa del flujo de carrito']],
+    chk:['Flujo Checkout separado del de Carrito','1er correo en la 1ª hora','Ofrece ayuda/soporte','Salida al comprar'],
+    dos:['Enviar rápido (1h)','Ofrecer ayuda, no solo descuento','Facilitar retomar pago'],donts:['Confundir con carrito','Tardar horas','Asumir falta de interés'],svc:'Email · Workflows'},
+  postcompra:{stage:6,core:true,loop:false,tc:'CORE',types:['clave','exec','data'],title:'Post-Compra / Recompra',sub:'Sube AOV y LTV',
+    time:'6–9 h setup · 1–2 h/mes ajuste',
+    what:'Se dispara con la compra. Agradece y enseña a usar, hace cross-sell según lo comprado y dispara la reposición al ciclo de consumo.',
+    needs:['Evento de compra','Lógica de cross-sell','Ciclo de consumo estimado'],diff:3,who:'Encargado + data de producto',
+    metrics:[['Open rate','35–45%'],['Repeat rate','+10–20%']],
+    effort:[['Setup inicial','6–9 h (varios splits)'],['Mantención','~1–2 h/mes']],ehint:'Necesita <b>data de producto</b> (ciclo de consumo, complementos). Es donde el canal empieza a exigir cruzar áreas.',
+    conn:[['Retention','depende de que el producto satisfaga'],['Producto','necesita ciclo de consumo y cross-sell lógico']],
+    chk:['Flujo Post-compra activo','Split de cross-sell por producto','Reposición al ciclo real','Puente a suscripción para consumibles'],
+    dos:['Educar el uso primero','Cross-sell lógico','Timing al consumo'],donts:['Vender de más el día 1','Recomendar lo ya comprado','Ignorar el ciclo'],svc:'Email · Retention'},
+  referidos:{stage:6,core:false,loop:true,tc:'AI',types:['data','opt','clave'],title:'Referidos · "Regala a un amigo"',sub:'El loop de menor CAC del sistema',
+    time:'8–12 h setup (app+flujo) · 1 h/mes',
+    what:'El comprador satisfecho recibe un beneficio por traer a un amigo: le regala un descuento y, al canjearlo, ambos ganan. Adquiere y retiene a la vez.',
+    needs:['App/sistema de referidos','Doble incentivo','Link único por cliente'],diff:3,who:'Con apoyo (setup app) · luego autónomo',
+    metrics:[['Nuevos clientes','10–30% del total'],['CVR referido','3–5× vs frío']],
+    effort:[['Setup inicial','8–12 h (app + flujo)'],['Mantención','~1 h/mes']],ehint:'Requiere una app de referidos. <b>Entra cuando ya hay base de compradores felices</b> — por eso aparece recién a 60k. El único flujo que adquiere Y retiene.',
+    conn:[['Acquisition','trae clientes nuevos a costo casi cero'],['Retention','el crédito trae de vuelta al referidor'],['Producto','solo funciona si el producto satisface']],
+    chk:['Programa con doble incentivo','Dispara tras compra + satisfacción','Link único por cliente','Recordatorio si el amigo no canjea','Beneficio automático al canjear'],
+    dos:['Recompensar a ambos lados','Disparar cuando el cliente está feliz','Compartir de 1 clic'],donts:['Premiar solo a uno','Pedir antes de entregar valor','Complicar el canje'],svc:'Email · Loyalty / Referral',
+    note:'Benchmark: programas bien armados aportan 10–30% de nuevos clientes con CVR 3–5× sobre tráfico frío.'},
+  suscripcion:{stage:6,core:false,loop:true,tc:'AI',types:['opt','data'],title:'Suscripción',sub:'Recompra manual → ingreso recurrente',
+    time:'10–15 h setup (tienda+flujo) · 2 h/mes',
+    what:'Para consumibles, convierte la recompra repetida en ingreso predecible. El correo la propone cuando el cliente ya validó el producto.',
+    needs:['Opción de suscripción en la tienda','Beneficio de recurrencia','Gestión self-service'],diff:3,who:'Con apoyo (setup) · producto',
+    metrics:[['Uplift LTV','2–4×'],['Descuento típico','10–15%']],
+    effort:[['Setup inicial','10–15 h (tienda + flujo)'],['Mantención','~2 h/mes gestión']],ehint:'La más pesada de montar: toca la tienda, el pago y el flujo. <b>Solo a escala (100k)</b>, cuando el patrón de recompra ya está probado.',
+    conn:[['Retention','el corazón de la recurrencia'],['CRO / Tienda','requiere infraestructura de suscripción'],['Systems','se automatiza al final']],
+    chk:['Opción de suscripción en el producto','Flujo que la propone tras 2ª–3ª compra','Beneficio claro de recurrencia','Gestión self-service'],
+    dos:['Ofrecer cuando ya hay hábito','Beneficio real por suscribir','Facilitar pausar/cancelar'],donts:['Forzarla en la 1ª compra','Esconder cómo cancelar','Sin ventaja clara'],svc:'Email · Retention'},
+  review:{stage:7,core:false,loop:false,tc:'LIVE',types:['exec','data'],title:'Solicitud de review / UGC',sub:'Genera la prueba social',
+    time:'3–4 h setup · casi 0 mantención',
+    what:'Tras la entrega pide una reseña. Las reviews y el UGC alimentan la prueba social del resto de flujos (Welcome, Browse, Carrito).',
+    needs:['Evento de entrega','App de reviews','Incentivo leve'],diff:2,who:'Encargado de email',
+    metrics:[['Tasa de respuesta','5–15%'],['Timing','3–7 días post-entrega']],
+    effort:[['Setup inicial','3–4 h'],['Mantención','casi 0 · curar UGC ~1 h/mes']],ehint:'Automático, baja carga. Su valor real está en <b>reutilizar el UGC</b> en los otros flujos — eso sí pide una hora mensual de curaduría.',
+    conn:[['Feedback','esta pieza ES Feedback'],['Offer / CRO','el UGC sube conversión en Welcome y Carrito']],
+    chk:['Flujo de review activo','Se dispara al entregar (no al comprar)','Incentivo por reseña con foto','El mejor UGC se reutiliza'],
+    dos:['Pedir tras recibir el producto','Facilitar dejar reseña','Reutilizar el UGC'],donts:['Pedir antes de que llegue','Complicar el proceso','Desperdiciar el UGC'],svc:'Email · Feedback'},
+  winback:{stage:7,core:false,loop:true,tc:'AI',types:['opt','rev'],title:'Win-back + Sunset',sub:'Protege la deliverability',
+    time:'3–4 h setup · revisión mensual',
+    what:'Para los que no abren hace 60–90 días: reactivación fuerte y, si no responde, se suprime del blast. Limpia la base y sube el open rate de todos.',
+    needs:['Segmento de no-abridores','2 emails','Regla de supresión'],diff:2,who:'Encargado de email',
+    metrics:[['Reactivación','5–15% del segmento'],['Ciclo','60–90 días']],
+    effort:[['Setup inicial','3–4 h'],['Revisión','mensual del segmento']],ehint:'Necesita <b>revisión mensual</b> del segmento frío. Protege la reputación que sostiene la llegada de todos los demás correos.',
+    conn:[['Foundations','protege la deliverability de la base'],['Systems','la limpieza mejora las métricas del reporting']],
+    chk:['Segmento de no-abridores 60–90d','Flujo de reactivación activo','Regla de supresión (sunset)','Los suprimidos salen del blast'],
+    dos:['Oferta fuerte y clara','Suprimir si no reacciona','Proteger la reputación'],donts:['Enviar a quien nunca abre','Postergar la limpieza','Confundir sunset con borrar'],svc:'Email · Deliverability'},
+  automatizacion:{stage:8,core:false,loop:false,tc:'WIP',types:['opt','rev'],title:'Automatizar lo validado',sub:'Systems va al final, no al principio',
+    time:'Continuo · gobierno del sistema',
+    what:'Solo se automatiza el flujo que ya demostró conversión. Automatizar algo no validado escala el caos. Primero se prueba, luego se sistematiza.',
+    needs:['Flujos con CV% probada','2–4 semanas de data','Monitoreo'],diff:2,who:'Encargado / operaciones',
+    metrics:[['Tiempo de validación','2–4 semanas'],['Criterio','CV% comprobada']],
+    effort:[['Trabajo','gobierno continuo'],['Requiere','alguien que vigile el sistema']],ehint:'No es un flujo, es una <b>disciplina de operación</b>. A escala necesita a alguien dueño del sistema que decida qué se automatiza y vigile que no degrade.',
+    conn:[['Systems','esta pieza ES Systems'],['Todo el canal','ordena y estabiliza lo validado']],
+    chk:['Cada flujo automatizado tiene CV% comprobada','Nada se automatiza sin 2–4 sem de data','Monitoreo de que no degrada','Documentación de cada flujo'],
+    dos:['Validar antes de automatizar','Documentar cada flujo','Revisar que no degrade'],donts:['Automatizar por automatizar','Escalar sin data','Flujos sin dueño'],svc:'Systems · Automatización'},
+  reporting:{stage:8,core:false,loop:true,tc:'AI',types:['data','rev'],title:'Reporting → próxima vuelta',sub:'El loop que cierra el engine',
+    time:'3–5 h/mes · ritual mensual',
+    what:'La data del mes (qué cohorte convirtió, qué asunto ganó, qué flujo rindió) vuelve a la fase 1 y afina la segmentación.',
+    needs:['Fuente de datos limpia','Reporte por flujo y cohorte','Ritual mensual'],diff:2,who:'Encargado / con analista',
+    metrics:[['Frecuencia','mensual'],['Corta por','flujo + cohorte']],
+    effort:[['Por mes','3–5 h de análisis'],['A escala','pide perfil de análisis dedicado']],ehint:'<b>Ritual mensual fijo.</b> A 100k deja de caber en el encargado y pide un perfil de análisis. Sin este loop, el canal no aprende ni escala.',
+    conn:[['Systems','esta pieza ES Systems'],['Foundations','su salida vuelve a la segmentación'],['Data / Dashbo','depende de una fuente limpia']],
+    chk:['Reporte mensual establecido','Se mide por flujo Y cohorte','Comparativa vs media / mes anterior','Los aprendizajes vuelven a la segmentación'],
+    dos:['Medir por flujo y cohorte','Comparar contra una media','Cerrar el loop a la fase 1'],donts:['Mirar solo el total','Reportar sin accionar','Data sin realimentar'],svc:'Reporting · Systems'}
+};
+
+const STAGES=[
+  {n:1,name:'Captura & Base',q:'¿A quién le hablo?',keys:['captura','segmentacion','deliverability']},
+  {n:2,name:'Bienvenida',q:'¿Qué le ofrezco al que entra?',keys:['welcome','oferta']},
+  {n:3,name:'Validación',q:'¿Qué mensaje convierte?',keys:['abtest','quiz']},
+  {n:4,name:'Alcance',q:'¿Cómo llego a la base?',keys:['campanas','browse']},
+  {n:5,name:'Conversión',q:'¿Cómo cierro la venta?',keys:['carrito','checkout']},
+  {n:6,name:'Retención',q:'¿Cómo vuelven y multiplican?',keys:['postcompra','referidos','suscripcion']},
+  {n:7,name:'Feedback',q:'¿Qué dice la gente y qué limpio?',keys:['review','winback']},
+  {n:8,name:'Sistema',q:'¿Qué automatizo de lo validado?',keys:['automatizacion','reporting']}
+];
+
+let curRev=0;const done={};
+
+/* build rail */
+function buildRail(){
+  const rail=document.getElementById('rail');rail.innerHTML='';
+  STAGES.forEach(stg=>{
+    const col=document.createElement('div');col.className='stage-col';col.dataset.stage=stg.n;
+    let nodesHtml='';
+    stg.keys.forEach(k=>{
+      const n=N[k];
+      const tls=n.types.map(t=>`<span class="tl ${TYPE[t][1]}">${TYPE[t][0]}</span>`).join('');
+      nodesHtml+=`<div class="nodewrap" data-k="${k}">
+        <span class="futuretag">Se suma más adelante</span>
+        <div class="tlabels">${tls}</div>
+        <div class="node ${n.core?'core':''} ${n.loop?'loop':''}" data-k="${k}" data-s="${stg.n}">
+          <div class="chk" data-chk></div>
+          <div class="nt">${n.title}</div>
+          <div class="nd">${n.sub}</div>
+          <div class="ntime">⏱ ${n.time}</div>
+        </div></div>`;
+    });
+    col.innerHTML=`<div class="stage-head"><div class="stage-num">${stg.n}</div><div class="stage-name">${stg.name}</div><div class="stage-q">${stg.q}</div><div class="stage-arrow">&#8594;</div></div>
+      <div class="stage-load" data-load="${stg.n}"></div>
+      <div class="health"><i data-stage="${stg.n}"></i></div>
+      <div class="nodes">${nodesHtml}</div>`;
+    rail.appendChild(col);
+  });
+  bindNodes();applyRev();updateScore();
+}
+
+function bindNodes(){
+  document.querySelectorAll('.node').forEach(node=>{
+    const k=node.dataset.k;
+    node.addEventListener('click',e=>{
+      if(e.target.closest('[data-chk]')){e.stopPropagation();toggleNodeDone(k);return;}
+      P(k);
+    });
+  });
+}
+
+/* revenue tab logic */
+function applyRev(){
+  const r=REV[curRev];
+  document.querySelectorAll('.nodewrap').forEach(w=>{
+    const active=r.active.includes(w.dataset.k);
+    w.classList.toggle('off',!active);
+  });
+  // per-stage load count
+  STAGES.forEach(stg=>{
+    const activeCount=stg.keys.filter(k=>r.active.includes(k)).length;
+    const el=document.querySelector(`[data-load="${stg.n}"]`);
+    if(el)el.innerHTML=activeCount?`<b>${activeCount}</b> ${activeCount===1?'acción activa':'acciones activas'}`:'—';
+  });
+  // context bar
+  document.getElementById('ctxbar').innerHTML=
+    `<div class="ci"><span class="ic">🎯</span><span>Nivel: <b>${r.name} · ${r.lvl}</b></span></div>
+     <div class="ci"><span class="ic">⚡</span><span><b>${r.actions}</b></span></div>
+     <div class="ci"><span class="ic">⏱</span><span>Tiempo estimado: <b>${r.time}</b></span></div>
+     <div class="ci team"><span class="dot"></span><span>Equipo: <b>${r.team}</b></span></div>`;
+}
+document.getElementById('tabs').addEventListener('click',e=>{
+  const t=e.target.closest('.tab');if(!t)return;
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+  t.classList.add('on');curRev=+t.dataset.rev;applyRev();
+});
+
+/* panel */
+function renderBody(k){
+  const n=N[k];const b=document.getElementById('p-body');b.innerHTML='';
+  const add=(h)=>{const d=document.createElement('div');d.innerHTML=h;while(d.firstChild)b.appendChild(d.firstChild);};
+  // active in current level?
+  const r=REV[curRev];const active=r.active.includes(k);
+  if(!active){add(`<div class="metricnote" style="background:#F0F4F7;padding:9px 12px;border-radius:9px;font-style:normal;color:#5B7A88">Este flujo <b>todavía no aplica</b> en el nivel <b>${r.name}</b>. Aparece más adelante, cuando el volumen lo justifica.</div>`);}
+  add('<h4>📧 Ejemplo visual</h4>');add(MOCK[k]||'');
+  add('<h4>Qué es</h4><p>'+n.what+'</p>');
+  add('<h4>Qué necesita</h4>');add('<div class="needs">'+n.needs.map(x=>'<span>'+x+'</span>').join('')+'</div>');
+  const dots=[1,2,3].map(i=>'<i class="'+(i<=n.diff?'on':'')+'"></i>').join('');
+  add('<h4>Nivel de dificultad</h4><div class="diffbar"><span class="diffdots">'+dots+'</span><span class="difflbl">'+(['','Baja','Media','Alta'][n.diff])+'</span></div><div class="diffwho">'+n.who+'</div>');
+  add('<h4>Métricas promedio</h4>');add(n.metrics.map(m=>'<div class="metric"><span>'+m[0]+'</span><b>'+m[1]+'</b></div>').join(''));
+  // effort / team accumulation
+  add('<h4>⏱ Tiempo y carga de equipo</h4>');
+  let eff='<div class="effort">'+n.effort.map(m=>'<div class="er"><span>'+m[0]+'</span><b>'+m[1]+'</b></div>').join('')+'<div class="ehint">'+n.ehint+'</div></div>';
+  add(eff);
+  // engine connection
+  add('<div class="connbox"><h4>🔗 Cómo se conecta con el resto del engine</h4>'+n.conn.map(c=>'<div class="ci"><span class="a">'+c[0]+'</span><span>'+c[1]+'</span></div>').join('')+'</div>');
+  add('<h4>Checklist de implementación</h4>');
+  const box=document.createElement('div');box.className='chklist';if(!done[k])done[k]={};
+  n.chk.forEach((item,i)=>{const row=document.createElement('div');row.className='chkitem'+(done[k][i]?' on':'');row.innerHTML='<span class="chkbox"></span><span>'+item+'</span>';row.onclick=()=>{done[k][i]=!done[k][i];row.classList.toggle('on');syncNode(k);updateScore();};box.appendChild(row);});
+  b.appendChild(box);
+  add("<h4>Do's &amp; Don'ts</h4>");
+  add('<div class="dd"><div class="col do"><h5>✓ Hacer</h5><ul>'+n.dos.map(x=>'<li>'+x+'</li>').join('')+'</ul></div><div class="col dont"><h5>✕ Evitar</h5><ul>'+n.donts.map(x=>'<li>'+x+'</li>').join('')+'</ul></div></div>');
+  if(n.note)add('<div class="metricnote">'+n.note+'</div>');
+  add('<h4>Servicio que lo cubre</h4><span class="svc">'+n.svc+'</span>');
+}
+function P(k){const n=N[k];if(!n)return;
+  const t=document.getElementById('p-tag');t.textContent='Fase '+n.stage+' · '+STAGES[n.stage-1].name;t.style.background=TC[n.tc]||'#0CB7F2';
+  document.getElementById('p-title').textContent=n.title;
+  document.getElementById('p-sub').textContent=n.sub;
+  document.getElementById('p-types').innerHTML=n.types.map(tp=>`<span class="tl ${TYPE[tp][1]}">${TYPE[tp][0]}</span>`).join('');
+  renderBody(k);
+  document.getElementById('panel').setAttribute('data-open','');document.getElementById('scrim').setAttribute('data-open','');
+}
+function C(){document.getElementById('panel').removeAttribute('data-open');document.getElementById('scrim').removeAttribute('data-open');}
+addEventListener('keydown',e=>{if(e.key==='Escape')C();});
+
+function nodeComplete(k){const n=N[k];if(!done[k])return false;if(!n.chk)return !!done[k].all;return n.chk.every((_,i)=>done[k][i]);}
+function toggleNodeDone(k){const n=N[k];if(!done[k])done[k]={};const willC=!nodeComplete(k);if(n.chk)n.chk.forEach((_,i)=>done[k][i]=willC);else done[k].all=willC;syncNode(k);updateScore();}
+function syncNode(k){const node=document.querySelector('.node[data-k="'+k+'"]');if(node)node.classList.toggle('done',nodeComplete(k));}
+function updateScore(){
+  const total=Object.keys(N).length;let comp=0;Object.keys(N).forEach(k=>{if(nodeComplete(k))comp++;});
+  const pct=Math.round(comp/total*100);
+  document.getElementById('lvlBar').style.width=pct+'%';document.getElementById('lvlPct').textContent=pct+'%';
+  let lvl='Nivel 1 · Inicial';if(pct>=85)lvl='Nivel 5 · Sistema';else if(pct>=65)lvl='Nivel 4 · Optimizado';else if(pct>=40)lvl='Nivel 3 · En marcha';else if(pct>=20)lvl='Nivel 2 · Básico';
+  document.getElementById('lvlTxt').textContent=lvl;
+  STAGES.forEach(stg=>{let c=0;stg.keys.forEach(k=>{if(nodeComplete(k))c++;});const ratio=stg.keys.length?c/stg.keys.length:0;const bar=document.querySelector('.health i[data-stage="'+stg.n+'"]');if(bar){bar.style.width=(ratio*100)+'%';bar.style.background=ratio>=1?'#1BB673':ratio>0?'#F5A623':'#E3EEF3';}});
+}
+
+/* mockups */
+const MOCK={
+  captura:`<div class="mock"><div class="mbody"><div class="mhero" style="background:linear-gradient(135deg,#0CB7F2,#0995C5);color:#fff">✨ -10%</div><div style="font-size:12px;font-weight:800;text-align:center;margin-bottom:8px">Sumate y llevá 10% en tu 1ª compra</div><div class="mline m"></div><div class="mline s"></div><div style="border:1px solid #E3EEF3;border-radius:8px;padding:8px;margin-top:9px;font-size:11px;color:#5B7A88">tu@email.com</div><div class="mcta">Quiero mi descuento</div></div></div>`,
+  segmentacion:`<div class="mseq"><div class="me"><div class="t">Comprador</div><div class="ic">🔁</div><div class="w">recompra</div></div><div class="arrow">·</div><div class="me"><div class="t">Carrito</div><div class="ic">🛒</div><div class="w">urgencia</div></div><div class="arrow">·</div><div class="me"><div class="t">Browse</div><div class="ic">👀</div><div class="w">objeción</div></div><div class="arrow">·</div><div class="me"><div class="t">Frío</div><div class="ic">💤</div><div class="w">reactivar</div></div></div><div class="mnote" style="text-align:center">El mismo correo se versiona por cohorte</div>`,
+  deliverability:`<div class="mock"><div class="mbody" style="font-family:monospace;font-size:10.5px;line-height:1.7;color:#0C2A38"><div style="color:#1BB673">✓ SPF</div>v=spf1 include:_spf...<div style="color:#1BB673">✓ DKIM</div>selector._domainkey...<div style="color:#1BB673">✓ DMARC</div>p=quarantine; rua=...<div style="margin-top:8px;padding-top:8px;border-top:1px solid #EEF4F8;color:#5B7A88">Spam rate <b style="color:#1BB673">0,08%</b> · Reputación <b style="color:#1BB673">alta</b></div></div></div>`,
+  welcome:`<div class="mseq"><div class="me"><div class="t">Email 1</div><div class="ic">👋</div><div class="w">0 min</div></div><div class="arrow">→</div><div class="me"><div class="t">Email 2</div><div class="ic">📖</div><div class="w">+1d</div></div><div class="arrow">→</div><div class="me"><div class="t">Email 3</div><div class="ic">⭐</div><div class="w">+2d</div></div><div class="arrow">→</div><div class="me"><div class="t">Email 4</div><div class="ic">⏰</div><div class="w">+4d</div></div></div><div class="mock"><div class="mfrom"><b>Tu marca</b> · para ti</div><div class="msubj">¡Bienvenido! Aquí está tu 10% 🎁</div><div class="mbody"><div class="mhero" style="background:linear-gradient(135deg,#0CB7F2,#0995C5);color:#fff">👋</div><div class="mline m"></div><div class="mline s"></div><div class="mcta">Usar mi cupón</div></div></div>`,
+  oferta:`<div class="mock"><div class="msubj" style="border:none;padding-top:11px">Tu pack completo, no una unidad suelta</div><div class="mbody"><div style="display:flex;gap:7px"><div style="flex:1;border:1px solid #E3EEF3;border-radius:9px;padding:9px;text-align:center"><div style="font-size:20px">📦</div><div style="font-size:10px;font-weight:800">Bundle</div><div style="font-size:12px;font-weight:900;color:#0995C5">$45.990</div><div style="font-size:9px;color:#1BB673;font-weight:700">ahorra 20%</div></div><div style="flex:1;border:1px dashed #E3EEF3;border-radius:9px;padding:9px;text-align:center;opacity:.6"><div style="font-size:20px">🧴</div><div style="font-size:10px;font-weight:700">Unidad</div><div style="font-size:12px;font-weight:800">$14.990</div></div></div><div class="mcta">Llevar el bundle</div></div></div>`,
+  abtest:`<div style="display:flex;gap:8px"><div class="mock" style="flex:1;margin:0"><div class="msubj" style="border:none;padding:9px 11px;font-size:11px">A · "Se te acaba 👀"</div><div class="mnote" style="color:#1BB673;font-weight:800">open 31% ✓</div></div><div class="mock" style="flex:1;margin:0"><div class="msubj" style="border:none;padding:9px 11px;font-size:11px">B · "Reponé ya"</div><div class="mnote">open 24%</div></div></div><div class="mnote" style="text-align:center">Gana A → se replica</div>`,
+  quiz:`<div class="mock"><div class="mbody"><div style="font-size:12px;font-weight:800;text-align:center;margin-bottom:9px">¿Cuál es tu objetivo?</div><div style="display:flex;flex-direction:column;gap:6px"><div style="border:1px solid #0CB7F2;border-radius:8px;padding:8px;font-size:11px;font-weight:700;background:#EAF7FD">🏃 Rendimiento</div><div style="border:1px solid #E3EEF3;border-radius:8px;padding:8px;font-size:11px">💧 Hidratación diaria</div><div style="border:1px solid #E3EEF3;border-radius:8px;padding:8px;font-size:11px">🤰 Embarazo</div></div><div class="mcta">Ver mi resultado →</div></div></div>`,
+  campanas:`<div class="mock"><div class="mfrom"><b>Tu marca</b></div><div class="msubj">🔥 Cyber · hasta 30% hoy</div><div class="mbody"><div class="mhero" style="background:linear-gradient(135deg,#E8553B,#F5A623);color:#fff">🔥 -30%</div><div class="mline m"></div><div class="mline s"></div><div class="mcta">Ver ofertas</div><div class="mnote">A segmento activo · no a toda la base</div></div></div>`,
+  browse:`<div class="mock"><div class="msubj" style="border:none;padding-top:11px">¿Lo seguís pensando? 👀</div><div class="mbody"><div style="display:flex;gap:9px;align-items:center;border:1px solid #E3EEF3;border-radius:9px;padding:9px"><div style="width:40px;height:40px;border-radius:7px;background:linear-gradient(135deg,#0CB7F2,#0995C5);display:grid;place-items:center;font-size:19px">🧴</div><div><div style="font-size:11px;font-weight:800">Producto visto</div><div style="font-size:11px;color:#0995C5;font-weight:800">$18.990</div></div></div><div class="mcta">Volver a verlo</div></div></div>`,
+  carrito:`<div class="mseq"><div class="me"><div class="t">Recuerdo</div><div class="ic">🛒</div><div class="w">+1h</div></div><div class="arrow">→</div><div class="me"><div class="t">Objeción</div><div class="ic">🚚</div><div class="w">+24h</div></div><div class="arrow">→</div><div class="me"><div class="t">Incentivo</div><div class="ic">🎟️</div><div class="w">+48h</div></div></div><div class="mock"><div class="msubj" style="border:none;padding-top:11px">Dejaste algo en tu carrito 🛒</div><div class="mbody"><div style="display:flex;gap:9px;align-items:center;border:1px solid #E3EEF3;border-radius:9px;padding:9px"><div style="width:40px;height:40px;border-radius:7px;background:linear-gradient(135deg,#0CB7F2,#0995C5);display:grid;place-items:center;font-size:19px">📦</div><div><div style="font-size:11px;font-weight:800">Bundle</div><div style="font-size:11px;color:#0995C5;font-weight:800">$45.990</div></div></div><div class="mcta">Completar compra</div></div></div>`,
+  checkout:`<div class="mock"><div class="msubj" style="border:none;padding-top:11px">¿Algún problema al pagar? 💳</div><div class="mbody"><div class="mline m"></div><div class="mline s"></div><div style="background:#EAF7FD;border-radius:8px;padding:9px;font-size:10.5px;color:#0995C5;font-weight:600;margin-top:8px">¿Necesitás ayuda? Respondé este correo</div><div class="mcta">Retomar el pago</div></div></div>`,
+  postcompra:`<div class="mseq"><div class="me"><div class="t">Gracias</div><div class="ic">🙌</div><div class="w">+1d</div></div><div class="arrow">→</div><div class="me"><div class="t">Cross</div><div class="ic">➕</div><div class="w">+7d</div></div><div class="arrow">→</div><div class="me"><div class="t">Reponé</div><div class="ic">🔄</div><div class="w">+28d</div></div><div class="arrow">→</div><div class="me"><div class="t">Suscribí</div><div class="ic">♾️</div><div class="w">+30d</div></div></div><div class="mock"><div class="msubj" style="border:none;padding-top:11px">Se te está por acabar 🔄</div><div class="mbody"><div class="mline m"></div><div class="mcta">Reponer con 1 clic</div></div></div>`,
+  referidos:`<div class="mock"><div class="mbody"><div class="mhero" style="background:linear-gradient(135deg,#7C5CFF,#5a3fd6);color:#fff">🎁</div><div style="font-size:12px;font-weight:800;text-align:center">Regalá 20% a un amigo</div><div style="font-size:10.5px;color:#5B7A88;text-align:center;margin:5px 0 9px">Él ahorra · vos ganás $5.000 de crédito</div><div style="border:1px dashed #7C5CFF;border-radius:8px;padding:8px;text-align:center;font-family:monospace;font-size:11px;color:#5a3fd6;font-weight:800">tienda.cl/ref/JUAN20</div><div class="mcta" style="background:linear-gradient(135deg,#7C5CFF,#5a3fd6)">Compartir mi link</div></div></div>`,
+  suscripcion:`<div class="mock"><div class="msubj" style="border:none;padding-top:11px">Ahorrá 15% suscribiéndote ♾️</div><div class="mbody"><div style="display:flex;gap:7px"><div style="flex:1;border:1px solid #E3EEF3;border-radius:8px;padding:8px;text-align:center;opacity:.6"><div style="font-size:9px;font-weight:700">Compra única</div><div style="font-size:12px;font-weight:800">$18.990</div></div><div style="flex:1;border:1.5px solid #1BB673;border-radius:8px;padding:8px;text-align:center;background:rgba(27,182,115,.07)"><div style="font-size:9px;font-weight:800;color:#1BB673">Suscripción</div><div style="font-size:12px;font-weight:900;color:#1BB673">$16.140</div></div></div><div class="mcta" style="background:#1BB673">Suscribirme y ahorrar</div></div></div>`,
+  review:`<div class="mock"><div class="msubj" style="border:none;padding-top:11px">¿Cómo te fue con tu pedido? ⭐</div><div class="mbody"><div style="text-align:center;font-size:22px;letter-spacing:4px;color:#F5A623">★★★★★</div><div class="mnote">Dejá tu reseña y sumá una foto</div><div class="mcta" style="background:#F5A623">Calificar mi compra</div></div></div>`,
+  winback:`<div class="mock"><div class="msubj" style="border:none;padding-top:11px">Te extrañamos 💙 -25% para volver</div><div class="mbody"><div class="mhero" style="background:linear-gradient(135deg,#0CB7F2,#7C5CFF);color:#fff">💙</div><div class="mline m"></div><div class="mcta">Volver con 25%</div><div class="mnote">Si no abre → sale del blast (sunset)</div></div></div>`,
+  automatizacion:`<div class="mseq"><div class="me" style="opacity:.5"><div class="t">Idea</div><div class="ic">💡</div><div class="w">no aún</div></div><div class="arrow">→</div><div class="me"><div class="t">Probado</div><div class="ic">🧪</div><div class="w">2-4 sem</div></div><div class="arrow">→</div><div class="me" style="border-color:#1BB673"><div class="t" style="color:#1BB673">Automatiza</div><div class="ic">⚙️</div><div class="w">CV✓</div></div></div><div class="mnote" style="text-align:center">Solo se automatiza lo que ya convirtió</div>`,
+  reporting:`<div class="mock"><div class="mbody"><div style="font-size:11px;font-weight:800;margin-bottom:8px">Cierre del mes · por flujo</div><div style="display:flex;align-items:flex-end;gap:6px;height:52px"><div style="flex:1;background:#0CB7F2;height:40%;border-radius:4px 4px 0 0"></div><div style="flex:1;background:#1BB673;height:90%;border-radius:4px 4px 0 0"></div><div style="flex:1;background:#7C5CFF;height:70%;border-radius:4px 4px 0 0"></div><div style="flex:1;background:#F5A623;height:55%;border-radius:4px 4px 0 0"></div></div><div class="mnote">Welcome · Carrito · Referidos · Campañas → vuelve a fase 1</div></div></div>`
+};
+
+/* zoom/pan */
+let sc=1,x=0,y=0,drag=false,sx,sy;const st=document.getElementById('stage'),wr=document.getElementById('wrap');
+function ap(){st.style.transform='translate('+x+'px,'+y+'px) scale('+sc+')';}
+function resetView(){const w=wr.clientWidth,railW=document.getElementById('rail').scrollWidth+92;sc=Math.min(1,(w-20)/railW);x=Math.max(0,(w-railW*sc)/2);y=0;ap();}
+addEventListener('resize',resetView);
+wr.addEventListener('wheel',e=>{e.preventDefault();sc=Math.min(2,Math.max(.35,sc-e.deltaY*.0014));ap();},{passive:false});
+wr.addEventListener('pointerdown',e=>{if(e.target.closest('.node'))return;drag=true;sx=e.clientX-x;sy=e.clientY-y;});
+addEventListener('pointermove',e=>{if(!drag)return;x=e.clientX-sx;y=e.clientY-sy;ap();});
+addEventListener('pointerup',()=>drag=false);
+
+buildRail();resetView();
+</script>
+</body>
+</html>

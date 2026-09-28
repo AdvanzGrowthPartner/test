@@ -1,0 +1,417 @@
+<!--
+TEMPLATE: Blog Post Completo Shopify con Pattern Dual SEO+GEO
+Versión: 1.0 (probado en producción Amazing Care, mayo 2026)
+
+INSTRUCCIONES DE USO:
+1. Copiar todo este archivo y abrirlo como base.
+2. Reemplazar los placeholders [ENTRE_CORCHETES] con valores del cliente.
+3. Reemplazar los colores celeste (#0CB7F2, #E6F7FD, #0C5A7A, #0995C5, #B8E7F5) con la paleta REAL del cliente.
+4. Pegar el HTML completo en modo <> del editor de blog de Shopify.
+
+REGLAS NO NEGOCIABLES:
+- Author = profesional clínico, NUNCA agencia ni marca
+- Schema embebido al final del HTML (Article + FAQPage)
+- Imágenes envueltas en <div class="article-image-center">
+- Tipografía en em, no rem ni px
+-->
+
+<style>
+/* ===== CSS BULLETPROOF — NO MODIFICAR LAS UNIDADES (em) ===== */
+
+.intro-lede {
+  font-size: 1.15em !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  background: #E6F7FD !important;
+  border-left: 4px solid #0CB7F2 !important;
+  padding: 22px 26px !important;
+  border-radius: 8px !important;
+  margin: 1rem 0 2.5rem 0 !important;
+  color: #1F2937 !important;
+}
+.intro-lede strong {
+  font-weight: 600 !important;
+  color: #0C5A7A !important;
+}
+
+.lede-answer {
+  font-size: 1.1em !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  background: #E6F7FD !important;
+  border-left: 3px solid #0CB7F2 !important;
+  padding: 20px 24px !important;
+  border-radius: 6px !important;
+  margin: 1.5rem 0 2rem 0 !important;
+  color: #1F2937 !important;
+}
+.lede-answer strong {
+  font-weight: 600 !important;
+  color: #0C5A7A !important;
+}
+
+.article-content h2,
+.rte h2,
+article h2 {
+  margin-top: 3rem !important;
+  margin-bottom: 1.25rem !important;
+}
+.article-content ul,
+.article-content ol,
+.rte ul,
+.rte ol,
+article ul,
+article ol {
+  margin-top: 1rem !important;
+  margin-bottom: 1.75rem !important;
+  padding-left: 1.75rem !important;
+}
+.article-content li,
+.rte li,
+article li {
+  margin-bottom: 0.6rem !important;
+  line-height: 1.6 !important;
+}
+
+.article-image-center {
+  text-align: center !important;
+  margin: 2.5rem auto !important;
+}
+.article-image-center img {
+  display: block !important;
+  margin: 0 auto !important;
+  max-width: 100% !important;
+  height: auto !important;
+  border-radius: 8px !important;
+}
+
+.toc {
+  background: #FAFAFA;
+  padding: 22px 30px;
+  border-radius: 12px;
+  margin: 2rem 0 3rem 0;
+  border-left: 3px solid #0CB7F2;
+}
+.toc h3 {
+  margin-top: 0 !important;
+  margin-bottom: 1rem !important;
+  font-size: 1.1em;
+  color: #1F2937;
+}
+.toc ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin: 0 !important;
+}
+.toc li {
+  padding: 0.6rem 0 !important;
+  border-bottom: 1px solid #E5E5E5;
+  margin-bottom: 0 !important;
+}
+.toc li:last-child { border-bottom: none; }
+.toc a {
+  color: #0C5A7A;
+  text-decoration: none;
+}
+.toc a:hover { color: #0CB7F2; }
+
+.cta-product {
+  background: linear-gradient(135deg, #E6F7FD 0%, #F0FCFE 100%);
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  text-align: left;
+  margin: 3rem 0;
+  border: 1px solid #B8E7F5;
+}
+.cta-product h3 {
+  margin-top: 0 !important;
+  margin-bottom: 0.75rem !important;
+  color: #0C5A7A;
+}
+.cta-product p {
+  font-size: 1em !important;
+  line-height: 1.6 !important;
+  margin-bottom: 1.25rem !important;
+}
+.btn-primary {
+  display: inline-block;
+  padding: 0.85rem 1.75rem;
+  background: #0CB7F2;
+  color: white !important;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95em;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: #0995C5; }
+
+.author-box {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.75rem 2rem;
+  background: #E6F7FD;
+  border-radius: 12px;
+  margin: 2.5rem 0;
+  align-items: flex-start;
+  border-left: 4px solid #0CB7F2;
+}
+.author-box .author-info { flex: 1; }
+.author-box h4 {
+  margin: 0 0 0.35rem 0 !important;
+  font-size: 1.15em;
+  color: #0C5A7A;
+}
+.author-box .role {
+  margin: 0 0 0.85rem 0 !important;
+  font-style: italic;
+  color: #4B5563;
+  font-size: 0.95em;
+}
+.author-box p {
+  margin: 0.4rem 0 !important;
+  font-size: 0.95em;
+  line-height: 1.55;
+}
+
+.medical-disclaimer {
+  background: #FFF8E1;
+  border-left: 4px solid #FFA000;
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9em;
+  margin: 2rem 0;
+  color: #5C4500;
+}
+.medical-disclaimer strong { color: #5C4500; }
+.medical-disclaimer p {
+  margin: 0 !important;
+  font-size: 0.9em !important;
+}
+
+.references {
+  background: #FAFAFA;
+  padding: 1.75rem 2rem;
+  border-radius: 12px;
+  margin: 2.5rem 0;
+  font-size: 0.95em;
+}
+.references h3 {
+  margin-top: 0 !important;
+  margin-bottom: 1rem !important;
+  color: #1F2937;
+}
+.references ol {
+  padding-left: 1.5rem !important;
+}
+.references li {
+  margin-bottom: 0.6rem !important;
+  line-height: 1.55;
+}
+
+@media (max-width: 768px) {
+  .author-box { flex-direction: column; }
+  .intro-lede, .lede-answer { padding: 16px 18px !important; }
+  .cta-product { padding: 1.5rem; text-align: center; }
+}
+</style>
+
+<!-- ===== 1. INTRO LEDE (respuesta directa al title del artículo) ===== -->
+<p class="intro-lede"><strong>[RESPUESTA DIRECTA AL TÍTULO EN 35-50 PALABRAS — DEBE SER AUTOCONTENIDA Y FUNCIONAR COMO SNIPPET. EJEMPLO: "Los electrolitos son clave para X porque Y. Mejorar Z permite W."]</strong></p>
+
+<!-- ===== 2. PÁRRAFO DE CONTEXTO NARRATIVO ===== -->
+<p>[CONTEXTO NARRATIVO QUE INTRODUCE EL PROBLEMA — 2-3 ORACIONES. NO ES RESPUESTA DIRECTA, ES NARRATIVA.]</p>
+
+<!-- ===== 3. IMAGEN PRINCIPAL ===== -->
+<div class="article-image-center">
+  <img src="[URL_CDN_SHOPIFY_IMAGEN_PRINCIPAL]" alt="[ALT DESCRIPTIVO CON KEYWORD PRINCIPAL]" width="[ANCHO]" height="[ALTO]">
+</div>
+
+<!-- ===== 4. PRESENTACIÓN DEL PROFESIONAL (transición) ===== -->
+<p>En este artículo, [NOMBRE_DEL_PROFESIONAL] —[ROL_CLÍNICO]— explica [TEMA_PRINCIPAL_DEL_ARTÍCULO].</p>
+
+<hr>
+
+<!-- ===== 5. TABLA DE CONTENIDOS ===== -->
+<div class="toc">
+  <h3>Lo que vas a encontrar en este artículo</h3>
+  <ul>
+    <li><a href="#h2-1">[PREGUNTA DEL H2 1]</a></li>
+    <li><a href="#h2-2">[PREGUNTA DEL H2 2]</a></li>
+    <li><a href="#h2-3">[PREGUNTA DEL H2 3]</a></li>
+    <li><a href="#h2-4">[PREGUNTA DEL H2 4]</a></li>
+    <li><a href="#cuando-consultar">¿Cuándo consultar con un profesional?</a></li>
+  </ul>
+</div>
+
+<hr>
+
+<!-- ===== 6. SECCIÓN H2 #1 — PATTERN DUAL ===== -->
+<h2 id="h2-1">[PREGUNTA LITERAL QUE LA GENTE BUSCA EN GOOGLE]</h2>
+
+<p class="lede-answer"><strong>[RESPUESTA DIRECTA 25-50 PALABRAS — AUTOCONTENIDA, SIN PRONOMBRES SIN ANTECEDENTE, FUNCIONA COMO SNIPPET]</strong></p>
+
+<p>[EXPANSIÓN: CONTEXTO QUE RESPALDA LA RESPUESTA — 1-2 PÁRRAFOS]</p>
+
+<p>[INTRODUCCIÓN DE LISTA SI APLICA:]</p>
+
+<ul>
+  <li><strong>[Concepto 1]</strong>: [Explicación breve].</li>
+  <li><strong>[Concepto 2]</strong>: [Explicación breve].</li>
+  <li><strong>[Concepto 3]</strong>: [Explicación breve].</li>
+  <li><strong>[Concepto 4]</strong>: [Explicación breve].</li>
+</ul>
+
+<p>[CIERRE OPCIONAL CON MATIZ O CONTEXTO ADICIONAL.]</p>
+
+<hr>
+
+<!-- ===== SECCIÓN H2 #2 — repetir pattern ===== -->
+<h2 id="h2-2">[PREGUNTA H2 2]</h2>
+
+<p class="lede-answer"><strong>[RESPUESTA DIRECTA]</strong></p>
+
+<p>[EXPANSIÓN]</p>
+
+<ul>
+  <li>[item]</li>
+</ul>
+
+<hr>
+
+<!-- ===== SECCIÓN H2 #3 — con IMAGEN intercalada (ejemplo) ===== -->
+<h2 id="h2-3">[PREGUNTA H2 3]</h2>
+
+<p class="lede-answer"><strong>[RESPUESTA DIRECTA]</strong></p>
+
+<p>[EXPANSIÓN]</p>
+
+<div class="article-image-center">
+  <img src="[URL_CDN_IMAGEN_SECUNDARIA]" alt="[ALT DESCRIPTIVO]" width="[ANCHO]" height="[ALTO]">
+</div>
+
+<hr>
+
+<!-- ===== SECCIÓN H2 #4 ===== -->
+<h2 id="h2-4">[PREGUNTA H2 4]</h2>
+
+<p class="lede-answer"><strong>[RESPUESTA DIRECTA]</strong></p>
+
+<p>[EXPANSIÓN]</p>
+
+<hr>
+
+<!-- ===== ÚLTIMA SECCIÓN: CUÁNDO CONSULTAR CON PROFESIONAL (YMYL) ===== -->
+<h2 id="cuando-consultar">¿Cuándo consultar con tu [profesional o equipo médico]?</h2>
+
+<p class="lede-answer"><strong>[FRASE CLARA SOBRE CUÁNDO BUSCAR AYUDA PROFESIONAL — 20-30 PALABRAS]</strong></p>
+
+<p>[EXPANSIÓN: REFORZAR QUE LOS SUPLEMENTOS NO REEMPLAZAN SEGUIMIENTO PROFESIONAL]</p>
+
+<p>Si tu profesional valida el uso de [PRODUCTO/CATEGORÍA] como apoyo, conviene elegir una opción <strong>[CRITERIOS DE CALIDAD: sin azúcar agregada, con registro sanitario, etc.]</strong>.</p>
+
+<hr>
+
+<!-- ===== 7. CTA DE PRODUCTO ===== -->
+<div class="cta-product">
+  <h3>[HOOK CONTEXTUAL AL ARTÍCULO]</h3>
+  <p>Si tu profesional valida el uso de [PRODUCTO] como apoyo, puedes conocer los <a href="/collections/[SLUG_COLECCIÓN]"><strong>[NOMBRE_DEL_PRODUCTO] de [MARCA]</strong></a>: [DESCRIPCIÓN BREVE 1-2 LÍNEAS CON DIFERENCIALES].</p>
+  <p><a href="/collections/[SLUG_COLECCIÓN]" class="btn-primary">Ver [PRODUCTOS] →</a></p>
+</div>
+
+<!-- ===== 8. AUTHOR BOX ===== -->
+<div class="author-box">
+  <div class="author-info">
+    <h4>[NOMBRE DEL PROFESIONAL]</h4>
+    <p class="role">[ROL_CLÍNICO_CON_CREDENCIALES]</p>
+    <p>[BIO_BREVE_2-3_ORACIONES_CON_EXPERIENCIA_RELEVANTE_AL_TEMA_DEL_ARTÍCULO]</p>
+  </div>
+</div>
+
+<!-- ===== 9. DISCLAIMER MÉDICO (obligatorio en YMYL) ===== -->
+<div class="medical-disclaimer">
+  <p><strong>Aviso importante:</strong> este artículo tiene fines educativos y no reemplaza el seguimiento con tu [PROFESIONAL/EQUIPO] médico. Sigue siempre las indicaciones de tu [PROFESIONAL_TRATANTE]. Los suplementos no son medicamentos y no están diseñados para diagnosticar, tratar o curar ninguna enfermedad.</p>
+</div>
+
+<!-- ===== 10. BIBLIOGRAFÍA / REFERENCIAS CIENTÍFICAS ===== -->
+<div class="references">
+  <h3>Referencias científicas</h3>
+  <ol>
+    <li>[AUTOR1] et al. <em>[TÍTULO_DEL_PAPER]</em>. [JOURNAL]. [AÑO].</li>
+    <li>[AUTOR2] et al. <em>[TÍTULO_DEL_PAPER]</em>. [JOURNAL]. [AÑO].</li>
+    <li>[AUTOR3] et al. <em>[TÍTULO_DEL_PAPER]</em>. [JOURNAL]. [AÑO].</li>
+    <li>[AUTOR4] et al. <em>[TÍTULO_DEL_PAPER]</em>. [JOURNAL]. [AÑO].</li>
+    <li>[AUTOR5] et al. <em>[TÍTULO_DEL_PAPER]</em>. [JOURNAL]. [AÑO].</li>
+  </ol>
+</div>
+
+<!-- ===== 11. SCHEMA JSON-LD: ARTICLE ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "[TITLE_COMPLETO_DEL_ARTÍCULO]",
+  "image": "[URL_ABSOLUTA_FEATURED_IMAGE]",
+  "datePublished": "[YYYY-MM-DD]",
+  "dateModified": "[YYYY-MM-DD]",
+  "author": {
+    "@type": "Person",
+    "name": "[NOMBRE_DEL_PROFESIONAL]",
+    "jobTitle": "[ROL_CLÍNICO_COMPLETO]",
+    "knowsAbout": ["[TEMA_1]", "[TEMA_2]", "[TEMA_3]", "[TEMA_4]"]
+  },
+  "reviewedBy": {
+    "@type": "Person",
+    "name": "[NOMBRE_DEL_PROFESIONAL]",
+    "jobTitle": "[ROL_CLÍNICO_BREVE]"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "[NOMBRE_DE_LA_MARCA]",
+    "logo": {"@type": "ImageObject", "url": "[URL_ABSOLUTA_LOGO]"}
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "[URL_ABSOLUTA_DEL_ARTÍCULO]"
+  },
+  "about": [
+    {"@type": "[MedicalCondition|MedicalProcedure|Thing]", "name": "[CONCEPTO_PRINCIPAL]"},
+    {"@type": "Thing", "name": "[CONCEPTO_SECUNDARIO]"}
+  ]
+}
+</script>
+
+<!-- ===== 12. SCHEMA JSON-LD: FAQPAGE ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "[PREGUNTA H2 1]",
+      "acceptedAnswer": {"@type": "Answer", "text": "[RESPUESTA DIRECTA DEL LEDE-ANSWER 1, sin etiquetas HTML]"}
+    },
+    {
+      "@type": "Question",
+      "name": "[PREGUNTA H2 2]",
+      "acceptedAnswer": {"@type": "Answer", "text": "[RESPUESTA DIRECTA DEL LEDE-ANSWER 2]"}
+    },
+    {
+      "@type": "Question",
+      "name": "[PREGUNTA H2 3]",
+      "acceptedAnswer": {"@type": "Answer", "text": "[RESPUESTA DIRECTA DEL LEDE-ANSWER 3]"}
+    },
+    {
+      "@type": "Question",
+      "name": "[PREGUNTA H2 4]",
+      "acceptedAnswer": {"@type": "Answer", "text": "[RESPUESTA DIRECTA DEL LEDE-ANSWER 4]"}
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuándo consultar con un profesional?",
+      "acceptedAnswer": {"@type": "Answer", "text": "[RESPUESTA DIRECTA SOBRE CUÁNDO CONSULTAR]"}
+    }
+  ]
+}
+</script>

@@ -12,6 +12,9 @@
 - **Envío**: se propuso el esquema Gmail MCP (borradores para aprobar, 10–40 por día) → luego Instantly, Smartlead o Lemlist desde un **dominio secundario** con warmup. No hay confirmación de qué se implementó.
 - Correos de ventas post-llamada: skills `advanz-sales-push-emails` y `advanz-closing-agent` (envío de contrato, follow-up, recuperación).
 
+- **Accesos probados (2026-10-19, solo lectura)**: Gmail ✅ (Operaciones@advanz.cl, borradores) · Drive ✅ · Notion conectado, sin probar · **Klaviyo y Shopify conectados a AmazingCare, no a Advanz** · GHL sin conector.
+- **Command Center**: `os-data.json` publicado (fuente `os`, 4 fugas F01–F04) y Dashboard https://claude.ai/artifact/4HWR35KxAKwS7UiFdps7yJ (privado). Se actualiza en cada cierre junto con este archivo.
+
 ## Decisiones tomadas
 - **2026-08-13**: Arquitectura de outbound en 3 capas (scraping → Notion → envío con seguimiento). Personalización de 1 línea por marca, opt-out, warmup y nunca el dominio principal. Solo correos corporativos públicos. (Propuesta; no quedó registrada la elección de A/B/C.)
 - **(sin fecha)** Cero pitch en el primer toque: se entrega el hallazgo, no se vende la llamada. Si nadie responde, se arregla el copy del DM, no la oferta.
@@ -23,6 +26,7 @@
 - [ ] Documentar los 5 correos del workflow GHL (asuntos, timing, CTA) en este OS.
 - [ ] Secuencia de outbound: apertura con hallazgo + 2 follow-ups (día 3 y día 7).
 - [ ] Conectar el form del lead magnet Shopify al workflow GHL: hoy el `fetch('/api/leads')` está comentado (ver OS CRO).
+- [ ] En cada cierre: actualizar `os-data.json` y volver a subir sus datos al Dashboard.
 - Falta levantar: tasas reales (envíos, respuesta, agendas), acceso o API de GHL y la lista de dominios de envío.
 
 ## Fuentes

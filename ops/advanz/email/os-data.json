@@ -1,0 +1,180 @@
+{
+  "version": "1.0",
+  "os_id": "advanz.email",
+  "grupo": "advanz",
+  "area": "email",
+  "marca": "Advanz",
+  "actualizado": "2026-10-19",
+  "fuente": "os",
+  "artifact_url": "https://claude.ai/artifact/4HWR35KxAKwS7UiFdps7yJ",
+  "kpis": [
+    {
+      "id": "diag_vercel",
+      "nombre": "Diagnósticos vivos colgados",
+      "valor": 40,
+      "unidad": "diag",
+      "periodo": "acumulado",
+      "meta": 100,
+      "estado": "warn",
+      "fuente": "estado.md (meta 100/semana)"
+    },
+    {
+      "id": "diag_enviados",
+      "nombre": "Diagnósticos enviados al founder",
+      "valor": null,
+      "unidad": "diag",
+      "periodo": "—",
+      "meta": 100,
+      "estado": "sin-dato",
+      "fuente": "—"
+    },
+    {
+      "id": "reply_rate",
+      "nombre": "Tasa de respuesta outbound",
+      "valor": null,
+      "unidad": "%",
+      "periodo": "—",
+      "meta": null,
+      "estado": "sin-dato",
+      "fuente": "—"
+    },
+    {
+      "id": "agendas",
+      "nombre": "Llamadas agendadas",
+      "valor": null,
+      "unidad": "agendas",
+      "periodo": "semana",
+      "meta": 6,
+      "estado": "sin-dato",
+      "fuente": "—"
+    }
+  ],
+  "fugas": [
+    {
+      "id": "advanz.email.F01",
+      "titulo": "~40 diagnósticos listos sin contacto del founder: no se pueden enviar",
+      "etapa": "acquisition",
+      "punto_funnel": "lead",
+      "severidad": 5,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Es el canal principal: 0 envíos = 0 agendas",
+      "evidencia": "Bloqueo declarado: enriquecimiento de contacto",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Correr la cascada footer → IG → LinkedIn → WHOIS y cargar en repo-ecommerces",
+        "os_ejecutor": "email",
+        "via": "mcp",
+        "conector": "Notion",
+        "requiere_ok": false,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "advanz.email.F02",
+      "titulo": "Sin herramienta ni dominio secundario de envío en frío definidos",
+      "etapa": "acquisition",
+      "punto_funnel": "lead",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Propuesta Gmail → Instantly/Smartlead sin confirmar",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Decidir herramienta (Gmail en borradores o Instantly/Smartlead) y dominio secundario con SPF/DKIM/warmup",
+        "os_ejecutor": "email",
+        "via": "mcp",
+        "conector": "Gmail",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "advanz.email.F03",
+      "titulo": "Leads del lead magnet Shopify no entran al workflow GHL",
+      "etapa": "workflows",
+      "punto_funnel": "captura",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "fetch('/api/leads') comentado en el form",
+      "estado": "abierta",
+      "depende_de": [
+        "advanz.cro.F01"
+      ],
+      "afecta_os": [
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Conectar el form al workflow de 5 correos",
+        "os_ejecutor": "cro",
+        "via": "manual",
+        "conector": "GHL",
+        "requiere_ok": true,
+        "acceso": "sin-conector"
+      }
+    },
+    {
+      "id": "advanz.email.F04",
+      "titulo": "Nurturing de 5 correos en GHL sin documentar ni medir",
+      "etapa": "workflows",
+      "punto_funnel": "agenda",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Sin tasas no se sabe en qué correo se cae el lead antes de agendar",
+      "evidencia": "GHL sin conector MCP; asuntos, timing, CTA y métricas no levantados",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Levantar los 5 correos y sus tasas desde GHL (export o capturas) y documentarlos en este OS",
+        "os_ejecutor": "email",
+        "via": "manual",
+        "conector": "GHL",
+        "requiere_ok": false,
+        "acceso": "sin-conector"
+      }
+    }
+  ],
+  "accesos": [
+    {
+      "conector": "Gmail",
+      "estado": "ok",
+      "nota": "Operaciones@advanz.cl: lectura de borradores probada el 2026-10-19"
+    },
+    {
+      "conector": "Notion",
+      "estado": "sin-probar",
+      "nota": "Conectado; repo-ecommerces aún sin leer en esta sesión"
+    },
+    {
+      "conector": "Google_Drive",
+      "estado": "ok",
+      "nota": "Lectura probada; lo reciente es material de AmazingCare"
+    },
+    {
+      "conector": "GHL",
+      "estado": "sin-conector",
+      "nota": "Necesita export CSV, API o capturas"
+    },
+    {
+      "conector": "Klaviyo",
+      "estado": "bloqueado",
+      "nota": "Conectado a la cuenta de AmazingCare, no a Advanz"
+    },
+    {
+      "conector": "Shopify",
+      "estado": "bloqueado",
+      "nota": "Conectado a la tienda amazingcare.cl, no a Advanz"
+    }
+  ]
+}

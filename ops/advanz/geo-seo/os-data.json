@@ -1,0 +1,158 @@
+{
+  "version": "1.0",
+  "os_id": "advanz.geo-seo",
+  "grupo": "advanz",
+  "area": "geo-seo",
+  "marca": "Advanz",
+  "actualizado": "2026-10-19",
+  "fuente": "os",
+  "artifact_url": "https://claude.ai/artifact/BWRXxdf18LTzm3iBu5SUwS",
+  "kpis": [
+    {
+      "id": "gsc_clics",
+      "nombre": "Clics orgánicos advanz.cl",
+      "valor": null,
+      "unidad": "clics",
+      "periodo": "—",
+      "meta": null,
+      "estado": "sin-dato",
+      "fuente": "Search_Console"
+    },
+    {
+      "id": "kw_top10",
+      "nombre": "Keywords en top-10",
+      "valor": null,
+      "unidad": "keywords",
+      "periodo": "—",
+      "meta": null,
+      "estado": "sin-dato",
+      "fuente": "Ahrefs"
+    },
+    {
+      "id": "ia_sov",
+      "nombre": "Citas en IA (share of voice)",
+      "valor": null,
+      "unidad": "%",
+      "periodo": "—",
+      "meta": null,
+      "estado": "sin-dato",
+      "fuente": "Ahrefs"
+    },
+    {
+      "id": "leads_organicos",
+      "nombre": "Leads orgánicos",
+      "valor": 0,
+      "unidad": "leads/semana",
+      "periodo": "2026-10",
+      "meta": 0,
+      "estado": "sin-dato",
+      "fuente": "GHL"
+    }
+  ],
+  "fugas": [
+    {
+      "id": "advanz.geo-seo.F01",
+      "titulo": "Sin baseline de Search Console ni de citas en LLM de advanz.cl",
+      "etapa": "foundations",
+      "punto_funnel": "medicion",
+      "severidad": 2,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Sin línea base no se puede medir ni reactivar el canal",
+      "evidencia": "estado.md: no hay GSC, keywords ni prueba de citas del sitio propio. Ahrefs responde 'Insufficient plan' y Semrush no tiene unidades de API (prueba del 2026-10-19)",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [],
+      "accion": {
+        "descripcion": "Dar acceso a Search Console de advanz.cl y correr 10 prompts en ChatGPT/Perplexity ('agencia ecommerce Chile' y similares)",
+        "os_ejecutor": "geo-seo",
+        "via": "cowork",
+        "conector": "Search_Console",
+        "requiere_ok": false,
+        "acceso": "sin-conector"
+      }
+    },
+    {
+      "id": "advanz.geo-seo.F02",
+      "titulo": "Vía de publicación del blog en GHL sin decidir",
+      "etapa": "systems",
+      "punto_funnel": "contenido",
+      "severidad": 2,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Frena publicar los blogs HTML ya terminados",
+      "evidencia": "Opciones planteadas el 2026-09-12 (manual / Make-n8n / conector); recomendación: manual. Sin respuesta del usuario",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [],
+      "accion": {
+        "descripcion": "Decidir manual (pegar en GHL) vs API",
+        "os_ejecutor": "geo-seo",
+        "via": "manual",
+        "conector": "GHL",
+        "requiere_ok": false,
+        "acceso": "sin-conector"
+      }
+    },
+    {
+      "id": "advanz.geo-seo.F03",
+      "titulo": "Canal SEO/GEO detenido: 0 leads orgánicos",
+      "etapa": "acquisition",
+      "punto_funnel": "lead",
+      "severidad": 2,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Detenido a propósito: la autoridad tarda meses y hoy la prioridad es caja vía outbound. Se reactiva cuando haya margen",
+      "evidencia": "advanz-acquisition-system: SEO/GEO 🔴, meta 0/semana",
+      "estado": "abierta",
+      "depende_de": [
+        "advanz.geo-seo.F01"
+      ],
+      "afecta_os": [
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Reactivar cuando la caja lo permita, partiendo del baseline (F01) y publicando lo ya hecho (F02)",
+        "os_ejecutor": "geo-seo",
+        "via": "manual",
+        "conector": "GHL",
+        "requiere_ok": true,
+        "acceso": "sin-conector"
+      }
+    }
+  ],
+  "accesos": [
+    {
+      "conector": "Search_Console",
+      "estado": "sin-conector",
+      "nota": "Sin acceso a advanz.cl"
+    },
+    {
+      "conector": "Ahrefs",
+      "estado": "sin-plan",
+      "nota": "'Insufficient plan' en site explorer y proyectos (2026-10-19)"
+    },
+    {
+      "conector": "Semrush",
+      "estado": "sin-plan",
+      "nota": "Suscripción activa sin unidades de API (2026-10-19)"
+    },
+    {
+      "conector": "GHL",
+      "estado": "sin-conector",
+      "nota": "El blog de advanz.cl vive en GHL; no hay MCP"
+    },
+    {
+      "conector": "GA4",
+      "estado": "sin-conector",
+      "nota": "Sin acceso a GA4 de advanz.cl"
+    },
+    {
+      "conector": "Google_Drive",
+      "estado": "ok",
+      "nota": "Lectura probada 2026-10-19"
+    },
+    {
+      "conector": "Notion",
+      "estado": "ok",
+      "nota": "Lectura probada 2026-10-19"
+    }
+  ]
+}

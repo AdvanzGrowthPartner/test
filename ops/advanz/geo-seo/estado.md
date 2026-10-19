@@ -17,6 +17,10 @@
   - Página de Notion reescrita al estándar Advanz (`39ea30152d0081aba064c265632dc471`).
   - Pricing del retainer en `contexto-marca.md`.
 
+## Artifact del OS
+- Dashboard "Advanz · OS GEO/SEO": https://claude.ai/artifact/BWRXxdf18LTzm3iBu5SUwS. Se dibuja desde `os-data.json` (contrato del Command Center). Actualizar ambos en cada cierre.
+- Accesos probados el 19-oct: Ahrefs sin plan ("Insufficient plan"), Semrush sin unidades de API, Drive y Notion OK, Shopify conectado a amazingcare.cl (no aplica a Advanz).
+
 ## Decisiones tomadas
 - **(sin fecha, vigente)** SEO/GEO propio detenido. **Condición de reactivación**: caja resuelta por outbound y margen para invertir en un canal de retorno diferido.
 - **2026-09-03**: Cada módulo de servicio en el board de Miro = **entregable/SOP (captura HTML) + card de la skill (Notion)**. El módulo SEO quedó completo. Las páginas de skill en Notion se escriben en lenguaje de negocio, con lo técnico en toggles.

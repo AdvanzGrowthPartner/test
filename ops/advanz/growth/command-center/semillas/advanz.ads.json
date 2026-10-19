@@ -1,0 +1,82 @@
+{
+  "version": "1.0",
+  "os_id": "advanz.ads",
+  "grupo": "advanz",
+  "area": "ads",
+  "marca": "Advanz",
+  "actualizado": "2026-10-19",
+  "fuente": "semilla-growth",
+  "artifact_url": null,
+  "kpis": [
+    {
+      "id": "spend",
+      "nombre": "Inversión propia",
+      "valor": 0,
+      "unidad": "CLP",
+      "periodo": "actual",
+      "meta": 0,
+      "estado": "ok",
+      "fuente": "Decisión: canal detenido"
+    }
+  ],
+  "fugas": [
+    {
+      "id": "advanz.ads.F01",
+      "titulo": "Cuenta Meta Advanz UNSETTLED: sin lectura de historial ni opción de reactivar",
+      "etapa": "foundations",
+      "punto_funnel": "medicion",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "account_status UNSETTLED (lectura 2026-10-19)",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Regularizar el pago pendiente en Meta Business",
+        "os_ejecutor": "ads",
+        "via": "manual",
+        "conector": "Meta_Ads",
+        "requiere_ok": true,
+        "acceso": "bloqueado"
+      }
+    },
+    {
+      "id": "advanz.ads.F02",
+      "titulo": "Pixel/CAPI de advanz.cl y landers sin verificar",
+      "etapa": "foundations",
+      "punto_funnel": "medicion",
+      "severidad": 2,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Tracking previsto, no confirmado",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "cro"
+      ],
+      "accion": {
+        "descripcion": "Revisar el dataset en Meta y el script en GHL/Vercel",
+        "os_ejecutor": "ads",
+        "via": "mcp",
+        "conector": "Meta_Ads",
+        "requiere_ok": false,
+        "acceso": "bloqueado"
+      }
+    }
+  ],
+  "accesos": [
+    {
+      "conector": "Meta_Ads",
+      "estado": "bloqueado",
+      "nota": "UNSETTLED"
+    },
+    {
+      "conector": "Google_Ads",
+      "estado": "sin-conector",
+      "nota": ""
+    }
+  ]
+}

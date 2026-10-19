@@ -1,0 +1,144 @@
+{
+  "version": "1.0",
+  "os_id": "amazingcare.geo-seo",
+  "grupo": "amazingcare",
+  "area": "geo-seo",
+  "marca": "AmazingCare",
+  "actualizado": "2026-10-19",
+  "fuente": "semilla-growth",
+  "artifact_url": null,
+  "kpis": [
+    {
+      "id": "gsc_clics",
+      "nombre": "Clics orgánicos (12 meses)",
+      "valor": 5837,
+      "unidad": "clics",
+      "periodo": "2025-07-01/2026-09-10",
+      "meta": null,
+      "estado": "ok",
+      "fuente": "Search_Console"
+    },
+    {
+      "id": "ctr_electrolitos",
+      "nombre": "CTR 'electrolitos' (69,7K impresiones)",
+      "valor": 0.49,
+      "unidad": "%",
+      "periodo": "12 meses",
+      "meta": null,
+      "estado": "bad",
+      "fuente": "Search_Console"
+    }
+  ],
+  "fugas": [
+    {
+      "id": "amazingcare.geo-seo.F01",
+      "titulo": "'electrolitos' en posición 6,3 con CTR 0,49% sobre 69,7K impresiones",
+      "etapa": "acquisition",
+      "punto_funnel": "trafico",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "GSC export 11-sep",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [],
+      "accion": {
+        "descripcion": "Empujar la PDP/colección a top 3 y mejorar el snippet",
+        "os_ejecutor": "geo-seo",
+        "via": "mcp",
+        "conector": "Shopify",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.geo-seo.F02",
+      "titulo": "Blog de creatina (6,8K impresiones) sin enlace a la nueva PDP Creatina",
+      "etapa": "acquisition",
+      "punto_funnel": "pdp",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Creatina lanzada en oct-26",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [],
+      "accion": {
+        "descripcion": "Enlazar el blog a la PDP",
+        "os_ejecutor": "geo-seo",
+        "via": "mcp",
+        "conector": "Shopify",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.geo-seo.F03",
+      "titulo": "Merchant free listings casi apagados (578 impresiones en 12 meses)",
+      "etapa": "acquisition",
+      "punto_funnel": "trafico",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Mejor CTR del sitio (5%)",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "ads"
+      ],
+      "accion": {
+        "descripcion": "Optimizar el feed de Merchant",
+        "os_ejecutor": "geo-seo",
+        "via": "mcp",
+        "conector": "Shopify",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.geo-seo.F04",
+      "titulo": "Sin schema AggregateRating, Wikidata ni llms.txt (señales GEO)",
+      "etapa": "foundations",
+      "punto_funnel": "pdp",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "ChatGPT ya aterriza en PDP",
+      "estado": "abierta",
+      "depende_de": [
+        "amazingcare.cro.F04"
+      ],
+      "afecta_os": [],
+      "accion": {
+        "descripcion": "Schema + llms.txt",
+        "os_ejecutor": "cro",
+        "via": "mcp",
+        "conector": "Shopify",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    }
+  ],
+  "accesos": [
+    {
+      "conector": "Shopify",
+      "estado": "ok",
+      "nota": ""
+    },
+    {
+      "conector": "Search_Console",
+      "estado": "sin-conector",
+      "nota": "Solo export manual"
+    },
+    {
+      "conector": "Ahrefs",
+      "estado": "sin-plan",
+      "nota": ""
+    },
+    {
+      "conector": "Semrush",
+      "estado": "sin-plan",
+      "nota": ""
+    }
+  ]
+}

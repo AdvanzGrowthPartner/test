@@ -1,0 +1,120 @@
+{
+  "version": "1.0",
+  "os_id": "advanz.creative",
+  "grupo": "advanz",
+  "area": "creative",
+  "marca": "Advanz",
+  "actualizado": "2026-10-19",
+  "fuente": "semilla-growth",
+  "artifact_url": null,
+  "kpis": [
+    {
+      "id": "posts_sem",
+      "nombre": "Posts por semana",
+      "valor": null,
+      "unidad": "posts",
+      "periodo": "semana actual",
+      "meta": 5,
+      "estado": "sin-dato",
+      "fuente": "Instagram"
+    }
+  ],
+  "fugas": [
+    {
+      "id": "advanz.creative.F01",
+      "titulo": "Reels con hooks de bajo techo de alcance (calificación / cómo-hacer)",
+      "etapa": "acquisition",
+      "punto_funnel": "contenido",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "2 reels: buen engagement, poco alcance",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Testear hooks resultado+número, curiosidad, contrarian",
+        "os_ejecutor": "creative",
+        "via": "mcp",
+        "conector": "Canva",
+        "requiere_ok": false,
+        "acceso": "sin-probar"
+      }
+    },
+    {
+      "id": "advanz.creative.F02",
+      "titulo": "Sin métricas de IG (alcance, comentarios) en ningún OS",
+      "etapa": "systems",
+      "punto_funnel": "medicion",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Handle y métricas por levantar; Instagram bloqueado en el entorno",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Export manual de Insights o conector",
+        "os_ejecutor": "creative",
+        "via": "manual",
+        "conector": "Instagram",
+        "requiere_ok": true,
+        "acceso": "sin-conector"
+      }
+    },
+    {
+      "id": "advanz.creative.F03",
+      "titulo": "CTA de comment-bait apunta a un quiz que no existe",
+      "etapa": "acquisition",
+      "punto_funnel": "captura",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Decisión 2026-09-08",
+      "estado": "abierta",
+      "depende_de": [
+        "advanz.cro.F04"
+      ],
+      "afecta_os": [],
+      "accion": {
+        "descripcion": "Esperar quiz de CRO",
+        "os_ejecutor": "creative",
+        "via": "manual",
+        "conector": "Vercel",
+        "requiere_ok": true,
+        "acceso": "sin-probar"
+      }
+    }
+  ],
+  "accesos": [
+    {
+      "conector": "Canva",
+      "estado": "sin-probar",
+      "nota": ""
+    },
+    {
+      "conector": "Figma",
+      "estado": "sin-probar",
+      "nota": ""
+    },
+    {
+      "conector": "Magnific",
+      "estado": "sin-probar",
+      "nota": ""
+    },
+    {
+      "conector": "pletor",
+      "estado": "sin-probar",
+      "nota": ""
+    },
+    {
+      "conector": "Instagram",
+      "estado": "sin-conector",
+      "nota": ""
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "version": "1.0",
+  "os_id": "advanz.growth",
+  "grupo": "advanz",
+  "area": "growth",
+  "marca": "Advanz",
+  "actualizado": "2026-10-19",
+  "fuente": "os",
+  "artifact_url": "https://claude.ai/artifact/44LVZUHY5tgGH6P7Nb6vHk",
+  "kpis": [
+    {
+      "id": "diag_sem",
+      "nombre": "Diagnósticos entregados por semana",
+      "valor": null,
+      "unidad": "diag",
+      "periodo": "semana actual",
+      "meta": 100,
+      "estado": "sin-dato",
+      "fuente": "Notion · Canales de Adquisición"
+    },
+    {
+      "id": "agendas_sem",
+      "nombre": "Llamadas agendadas por semana",
+      "valor": null,
+      "unidad": "llamadas",
+      "periodo": "semana actual",
+      "meta": 8,
+      "estado": "sin-dato",
+      "fuente": "GHL"
+    },
+    {
+      "id": "cierres_sem",
+      "nombre": "Cierres por semana",
+      "valor": null,
+      "unidad": "cierres",
+      "periodo": "semana actual",
+      "meta": 2,
+      "estado": "sin-dato",
+      "fuente": "Notion · Cotizaciones"
+    },
+    {
+      "id": "canales_on",
+      "nombre": "Canales de adquisición activos",
+      "valor": 3,
+      "unidad": "de 6",
+      "periodo": "2026-10-19",
+      "meta": null,
+      "estado": "warn",
+      "fuente": "estado.md"
+    }
+  ],
+  "fugas": [
+    {
+      "id": "advanz.growth.F01",
+      "titulo": "No se registran los números del embudo (diagnósticos → agendas → cierres)",
+      "etapa": "systems",
+      "punto_funnel": "medicion",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Sin esto no se sabe qué capa del embudo falla",
+      "evidencia": "estado.md: pendiente registrar números semana a semana; GHL sin conector",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "email",
+        "cro"
+      ],
+      "accion": {
+        "descripcion": "Cargar la semana en el tablero 📊 Canales de Adquisición y exportar GHL a CSV",
+        "os_ejecutor": "growth",
+        "via": "mcp",
+        "conector": "Notion",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "advanz.growth.F02",
+      "titulo": "Resultado del deal Marê sin confirmar: el aprendizaje de cierre no vuelve al pitch",
+      "etapa": "feedback",
+      "punto_funnel": "cierre",
+      "severidad": 2,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Propuesta 21/08, sin registro de resultado",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [],
+      "accion": {
+        "descripcion": "Confirmar resultado y registrar en Aprendizajes",
+        "os_ejecutor": "growth",
+        "via": "mcp",
+        "conector": "Notion",
+        "requiere_ok": false,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "advanz.growth.F03",
+      "titulo": "Canal video 🟡 trabado por la sesión batch de Patricio",
+      "etapa": "acquisition",
+      "punto_funnel": "contenido",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Video pendiente; la cadena SOP → video → página → CTA no arranca",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "creative",
+        "geo-seo"
+      ],
+      "accion": {
+        "descripcion": "Agendar sesión batch de 2–3 h",
+        "os_ejecutor": "creative",
+        "via": "manual",
+        "conector": "Notion",
+        "requiere_ok": false,
+        "acceso": "ok"
+      }
+    }
+  ],
+  "accesos": [
+    {
+      "conector": "Notion",
+      "estado": "ok",
+      "nota": "Tablero 📊 Canales de Adquisición encontrado"
+    },
+    {
+      "conector": "Google_Drive",
+      "estado": "ok",
+      "nota": ""
+    },
+    {
+      "conector": "Miro",
+      "estado": "ok",
+      "nota": ""
+    },
+    {
+      "conector": "Meta_Ads",
+      "estado": "bloqueado",
+      "nota": "Cuenta 120273191181276 UNSETTLED"
+    },
+    {
+      "conector": "GHL",
+      "estado": "sin-conector",
+      "nota": "CRM y funnel sin MCP"
+    },
+    {
+      "conector": "Ahrefs",
+      "estado": "sin-plan",
+      "nota": ""
+    },
+    {
+      "conector": "Semrush",
+      "estado": "sin-plan",
+      "nota": "Sin unidades de API"
+    }
+  ]
+}

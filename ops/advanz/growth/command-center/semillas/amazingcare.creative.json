@@ -1,0 +1,118 @@
+{
+  "version": "1.0",
+  "os_id": "amazingcare.creative",
+  "grupo": "amazingcare",
+  "area": "creative",
+  "marca": "AmazingCare",
+  "actualizado": "2026-10-19",
+  "fuente": "semilla-growth",
+  "artifact_url": null,
+  "kpis": [
+    {
+      "id": "ctr_salud",
+      "nombre": "CTR ángulo Disautonomía/Salud",
+      "valor": 2.17,
+      "unidad": "%",
+      "periodo": "sep-26",
+      "meta": null,
+      "estado": "ok",
+      "fuente": "Meta_Ads"
+    },
+    {
+      "id": "share_salud",
+      "nombre": "Gasto en ángulo Salud",
+      "valor": 6,
+      "unidad": "%",
+      "periodo": "sep-26",
+      "meta": null,
+      "estado": "bad",
+      "fuente": "Meta_Ads"
+    }
+  ],
+  "fugas": [
+    {
+      "id": "amazingcare.creative.F01",
+      "titulo": "El ángulo con mejor CTR (Salud, 2,17%) recibe solo 6% del gasto; 'Descuento FP' 48% con CTR 0,57%",
+      "etapa": "acquisition",
+      "punto_funnel": "trafico",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Cockpit sep-26",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "ads"
+      ],
+      "accion": {
+        "descripcion": "Producir más piezas de Salud con claims validados y pedir a Ads más presupuesto",
+        "os_ejecutor": "ads",
+        "via": "mcp",
+        "conector": "Meta_Ads",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.creative.F02",
+      "titulo": "Base 🎬 Creativos de Notion con data source huérfano",
+      "etapa": "systems",
+      "punto_funnel": "medicion",
+      "severidad": 2,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Vistas apuntan a 816cfa7b… (no existe)",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [],
+      "accion": {
+        "descripcion": "Rearmar las vistas y cargar fichas 0031–0055",
+        "os_ejecutor": "creative",
+        "via": "mcp",
+        "conector": "Notion",
+        "requiere_ok": false,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.creative.F03",
+      "titulo": "Sin análisis creativo del Cyber oct-26",
+      "etapa": "feedback",
+      "punto_funnel": "contenido",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Pendiente",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "ads"
+      ],
+      "accion": {
+        "descripcion": "Cruzar AC-VID/EST/EVT con resultados de Meta",
+        "os_ejecutor": "creative",
+        "via": "mcp",
+        "conector": "Meta_Ads",
+        "requiere_ok": false,
+        "acceso": "ok"
+      }
+    }
+  ],
+  "accesos": [
+    {
+      "conector": "Notion",
+      "estado": "ok",
+      "nota": ""
+    },
+    {
+      "conector": "Meta_Ads",
+      "estado": "ok",
+      "nota": ""
+    },
+    {
+      "conector": "Canva",
+      "estado": "sin-probar",
+      "nota": ""
+    }
+  ]
+}

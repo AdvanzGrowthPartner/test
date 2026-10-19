@@ -1,0 +1,88 @@
+{
+  "version": "1.0",
+  "os_id": "advanz.geo-seo",
+  "grupo": "advanz",
+  "area": "geo-seo",
+  "marca": "Advanz",
+  "actualizado": "2026-10-19",
+  "fuente": "semilla-growth",
+  "artifact_url": null,
+  "kpis": [
+    {
+      "id": "gsc_clics",
+      "nombre": "Clics orgánicos advanz.cl",
+      "valor": null,
+      "unidad": "clics",
+      "periodo": "—",
+      "meta": null,
+      "estado": "sin-dato",
+      "fuente": "Search_Console"
+    }
+  ],
+  "fugas": [
+    {
+      "id": "advanz.geo-seo.F01",
+      "titulo": "Sin baseline de Search Console ni de citas en LLM de advanz.cl",
+      "etapa": "foundations",
+      "punto_funnel": "medicion",
+      "severidad": 2,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "No hay datos del sitio propio",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [],
+      "accion": {
+        "descripcion": "Conectar GSC y correr 10 prompts en ChatGPT/Perplexity",
+        "os_ejecutor": "geo-seo",
+        "via": "cowork",
+        "conector": "Search_Console",
+        "requiere_ok": true,
+        "acceso": "sin-conector"
+      }
+    },
+    {
+      "id": "advanz.geo-seo.F02",
+      "titulo": "Vía de publicación del blog en GHL sin decidir",
+      "etapa": "systems",
+      "punto_funnel": "contenido",
+      "severidad": 2,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Opciones 2026-09-12 sin respuesta",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [],
+      "accion": {
+        "descripcion": "Decidir manual (pegar en GHL) vs API",
+        "os_ejecutor": "geo-seo",
+        "via": "manual",
+        "conector": "GHL",
+        "requiere_ok": false,
+        "acceso": "sin-conector"
+      }
+    }
+  ],
+  "accesos": [
+    {
+      "conector": "Search_Console",
+      "estado": "sin-conector",
+      "nota": ""
+    },
+    {
+      "conector": "Ahrefs",
+      "estado": "sin-plan",
+      "nota": ""
+    },
+    {
+      "conector": "Semrush",
+      "estado": "sin-plan",
+      "nota": ""
+    },
+    {
+      "conector": "GHL",
+      "estado": "sin-conector",
+      "nota": ""
+    }
+  ]
+}

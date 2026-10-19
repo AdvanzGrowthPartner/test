@@ -1,0 +1,300 @@
+<style>
+  #dash-root { --dash-gutter: var(--cds-pad-lg); }
+  .cc { font-family: var(--font-anthropic-sans); display: flex; flex-direction: column; gap: var(--cds-gap-xl); }
+  .cc-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--cds-gap-md); }
+  .cc-title { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; }
+  .cc-take { margin: var(--cds-gap-xs) 0 0; color: var(--color-fg-muted); font-size: var(--cds-font-size-body); max-width: 70ch; }
+  .cc-seg { display: inline-flex; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); overflow: hidden; }
+  .cc-seg button { font: inherit; font-size: var(--cds-font-size-caption); padding: var(--cds-pad-xs) var(--cds-pad-md); border: 0; background: transparent; color: var(--color-fg-muted); cursor: pointer; }
+  .cc-seg button[aria-pressed="true"] { background: var(--color-panel); color: var(--color-fg); font-weight: var(--cds-font-weight-medium); }
+  .cc-seg button:focus-visible { outline: 2px solid var(--color-fg); outline-offset: -2px; }
+  .cc-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); gap: var(--cds-gap-md); }
+  .cc-tile { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-md) var(--cds-pad-lg); display: flex; flex-direction: column; gap: var(--cds-gap-xs); }
+  .cc-tile .lbl { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .cc-tile .num { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); font-variant-numeric: tabular-nums; min-height: 1.2em; }
+  .cc-tile .sub { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .cc-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: flex; flex-direction: column; gap: var(--cds-gap-sm); min-width: 0; }
+  .cc-card h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; }
+  .cc-note { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; }
+  .cc-grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr)); gap: var(--cds-gap-md); }
+  .cc-scroll { overflow: auto; max-height: 34rem; }
+  .cc table { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+  .cc th { text-align: left; font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); position: sticky; top: 0; background: var(--color-panel); white-space: nowrap; }
+  .cc td { padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); vertical-align: top; }
+  .cc td.n, .cc th.n { text-align: right; }
+  .cc .t-main { color: var(--color-fg); font-size: var(--cds-font-size-body); }
+  .cc .t-sub { color: var(--color-fg-muted); margin-top: 2px; }
+  .pill { display: inline-block; padding: 1px var(--cds-pad-sm); border-radius: 999px; border: 1px solid var(--color-border-line); white-space: nowrap; }
+  .pill.ok { color: var(--color-ok); }
+  .pill.warn { color: var(--color-warn); }
+  .pill.bad { color: var(--color-bad); }
+  .sev { display: inline-flex; gap: 2px; vertical-align: middle; }
+  .sev i { width: 6px; height: 10px; border-radius: 2px; background: var(--cds-chart-muted); }
+  .sev i.on { background: var(--color-bad); }
+  .sev.s3 i.on, .sev.s2 i.on, .sev.s1 i.on { background: var(--color-warn); }
+  .heat td.c { text-align: center; min-width: 3.2rem; border-radius: 4px; }
+  .cc-search { font: inherit; font-size: var(--cds-font-size-caption); padding: var(--cds-pad-xs) var(--cds-pad-sm); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); background: var(--color-bg); color: var(--color-fg); width: min(100%, 22rem); }
+  .cc a { color: inherit; }
+  [data-dash-source-state=empty] { color: transparent; }
+  [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+  .cc td.cap { text-transform: capitalize; }
+  @media (max-width: 640px) { .hide-narrow { display: none; } }
+</style>
+
+<div class="cc">
+  <header class="cc-head">
+    <div>
+      <h1 class="cc-title" id="titulo">Advanz OS Command Center</h1>
+      <p class="cc-take" id="takeaway" data-source="oportunidades"></p>
+    </div>
+    <div class="cc-seg" role="group" aria-label="Marca">
+      <button type="button" id="m-todas" data-m="Todas" aria-pressed="true">Todas</button>
+      <button type="button" id="m-advanz" data-m="Advanz" aria-pressed="false">Advanz</button>
+      <button type="button" id="m-ac" data-m="AmazingCare" aria-pressed="false">AmazingCare</button>
+    </div>
+  </header>
+
+  <section class="cc-tiles" id="resumen">
+    <div class="cc-tile"><span class="lbl">Fugas abiertas</span><span class="num dash-skeleton" data-source="resumen" data-field="fugas" data-where="marca=Todas">—</span><span class="sub">en los 12 OS</span></div>
+    <div class="cc-tile"><span class="lbl">Severidad 5 (rompen el funnel)</span><span class="num dash-skeleton" data-source="resumen" data-field="sev5" data-where="marca=Todas">—</span><span class="sub">se pierde plata hoy</span></div>
+    <div class="cc-tile"><span class="lbl">Oportunidades entre OS</span><span class="num dash-skeleton" data-source="resumen" data-field="oportunidades" data-where="marca=Todas">—</span><span class="sub">un arreglo, varios OS</span></div>
+    <div class="cc-tile"><span class="lbl">Ejecutables hoy por MCP</span><span class="num dash-skeleton" data-source="resumen" data-field="mcp_ok" data-where="marca=Todas">—</span><span class="sub">fugas con conector y acceso ok</span></div>
+    <div class="cc-tile"><span class="lbl">OS con artifact propio</span><span class="num dash-skeleton" data-source="resumen" data-field="os_propios" data-where="marca=Todas">—</span><span class="sub">el resto usa semilla de Growth</span></div>
+  </section>
+
+  <section class="cc-card" id="oportunidades-card">
+    <h2>Oportunidades cruzadas</h2>
+    <p class="cc-note">Fugas de distintos OS que se arreglan juntas. Puntaje = severidad máxima × 5 + OS involucrados × 3 + severidad del resto. Todo cambio en plataforma espera tu OK.</p>
+    <div class="cc-scroll">
+      <table id="t-oport" data-source="oportunidades" data-row-key="rank">
+        <thead><tr>
+          <th data-field="rank" class="n">#</th><th data-field="titulo">Oportunidad</th><th data-field="os_involucrados" class="hide-narrow">OS</th>
+          <th data-field="puntaje" class="n">Puntaje</th><th data-field="primer_paso">Primer paso</th><th data-field="via">Vía</th><th data-field="listo_para_ejecutar">Listo</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="cc-grid2">
+    <section class="cc-card" id="matriz-card">
+      <h2>Dónde se rompe el Growth Engine</h2>
+      <p class="cc-note">Severidad sumada de las fugas abiertas por etapa y por OS.</p>
+      <div style="overflow-x:auto">
+        <table class="heat" id="t-matriz" data-source="matriz" data-row-key="marca,etapa">
+          <thead><tr><th data-field="etapa">Etapa</th><th data-field="email" class="n">Email</th><th data-field="ads" class="n">Ads</th><th data-field="cro" class="n">CRO</th><th data-field="growth" class="n">Growth</th><th data-field="creative" class="n">Creative</th><th data-field="geo-seo" class="n">GEO/SEO</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="cc-card" id="accesos-card">
+      <h2>Accesos que destraban fugas</h2>
+      <p class="cc-note">Conectores bloqueados o inexistentes, ordenados por la severidad que tienen colgando.</p>
+      <div class="cc-scroll">
+        <table id="t-accesos" data-source="accesos" data-row-key="marca,conector">
+          <thead><tr><th data-field="conector">Conector</th><th data-field="marca">Marca</th><th data-field="estado">Estado</th><th data-field="fugas_que_usa" class="n">Fugas</th><th data-field="severidad_en_juego" class="n">Severidad</th><th data-field="nota" class="hide-narrow">Nota</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <section class="cc-card" id="fugas-card">
+    <h2>Todas las fugas abiertas</h2>
+    <p class="cc-note">Cada fila dice qué OS la ejecuta, por qué conector y si hay acceso hoy.</p>
+    <input class="cc-search" id="buscar" type="search" placeholder="Buscar fuga, OS o conector" aria-label="Buscar fugas">
+    <div class="cc-scroll">
+      <table id="t-fugas" data-source="fugas" data-row-key="id">
+        <thead><tr>
+          <th data-field="id">ID</th><th data-field="severidad">Sev.</th><th data-field="titulo">Fuga</th><th data-field="etapa" class="hide-narrow">Etapa</th>
+          <th data-field="accion">Acción</th><th data-field="conector">Conector</th><th data-field="acceso">Acceso</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="cc-card" id="cobertura-card">
+    <h2>Cobertura de los OS</h2>
+    <p class="cc-note">"semilla-growth" significa que Growth cargó los datos desde el estado.md del OS hasta que el OS publique su propio os-data.json.</p>
+    <div class="cc-scroll">
+      <table id="t-cobertura" data-source="cobertura" data-row-key="os_id">
+        <thead><tr><th data-field="os_id">OS</th><th data-field="fuente">Fuente</th><th data-field="fugas_abiertas" class="n">Fugas</th><th data-field="actualizado">Actualizado</th><th data-field="artifact_url">Artifact</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<script>
+dash.calc('resumen', {
+  title: 'Resumen por marca',
+  description: 'Cuenta fugas, severidad 5, oportunidades, fugas ejecutables por MCP y OS con archivo propio, por marca y en total.',
+  inputs: ['fugas', 'oportunidades', 'cobertura'],
+  fn: (fugas, oportunidades, cobertura) => ['Todas', 'Advanz', 'AmazingCare'].map(marca => {
+    const de = r => marca === 'Todas' || r.marca === marca;
+    const f = fugas.filter(de);
+    return {
+      marca,
+      fugas: f.length,
+      sev5: f.filter(r => Number(r.severidad) === 5).length,
+      oportunidades: oportunidades.filter(de).length,
+      mcp_ok: f.filter(r => r.via === 'mcp' && r.acceso === 'ok').length,
+      os_propios: cobertura.filter(de).filter(r => r.fuente === 'os').length
+    };
+  })
+});
+
+dash.calc('matriz', {
+  title: 'Severidad por etapa y OS',
+  description: 'Suma la severidad de las fugas abiertas por marca, etapa del Growth Engine y área.',
+  inputs: ['fugas'],
+  fn: (fugas) => {
+    const etapas = ['foundations', 'offer', 'validation', 'acquisition', 'workflows', 'retention', 'feedback', 'systems'];
+    const areas = ['email', 'ads', 'cro', 'growth', 'creative', 'geo-seo'];
+    const out = [];
+    ['Todas', 'Advanz', 'AmazingCare'].forEach(marca => etapas.forEach(etapa => {
+      const row = { marca, etapa };
+      areas.forEach(a => {
+        row[a] = fugas.filter(r => (marca === 'Todas' || r.marca === marca) && r.etapa === etapa && r.area === a)
+          .reduce((s, r) => s + Number(r.severidad), 0);
+      });
+      out.push(row);
+    }));
+    return out;
+  }
+});
+
+window.ccMarca = 'Todas';
+window.ccBuscar = '';
+</script>
+
+<script>
+(function () {
+  const $ = s => document.querySelector(s);
+  const claseAcceso = { ok: 'ok', 'sin-probar': 'warn', bloqueado: 'bad', 'sin-conector': 'bad', 'sin-plan': 'bad' };
+  const filtra = r => window.ccMarca === 'Todas' || r.marca === window.ccMarca;
+
+  function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function sev(n) { const s = el('span', 'sev s' + n); s.setAttribute('aria-label', 'Severidad ' + n); for (let i = 1; i <= 5; i++) s.appendChild(el('i', i <= n ? 'on' : '')); const w = el('span'); w.appendChild(s); w.appendChild(document.createTextNode(' ' + n)); return w; }
+  function pill(text, cls) { return el('span', 'pill ' + (cls || ''), text); }
+  function falla(tbody, cols) { tbody.textContent = ''; const tr = el('tr'); const td = el('td', 'cc-note', 'No cargó'); td.colSpan = cols; tr.appendChild(td); tbody.appendChild(tr); }
+
+  document.querySelectorAll('.cc-seg button').forEach(b => b.addEventListener('click', () => {
+    window.ccMarca = b.dataset.m;
+    document.querySelectorAll('.cc-seg button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    draw();
+  }));
+  $('#buscar').addEventListener('input', e => { window.ccBuscar = e.target.value.toLowerCase(); draw(); });
+
+  function draw() {
+    const res = dash.data('resumen');
+    document.querySelectorAll('#resumen .num').forEach(n => {
+      n.setAttribute('data-where', 'marca=' + window.ccMarca);
+      if (res.status === 'ok') {
+        const row = res.data.find(r => r.marca === window.ccMarca);
+        n.textContent = row ? d3.format(',')(row[n.dataset.field]) : '—';
+        n.classList.remove('dash-skeleton');
+      } else if (res.status !== 'loading') { n.textContent = '—'; n.classList.remove('dash-skeleton'); }
+    });
+
+    const op = dash.data('oportunidades');
+    const tb = $('#t-oport tbody');
+    if (op.status === 'ok') {
+      const rows = op.data.filter(filtra);
+      tb.textContent = '';
+      rows.forEach(r => {
+        const tr = el('tr');
+        tr.appendChild(el('td', 'n', String(r.rank)));
+        const t = el('td'); t.appendChild(el('div', 't-main', r.titulo)); t.appendChild(el('div', 't-sub', r.marca + ' · ' + r.n_fugas + ' fuga' + (r.n_fugas > 1 ? 's' : '') + ' · ' + r.fugas)); tr.appendChild(t);
+        tr.appendChild(el('td', 'hide-narrow', r.os_involucrados));
+        tr.appendChild(el('td', 'n', String(r.puntaje)));
+        const p = el('td'); p.appendChild(el('div', 't-main', r.primer_paso)); p.appendChild(el('div', 't-sub', 'Ejecuta: ' + r.ejecutor + (r.bloqueado_por !== '—' ? ' · bloquea: ' + r.bloqueado_por : ''))); tr.appendChild(p);
+        tr.appendChild(el('td', null, r.via));
+        const l = el('td'); l.appendChild(pill(r.listo_para_ejecutar, r.listo_para_ejecutar === 'sí' ? 'ok' : 'bad')); tr.appendChild(l);
+        tb.appendChild(tr);
+      });
+      const top = rows[0];
+      $('#takeaway').textContent = top
+        ? 'Primero: ' + top.titulo + ' (' + top.marca + '). Mueve ' + top.n_os + ' OS y el primer paso lo ejecuta ' + top.ejecutor + '.'
+        : 'Sin oportunidades cruzadas para esta marca.';
+    } else if (op.status !== 'loading') { falla(tb, 7); $('#takeaway').textContent = ''; }
+
+    const mx = dash.data('matriz');
+    const tm = $('#t-matriz tbody');
+    if (mx.status === 'ok') {
+      const rows = mx.data.filter(r => r.marca === window.ccMarca);
+      const max = d3.max(mx.data, r => d3.max(['email', 'ads', 'cro', 'growth', 'creative', 'geo-seo'], a => r[a])) || 1;
+      const bg = getComputedStyle(document.getElementById('dash-root')).getPropertyValue('--color-panel').trim() || 'transparent';
+      const hot = getComputedStyle(document.getElementById('dash-root')).getPropertyValue('--cds-chart-status-critical').trim() || 'red';
+      const ramp = d3.interpolateRgb(bg, hot);
+      tm.textContent = '';
+      rows.forEach(r => {
+        const tr = el('tr'); tr.dataset.key = encodeURIComponent(r.marca) + ',' + encodeURIComponent(r.etapa);
+        tr.appendChild(el('td', 'cap', r.etapa));
+        ['email', 'ads', 'cro', 'growth', 'creative', 'geo-seo'].forEach(a => {
+          const v = r[a]; const td = el('td', 'c', v ? String(v) : '·');
+          if (v) { td.style.background = ramp(Math.min(1, 0.15 + 0.85 * v / max)); if (v / max > 0.55) td.style.color = 'white'; }
+          tr.appendChild(td);
+        });
+        tm.appendChild(tr);
+      });
+    } else if (mx.status !== 'loading') falla(tm, 7);
+
+    const ac = dash.data('accesos');
+    const ta = $('#t-accesos tbody');
+    if (ac.status === 'ok') {
+      ta.textContent = '';
+      ac.data.filter(filtra).filter(r => r.estado !== 'ok').forEach(r => {
+        const tr = el('tr'); tr.dataset.key = encodeURIComponent(r.marca) + ',' + encodeURIComponent(r.conector);
+        tr.appendChild(el('td', null, r.conector));
+        tr.appendChild(el('td', null, r.marca));
+        const e = el('td'); e.appendChild(pill(r.estado, claseAcceso[r.estado])); tr.appendChild(e);
+        tr.appendChild(el('td', 'n', String(r.fugas_que_usa)));
+        tr.appendChild(el('td', 'n', String(r.severidad_en_juego)));
+        tr.appendChild(el('td', 'hide-narrow', r.nota || ''));
+        ta.appendChild(tr);
+      });
+    } else if (ac.status !== 'loading') falla(ta, 6);
+
+    const fu = dash.data('fugas');
+    const tf = $('#t-fugas tbody');
+    if (fu.status === 'ok') {
+      const q = window.ccBuscar;
+      tf.textContent = '';
+      fu.data.filter(filtra).filter(r => !q || [r.id, r.titulo, r.area, r.ejecutor, r.conector, r.accion, r.etapa].join(' ').toLowerCase().includes(q)).forEach(r => {
+        const tr = el('tr');
+        tr.appendChild(el('td', null, r.id));
+        const s = el('td'); s.appendChild(sev(Number(r.severidad))); tr.appendChild(s);
+        const t = el('td'); t.appendChild(el('div', 't-main', r.titulo)); t.appendChild(el('div', 't-sub', r.evidencia + (r.impacto_nota ? ' · ' + r.impacto_nota : ''))); tr.appendChild(t);
+        tr.appendChild(el('td', 'hide-narrow cap', r.etapa));
+        const a = el('td'); a.appendChild(el('div', 't-main', r.accion)); a.appendChild(el('div', 't-sub', 'Ejecuta: ' + r.ejecutor + ' · vía ' + r.via + (r.requiere_ok === 'sí' ? ' · requiere OK' : ''))); tr.appendChild(a);
+        tr.appendChild(el('td', null, r.conector));
+        const c = el('td'); c.appendChild(pill(r.acceso, claseAcceso[r.acceso])); tr.appendChild(c);
+        tf.appendChild(tr);
+      });
+    } else if (fu.status !== 'loading') falla(tf, 7);
+
+    const co = dash.data('cobertura');
+    const tc = $('#t-cobertura tbody');
+    if (co.status === 'ok') {
+      tc.textContent = '';
+      co.data.filter(filtra).forEach(r => {
+        const tr = el('tr');
+        tr.appendChild(el('td', null, r.os_id));
+        const f = el('td'); f.appendChild(pill(r.fuente, r.fuente === 'os' ? 'ok' : 'warn')); tr.appendChild(f);
+        tr.appendChild(el('td', 'n', String(r.fugas_abiertas)));
+        tr.appendChild(el('td', null, r.actualizado));
+        const u = el('td');
+        if (/^https:\/\/claude\.ai\//.test(r.artifact_url)) { const a = el('a', null, 'Abrir'); a.href = r.artifact_url; a.target = '_blank'; a.rel = 'noopener'; u.appendChild(a); }
+        else u.textContent = 'pendiente';
+        tr.appendChild(u);
+        tc.appendChild(tr);
+      });
+    } else if (co.status !== 'loading') falla(tc, 5);
+  }
+
+  dash.onData(draw);
+})();
+</script>

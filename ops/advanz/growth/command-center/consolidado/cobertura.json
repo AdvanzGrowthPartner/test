@@ -1,0 +1,122 @@
+[
+ {
+  "os_id": "advanz.email",
+  "marca": "Advanz",
+  "area": "email",
+  "fuente": "semilla-growth",
+  "actualizado": "2026-10-19",
+  "fugas_abiertas": 3,
+  "artifact_url": "—",
+  "archivo": "ops/advanz/growth/command-center/semillas/advanz.email.json"
+ },
+ {
+  "os_id": "advanz.ads",
+  "marca": "Advanz",
+  "area": "ads",
+  "fuente": "semilla-growth",
+  "actualizado": "2026-10-19",
+  "fugas_abiertas": 2,
+  "artifact_url": "—",
+  "archivo": "ops/advanz/growth/command-center/semillas/advanz.ads.json"
+ },
+ {
+  "os_id": "advanz.cro",
+  "marca": "Advanz",
+  "area": "cro",
+  "fuente": "semilla-growth",
+  "actualizado": "2026-10-19",
+  "fugas_abiertas": 4,
+  "artifact_url": "—",
+  "archivo": "ops/advanz/growth/command-center/semillas/advanz.cro.json"
+ },
+ {
+  "os_id": "advanz.growth",
+  "marca": "Advanz",
+  "area": "growth",
+  "fuente": "os",
+  "actualizado": "2026-10-19",
+  "fugas_abiertas": 3,
+  "artifact_url": "https://claude.ai/artifact/44LVZUHY5tgGH6P7Nb6vHk",
+  "archivo": "ops/advanz/growth/os-data.json"
+ },
+ {
+  "os_id": "advanz.creative",
+  "marca": "Advanz",
+  "area": "creative",
+  "fuente": "semilla-growth",
+  "actualizado": "2026-10-19",
+  "fugas_abiertas": 3,
+  "artifact_url": "—",
+  "archivo": "ops/advanz/growth/command-center/semillas/advanz.creative.json"
+ },
+ {
+  "os_id": "advanz.geo-seo",
+  "marca": "Advanz",
+  "area": "geo-seo",
+  "fuente": "semilla-growth",
+  "actualizado": "2026-10-19",
+  "fugas_abiertas": 2,
+  "artifact_url": "—",
+  "archivo": "ops/advanz/growth/command-center/semillas/advanz.geo-seo.json"
+ },
+ {
+  "os_id": "amazingcare.email",
+  "marca": "AmazingCare",
+  "area": "email",
+  "fuente": "semilla-growth",
+  "actualizado": "2026-10-19",
+  "fugas_abiertas": 4,
+  "artifact_url": "—",
+  "archivo": "ops/advanz/growth/command-center/semillas/amazingcare.email.json"
+ },
+ {
+  "os_id": "amazingcare.ads",
+  "marca": "AmazingCare",
+  "area": "ads",
+  "fuente": "semilla-growth",
+  "actualizado": "2026-10-19",
+  "fugas_abiertas": 4,
+  "artifact_url": "—",
+  "archivo": "ops/advanz/growth/command-center/semillas/amazingcare.ads.json"
+ },
+ {
+  "os_id": "amazingcare.cro",
+  "marca": "AmazingCare",
+  "area": "cro",
+  "fuente": "semilla-growth",
+  "actualizado": "2026-10-19",
+  "fugas_abiertas": 5,
+  "artifact_url": "—",
+  "archivo": "ops/advanz/growth/command-center/semillas/amazingcare.cro.json"
+ },
+ {
+  "os_id": "amazingcare.growth",
+  "marca": "AmazingCare",
+  "area": "growth",
+  "fuente": "semilla-growth",
+  "actualizado": "2026-10-19",
+  "fugas_abiertas": 4,
+  "artifact_url": "—",
+  "archivo": "ops/advanz/growth/command-center/semillas/amazingcare.growth.json"
+ },
+ {
+  "os_id": "amazingcare.creative",
+  "marca": "AmazingCare",
+  "area": "creative",
+  "fuente": "semilla-growth",
+  "actualizado": "2026-10-19",
+  "fugas_abiertas": 3,
+  "artifact_url": "—",
+  "archivo": "ops/advanz/growth/command-center/semillas/amazingcare.creative.json"
+ },
+ {
+  "os_id": "amazingcare.geo-seo",
+  "marca": "AmazingCare",
+  "area": "geo-seo",
+  "fuente": "semilla-growth",
+  "actualizado": "2026-10-19",
+  "fugas_abiertas": 4,
+  "artifact_url": "—",
+  "archivo": "ops/advanz/growth/command-center/semillas/amazingcare.geo-seo.json"
+ }
+]

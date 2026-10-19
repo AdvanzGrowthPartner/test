@@ -1,0 +1,146 @@
+{
+  "version": "1.0",
+  "os_id": "amazingcare.ads",
+  "grupo": "amazingcare",
+  "area": "ads",
+  "marca": "AmazingCare",
+  "actualizado": "2026-10-19",
+  "fuente": "semilla-growth",
+  "artifact_url": null,
+  "kpis": [
+    {
+      "id": "roas_meta",
+      "nombre": "ROAS Meta (plataforma)",
+      "valor": 13.2,
+      "unidad": "x",
+      "periodo": "Cyber oct-26 día 2",
+      "meta": null,
+      "estado": "ok",
+      "fuente": "Meta_Ads"
+    },
+    {
+      "id": "roas_meta_shop",
+      "nombre": "ROAS Meta según Shopify",
+      "valor": 3.7,
+      "unidad": "x",
+      "periodo": "Cyber oct-26 día 2",
+      "meta": 2.5,
+      "estado": "ok",
+      "fuente": "Shopify"
+    },
+    {
+      "id": "pmax",
+      "nombre": "ROAS PMax Principal",
+      "valor": 2.0,
+      "unidad": "x",
+      "periodo": "30 días a 4-sep",
+      "meta": 3.0,
+      "estado": "bad",
+      "fuente": "Google_Ads"
+    }
+  ],
+  "fugas": [
+    {
+      "id": "amazingcare.ads.F01",
+      "titulo": "Solo el 59% de los clics de Meta llega a ver la página",
+      "etapa": "acquisition",
+      "punto_funnel": "trafico",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "2.084 clics → 1.227 visitas",
+      "estado": "abierta",
+      "depende_de": [
+        "amazingcare.cro.F02"
+      ],
+      "afecta_os": [],
+      "accion": {
+        "descripcion": "Coordinar con CRO: velocidad y navegador de IG",
+        "os_ejecutor": "cro",
+        "via": "mcp",
+        "conector": "Meta_Ads",
+        "requiere_ok": false,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.ads.F02",
+      "titulo": "PMax sin tROAS y sin excluir marca (canibaliza Brand)",
+      "etapa": "acquisition",
+      "punto_funnel": "trafico",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "PMax 3,56× → 2,00× tras cambio de puja",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [],
+      "accion": {
+        "descripcion": "Aplicar tROAS 3,0× y exclusión de marca",
+        "os_ejecutor": "ads",
+        "via": "cowork",
+        "conector": "Google_Ads",
+        "requiere_ok": true,
+        "acceso": "sin-conector"
+      }
+    },
+    {
+      "id": "amazingcare.ads.F03",
+      "titulo": "Google Ads no llega al war room ni al command center",
+      "etapa": "systems",
+      "punto_funnel": "medicion",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Sin conector en esta sesión",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Conectar vía Cowork o Supermetrics/Windsor",
+        "os_ejecutor": "ads",
+        "via": "cowork",
+        "conector": "Google_Ads",
+        "requiere_ok": false,
+        "acceso": "sin-conector"
+      }
+    },
+    {
+      "id": "amazingcare.ads.F04",
+      "titulo": "5 adsets / 17 anuncios del 12-sep en pausa sin revisar",
+      "etapa": "acquisition",
+      "punto_funnel": "trafico",
+      "severidad": 2,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Faltaban verticales y revisión de copy FP",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "creative"
+      ],
+      "accion": {
+        "descripcion": "Revisar estado y decidir activar o archivar",
+        "os_ejecutor": "ads",
+        "via": "mcp",
+        "conector": "Meta_Ads",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    }
+  ],
+  "accesos": [
+    {
+      "conector": "Meta_Ads",
+      "estado": "ok",
+      "nota": "2911300959169889 + Mayorista 3131920510317594"
+    },
+    {
+      "conector": "Google_Ads",
+      "estado": "sin-conector",
+      "nota": ""
+    }
+  ]
+}

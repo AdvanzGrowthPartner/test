@@ -1,0 +1,128 @@
+{
+  "version": "1.0",
+  "os_id": "advanz.cro",
+  "grupo": "advanz",
+  "area": "cro",
+  "marca": "Advanz",
+  "actualizado": "2026-10-19",
+  "fuente": "semilla-growth",
+  "artifact_url": null,
+  "kpis": [
+    {
+      "id": "leads_web",
+      "nombre": "Leads web por semana",
+      "valor": null,
+      "unidad": "leads",
+      "periodo": "semana actual",
+      "meta": 20,
+      "estado": "sin-dato",
+      "fuente": "GHL"
+    }
+  ],
+  "fugas": [
+    {
+      "id": "advanz.cro.F01",
+      "titulo": "Form del lead magnet Shopify desconectado: cada lead se pierde",
+      "etapa": "workflows",
+      "punto_funnel": "captura",
+      "severidad": 5,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "fetch('/api/leads') comentado",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "email",
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Conectar captura → GHL por API",
+        "os_ejecutor": "cro",
+        "via": "mcp",
+        "conector": "Vercel",
+        "requiere_ok": true,
+        "acceso": "sin-probar"
+      }
+    },
+    {
+      "id": "advanz.cro.F02",
+      "titulo": "Claims sin verificar en el lead magnet (+200 emprendedores, testimonios)",
+      "etapa": "offer",
+      "punto_funnel": "captura",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Sin evidencia ni PDF confirmado",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [],
+      "accion": {
+        "descripcion": "Validar o quitar los claims; confirmar el PDF",
+        "os_ejecutor": "cro",
+        "via": "mcp",
+        "conector": "Vercel",
+        "requiere_ok": true,
+        "acceso": "sin-probar"
+      }
+    },
+    {
+      "id": "advanz.cro.F03",
+      "titulo": "Web funnel sin prueba end-to-end (lander → GHL → 5 correos → agenda)",
+      "etapa": "validation",
+      "punto_funnel": "agenda",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Pendiente desde estado.md",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "email",
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Probar con 1 lead real",
+        "os_ejecutor": "cro",
+        "via": "manual",
+        "conector": "GHL",
+        "requiere_ok": false,
+        "acceso": "sin-conector"
+      }
+    },
+    {
+      "id": "advanz.cro.F04",
+      "titulo": "CTA de reels 'comenta [palabra]' sin quiz de captura construido",
+      "etapa": "acquisition",
+      "punto_funnel": "captura",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Quiz no aparece en transcripts",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "creative"
+      ],
+      "accion": {
+        "descripcion": "Construir el quiz con b2b-assessment-builder",
+        "os_ejecutor": "cro",
+        "via": "mcp",
+        "conector": "Vercel",
+        "requiere_ok": true,
+        "acceso": "sin-probar"
+      }
+    }
+  ],
+  "accesos": [
+    {
+      "conector": "Vercel",
+      "estado": "sin-probar",
+      "nota": ""
+    },
+    {
+      "conector": "GHL",
+      "estado": "sin-conector",
+      "nota": ""
+    }
+  ]
+}

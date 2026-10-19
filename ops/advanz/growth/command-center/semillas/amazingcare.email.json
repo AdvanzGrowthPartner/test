@@ -1,0 +1,137 @@
+{
+  "version": "1.0",
+  "os_id": "amazingcare.email",
+  "grupo": "amazingcare",
+  "area": "email",
+  "marca": "AmazingCare",
+  "actualizado": "2026-10-19",
+  "fuente": "semilla-growth",
+  "artifact_url": null,
+  "kpis": [
+    {
+      "id": "base",
+      "nombre": "Perfiles en Klaviyo",
+      "valor": 10800,
+      "unidad": "perfiles",
+      "periodo": "oct-26",
+      "meta": null,
+      "estado": "ok",
+      "fuente": "Klaviyo"
+    },
+    {
+      "id": "rev_dest",
+      "nombre": "Venta por destinatario (base completa)",
+      "valor": 139,
+      "unidad": "CLP",
+      "periodo": "Cyber oct-26",
+      "meta": null,
+      "estado": "ok",
+      "fuente": "Klaviyo"
+    }
+  ],
+  "fugas": [
+    {
+      "id": "amazingcare.email.F01",
+      "titulo": "Pop-up de captura casi no se muestra (0–6 vistas/día vs 1.000–2.400 sesiones)",
+      "etapa": "workflows",
+      "punto_funnel": "captura",
+      "severidad": 5,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "CyberDay jun-26",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "cro",
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Revisar targeting y display del form en Klaviyo",
+        "os_ejecutor": "email",
+        "via": "mcp",
+        "conector": "Klaviyo",
+        "requiere_ok": true,
+        "acceso": "sin-probar"
+      }
+    },
+    {
+      "id": "amazingcare.email.F02",
+      "titulo": "Recuperación de carrito débil en eventos",
+      "etapa": "workflows",
+      "punto_funnel": "carrito",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Gap estimado $600–750K por evento",
+      "evidencia": "Flujo de carrito: 2 compras / 51 destinatarios en el Cyber",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "cro"
+      ],
+      "accion": {
+        "descripcion": "Reforzar el flujo + evaluar WhatsApp",
+        "os_ejecutor": "email",
+        "via": "mcp",
+        "conector": "Klaviyo",
+        "requiere_ok": true,
+        "acceso": "sin-probar"
+      }
+    },
+    {
+      "id": "amazingcare.email.F03",
+      "titulo": "'¡COMENZÓ!' llegó solo al 28% de la base",
+      "etapa": "retention",
+      "punto_funnel": "recompra",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Base completa ≈ $1,25M netos por envío",
+      "evidencia": "3.037 entregados de ~10,8K",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [],
+      "accion": {
+        "descripcion": "Revisar envío inteligente y reenviar a no-receptores",
+        "os_ejecutor": "email",
+        "via": "mcp",
+        "conector": "Klaviyo",
+        "requiere_ok": true,
+        "acceso": "sin-probar"
+      }
+    },
+    {
+      "id": "amazingcare.email.F04",
+      "titulo": "Correos sin UTM: el email se subestima en Shopify/GA4",
+      "etapa": "systems",
+      "punto_funnel": "medicion",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "estado.md email",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Activar UTM automático en Klaviyo",
+        "os_ejecutor": "email",
+        "via": "mcp",
+        "conector": "Klaviyo",
+        "requiere_ok": true,
+        "acceso": "sin-probar"
+      }
+    }
+  ],
+  "accesos": [
+    {
+      "conector": "Klaviyo",
+      "estado": "sin-probar",
+      "nota": ""
+    },
+    {
+      "conector": "Shopify",
+      "estado": "ok",
+      "nota": ""
+    }
+  ]
+}

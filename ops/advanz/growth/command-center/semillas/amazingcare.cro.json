@@ -1,0 +1,161 @@
+{
+  "version": "1.0",
+  "os_id": "amazingcare.cro",
+  "grupo": "amazingcare",
+  "area": "cro",
+  "marca": "AmazingCare",
+  "actualizado": "2026-10-19",
+  "fuente": "semilla-growth",
+  "artifact_url": null,
+  "kpis": [
+    {
+      "id": "cvr",
+      "nombre": "Conversión del sitio",
+      "valor": 2.11,
+      "unidad": "%",
+      "periodo": "2026-09-01/2026-09-14",
+      "meta": null,
+      "estado": "warn",
+      "fuente": "Shopify"
+    },
+    {
+      "id": "cvr_movil",
+      "nombre": "Conversión móvil",
+      "valor": 4.75,
+      "unidad": "%",
+      "periodo": "CyberDay jun-26",
+      "meta": null,
+      "estado": "warn",
+      "fuente": "Shopify"
+    }
+  ],
+  "fugas": [
+    {
+      "id": "amazingcare.cro.F01",
+      "titulo": "Escalera de precios invertida (Kaching): Súper Pack 150 más caro por stick que 5×30",
+      "etapa": "offer",
+      "punto_funnel": "pdp",
+      "severidad": 5,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "~$527 vs ~$476 por stick",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "ads",
+        "email",
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Corregir tramos de Kaching: Súper Pack siempre más barato por stick",
+        "os_ejecutor": "cro",
+        "via": "mcp",
+        "conector": "Shopify",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.cro.F02",
+      "titulo": "Fuga clic → visita de Meta (59% vs ≥75% sano)",
+      "etapa": "acquisition",
+      "punto_funnel": "trafico",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Cyber oct-26",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "ads"
+      ],
+      "accion": {
+        "descripcion": "Auditar peso/velocidad de la landing",
+        "os_ejecutor": "cro",
+        "via": "mcp",
+        "conector": "Shopify",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.cro.F03",
+      "titulo": "pack-mix-60 recibe todo el tráfico frío y convierte 1,16%",
+      "etapa": "acquisition",
+      "punto_funnel": "pdp",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Llevarla a ~2,7% casi duplica las compras de ese tráfico",
+      "evidencia": "10.680 sesiones a 1,16% vs Berries 30 a 2,86%",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "ads"
+      ],
+      "accion": {
+        "descripcion": "Derivar tráfico frío a las PDP ganadoras",
+        "os_ejecutor": "ads",
+        "via": "mcp",
+        "conector": "Meta_Ads",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.cro.F04",
+      "titulo": "Sin schema AggregateRating con ~300 reseñas",
+      "etapa": "foundations",
+      "punto_funnel": "pdp",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Schema sin verificar",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "geo-seo"
+      ],
+      "accion": {
+        "descripcion": "Agregar schema Review/AggregateRating en las PDP",
+        "os_ejecutor": "cro",
+        "via": "mcp",
+        "conector": "Shopify",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.cro.F05",
+      "titulo": "Sin Clarity: no hay heatmaps ni grabaciones de PDP y checkout",
+      "etapa": "systems",
+      "punto_funnel": "medicion",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Pedido 26-ago sin resultado",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [],
+      "accion": {
+        "descripcion": "Instalar y conectar Clarity",
+        "os_ejecutor": "cro",
+        "via": "manual",
+        "conector": "Clarity",
+        "requiere_ok": true,
+        "acceso": "sin-conector"
+      }
+    }
+  ],
+  "accesos": [
+    {
+      "conector": "Shopify",
+      "estado": "ok",
+      "nota": ""
+    },
+    {
+      "conector": "Clarity",
+      "estado": "sin-conector",
+      "nota": ""
+    }
+  ]
+}

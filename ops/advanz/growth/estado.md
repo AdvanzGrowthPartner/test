@@ -3,6 +3,12 @@
 > Funnel comercial, adquisición, métricas del negocio, pipeline y OS interno. Este OS prioriza y deriva a los demás. Actualizado: 2026-10-19.
 
 ## Estado actual
+- **Command Center de los 12 OS** (2026-10-19): https://claude.ai/artifact/44LVZUHY5tgGH6P7Nb6vHk (tipo Dashboard).
+  - Contrato de datos común: `command-center/CONTRATO.md`. Cada OS publica `ops/<grupo>/<área>/os-data.json` (KPIs, fugas por etapa del Growth Engine y punto del funnel, acción con conector y acceso, accesos) y su propio artifact.
+  - `command-center/consolidar.py` combina los 12 archivos y saca las oportunidades entre OS, los accesos que destraban fugas y la cobertura. Primer corte: **41 fugas abiertas, 17 oportunidades cruzadas**.
+  - Top 3: (1) AmazingCare, el 59% de los clics de Meta llega a la página (ads + cro + creative + geo-seo); (2) AmazingCare, el Cyber oct-26 sigue sin cierre; (3) Advanz, no se registran los números del embudo.
+  - Accesos que más destraban: GHL (Advanz), Google Ads (AmazingCare, vía Cowork) y Meta UNSETTLED (Advanz).
+  - Solo Growth Advanz tiene `os-data.json` propio. Los otros 11 están en semilla (armada desde su `estado.md`), con un handoff para cada uno.
 - **Sistema de adquisición** (skill `advanz-acquisition-system`). Métrica única: **diagnósticos entregados → agendados → cerrados**. Meta: 100/sem → 15–20% interés → 6–10 agendas → 2–3 cierres.
   - 🟢 Cold outreach · 🟢 Social estático · 🟢 Web funnel · 🟡 Video · 🔴 Ads · 🔴 SEO/GEO.
   - Tablero en Notion: 📊 Canales de Adquisición (Interno › Dept. Marketing › 💵 Sistema Adquisición). Diagnóstico por síntoma: pocos envíos → volumen · no responden → copy · no agendan → workflow GHL · no cierran → pitch.
@@ -20,6 +26,7 @@
   - Estructura `ops/` con 12 OS (2026-10-19).
 
 ## Decisiones tomadas
+- **2026-10-19**: Todos los OS publican su artifact sobre el mismo formato `os-data.json` (versión 1.0), y la fuente de verdad es el repo, no el artifact. Growth consolida y prioriza. La ejecución pasa por el OS dueño, por MCP o Cowork, siempre con OK.
 - **(sin fecha, vigente)** El activo central es el **Diagnóstico Vivo**. El contenido pasa a ser una capa de credibilidad y no el motor de leads. Ads y SEO/GEO quedan detenidos hasta cumplir sus condiciones.
 - **(sin fecha)** "No construir más rápido de lo que se vende": 1–2 piezas en paralelo con lo vendido. Double down cuando un ángulo pica.
 - **(sin fecha)** Las dos capas espejo: público (infoproducto: el qué y el por qué, más CTA) e interno (SOPs: el cómo). Cadena: SOP → board Miro → video → página pública → CTA → post IG → DM.
@@ -29,6 +36,8 @@
 - **2026-08-21 (Marê)**: No bajar el precio ante objeciones de validación. Siempre anclar fecha. Checkpoints en vez de promesas de cifras.
 
 ## Pendientes / próximos pasos
+- [ ] Re-correr `consolidar.py` y re-subir los 5 JSON al Command Center a medida que cada OS publique su `os-data.json`.
+- [ ] Crear el artifact propio de Advanz · OS Growth (el embudo diagnósticos → agendas → cierres) cuando haya números reales.
 - [ ] Registrar los números reales semana a semana (diagnósticos enviados, respuestas, agendas, cierres) en el tablero de Notion y reflejarlos acá.
 - [ ] Confirmar el resultado del deal Marê Swimwear y su aprendizaje (`funnel-intelligence`).
 - [ ] Destrabar 🟡 Video: una sesión batch de Patricio de 2–3 h (handoff a creative).

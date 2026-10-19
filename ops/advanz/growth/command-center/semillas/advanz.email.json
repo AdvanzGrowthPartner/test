@@ -1,0 +1,122 @@
+{
+  "version": "1.0",
+  "os_id": "advanz.email",
+  "grupo": "advanz",
+  "area": "email",
+  "marca": "Advanz",
+  "actualizado": "2026-10-19",
+  "fuente": "semilla-growth",
+  "artifact_url": null,
+  "kpis": [
+    {
+      "id": "diag_vercel",
+      "nombre": "Diagnósticos vivos colgados",
+      "valor": 40,
+      "unidad": "diag",
+      "periodo": "acumulado",
+      "meta": 100,
+      "estado": "warn",
+      "fuente": "estado.md"
+    },
+    {
+      "id": "reply_rate",
+      "nombre": "Tasa de respuesta outbound",
+      "valor": null,
+      "unidad": "%",
+      "periodo": "—",
+      "meta": null,
+      "estado": "sin-dato",
+      "fuente": "—"
+    }
+  ],
+  "fugas": [
+    {
+      "id": "advanz.email.F01",
+      "titulo": "~40 diagnósticos listos sin contacto del founder: no se pueden enviar",
+      "etapa": "acquisition",
+      "punto_funnel": "lead",
+      "severidad": 5,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Es el canal principal: 0 envíos = 0 agendas",
+      "evidencia": "Bloqueo declarado: enriquecimiento de contacto",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Correr la cascada footer → IG → LinkedIn → WHOIS y cargar en repo-ecommerces",
+        "os_ejecutor": "email",
+        "via": "mcp",
+        "conector": "Notion",
+        "requiere_ok": false,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "advanz.email.F02",
+      "titulo": "Sin herramienta ni dominio secundario de envío en frío definidos",
+      "etapa": "acquisition",
+      "punto_funnel": "lead",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Propuesta Gmail → Instantly/Smartlead sin confirmar",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Decidir herramienta y dominio con SPF/DKIM/warmup",
+        "os_ejecutor": "email",
+        "via": "mcp",
+        "conector": "Gmail",
+        "requiere_ok": true,
+        "acceso": "sin-probar"
+      }
+    },
+    {
+      "id": "advanz.email.F03",
+      "titulo": "Leads del lead magnet Shopify no entran al workflow GHL",
+      "etapa": "workflows",
+      "punto_funnel": "captura",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "fetch('/api/leads') comentado en el form",
+      "estado": "abierta",
+      "depende_de": [
+        "advanz.cro.F01"
+      ],
+      "afecta_os": [
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Conectar el form al workflow de 5 correos",
+        "os_ejecutor": "cro",
+        "via": "manual",
+        "conector": "GHL",
+        "requiere_ok": true,
+        "acceso": "sin-conector"
+      }
+    }
+  ],
+  "accesos": [
+    {
+      "conector": "Gmail",
+      "estado": "sin-probar",
+      "nota": ""
+    },
+    {
+      "conector": "Notion",
+      "estado": "ok",
+      "nota": ""
+    },
+    {
+      "conector": "GHL",
+      "estado": "sin-conector",
+      "nota": ""
+    }
+  ]
+}

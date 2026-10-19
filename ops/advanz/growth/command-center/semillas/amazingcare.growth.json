@@ -1,0 +1,159 @@
+{
+  "version": "1.0",
+  "os_id": "amazingcare.growth",
+  "grupo": "amazingcare",
+  "area": "growth",
+  "marca": "AmazingCare",
+  "actualizado": "2026-10-19",
+  "fuente": "semilla-growth",
+  "artifact_url": null,
+  "kpis": [
+    {
+      "id": "venta_neta",
+      "nombre": "Venta neta",
+      "valor": 7.66,
+      "unidad": "M CLP",
+      "periodo": "2026-09-01/2026-09-14",
+      "meta": null,
+      "estado": "ok",
+      "fuente": "Shopify (reporte quincenal)"
+    },
+    {
+      "id": "roas",
+      "nombre": "ROAS blended",
+      "valor": 3.98,
+      "unidad": "x",
+      "periodo": "2026-09-01/2026-09-14",
+      "meta": 2.5,
+      "estado": "ok",
+      "fuente": "Shopify + plataformas"
+    },
+    {
+      "id": "cac_nuevo",
+      "nombre": "CAC real por cliente nuevo",
+      "valor": 13700,
+      "unidad": "CLP",
+      "periodo": "CyberDay jun-26",
+      "meta": 8000,
+      "estado": "bad",
+      "fuente": "estado.md"
+    }
+  ],
+  "fugas": [
+    {
+      "id": "amazingcare.growth.F01",
+      "titulo": "Cyber oct-26 sin cierre: no hay data después del 4-oct",
+      "etapa": "feedback",
+      "punto_funnel": "medicion",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Último dato leído 4 oct",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "ads",
+        "email",
+        "creative"
+      ],
+      "accion": {
+        "descripcion": "Armar el reporte de cierre 2–11 oct con Shopify + Meta",
+        "os_ejecutor": "growth",
+        "via": "mcp",
+        "conector": "Shopify",
+        "requiere_ok": false,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.growth.F02",
+      "titulo": "CAC real por cliente nuevo ~$13.700 sobre el máximo rentable de $8.000",
+      "etapa": "acquisition",
+      "punto_funnel": "trafico",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Cada cliente nuevo cuesta ~$5.700 sobre el techo",
+      "evidencia": "Gasto ÷ clientes nuevos (jun-26)",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "ads"
+      ],
+      "accion": {
+        "descripcion": "Fijar CAC objetivo por producto con COGS del cliente",
+        "os_ejecutor": "growth",
+        "via": "mcp",
+        "conector": "Shopify",
+        "requiere_ok": false,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.growth.F03",
+      "titulo": "6 códigos de descuento sin fecha de término compiten con el cupón del evento",
+      "etapa": "offer",
+      "punto_funnel": "checkout",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "estado.md growth",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "email",
+        "cro"
+      ],
+      "accion": {
+        "descripcion": "Auditar y cerrar códigos antes del próximo evento",
+        "os_ejecutor": "cro",
+        "via": "mcp",
+        "conector": "Shopify",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.growth.F04",
+      "titulo": "Command Center del cliente no está en vivo (Cloudflare sin deploy ni secrets)",
+      "etapa": "systems",
+      "punto_funnel": "medicion",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Sin confirmar deploy",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [],
+      "accion": {
+        "descripcion": "Deploy + secrets en la máquina de Matías",
+        "os_ejecutor": "growth",
+        "via": "cowork",
+        "conector": "Google_Ads",
+        "requiere_ok": false,
+        "acceso": "sin-conector"
+      }
+    }
+  ],
+  "accesos": [
+    {
+      "conector": "Shopify",
+      "estado": "ok",
+      "nota": "amazingcare.cl"
+    },
+    {
+      "conector": "Meta_Ads",
+      "estado": "ok",
+      "nota": "Cuenta 2911300959169889"
+    },
+    {
+      "conector": "Klaviyo",
+      "estado": "sin-probar",
+      "nota": ""
+    },
+    {
+      "conector": "Google_Ads",
+      "estado": "sin-conector",
+      "nota": "Solo desde la terminal de Matías (Cowork)"
+    }
+  ]
+}

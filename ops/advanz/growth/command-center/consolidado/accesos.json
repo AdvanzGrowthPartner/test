@@ -1,0 +1,236 @@
+[
+ {
+  "marca": "Advanz",
+  "conector": "GHL",
+  "estado": "sin-conector",
+  "nota": "",
+  "fugas_que_usa": 3,
+  "severidad_en_juego": 10,
+  "destrabar": "sí"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Google_Ads",
+  "estado": "sin-conector",
+  "nota": "",
+  "fugas_que_usa": 3,
+  "severidad_en_juego": 10,
+  "destrabar": "sí"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Meta_Ads",
+  "estado": "bloqueado",
+  "nota": "UNSETTLED",
+  "fugas_que_usa": 2,
+  "severidad_en_juego": 5,
+  "destrabar": "sí"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Instagram",
+  "estado": "sin-conector",
+  "nota": "",
+  "fugas_que_usa": 1,
+  "severidad_en_juego": 3,
+  "destrabar": "sí"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Clarity",
+  "estado": "sin-conector",
+  "nota": "",
+  "fugas_que_usa": 1,
+  "severidad_en_juego": 3,
+  "destrabar": "sí"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Search_Console",
+  "estado": "sin-conector",
+  "nota": "",
+  "fugas_que_usa": 1,
+  "severidad_en_juego": 2,
+  "destrabar": "sí"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Shopify",
+  "estado": "ok",
+  "nota": "",
+  "fugas_que_usa": 10,
+  "severidad_en_juego": 36,
+  "destrabar": "no"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Meta_Ads",
+  "estado": "ok",
+  "nota": "2911300959169889 + Mayorista 3131920510317594",
+  "fugas_que_usa": 5,
+  "severidad_en_juego": 17,
+  "destrabar": "no"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Klaviyo",
+  "estado": "sin-probar",
+  "nota": "",
+  "fugas_que_usa": 4,
+  "severidad_en_juego": 16,
+  "destrabar": "no"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Notion",
+  "estado": "ok",
+  "nota": "",
+  "fugas_que_usa": 4,
+  "severidad_en_juego": 14,
+  "destrabar": "no"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Vercel",
+  "estado": "sin-probar",
+  "nota": "",
+  "fugas_que_usa": 4,
+  "severidad_en_juego": 14,
+  "destrabar": "no"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Gmail",
+  "estado": "sin-probar",
+  "nota": "",
+  "fugas_que_usa": 1,
+  "severidad_en_juego": 4,
+  "destrabar": "no"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Canva",
+  "estado": "sin-probar",
+  "nota": "",
+  "fugas_que_usa": 1,
+  "severidad_en_juego": 3,
+  "destrabar": "no"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Notion",
+  "estado": "ok",
+  "nota": "",
+  "fugas_que_usa": 1,
+  "severidad_en_juego": 2,
+  "destrabar": "no"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Google_Ads",
+  "estado": "sin-conector",
+  "nota": "",
+  "fugas_que_usa": 0,
+  "severidad_en_juego": 0,
+  "destrabar": "no"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Google_Drive",
+  "estado": "ok",
+  "nota": "",
+  "fugas_que_usa": 0,
+  "severidad_en_juego": 0,
+  "destrabar": "no"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Miro",
+  "estado": "ok",
+  "nota": "",
+  "fugas_que_usa": 0,
+  "severidad_en_juego": 0,
+  "destrabar": "no"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Ahrefs",
+  "estado": "sin-plan",
+  "nota": "",
+  "fugas_que_usa": 0,
+  "severidad_en_juego": 0,
+  "destrabar": "no"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Semrush",
+  "estado": "sin-plan",
+  "nota": "Sin unidades de API",
+  "fugas_que_usa": 0,
+  "severidad_en_juego": 0,
+  "destrabar": "no"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Figma",
+  "estado": "sin-probar",
+  "nota": "",
+  "fugas_que_usa": 0,
+  "severidad_en_juego": 0,
+  "destrabar": "no"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Magnific",
+  "estado": "sin-probar",
+  "nota": "",
+  "fugas_que_usa": 0,
+  "severidad_en_juego": 0,
+  "destrabar": "no"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "pletor",
+  "estado": "sin-probar",
+  "nota": "",
+  "fugas_que_usa": 0,
+  "severidad_en_juego": 0,
+  "destrabar": "no"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Canva",
+  "estado": "sin-probar",
+  "nota": "",
+  "fugas_que_usa": 0,
+  "severidad_en_juego": 0,
+  "destrabar": "no"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Search_Console",
+  "estado": "sin-conector",
+  "nota": "Solo export manual",
+  "fugas_que_usa": 0,
+  "severidad_en_juego": 0,
+  "destrabar": "no"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Ahrefs",
+  "estado": "sin-plan",
+  "nota": "",
+  "fugas_que_usa": 0,
+  "severidad_en_juego": 0,
+  "destrabar": "no"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Semrush",
+  "estado": "sin-plan",
+  "nota": "",
+  "fugas_que_usa": 0,
+  "severidad_en_juego": 0,
+  "destrabar": "no"
+ }
+]

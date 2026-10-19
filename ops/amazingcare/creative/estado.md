@@ -1,6 +1,10 @@
 # AmazingCare · OS Creative (creativos, videos, copies, contenido, paleta)
 
 ## Estado actual
+**19-oct-2026 · arranque del OS y artifact.**
+- Dashboard propio publicado: https://claude.ai/artifact/A15ucnSsaqSpmcLpp4HSkp (tipo Dashboard, privado). Se dibuja desde `os-data.json` (contrato v1.0 del Command Center), con 8 KPIs, 6 fugas (F01–F06) y los accesos.
+- Accesos probados con lectura simple: Meta Ads (DTC y Mayorista habilitadas), Notion, Canva, Drive y Magnific responden. En Figma el asiento es View en plan starter (lee, no edita). Pletor exige plan pago. Las skills `advanz-paid-media:*` no están cargadas en esta sesión.
+
 **Último dato leído: 30 sep–4 oct 2026, plan creativo del Cyber.**
 - **Plan Cyber oct-26** (Notion "AC | Creativos Octubre - CYBER"):
   - 25 estáticos (3 pre-Cyber), casi todos de electrolitos, más 10 UGC y 11–12 videos de creadores.
@@ -41,6 +45,8 @@
 - Los avatares y ángulos de baja cobertura que hay que llenar son P4 Salud, P5 Familia y A7 Valor.
 
 ## Pendientes / próximos pasos
+- [ ] Mantener `os-data.json` y el Dashboard al día en cada cierre (re-subir los JSON del artifact si cambian KPIs o fugas).
+- [ ] Resolver acceso de edición en Figma y decidir si se paga Pletor o se usa Magnific como alternativa.
 - [ ] Rendimiento creativo del Cyber oct-26: qué UGC, estático y ángulo ganó. Todavía no hay análisis.
 - [ ] Llevar más presupuesto y piezas al ángulo **Disautonomía/Salud**, que tiene el mejor CTR (validando claims con el cliente).
 - [ ] **Base 🎬 Creativos de Notion:** en ago-26 quedó con el data source huérfano (las vistas del SOP apuntan a `816cfa7b…`, que ya no existe). Confirmar si se arregló y si las fichas 0031–0055 están cargadas.

@@ -1,0 +1,157 @@
+{
+  "version": "1.0",
+  "os_id": "amazingcare.creative",
+  "grupo": "amazingcare",
+  "area": "creative",
+  "marca": "AmazingCare",
+  "actualizado": "2026-10-19",
+  "fuente": "os",
+  "artifact_url": "https://claude.ai/artifact/A15ucnSsaqSpmcLpp4HSkp",
+  "kpis": [
+    {"id": "ctr_salud", "nombre": "CTR ángulo Disautonomía/Salud", "valor": 2.17, "unidad": "%", "periodo": "sep-26", "meta": null, "estado": "ok", "fuente": "Meta_Ads"},
+    {"id": "share_salud", "nombre": "Gasto en ángulo Salud", "valor": 6, "unidad": "%", "periodo": "sep-26", "meta": null, "estado": "bad", "fuente": "Meta_Ads"},
+    {"id": "ctr_descuento_fp", "nombre": "CTR ángulo Descuento FP (48% del gasto)", "valor": 0.57, "unidad": "%", "periodo": "sep-26", "meta": null, "estado": "bad", "fuente": "Meta_Ads"},
+    {"id": "ctr_retail", "nombre": "CTR creativos de retail", "valor": 0.12, "unidad": "%", "periodo": "sep-26", "meta": null, "estado": "bad", "fuente": "Meta_Ads"},
+    {"id": "roas_top_creativo", "nombre": "ROAS mejor creativo (AC-VID-0027)", "valor": 3.84, "unidad": "x", "periodo": "2026-08-03/2026-08-20", "meta": 2.5, "estado": "ok", "fuente": "Meta_Ads"},
+    {"id": "roas_ugc_nutri", "nombre": "ROAS UGC @PaulaCamus (nutri)", "valor": 2.92, "unidad": "x", "periodo": "sep-26", "meta": 2.5, "estado": "ok", "fuente": "Meta_Ads"},
+    {"id": "hook_rate", "nombre": "Hook rate 3s", "valor": null, "unidad": "%", "periodo": null, "meta": null, "estado": "sin-dato", "fuente": "Meta_Ads"},
+    {"id": "pct_ganadores", "nombre": "% creativos ganadores (ROAS ≥ 2,5)", "valor": null, "unidad": "%", "periodo": null, "meta": null, "estado": "sin-dato", "fuente": "Meta_Ads"}
+  ],
+  "fugas": [
+    {
+      "id": "amazingcare.creative.F01",
+      "titulo": "El ángulo con mejor CTR (Salud, 2,17%) recibe solo 6% del gasto; 'Descuento FP' se lleva 48% con CTR 0,57%",
+      "etapa": "acquisition",
+      "punto_funnel": "trafico",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": "CTR casi 4 veces mayor con 8 veces menos gasto. Los claims de salud (POTS, lipedema, migraña) se validan con el cliente antes de escalar",
+      "evidencia": "Cockpit por ángulo, sep-26 (advanz-motor)",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": ["ads"],
+      "accion": {
+        "descripcion": "Creative produce un pack Salud (P4) con nutricionistas y claims validados; Ads le reasigna presupuesto",
+        "os_ejecutor": "creative",
+        "via": "mcp",
+        "conector": "Meta_Ads",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.creative.F02",
+      "titulo": "Base 🎬 Creativos de Notion con data source huérfano",
+      "etapa": "systems",
+      "punto_funnel": "medicion",
+      "severidad": 2,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Sin la base, no se cruza el SKU ciego con los resultados de Meta",
+      "evidencia": "Las vistas del SOP apuntan a 816cfa7b…, que no existe (ago-26). Falta confirmar si sigue así",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": ["ads"],
+      "accion": {
+        "descripcion": "Rearmar las vistas y cargar las fichas 0031–0055",
+        "os_ejecutor": "creative",
+        "via": "mcp",
+        "conector": "Notion",
+        "requiere_ok": false,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.creative.F03",
+      "titulo": "Sin análisis creativo del Cyber oct-26",
+      "etapa": "feedback",
+      "punto_funnel": "contenido",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": "El próximo evento parte sin saber qué UGC, estático y ángulo ganó",
+      "evidencia": "Plan con 25 estáticos, 10 UGC y unos 11 videos de creadores; no hay lectura de resultados",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": ["ads"],
+      "accion": {
+        "descripcion": "Cruzar AC-VID/EST/EVT con los resultados de Meta (cuenta DTC 2911300959169889)",
+        "os_ejecutor": "creative",
+        "via": "mcp",
+        "conector": "Meta_Ads",
+        "requiere_ok": false,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.creative.F04",
+      "titulo": "Creativos de retail con CTR 0,12%",
+      "etapa": "acquisition",
+      "punto_funnel": "trafico",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Retail es el objetivo n.º 1 del cliente (rotación de góndola) y su creativo es el que menos clics saca",
+      "evidencia": "Cockpit por ángulo, sep-26",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": ["ads"],
+      "accion": {
+        "descripcion": "Rehacer hooks de los 6 videos de retail y sumar end-card unificado de 2 s con los puntos de venta",
+        "os_ejecutor": "creative",
+        "via": "manual",
+        "conector": "Canva",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.creative.F05",
+      "titulo": "UGC con CTR alto que no vende (@MartinTorres, CTR 6,39%)",
+      "etapa": "acquisition",
+      "punto_funnel": "pdp",
+      "severidad": 2,
+      "impacto_clp_mes": null,
+      "impacto_nota": "El clic llega, la compra no: puede ser el mensaje o la landing",
+      "evidencia": "Lectura UGC sep-26",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": ["ads", "cro"],
+      "accion": {
+        "descripcion": "Revisar la promesa del video contra la landing de destino y ajustar el CTA",
+        "os_ejecutor": "creative",
+        "via": "manual",
+        "conector": "Meta_Ads",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.creative.F06",
+      "titulo": "Copy de Fiestas Patrias redactado por Claude sin revisión del cliente",
+      "etapa": "validation",
+      "punto_funnel": "contenido",
+      "severidad": 1,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Riesgo de tono y claims no aprobados en piezas que ya circularon",
+      "evidencia": "estado.md, sep-26",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [],
+      "accion": {
+        "descripcion": "Pasar el copy por Frani en el flujo de aprobación",
+        "os_ejecutor": "creative",
+        "via": "manual",
+        "conector": "Notion",
+        "requiere_ok": false,
+        "acceso": "ok"
+      }
+    }
+  ],
+  "accesos": [
+    {"conector": "Meta_Ads", "estado": "ok", "nota": "Cuenta DTC 2911300959169889 y Mayorista habilitadas en el MCP (probado 19-oct)"},
+    {"conector": "Notion", "estado": "ok", "nota": "Búsqueda probada: SOP Sistema Content y AC | Creativos Octubre - CYBER"},
+    {"conector": "Canva", "estado": "ok", "nota": "Se ven los diseños de Amazing Care (probado 19-oct)"},
+    {"conector": "Google_Drive", "estado": "ok", "nota": "Carpetas AMAZING CARE y Material Amazing Care visibles"},
+    {"conector": "Magnific", "estado": "ok", "nota": "Cuenta de Operaciones Advanz conectada"},
+    {"conector": "Figma", "estado": "bloqueado", "nota": "Asiento View en plan starter: lee, no edita"},
+    {"conector": "pletor", "estado": "sin-plan", "nota": "El MCP exige plan pago; sin brain de marca"}
+  ]
+}

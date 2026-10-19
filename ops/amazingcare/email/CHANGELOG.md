@@ -1,0 +1,6 @@
+# Changelog · AmazingCare OS Email
+
+Cambios aplicados en plataformas (lo más reciente arriba).
+
+| Fecha | Cambio | Por qué | Cómo revertir |
+|---|---|---|---|

@@ -13,11 +13,11 @@
   "os_id": "advanz.ads",
   "marca": "Advanz",
   "area": "ads",
-  "fuente": "semilla-growth",
+  "fuente": "os",
   "actualizado": "2026-10-19",
-  "fugas_abiertas": 2,
-  "artifact_url": "—",
-  "archivo": "ops/advanz/growth/command-center/semillas/advanz.ads.json"
+  "fugas_abiertas": 4,
+  "artifact_url": "https://claude.ai/artifact/EPTBn5enjm5DQ54usEhkQY",
+  "archivo": "ops/advanz/ads/os-data.json"
  },
  {
   "os_id": "advanz.cro",
@@ -53,11 +53,11 @@
   "os_id": "advanz.geo-seo",
   "marca": "Advanz",
   "area": "geo-seo",
-  "fuente": "semilla-growth",
+  "fuente": "os",
   "actualizado": "2026-10-19",
-  "fugas_abiertas": 2,
-  "artifact_url": "—",
-  "archivo": "ops/advanz/growth/command-center/semillas/advanz.geo-seo.json"
+  "fugas_abiertas": 3,
+  "artifact_url": "https://claude.ai/artifact/BWRXxdf18LTzm3iBu5SUwS",
+  "archivo": "ops/advanz/geo-seo/os-data.json"
  },
  {
   "os_id": "amazingcare.email",
@@ -73,21 +73,21 @@
   "os_id": "amazingcare.ads",
   "marca": "AmazingCare",
   "area": "ads",
-  "fuente": "semilla-growth",
+  "fuente": "os",
   "actualizado": "2026-10-19",
-  "fugas_abiertas": 4,
-  "artifact_url": "—",
-  "archivo": "ops/advanz/growth/command-center/semillas/amazingcare.ads.json"
+  "fugas_abiertas": 5,
+  "artifact_url": "https://claude.ai/artifact/BLucerYtMSGs6P627LLuVJ",
+  "archivo": "ops/amazingcare/ads/os-data.json"
  },
  {
   "os_id": "amazingcare.cro",
   "marca": "AmazingCare",
   "area": "cro",
-  "fuente": "semilla-growth",
+  "fuente": "os",
   "actualizado": "2026-10-19",
-  "fugas_abiertas": 5,
-  "artifact_url": "—",
-  "archivo": "ops/advanz/growth/command-center/semillas/amazingcare.cro.json"
+  "fugas_abiertas": 7,
+  "artifact_url": "https://claude.ai/artifact/7vMZFu8B3vY6Sh4aYcuY5j",
+  "archivo": "ops/amazingcare/cro/os-data.json"
  },
  {
   "os_id": "amazingcare.growth",
@@ -103,11 +103,11 @@
   "os_id": "amazingcare.creative",
   "marca": "AmazingCare",
   "area": "creative",
-  "fuente": "semilla-growth",
+  "fuente": "os",
   "actualizado": "2026-10-19",
-  "fugas_abiertas": 3,
-  "artifact_url": "—",
-  "archivo": "ops/advanz/growth/command-center/semillas/amazingcare.creative.json"
+  "fugas_abiertas": 6,
+  "artifact_url": "https://claude.ai/artifact/A15ucnSsaqSpmcLpp4HSkp",
+  "archivo": "ops/amazingcare/creative/os-data.json"
  },
  {
   "os_id": "amazingcare.geo-seo",

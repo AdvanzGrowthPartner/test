@@ -4,26 +4,26 @@
   "conector": "GHL",
   "estado": "sin-conector",
   "nota": "",
-  "fugas_que_usa": 3,
-  "severidad_en_juego": 10,
-  "destrabar": "sí"
- },
- {
-  "marca": "AmazingCare",
-  "conector": "Google_Ads",
-  "estado": "sin-conector",
-  "nota": "",
-  "fugas_que_usa": 2,
-  "severidad_en_juego": 7,
+  "fugas_que_usa": 4,
+  "severidad_en_juego": 12,
   "destrabar": "sí"
  },
  {
   "marca": "Advanz",
   "conector": "Meta_Ads",
   "estado": "bloqueado",
-  "nota": "UNSETTLED",
+  "nota": "MCP conecta; cuenta Advanz 120273191181276 UNSETTLED, no consultable (2026-10-19)",
+  "fugas_que_usa": 3,
+  "severidad_en_juego": 7,
+  "destrabar": "sí"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Google_Ads",
+  "estado": "sin-conector",
+  "nota": "Solo desde la terminal de Matías (Cowork) o export",
   "fugas_que_usa": 2,
-  "severidad_en_juego": 5,
+  "severidad_en_juego": 7,
   "destrabar": "sí"
  },
  {
@@ -39,7 +39,7 @@
   "marca": "AmazingCare",
   "conector": "Clarity",
   "estado": "sin-conector",
-  "nota": "",
+  "nota": "Sin historial ni conector; usar exportes manuales",
   "fugas_que_usa": 1,
   "severidad_en_juego": 3,
   "destrabar": "sí"
@@ -57,27 +57,27 @@
   "marca": "Advanz",
   "conector": "Search_Console",
   "estado": "sin-conector",
-  "nota": "",
+  "nota": "Sin acceso a advanz.cl",
   "fugas_que_usa": 1,
   "severidad_en_juego": 2,
   "destrabar": "sí"
  },
  {
-  "marca": "AmazingCare",
-  "conector": "Shopify",
-  "estado": "ok",
-  "nota": "",
-  "fugas_que_usa": 11,
-  "severidad_en_juego": 39,
-  "destrabar": "no"
+  "marca": "Advanz",
+  "conector": "Google_Ads",
+  "estado": "sin-conector",
+  "nota": "Solo export manual / CSV",
+  "fugas_que_usa": 1,
+  "severidad_en_juego": 1,
+  "destrabar": "sí"
  },
  {
   "marca": "AmazingCare",
-  "conector": "Meta_Ads",
-  "estado": "ok",
-  "nota": "2911300959169889 + Mayorista 3131920510317594",
-  "fugas_que_usa": 5,
-  "severidad_en_juego": 17,
+  "conector": "Shopify",
+  "estado": "sin-probar",
+  "nota": "Conector disponible en la sesión",
+  "fugas_que_usa": 13,
+  "severidad_en_juego": 46,
   "destrabar": "no"
  },
  {
@@ -85,8 +85,17 @@
   "conector": "Klaviyo",
   "estado": "sin-probar",
   "nota": "",
-  "fugas_que_usa": 4,
-  "severidad_en_juego": 16,
+  "fugas_que_usa": 5,
+  "severidad_en_juego": 19,
+  "destrabar": "no"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Meta_Ads",
+  "estado": "ok",
+  "nota": "DTC 2911300959169889 + Mayorista 3131920510317594 (lectura verificada 19-oct)",
+  "fugas_que_usa": 6,
+  "severidad_en_juego": 19,
   "destrabar": "no"
  },
  {
@@ -130,15 +139,24 @@
   "conector": "Notion",
   "estado": "ok",
   "nota": "Reportes Mensuales / Reporte Cierre Cyber (probado 19-oct)",
+  "fugas_que_usa": 2,
+  "severidad_en_juego": 3,
+  "destrabar": "no"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Canva",
+  "estado": "ok",
+  "nota": "Se ven los diseños de Amazing Care (probado 19-oct)",
   "fugas_que_usa": 1,
-  "severidad_en_juego": 2,
+  "severidad_en_juego": 3,
   "destrabar": "no"
  },
  {
   "marca": "Advanz",
-  "conector": "Google_Ads",
-  "estado": "sin-conector",
-  "nota": "",
+  "conector": "Semrush",
+  "estado": "sin-plan",
+  "nota": "Responde, pero sin unidades de API (2026-10-19)",
   "fugas_que_usa": 0,
   "severidad_en_juego": 0,
   "destrabar": "no"
@@ -166,15 +184,6 @@
   "conector": "Ahrefs",
   "estado": "sin-plan",
   "nota": "",
-  "fugas_que_usa": 0,
-  "severidad_en_juego": 0,
-  "destrabar": "no"
- },
- {
-  "marca": "Advanz",
-  "conector": "Semrush",
-  "estado": "sin-plan",
-  "nota": "Sin unidades de API",
   "fugas_que_usa": 0,
   "severidad_en_juego": 0,
   "destrabar": "no"
@@ -207,6 +216,51 @@
   "destrabar": "no"
  },
  {
+  "marca": "Advanz",
+  "conector": "GA4",
+  "estado": "sin-conector",
+  "nota": "Sin acceso a GA4 de advanz.cl",
+  "fugas_que_usa": 0,
+  "severidad_en_juego": 0,
+  "destrabar": "no"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Semrush",
+  "estado": "sin-plan",
+  "nota": "Conectado, sin unidades de API (19-oct)",
+  "fugas_que_usa": 0,
+  "severidad_en_juego": 0,
+  "destrabar": "no"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Vercel",
+  "estado": "ok",
+  "nota": "Equipo matiasroldan-7968's projects, probado 19-oct",
+  "fugas_que_usa": 0,
+  "severidad_en_juego": 0,
+  "destrabar": "no"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Ahrefs",
+  "estado": "sin-plan",
+  "nota": "Responde 'Insufficient plan': Web Analytics no disponible",
+  "fugas_que_usa": 0,
+  "severidad_en_juego": 0,
+  "destrabar": "no"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "GA4",
+  "estado": "sin-conector",
+  "nota": "Propiedad 354353475; sin acceso desde este OS",
+  "fugas_que_usa": 0,
+  "severidad_en_juego": 0,
+  "destrabar": "no"
+ },
+ {
   "marca": "AmazingCare",
   "conector": "Google_Drive",
   "estado": "ok",
@@ -226,36 +280,27 @@
  },
  {
   "marca": "AmazingCare",
-  "conector": "Ahrefs",
+  "conector": "Magnific",
+  "estado": "ok",
+  "nota": "Cuenta de Operaciones Advanz conectada",
+  "fugas_que_usa": 0,
+  "severidad_en_juego": 0,
+  "destrabar": "no"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Figma",
+  "estado": "bloqueado",
+  "nota": "Asiento View en plan starter: lee, no edita",
+  "fugas_que_usa": 0,
+  "severidad_en_juego": 0,
+  "destrabar": "no"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "pletor",
   "estado": "sin-plan",
-  "nota": "",
-  "fugas_que_usa": 0,
-  "severidad_en_juego": 0,
-  "destrabar": "no"
- },
- {
-  "marca": "AmazingCare",
-  "conector": "Semrush",
-  "estado": "sin-plan",
-  "nota": "Fuera por decisión (plan/unidades insuficientes)",
-  "fugas_que_usa": 0,
-  "severidad_en_juego": 0,
-  "destrabar": "no"
- },
- {
-  "marca": "AmazingCare",
-  "conector": "GA4",
-  "estado": "sin-conector",
-  "nota": "Propiedad 354353475",
-  "fugas_que_usa": 0,
-  "severidad_en_juego": 0,
-  "destrabar": "no"
- },
- {
-  "marca": "AmazingCare",
-  "conector": "Canva",
-  "estado": "sin-probar",
-  "nota": "",
+  "nota": "El MCP exige plan pago; sin brain de marca",
   "fugas_que_usa": 0,
   "severidad_en_juego": 0,
   "destrabar": "no"

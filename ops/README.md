@@ -33,7 +33,8 @@ ops/
 3. Aplica el cambio, lo registra en `CHANGELOG.md`, actualiza `estado.md` y hace push.
 4. Si el cambio toca otra área, deja un handoff y la sesión del otro OS lo toma.
 
-## Nombres y etiquetas de sesión
-- Título: `<Grupo> · OS <Área>`, por ejemplo `AmazingCare · OS Ads`.
-- Etiquetas: `carpeta:<grupo>`, `os:<área>` y `tipo:os`.
-- Cualquier sesión puntual nueva se titula `<Grupo> · <Área> — <tema>` y lleva las mismas etiquetas `carpeta:`/`os:`, para que quede agrupada con su OS.
+## Nombres y grupos de sesión
+- **Grupo = marca:** `Advanz` y `AmazingCare` (se arman en la app como Projects; ver `ops/SESIONES.md`).
+- **Nombre = área/canal + OS:** `Email OS`, `Ads OS`, `CRO OS`, `Growth OS`, `Creative OS`, `GEO/SEO OS`.
+- Etiquetas de respaldo: `grupo:<marca>`, `os:<área>`, `tipo:os`.
+- Sesiones puntuales nuevas: `<Área> — <tema>` (ej. `Ads — Black Friday`), dentro del grupo de su marca.

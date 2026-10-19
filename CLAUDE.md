@@ -8,7 +8,7 @@ Este repo es la base de operación de Advanz desde Claude Code. La operación se
 | **AmazingCare** (cliente) | `ops/amazingcare/email` | `ops/amazingcare/ads` | `ops/amazingcare/cro` | `ops/amazingcare/growth` | `ops/amazingcare/creative` | `ops/amazingcare/geo-seo` |
 
 ## Enrutamiento
-- Si la sesión se llama `<Grupo> · OS <Área>` (ej. `AmazingCare · OS Ads`), **antes de hacer cualquier cosa** lee `ops/<grupo>/<área>/CLAUDE.md` y sigue sus instrucciones.
+- Las sesiones OS se llaman `<Área> OS` (ej. `Ads OS`); la marca no va en el nombre sino en el grupo (Advanz / AmazingCare) y en el system prompt de la sesión. **Antes de hacer cualquier cosa**, lee `ops/<grupo>/<área>/CLAUDE.md` del grupo indicado en tu system prompt y sigue sus instrucciones.
 - Si no tiene OS asignado, identifica grupo y área por la tarea y lee ese `CLAUDE.md`.
 - Mapa completo y reglas: `ops/README.md`. Índice de sesiones: `ops/SESIONES.md`.
 

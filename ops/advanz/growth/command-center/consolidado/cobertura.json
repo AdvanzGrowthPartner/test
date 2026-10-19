@@ -93,11 +93,11 @@
   "os_id": "amazingcare.growth",
   "marca": "AmazingCare",
   "area": "growth",
-  "fuente": "semilla-growth",
+  "fuente": "os",
   "actualizado": "2026-10-19",
-  "fugas_abiertas": 4,
+  "fugas_abiertas": 5,
   "artifact_url": "—",
-  "archivo": "ops/advanz/growth/command-center/semillas/amazingcare.growth.json"
+  "archivo": "ops/amazingcare/growth/os-data.json"
  },
  {
   "os_id": "amazingcare.creative",

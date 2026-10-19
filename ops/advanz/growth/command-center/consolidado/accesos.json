@@ -13,8 +13,8 @@
   "conector": "Google_Ads",
   "estado": "sin-conector",
   "nota": "",
-  "fugas_que_usa": 3,
-  "severidad_en_juego": 10,
+  "fugas_que_usa": 2,
+  "severidad_en_juego": 7,
   "destrabar": "sí"
  },
  {
@@ -45,6 +45,15 @@
   "destrabar": "sí"
  },
  {
+  "marca": "AmazingCare",
+  "conector": "Cloudflare",
+  "estado": "sin-conector",
+  "nota": "Deploy del Command Center del cliente",
+  "fugas_que_usa": 1,
+  "severidad_en_juego": 3,
+  "destrabar": "sí"
+ },
+ {
   "marca": "Advanz",
   "conector": "Search_Console",
   "estado": "sin-conector",
@@ -58,8 +67,8 @@
   "conector": "Shopify",
   "estado": "ok",
   "nota": "",
-  "fugas_que_usa": 10,
-  "severidad_en_juego": 36,
+  "fugas_que_usa": 11,
+  "severidad_en_juego": 39,
   "destrabar": "no"
  },
  {
@@ -120,7 +129,7 @@
   "marca": "AmazingCare",
   "conector": "Notion",
   "estado": "ok",
-  "nota": "",
+  "nota": "Reportes Mensuales / Reporte Cierre Cyber (probado 19-oct)",
   "fugas_que_usa": 1,
   "severidad_en_juego": 2,
   "destrabar": "no"
@@ -199,18 +208,18 @@
  },
  {
   "marca": "AmazingCare",
-  "conector": "Canva",
-  "estado": "sin-probar",
-  "nota": "",
+  "conector": "Google_Drive",
+  "estado": "ok",
+  "nota": "Probado 19-oct",
   "fugas_que_usa": 0,
   "severidad_en_juego": 0,
   "destrabar": "no"
  },
  {
   "marca": "AmazingCare",
-  "conector": "Search_Console",
-  "estado": "sin-conector",
-  "nota": "Solo export manual",
+  "conector": "Miro",
+  "estado": "sin-probar",
+  "nota": "",
   "fugas_que_usa": 0,
   "severidad_en_juego": 0,
   "destrabar": "no"
@@ -228,7 +237,34 @@
   "marca": "AmazingCare",
   "conector": "Semrush",
   "estado": "sin-plan",
+  "nota": "Fuera por decisión (plan/unidades insuficientes)",
+  "fugas_que_usa": 0,
+  "severidad_en_juego": 0,
+  "destrabar": "no"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "GA4",
+  "estado": "sin-conector",
+  "nota": "Propiedad 354353475",
+  "fugas_que_usa": 0,
+  "severidad_en_juego": 0,
+  "destrabar": "no"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Canva",
+  "estado": "sin-probar",
   "nota": "",
+  "fugas_que_usa": 0,
+  "severidad_en_juego": 0,
+  "destrabar": "no"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Search_Console",
+  "estado": "sin-conector",
+  "nota": "Solo export manual",
   "fugas_que_usa": 0,
   "severidad_en_juego": 0,
   "destrabar": "no"

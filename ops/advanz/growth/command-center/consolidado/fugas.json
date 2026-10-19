@@ -371,7 +371,7 @@
   "conector": "Shopify",
   "acceso": "ok",
   "requiere_ok": "no",
-  "fuente": "semilla-growth"
+  "fuente": "os"
  },
  {
   "id": "amazingcare.growth.F02",
@@ -387,13 +387,13 @@
   "estado": "abierta",
   "depende_de": "—",
   "afecta_os": "ads",
-  "accion": "Fijar CAC objetivo por producto con COGS del cliente",
+  "accion": "Pedir COGS por producto al cliente y fijar CAC/CPA objetivo por producto y canal",
   "ejecutor": "growth",
-  "via": "mcp",
+  "via": "manual",
   "conector": "Shopify",
   "acceso": "ok",
   "requiere_ok": "no",
-  "fuente": "semilla-growth"
+  "fuente": "os"
  },
  {
   "id": "advanz.ads.F01",
@@ -745,7 +745,7 @@
   "conector": "Shopify",
   "acceso": "ok",
   "requiere_ok": "sí",
-  "fuente": "semilla-growth"
+  "fuente": "os"
  },
  {
   "id": "amazingcare.growth.F04",
@@ -757,17 +757,39 @@
   "severidad": 3,
   "impacto_clp_mes": null,
   "impacto_nota": "",
-  "evidencia": "Sin confirmar deploy",
+  "evidencia": "Proyecto amazing-command-center sin deploy confirmado; secrets en la máquina de Matías",
   "estado": "abierta",
   "depende_de": "—",
   "afecta_os": "—",
   "accion": "Deploy + secrets en la máquina de Matías",
   "ejecutor": "growth",
   "via": "cowork",
-  "conector": "Google_Ads",
+  "conector": "Cloudflare",
   "acceso": "sin-conector",
   "requiere_ok": "no",
-  "fuente": "semilla-growth"
+  "fuente": "os"
+ },
+ {
+  "id": "amazingcare.growth.F05",
+  "marca": "AmazingCare",
+  "area": "growth",
+  "titulo": "Cierres de mes incompletos: agosto parcial, septiembre solo 1–14, octubre sin abrir",
+  "etapa": "feedback",
+  "punto_funnel": "medicion",
+  "severidad": 3,
+  "impacto_clp_mes": null,
+  "impacto_nota": "Sin cierre mensual no hay base comparable para MER, CAC ni % recompra",
+  "evidencia": "estado.md growth",
+  "estado": "abierta",
+  "depende_de": "—",
+  "afecta_os": "ads, email",
+  "accion": "Cerrar sep y oct con Shopify + Meta; Google Ads por export",
+  "ejecutor": "growth",
+  "via": "mcp",
+  "conector": "Shopify",
+  "acceso": "ok",
+  "requiere_ok": "no",
+  "fuente": "os"
  },
  {
   "id": "advanz.ads.F02",

@@ -28,6 +28,7 @@
 - **Cockpit Next.js alternativo:** https://advanz-motor.pages.dev (Diagnóstico con Growth Score 76, Inteligencia por ángulo, Evento FP). Al usuario le pareció "sin valor agregado" y se recalibró el 10-sep. Estado actual sin confirmar.
 
 ## Decisiones tomadas
+- **19-oct · accesos probados (solo lectura):** Shopify, Meta Ads (DTC y Mayorista), Notion y Drive responden. Sin conector: Google Ads, GA4, Cloudflare. Sin probar: Klaviyo, Miro, Ahrefs.
 - **Reportes al cliente:** cortos y estratégicos, sin tecnicismos ni culpas. Los cambios se cuentan como "preparación para el evento", con verbos de mejora. La expectativa se declara, no se promete. Los próximos pasos se separan en **Cliente (estrategia y marca)** y **Advanz (ajustes y publicación)**.
 - **Fuente de verdad:** matriz/Shopify (último clic no directo) para conversiones, CPA y ROAS. Plataformas para inversión, CTR y costos por etapa. Paid y orgánico se separan por UTM.
 - **Comparaciones:** mismo tramo del mes anterior (p. ej., 3–20 ago contra 3–20 jul), sin evento adentro.
@@ -36,6 +37,7 @@
 - Ahrefs y Semrush quedan fuera (plan insuficiente o sin unidades). SEO se mide con Search Console, Shopify y la grilla de Notion.
 
 ## Pendientes / próximos pasos
+- [ ] **Artifact del OS (contrato Command Center):** `os-data.json` publicado el 19-oct (`fuente: "os"`, 7 KPIs, 5 fugas, 11 accesos). Falta crear el Dashboard "AmazingCare · OS Growth" (el publish quedó bloqueado por permisos; requiere OK del usuario) y guardar su URL en `artifact_url`.
 - [ ] **Reporte de cierre del Cyber oct-26** (2–11 oct): no hay data después del 4-oct. Usar el war room y el "Reporte Cierre Cyber" de junio como plantilla, y comparar los 3 eventos en base neta.
 - [ ] Actualizar la skill `event-strategy` con las lecciones del Cyber: neto contra bruto, el gotcha del IVA en ShopifyQL (`gross_sales`/`net_sales` van sin IVA), la calculadora de saturación, las definiciones de CAC y la auditoría de apilamiento de descuentos (Kaching). Se ofreció y no hubo respuesta.
 - [ ] Command Center en vivo: deploy en Cloudflare más secrets (Meta, Klaviyo, Shopify, Google Ads, GSC) en la máquina de Matías. Después, cablear "actualiza el command center con <mes>" y barrer el histórico ene–jul 2026 y 2025.

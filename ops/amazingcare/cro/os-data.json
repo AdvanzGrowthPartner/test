@@ -1,0 +1,303 @@
+{
+  "version": "1.0",
+  "os_id": "amazingcare.cro",
+  "grupo": "amazingcare",
+  "area": "cro",
+  "marca": "AmazingCare",
+  "actualizado": "2026-10-19",
+  "fuente": "os",
+  "artifact_url": "https://claude.ai/artifact/7vMZFu8B3vY6Sh4aYcuY5j",
+  "kpis": [
+    {
+      "id": "cvr",
+      "nombre": "Conversión del sitio",
+      "valor": 2.11,
+      "unidad": "%",
+      "periodo": "2026-09-01/2026-09-14",
+      "meta": null,
+      "estado": "warn",
+      "fuente": "Shopify"
+    },
+    {
+      "id": "atc_rate",
+      "nombre": "Sesión → carrito",
+      "valor": 6.61,
+      "unidad": "%",
+      "periodo": "2026-08-01/2026-08-20",
+      "meta": null,
+      "estado": "warn",
+      "fuente": "Shopify"
+    },
+    {
+      "id": "checkout_completion",
+      "nombre": "Checkout → compra",
+      "valor": 40.1,
+      "unidad": "%",
+      "periodo": "2026-08-01/2026-08-20",
+      "meta": null,
+      "estado": "bad",
+      "fuente": "Shopify"
+    },
+    {
+      "id": "cvr_movil",
+      "nombre": "Conversión móvil (~87% del tráfico)",
+      "valor": 4.75,
+      "unidad": "%",
+      "periodo": "CyberDay jun-26",
+      "meta": null,
+      "estado": "warn",
+      "fuente": "Shopify"
+    },
+    {
+      "id": "cvr_desktop",
+      "nombre": "Conversión desktop",
+      "valor": 14.9,
+      "unidad": "%",
+      "periodo": "CyberDay jun-26",
+      "meta": null,
+      "estado": "ok",
+      "fuente": "Shopify"
+    },
+    {
+      "id": "clic_a_visita_meta",
+      "nombre": "Clics de Meta que llegan a ver la página",
+      "valor": 59,
+      "unidad": "%",
+      "periodo": "Cyber oct-26",
+      "meta": 75,
+      "estado": "bad",
+      "fuente": "Meta_Ads"
+    },
+    {
+      "id": "cvr_pack_mix_60",
+      "nombre": "Conversión PDP pack-mix-60 (tráfico frío)",
+      "valor": 1.16,
+      "unidad": "%",
+      "periodo": "60 días a sep-26",
+      "meta": null,
+      "estado": "bad",
+      "fuente": "Shopify"
+    },
+    {
+      "id": "aov",
+      "nombre": "Ticket promedio (AOV)",
+      "valor": 31200,
+      "unidad": "CLP",
+      "periodo": "2026-08-01/2026-08-20",
+      "meta": null,
+      "estado": "ok",
+      "fuente": "Shopify"
+    },
+    {
+      "id": "lcp",
+      "nombre": "Velocidad de carga (LCP)",
+      "valor": null,
+      "unidad": "s",
+      "periodo": null,
+      "meta": 2.5,
+      "estado": "sin-dato",
+      "fuente": "Shopify"
+    }
+  ],
+  "fugas": [
+    {
+      "id": "amazingcare.cro.F01",
+      "titulo": "Escalera de precios invertida (Kaching): Súper Pack 150 más caro por stick que 5×30",
+      "etapa": "offer",
+      "punto_funnel": "pdp",
+      "severidad": 5,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Desordena la oferta: el cliente compra sueltos con más descuento que el pack. Revisar estado post-Cyber (desde el 3-oct los pedidos de 2–5 u. ya no recibían descuento por cantidad, sin verificar)",
+      "evidencia": "Súper Pack 150 ~$527/stick vs 5×30 con −15% ~$476/stick; tramos distintos por producto (Cyber oct-26)",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "ads",
+        "email",
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Revisar la escalera vigente y proponer tramos de Kaching consistentes (Súper Pack siempre más barato por stick); aplicar solo con OK",
+        "os_ejecutor": "cro",
+        "via": "mcp",
+        "conector": "Shopify",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.cro.F02",
+      "titulo": "Fuga clic → visita de Meta (59% vs ≥75% sano)",
+      "etapa": "acquisition",
+      "punto_funnel": "trafico",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Sano es ≥75%: hoy se pierden ~16 pts del tráfico pagado antes de llegar a la tienda",
+      "evidencia": "Solo el 59% de los clics de Meta registra visita (Cyber oct-26)",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "ads"
+      ],
+      "accion": {
+        "descripcion": "Auditar peso/velocidad (LCP) de la landing y el navegador interno de IG; hoy el navegador del OS no llega a amazingcare.cl (proxy 403)",
+        "os_ejecutor": "cro",
+        "via": "cowork",
+        "conector": "Shopify",
+        "requiere_ok": true,
+        "acceso": "bloqueado"
+      }
+    },
+    {
+      "id": "amazingcare.cro.F03",
+      "titulo": "pack-mix-60 recibe todo el tráfico frío y convierte 1,16%",
+      "etapa": "acquisition",
+      "punto_funnel": "pdp",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Llevarla a ~2,7% casi duplica las compras de ese tráfico. Decisión sep-26: derivar anuncios a la PDP ganadora por producto; falta confirmar que Ads lo aplicó",
+      "evidencia": "10.680 sesiones a 1,16% vs Berries 30 a 2,86%",
+      "estado": "en-curso",
+      "depende_de": [],
+      "afecta_os": [
+        "ads"
+      ],
+      "accion": {
+        "descripcion": "Derivar tráfico frío a las PDP ganadoras",
+        "os_ejecutor": "ads",
+        "via": "mcp",
+        "conector": "Meta_Ads",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.cro.F04",
+      "titulo": "Sin schema AggregateRating con ~300 reseñas",
+      "etapa": "foundations",
+      "punto_funnel": "pdp",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "~300 reseñas en PDP, schema sin verificar (navegador bloqueado para revisarlo)",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "geo-seo"
+      ],
+      "accion": {
+        "descripcion": "Agregar schema Review/AggregateRating en las PDP",
+        "os_ejecutor": "cro",
+        "via": "mcp",
+        "conector": "Shopify",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.cro.F05",
+      "titulo": "Sin Clarity: no hay heatmaps ni grabaciones de PDP y checkout",
+      "etapa": "systems",
+      "punto_funnel": "medicion",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Pedido 26-ago sin resultado",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "ads",
+        "email"
+      ],
+      "accion": {
+        "descripcion": "Instalar Clarity en la tienda (con OK) y conectar acceso o exportes para heatmaps/grabaciones de PDP y checkout",
+        "os_ejecutor": "cro",
+        "via": "manual",
+        "conector": "Clarity",
+        "requiere_ok": true,
+        "acceso": "sin-conector"
+      }
+    },
+    {
+      "id": "amazingcare.cro.F06",
+      "titulo": "Checkout móvil: solo ~40–49% de quienes inician checkout compran",
+      "etapa": "acquisition",
+      "punto_funnel": "checkout",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Móvil es ~87% del tráfico y convierte 3× menos que desktop",
+      "evidencia": "Checkout→compra 40,1% (ago 1–20); cierre de checkout estimado 49%; móvil 4,75% vs desktop 14,9%",
+      "estado": "abierta",
+      "depende_de": [
+        "amazingcare.cro.F05"
+      ],
+      "afecta_os": [
+        "ads",
+        "email"
+      ],
+      "accion": {
+        "descripcion": "Diagnosticar fricción del checkout móvil (envío, medios de pago, costo sorpresa) con Clarity + Shopify y proponer test",
+        "os_ejecutor": "cro",
+        "via": "mcp",
+        "conector": "Shopify",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.cro.F07",
+      "titulo": "Pop-up de captura de Klaviyo poco visible",
+      "etapa": "retention",
+      "punto_funnel": "captura",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Menos suscriptores nuevos para welcome y carrito",
+      "evidencia": "Pendiente compartido con OS Email (estado.md)",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "email"
+      ],
+      "accion": {
+        "descripcion": "Ajustar visibilidad/disparador del pop-up en el tema duplicado y validar con Email",
+        "os_ejecutor": "cro",
+        "via": "mcp",
+        "conector": "Klaviyo",
+        "requiere_ok": true,
+        "acceso": "sin-probar"
+      }
+    }
+  ],
+  "accesos": [
+    {
+      "conector": "Shopify",
+      "estado": "ok",
+      "nota": "Conectado a amazingcare.cl (CLP), probado 19-oct"
+    },
+    {
+      "conector": "Vercel",
+      "estado": "ok",
+      "nota": "Equipo matiasroldan-7968's projects, probado 19-oct"
+    },
+    {
+      "conector": "Ahrefs",
+      "estado": "sin-plan",
+      "nota": "Responde 'Insufficient plan': Web Analytics no disponible"
+    },
+    {
+      "conector": "Clarity",
+      "estado": "sin-conector",
+      "nota": "Sin historial ni conector; usar exportes manuales"
+    },
+    {
+      "conector": "GA4",
+      "estado": "sin-conector",
+      "nota": "Propiedad 354353475; sin acceso desde este OS"
+    },
+    {
+      "conector": "Klaviyo",
+      "estado": "sin-probar",
+      "nota": "Conector disponible en la sesión; lo opera el OS Email"
+    }
+  ]
+}

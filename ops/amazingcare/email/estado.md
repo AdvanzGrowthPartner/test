@@ -1,7 +1,18 @@
 # AmazingCare · OS Email (Klaviyo, CRM, retención)
 
 ## Estado actual
-**Último dato leído: 4 oct 2026, Cyber Amazing en curso.**
+**Último dato leído: 19 oct 2026 (Klaviyo, 1–19 oct). Dashboard del OS: https://claude.ai/artifact/95qFrTBGfTPqeE8UcJYDZH · datos en `os-data.json`.**
+
+### Cierre email Cyber oct-26 y post-Cyber (leído el 19-oct)
+- **Campañas 1–19 oct:** $7,87M y 142 compras. Durante el Cyber (1–11 oct) fueron $7,45M y 137 compras, con ~$136 por destinatario.
+- **Mejor envío:** "Cyber_Valor stick_Correo" (5 oct), con 10.679 entregados, 50 compras y $2,57M ($241 por destinatario).
+- **"¡COMENZÓ!" corregido:** desde el 3 oct los envíos a base completa llegan a 10,5–10,9K perfiles. La base es SUSCRIPTORES + Amazing_Todos los compradores + Captura_Welcome_Popup 10%, y excluye Amazing_Compras_14d.
+- **Post-Cyber:** PackMix_Push (14-oct) rindió $35 por destinatario y Creatina_5 cosas (17-oct) $6. Los clics bajaron a 0,07–0,10%: hay fatiga. El seguimiento de Creatina a no-aperturas estaba programado para el 19-oct a las 10:57.
+- **Flujos 1–19 oct:** el de carrito trajo 13 compras y $735K, pero su primer correo (5 min) tuvo 0 compras. Post-compra y Recompra_AON tuvieron 0 compras.
+- **Pop-up:** 18 vistas y 12 envíos entre el 28 sep y el 18 oct. Sigue casi sin mostrarse.
+- **UTM:** las 13 campañas de octubre tienen `add_tracking_params` activo. Faltan los flujos y validar en GA4.
+
+### Histórico (dato al 4 oct)
 - **Base:** ~10,8–11K perfiles en Klaviyo. Conversión atribuida con Placed Order `RP5iQ9`, ventana de 5 días.
 - **Envíos Cyber oct-26:**
 
@@ -33,10 +44,13 @@
 - **Oct-26:** no se envía nada sin confirmación. Las recomendaciones quedan como borrador.
 
 ## Pendientes / próximos pasos
-- [ ] **Cierre email del Cyber oct-26:** resultados del 4 al 11 oct, seguimientos y si se reenvió "¡COMENZÓ!".
-- [ ] Recomendación del 4-oct: reenviar "¡COMENZÓ!" al ~72% que no lo recibió (envío inteligente apagado o asunto distinto), más un envío a base completa el lunes 5 (CyberMonday) y otro el miércoles 7 ("últimas horas"). No hay confirmación de que se haya ejecutado.
+- [x] **Cierre email del Cyber oct-26:** hecho el 19-oct (ver arriba).
+- [x] (Resuelto: desde el 3-oct se envía a base completa.) Recomendación del 4-oct: reenviar "¡COMENZÓ!" al ~72% que no lo recibió (envío inteligente apagado o asunto distinto), más un envío a base completa el lunes 5 (CyberMonday) y otro el miércoles 7 ("últimas horas"). No hay confirmación de que se haya ejecutado.
 - [ ] Arreglar la visibilidad del pop-up de captura y la recuperación de carrito antes del próximo evento. Se evaluó sumar recuperación por WhatsApp.
-- [ ] **UTMs en Klaviyo:** hoy los correos van sin UTM, así que el email se subestima o se confunde en Shopify/GA4.
+- [ ] **UTMs:** las campañas ya los llevan. Faltan los flujos y validar en GA4 (F04).
+- [ ] **Post-Cyber:** bajar la frecuencia a base completa y segmentar por enganche (F05). Requiere OK.
+- [ ] **Flujos de post-compra y recompra sin compras:** revisar timing, oferta y CTA (F06).
+- [ ] Mantener `os-data.json` y el dashboard al día en cada cierre (contrato del Command Center).
 - [ ] Pendientes FP que quedaron abiertos: fecha de activación y bases del concurso (el correo del 1-sep estaba mal calendarizado), y copy y propuesta del Plan Amazing Contigo. Validar si se cerraron (sin confirmar).
 - [ ] Huincha "18 sept" en los flujos: el cliente la dejó en radar para planificar cambios masivos con más tiempo en la próxima campaña.
 

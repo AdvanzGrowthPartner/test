@@ -1,0 +1,164 @@
+{
+  "version": "1.0",
+  "os_id": "amazingcare.email",
+  "grupo": "amazingcare",
+  "area": "email",
+  "marca": "AmazingCare",
+  "actualizado": "2026-10-19",
+  "fuente": "os",
+  "artifact_url": "https://claude.ai/artifact/95qFrTBGfTPqeE8UcJYDZH",
+  "kpis": [
+    {"id": "rev_campanas", "nombre": "Venta atribuida a campañas", "valor": 7873241, "unidad": "CLP", "periodo": "2026-10-01/2026-10-19",
+     "meta": null, "estado": "ok", "fuente": "Klaviyo"},
+    {"id": "compras_campanas", "nombre": "Compras atribuidas a campañas", "valor": 142, "unidad": "órdenes", "periodo": "2026-10-01/2026-10-19",
+     "meta": null, "estado": "ok", "fuente": "Klaviyo"},
+    {"id": "rev_flujos", "nombre": "Venta atribuida a flujos", "valor": 735008, "unidad": "CLP", "periodo": "2026-10-01/2026-10-19",
+     "meta": null, "estado": "warn", "fuente": "Klaviyo"},
+    {"id": "rev_dest_cyber", "nombre": "Venta por destinatario en el Cyber", "valor": 136, "unidad": "CLP", "periodo": "2026-10-01/2026-10-11",
+     "meta": null, "estado": "ok", "fuente": "Klaviyo"},
+    {"id": "rev_dest_post", "nombre": "Venta por destinatario post-Cyber", "valor": 20, "unidad": "CLP", "periodo": "2026-10-14/2026-10-17",
+     "meta": null, "estado": "bad", "fuente": "Klaviyo"},
+    {"id": "open_rate", "nombre": "Apertura promedio (base completa)", "valor": 25.0, "unidad": "%", "periodo": "2026-10-01/2026-10-19",
+     "meta": null, "estado": "ok", "fuente": "Klaviyo"},
+    {"id": "base", "nombre": "Destinatarios por envío a base completa", "valor": 10867, "unidad": "perfiles", "periodo": "2026-10-03",
+     "meta": null, "estado": "ok", "fuente": "Klaviyo"},
+    {"id": "popup_vistas", "nombre": "Vistas del pop-up de captura", "valor": 18, "unidad": "vistas", "periodo": "2026-09-28/2026-10-18",
+     "meta": null, "estado": "bad", "fuente": "Klaviyo"}
+  ],
+  "fugas": [
+    {
+      "id": "amazingcare.email.F01",
+      "titulo": "El pop-up de captura casi no se muestra: 18 vistas en 3 semanas, Cyber incluido",
+      "etapa": "workflows",
+      "punto_funnel": "captura",
+      "severidad": 5,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Cuando se ve, convierte (12 envíos sobre 18 vistas). El problema es que no se muestra, no la oferta.",
+      "evidencia": "Viewed Form SQLn6z: 2 / 13 / 3 por semana (28 sep–18 oct). Submitted Form WrC97x: 0 / 9 / 3. En el CyberDay jun-26 ya pasaba (0–6 vistas al día).",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": ["cro", "growth"],
+      "accion": {
+        "descripcion": "Revisar targeting, disparador y exclusiones del form en Klaviyo, y que el app embed de Klaviyo esté activo en el tema de Shopify",
+        "os_ejecutor": "email",
+        "via": "manual",
+        "conector": "Klaviyo",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.email.F02",
+      "titulo": "El primer correo de carrito (5 min) no convierte",
+      "etapa": "workflows",
+      "punto_funnel": "carrito",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": "El flujo completo rinde $1.231 por destinatario. En eventos se estimó un gap de $600–750K (estado.md, jun-26).",
+      "evidencia": "Flujo_Carritos_AON RCsVZf, 1–19 oct: 603 destinatarios, 13 compras, $735K. Mensaje ReD3SB: 141 entregados, 15% apertura, 0 compras.",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": ["cro"],
+      "accion": {
+        "descripcion": "Rehacer el primer correo del carrito y evaluar sumar WhatsApp",
+        "os_ejecutor": "email",
+        "via": "mcp",
+        "conector": "Klaviyo",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.email.F03",
+      "titulo": "'¡COMENZÓ!' llegó solo al 28% de la base",
+      "etapa": "retention",
+      "punto_funnel": "recompra",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Resuelta: desde el 3 oct los envíos a base completa llegan a 10,5–10,9K perfiles (Precyber 3-oct: 10.834 entregados, 31 compras, $1,80M).",
+      "estado": "resuelta",
+      "depende_de": [],
+      "afecta_os": [],
+      "accion": {
+        "descripcion": "Incluir lista Captura_Welcome_Popup 10% y segmento de compradores en cada envío a base",
+        "os_ejecutor": "email",
+        "via": "mcp",
+        "conector": "Klaviyo",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.email.F04",
+      "titulo": "UTMs: las campañas ya los llevan, falta confirmar flujos y GA4",
+      "etapa": "systems",
+      "punto_funnel": "medicion",
+      "severidad": 2,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Las 13 campañas de oct tienen add_tracking_params = true. Falta verificar los flujos y que GA4/Shopify reciban utm_source=klaviyo.",
+      "estado": "en-curso",
+      "depende_de": [],
+      "afecta_os": ["growth"],
+      "accion": {
+        "descripcion": "Revisar UTM en flujos y cruzar con GA4",
+        "os_ejecutor": "email",
+        "via": "manual",
+        "conector": "Klaviyo",
+        "requiere_ok": false,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.email.F05",
+      "titulo": "Fatiga post-Cyber: venta por destinatario cae de $136 a $20",
+      "etapa": "retention",
+      "punto_funnel": "recompra",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Los clics bajan a 0,07–0,10%. Octubre ya va en 8 envíos principales (+4 seguimientos), en el techo de 6–8 al mes.",
+      "evidencia": "PackMix_Push 14-oct: $35 por destinatario, 3 compras. Creatina_5 cosas 17-oct: $6 por destinatario, 2 compras. Cyber 1–11 oct: $136 promedio.",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": ["creative", "growth"],
+      "accion": {
+        "descripcion": "Bajar la frecuencia a base completa, segmentar por enganche (60–90 días) y pasar a contenido educativo hasta el próximo evento",
+        "os_ejecutor": "email",
+        "via": "mcp",
+        "conector": "Klaviyo",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.email.F06",
+      "titulo": "Flujos de post-compra y recompra: 0 compras en octubre",
+      "etapa": "retention",
+      "punto_funnel": "recompra",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": "La recompra citada es 43,7% (ago-26), pero los flujos no capturan nada de eso.",
+      "evidencia": "Flujo_Postcompra QQjgEa: 309 entregados, 49% apertura, 0 compras. Flujo_Recompra_AON VNCVuB: 263 entregados, 0,4% clics, 0 compras.",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": ["growth"],
+      "accion": {
+        "descripcion": "Revisar timing (reposición de 30 sticks ≈ 30 días), oferta y CTA de ambos flujos",
+        "os_ejecutor": "email",
+        "via": "mcp",
+        "conector": "Klaviyo",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    }
+  ],
+  "accesos": [
+    {"conector": "Klaviyo", "estado": "ok", "nota": "Cuenta XseJpL. Campañas, flujos, reportes y métricas OK. El MCP no edita formularios."},
+    {"conector": "Shopify", "estado": "ok", "nota": "Tienda amazingcare.cl (CLP)"},
+    {"conector": "Gmail", "estado": "ok", "nota": "Borradores en Operaciones@advanz.cl"},
+    {"conector": "Notion", "estado": "sin-probar", "nota": "Grilla de correos y lineamientos"},
+    {"conector": "Google_Drive", "estado": "sin-probar", "nota": ""},
+    {"conector": "GA4", "estado": "sin-conector", "nota": "Necesario para validar UTMs (F04)"}
+  ]
+}

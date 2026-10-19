@@ -1,0 +1,156 @@
+{
+  "version": "1.0",
+  "os_id": "advanz.ads",
+  "grupo": "advanz",
+  "area": "ads",
+  "marca": "Advanz",
+  "actualizado": "2026-10-19",
+  "fuente": "os",
+  "artifact_url": "https://claude.ai/artifact/EPTBn5enjm5DQ54usEhkQY",
+  "kpis": [
+    {
+      "id": "spend",
+      "nombre": "Inversión propia",
+      "valor": 0,
+      "unidad": "CLP",
+      "periodo": "actual",
+      "meta": 0,
+      "estado": "ok",
+      "fuente": "Decisión: canal detenido"
+    },
+    {
+      "id": "campanas_activas",
+      "nombre": "Campañas propias activas",
+      "valor": 0,
+      "unidad": "campañas",
+      "periodo": "2026-10-19",
+      "meta": 0,
+      "estado": "ok",
+      "fuente": "Decisión: canal detenido"
+    },
+    {
+      "id": "cpl",
+      "nombre": "Costo por lead (histórico)",
+      "valor": null,
+      "unidad": "CLP",
+      "periodo": "campaña de $450k (fecha sin confirmar)",
+      "meta": null,
+      "estado": "sin-dato",
+      "fuente": "Meta_Ads (bloqueado)"
+    }
+  ],
+  "fugas": [
+    {
+      "id": "advanz.ads.F01",
+      "titulo": "Cuenta Meta Advanz UNSETTLED: sin lectura de historial ni opción de reactivar",
+      "etapa": "foundations",
+      "punto_funnel": "medicion",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "ads_get_ad_accounts 2026-10-19: account_status UNSETTLED, is_queryable=false; tiene método de pago",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Regularizar el pago pendiente en Meta Business",
+        "os_ejecutor": "ads",
+        "via": "manual",
+        "conector": "Meta_Ads",
+        "requiere_ok": true,
+        "acceso": "bloqueado"
+      }
+    },
+    {
+      "id": "advanz.ads.F02",
+      "titulo": "Pixel/CAPI de advanz.cl y landers sin verificar",
+      "etapa": "foundations",
+      "punto_funnel": "medicion",
+      "severidad": 2,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Tracking previsto (Pixel+CAPI+GA4 en growth-engine-lander), sin confirmar; el dataset no se puede leer mientras la cuenta esté UNSETTLED",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "cro"
+      ],
+      "accion": {
+        "descripcion": "Revisar el dataset en Meta y el script en GHL/Vercel",
+        "os_ejecutor": "ads",
+        "via": "mcp",
+        "conector": "Meta_Ads",
+        "requiere_ok": false,
+        "acceso": "bloqueado"
+      }
+    },
+    {
+      "id": "advanz.ads.F03",
+      "titulo": "Sin historial de la campaña de $450k (1 cierre): no hay CPL ni costo por llamada de referencia",
+      "etapa": "feedback",
+      "punto_funnel": "medicion",
+      "severidad": 2,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Sin línea base, un test futuro no tiene contra qué compararse",
+      "evidencia": "estado.md: $450k CLP → 1 cierre; fechas, objetivo y CPL sin levantar",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Exportar el historial desde Ads Manager cuando se regularice la cuenta",
+        "os_ejecutor": "ads",
+        "via": "mcp",
+        "conector": "Meta_Ads",
+        "requiere_ok": false,
+        "acceso": "bloqueado"
+      }
+    },
+    {
+      "id": "advanz.ads.F04",
+      "titulo": "Cuenta Google Ads propia sin confirmar",
+      "etapa": "foundations",
+      "punto_funnel": "medicion",
+      "severidad": 1,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "No aparece en los transcripts; no hay conector Google Ads",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [],
+      "accion": {
+        "descripcion": "Confirmar si existe y su ID; si existe, export manual o Cowork",
+        "os_ejecutor": "ads",
+        "via": "manual",
+        "conector": "Google_Ads",
+        "requiere_ok": false,
+        "acceso": "sin-conector"
+      }
+    }
+  ],
+  "accesos": [
+    {
+      "conector": "Meta_Ads",
+      "estado": "bloqueado",
+      "nota": "MCP conecta; cuenta Advanz 120273191181276 UNSETTLED, no consultable (2026-10-19)"
+    },
+    {
+      "conector": "Semrush",
+      "estado": "sin-plan",
+      "nota": "Responde, pero sin unidades de API (2026-10-19)"
+    },
+    {
+      "conector": "Google_Ads",
+      "estado": "sin-conector",
+      "nota": "Solo export manual / CSV"
+    },
+    {
+      "conector": "GHL",
+      "estado": "sin-conector",
+      "nota": "Tracking del sitio sin verificar por MCP"
+    }
+  ]
+}

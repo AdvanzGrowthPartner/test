@@ -9,6 +9,11 @@
 - Aprendizaje histórico: **$450k CLP → 1 cierre**, empujando un lead magnet genérico de Cyber mientras el Diagnóstico Vivo quedaba escondido detrás (fecha sin confirmar).
 - Tracking previsto para landers: Pixel + CAPI + GA4 en el stack `growth-engine-lander` (sin confirmar si está activo en advanz.cl).
 
+## Artifact y datos del OS
+- `os-data.json` publicado según el contrato del Command Center (`fuente: "os"`): 3 KPIs, 4 fugas (F01–F04), 4 accesos.
+- Dashboard **Advanz · OS Ads**: https://claude.ai/artifact/EPTBn5enjm5DQ54usEhkQY (privado hasta que se comparta). Muestra KPIs y fugas; la tabla de accesos no se subió (el clasificador bloqueó esa subida) y queda solo en el JSON.
+- Accesos probados el 2026-10-19: Meta Ads MCP conecta, pero la cuenta Advanz está UNSETTLED (`is_queryable=false`). Semrush responde, sin unidades de API. No hay conector para Google Ads, LinkedIn Ads ni GHL.
+
 ## Decisiones tomadas
 - **(fecha sin confirmar, previa a 2026-09)** Se apagan los ads propios. Motivos: no hay presupuesto para sostener el aprendizaje, el mensaje no está validado en frío, y el outbound con Diagnóstico Vivo reemplaza el gasto a costo cero.
 - **Condición de reactivación**: un nivel de dolor o tipo de contenido con tasa de respuesta consistente en outbound y orgánico. Ese ángulo validado es el que recibe presupuesto. "Ads amplifica, no descubre."

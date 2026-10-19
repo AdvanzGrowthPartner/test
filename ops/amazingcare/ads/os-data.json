@@ -1,0 +1,213 @@
+{
+  "version": "1.0",
+  "os_id": "amazingcare.ads",
+  "grupo": "amazingcare",
+  "area": "ads",
+  "marca": "AmazingCare",
+  "actualizado": "2026-10-19",
+  "fuente": "os",
+  "artifact_url": "https://claude.ai/artifact/BLucerYtMSGs6P627LLuVJ",
+  "kpis": [
+    {
+      "id": "roas_meta",
+      "nombre": "ROAS Meta (plataforma) · Cyber completo",
+      "valor": 6.27,
+      "unidad": "x",
+      "periodo": "2026-10-02/2026-10-11",
+      "meta": 2.5,
+      "estado": "ok",
+      "fuente": "Meta_Ads"
+    },
+    {
+      "id": "spend_meta",
+      "nombre": "Inversión Meta · Cyber",
+      "valor": 3375.69,
+      "unidad": "USD",
+      "periodo": "2026-10-02/2026-10-11",
+      "meta": null,
+      "estado": "ok",
+      "fuente": "Meta_Ads"
+    },
+    {
+      "id": "compras_meta",
+      "nombre": "Compras atribuidas Meta · Cyber",
+      "valor": 441,
+      "unidad": "compras",
+      "periodo": "2026-10-02/2026-10-11",
+      "meta": null,
+      "estado": "ok",
+      "fuente": "Meta_Ads"
+    },
+    {
+      "id": "freq_meta",
+      "nombre": "Frecuencia Meta · Cyber",
+      "valor": 2.36,
+      "unidad": "x",
+      "periodo": "2026-10-02/2026-10-11",
+      "meta": null,
+      "estado": "ok",
+      "fuente": "Meta_Ads"
+    },
+    {
+      "id": "roas_meta_shop",
+      "nombre": "ROAS Meta según Shopify",
+      "valor": 3.7,
+      "unidad": "x",
+      "periodo": "Cyber oct-26 día 2 (sin cierre)",
+      "meta": 2.5,
+      "estado": "warn",
+      "fuente": "Shopify"
+    },
+    {
+      "id": "pmax",
+      "nombre": "ROAS PMax Principal",
+      "valor": 2.0,
+      "unidad": "x",
+      "periodo": "30 días a 4-sep",
+      "meta": 3.0,
+      "estado": "bad",
+      "fuente": "Google_Ads"
+    }
+  ],
+  "fugas": [
+    {
+      "id": "amazingcare.ads.F01",
+      "titulo": "Solo el 59% de los clics de Meta llega a ver la página",
+      "etapa": "acquisition",
+      "punto_funnel": "trafico",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Sano es ≥75%: se pierden ~16 pts del tráfico pagado",
+      "evidencia": "2.084 clics → 1.227 visitas (Cyber oct-26, día 2)",
+      "estado": "abierta",
+      "depende_de": [
+        "amazingcare.cro.F02"
+      ],
+      "afecta_os": [
+        "cro"
+      ],
+      "accion": {
+        "descripcion": "Coordinar con CRO: velocidad y navegador de IG",
+        "os_ejecutor": "cro",
+        "via": "mcp",
+        "conector": "Meta_Ads",
+        "requiere_ok": false,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.ads.F02",
+      "titulo": "PMax sin tROAS y sin excluir marca (canibaliza Brand)",
+      "etapa": "acquisition",
+      "punto_funnel": "trafico",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Antes del cambio de puja rendía 3,56×; Brand 9,27× aparte",
+      "evidencia": "Auditoría 4-sep: PMax 3,56× → 2,00× (30 días, $847.528); sin tROAS ni exclusión de marca",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [],
+      "accion": {
+        "descripcion": "Aplicar tROAS 3,0× y exclusión de marca",
+        "os_ejecutor": "ads",
+        "via": "cowork",
+        "conector": "Google_Ads",
+        "requiere_ok": true,
+        "acceso": "sin-conector"
+      }
+    },
+    {
+      "id": "amazingcare.ads.F03",
+      "titulo": "Google Ads no llega al war room ni al command center",
+      "etapa": "systems",
+      "punto_funnel": "medicion",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Sin conector Google Ads en la sesión cloud (verificado 19-oct); vive en la terminal de Matías",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "growth",
+        "cro"
+      ],
+      "accion": {
+        "descripcion": "Conectar vía Cowork o Supermetrics/Windsor",
+        "os_ejecutor": "ads",
+        "via": "cowork",
+        "conector": "Google_Ads",
+        "requiere_ok": false,
+        "acceso": "sin-conector"
+      }
+    },
+    {
+      "id": "amazingcare.ads.F04",
+      "titulo": "Adsets de packs del 12-sep: corrieron y hoy están con la campaña en pausa",
+      "etapa": "acquisition",
+      "punto_funnel": "trafico",
+      "severidad": 2,
+      "impacto_clp_mes": null,
+      "impacto_nota": "P6 rindió sobre el breakeven (2,5×): candidato a reactivar post-Cyber",
+      "evidencia": "Meta 19-oct (30 días): Pack_P6 Cotidiano US$57 y 6,56×; Pack_P2 US$7,5; P3 y FP Refresh US$0; las 4 en CAMPAIGN_PAUSED; P1yP4 archivado",
+      "estado": "en-curso",
+      "depende_de": [],
+      "afecta_os": [
+        "creative"
+      ],
+      "accion": {
+        "descripcion": "Proponer reactivar Pack_P6 (y decidir P2/P3) con presupuesto acotado; requiere OK",
+        "os_ejecutor": "ads",
+        "via": "mcp",
+        "conector": "Meta_Ads",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.ads.F05",
+      "titulo": "Cyber oct-26 sin cierre real cruzado con Shopify",
+      "etapa": "feedback",
+      "punto_funnel": "medicion",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Meta reporta 6,27× y 441 compras; falta el ROAS según Shopify y Google para el aprendizaje del próximo evento",
+      "evidencia": "estado.md: sin data después del 4-oct; Meta leído el 19-oct",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "growth",
+        "email"
+      ],
+      "accion": {
+        "descripcion": "Cruzar Meta + Google + Shopify del 2 al 11 oct y cerrar el reporte del Cyber",
+        "os_ejecutor": "ads",
+        "via": "mcp",
+        "conector": "Shopify",
+        "requiere_ok": false,
+        "acceso": "sin-probar"
+      }
+    }
+  ],
+  "accesos": [
+    {
+      "conector": "Meta_Ads",
+      "estado": "ok",
+      "nota": "DTC 2911300959169889 + Mayorista 3131920510317594 (lectura verificada 19-oct)"
+    },
+    {
+      "conector": "Google_Ads",
+      "estado": "sin-conector",
+      "nota": "Solo desde la terminal de Matías (Cowork) o export"
+    },
+    {
+      "conector": "Semrush",
+      "estado": "sin-plan",
+      "nota": "Conectado, sin unidades de API (19-oct)"
+    },
+    {
+      "conector": "Shopify",
+      "estado": "sin-probar",
+      "nota": "Conector disponible en la sesión"
+    }
+  ]
+}

@@ -1,6 +1,12 @@
 # AmazingCare · OS Ads (paid media Meta/Google, UTM, tracking)
 
 ## Estado actual
+**Actualización 19-oct (lectura Meta, sin cambios en plataforma):**
+- Cierre Meta del Cyber (2–11 oct, cuenta DTC): US$3.376 invertidos, ROAS de plataforma 6,27×, 441 compras, frecuencia 2,36. Falta cruzarlo con Shopify y con Google.
+- Adsets del 12-sep: Pack_P6 Cotidiano gastó US$57 con 6,56× y Pack_P2 gastó US$7,5. P3 y FP Refresh no gastaron. Los 4 están con la campaña en pausa (`CAMPAIGN_PAUSED`). P1yP4 está archivado.
+- Accesos: Meta OK (lectura verificada). Google Ads sin conector en la sesión cloud. Semrush conectado pero sin unidades de API.
+- Dashboard del OS (contrato del Command Center): https://claude.ai/artifact/BLucerYtMSGs6P627LLuVJ · datos en `os-data.json`.
+
 **Último dato leído: Cyber Amazing oct-26, corte del sáb 3 oct ~22:00.** No hay cierre del evento (terminó el 11 oct).
 - **Cyber oct-26 (plan pagado de $3M, 10 días):**
   - Día 2: $2,37M netos y 57 órdenes (81% del plan de ventas). Acumulado: $3,86M → proyecta ~$14M contra $18,4M del plan.
@@ -42,10 +48,11 @@
 - **Semana del 18–22 ago:** auditoría del píxel/CAPI de Meta. La trazabilidad de compra subió de 28,6% a 35,7% y el EMQ de compra pasó a 9,3. En julio el CPA de Meta bajó $11.000 respecto de los últimos 2 años.
 
 ## Pendientes / próximos pasos
-- [ ] **Cerrar el Cyber oct-26:** resultado final del 2–11 oct, ROAS real de Meta y Google, y contraste con la proyección. No hay data después del 4 oct.
+- [ ] **Cerrar el Cyber oct-26:** Meta ya está leído (6,27×, 441 compras). Falta el ROAS según Shopify, Google y el contraste con la proyección.
 - [ ] Traer la data real de Google Ads al war room y al command center (gasto, ROAS, PMax). Se habló de un conector Supermetrics/Windsor o de un prompt de Cowork.
 - [ ] Confirmar si se aplicó **tROAS 3,0×** a la PMax Principal (recomendado el 4-sep) y si se revisaron los negativos de Search Category Elect y la exclusión de marca en PMax.
-- [ ] Revisar si se activaron los 5 adsets / 17 anuncios del 12-sep (estaban en pausa, faltaban los verticales y la revisión del copy FP).
+- [ ] Adsets del 12-sep: proponer reactivar Pack_P6 (6,56×) post-Cyber y decidir P2/P3. Requiere OK.
+- [ ] Mantener `os-data.json` y el dashboard al día en cada cierre.
 - [ ] Partnership Ad con Force (0031): falta vincular la identidad del partner.
 - [ ] Canibalización: había 3 campañas de adquisición en paralelo en ago-26. Validar si se consolidaron.
 - [ ] Acortador o redirect propio para el link-in-bio de IG (`go.amazingcare.cl/bio`, sin confirmar).

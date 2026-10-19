@@ -1,0 +1,234 @@
+{
+  "version": "1.0",
+  "os_id": "advanz.cro",
+  "grupo": "advanz",
+  "area": "cro",
+  "marca": "Advanz",
+  "actualizado": "2026-10-19",
+  "fuente": "os",
+  "artifact_url": "https://claude.ai/artifact/JosGimV3RiLAsjf2qKdW3h",
+  "kpis": [
+    {
+      "id": "leads_web",
+      "nombre": "Leads web por semana",
+      "valor": null,
+      "unidad": "leads",
+      "periodo": "semana actual",
+      "meta": 20,
+      "estado": "sin-dato",
+      "fuente": "GHL"
+    },
+    {
+      "id": "cvr_landing",
+      "nombre": "CVR de landing",
+      "valor": null,
+      "unidad": "%",
+      "periodo": null,
+      "meta": null,
+      "estado": "sin-dato",
+      "fuente": "Ahrefs"
+    },
+    {
+      "id": "optin_lead_magnet",
+      "nombre": "Opt-in del lead magnet",
+      "valor": null,
+      "unidad": "%",
+      "periodo": null,
+      "meta": null,
+      "estado": "sin-dato",
+      "fuente": "GHL"
+    },
+    {
+      "id": "tasa_agendamiento",
+      "nombre": "Tasa de agendamiento (lead → agenda)",
+      "valor": null,
+      "unidad": "%",
+      "periodo": null,
+      "meta": null,
+      "estado": "sin-dato",
+      "fuente": "GHL"
+    },
+    {
+      "id": "abandono_form",
+      "nombre": "Abandono de formulario",
+      "valor": null,
+      "unidad": "%",
+      "periodo": null,
+      "meta": null,
+      "estado": "sin-dato",
+      "fuente": "Clarity"
+    }
+  ],
+  "fugas": [
+    {
+      "id": "advanz.cro.F01",
+      "titulo": "Form del lead magnet Shopify desconectado: cada lead se pierde",
+      "etapa": "workflows",
+      "punto_funnel": "captura",
+      "severidad": 5,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Sin dato de tráfico a la página; no se sabe si está publicada (solo existe advanz-shopify-leadmagnet.html en el repo)",
+      "evidencia": "fetch('/api/leads') comentado en advanz-shopify-leadmagnet.html",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "email",
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Confirmar dónde está publicada y conectar captura → GHL por API (la API key de GHL la configura una persona como variable de entorno en Vercel)",
+        "os_ejecutor": "cro",
+        "via": "mcp",
+        "conector": "Vercel",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "advanz.cro.F02",
+      "titulo": "Claims sin verificar en el lead magnet (+200 emprendedores, testimonios) y PDF no confirmado",
+      "etapa": "offer",
+      "punto_funnel": "captura",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Riesgo de credibilidad con founders; el form promete un PDF de 32 páginas que no está ubicado",
+      "evidencia": "Sin evidencia de los claims ni del PDF en repo ni transcripts",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "creative"
+      ],
+      "accion": {
+        "descripcion": "Validar o quitar los claims; confirmar o crear el PDF",
+        "os_ejecutor": "cro",
+        "via": "mcp",
+        "conector": "Vercel",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "advanz.cro.F03",
+      "titulo": "Web funnel sin prueba end-to-end (lander → GHL → 5 correos → agenda)",
+      "etapa": "validation",
+      "punto_funnel": "agenda",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Meta de 20 leads/semana sin confirmar que el flujo entrega y agenda",
+      "evidencia": "Pendiente desde estado.md; GHL sin conector en Claude",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "email",
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Probar con 1 lead de prueba propio y registrar cada paso",
+        "os_ejecutor": "cro",
+        "via": "manual",
+        "conector": "GHL",
+        "requiere_ok": true,
+        "acceso": "sin-conector"
+      }
+    },
+    {
+      "id": "advanz.cro.F04",
+      "titulo": "CTA de reels 'comenta [palabra]' sin quiz de captura construido",
+      "etapa": "acquisition",
+      "punto_funnel": "captura",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "El quiz no aparece en transcripts ni en los proyectos de Vercel por nombre",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "creative",
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Construir el quiz con b2b-assessment-builder y desplegarlo en preview",
+        "os_ejecutor": "cro",
+        "via": "mcp",
+        "conector": "Vercel",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "advanz.cro.F05",
+      "titulo": "Funnel propio sin medición: no hay dato de CVR, opt-in, agenda ni abandono",
+      "etapa": "feedback",
+      "punto_funnel": "medicion",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Sin línea base no se puede priorizar ni probar cambios (A/B)",
+      "evidencia": "Ahrefs Web Analytics responde 'Insufficient plan'; GHL sin conector; advanz.cl bloqueado por el proxy de la sesión",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "growth",
+        "ads"
+      ],
+      "accion": {
+        "descripcion": "Habilitar una fuente de datos: plan de Ahrefs con Web Analytics, Clarity/GA4 o export semanal de GHL",
+        "os_ejecutor": "cro",
+        "via": "manual",
+        "conector": "Ahrefs",
+        "requiere_ok": true,
+        "acceso": "sin-plan"
+      }
+    },
+    {
+      "id": "advanz.cro.F06",
+      "titulo": "Funnel Cyber con decisiones abiertas y VSL sin feedback",
+      "etapa": "offer",
+      "punto_funnel": "agenda",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": "CyberMonday cerca: si no se cierra a tiempo, el funnel no sale",
+      "evidencia": "Falta nombre de oferta, calendario (GHL o Calendly), formato 1 o 2 pasos; VSL GSAP sin aprobar",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "ads",
+        "creative"
+      ],
+      "accion": {
+        "descripcion": "Cerrar las 4 decisiones con el usuario y armar /cyber en preview de Vercel",
+        "os_ejecutor": "cro",
+        "via": "mcp",
+        "conector": "Vercel",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    }
+  ],
+  "accesos": [
+    {
+      "conector": "Vercel",
+      "estado": "ok",
+      "nota": "Equipo matiasroldan-7968's projects: landeradvanz, web, advanz-hub, paid-media-engine, test (2026-10-19)"
+    },
+    {
+      "conector": "GHL",
+      "estado": "sin-conector",
+      "nota": "CRM, landers y workflows de Advanz; sin MCP en Claude"
+    },
+    {
+      "conector": "Ahrefs",
+      "estado": "sin-plan",
+      "nota": "Web Analytics responde 'Insufficient plan'"
+    },
+    {
+      "conector": "Shopify",
+      "estado": "bloqueado",
+      "nota": "La sesión apunta a amazingcare.cl, no a Advanz; no tocar desde este OS"
+    },
+    {
+      "conector": "Clarity",
+      "estado": "sin-conector",
+      "nota": "Alternativa para abandono de form y grabaciones"
+    }
+  ]
+}

@@ -16,6 +16,15 @@
 - **Quiz / assessment**: los reels con CTA "comenta [palabra]" deben llevar a un **lander de captura tipo quiz funnel**. El closing reconoce "lead post-assessment" como fuente. Skill `b2b-assessment-builder`. El quiz construido no aparece en los transcripts (sin confirmar).
 - **Assessment de email** reutilizable como lead magnet: `advanz-email-engine/assets/email-engine-madurez.html` (madurez 1–5 según facturación).
 
+## Accesos (probados 2026-10-19)
+- **Vercel ✅**: equipo `matiasroldan-7968's projects` → `landeradvanz`, `web`, `advanz-hub`, `paid-media-engine`, `test`.
+- **Shopify ⚠️**: conecta a amazingcare.cl, no a Advanz. No tocar desde este OS.
+- **Ahrefs ❌**: "Insufficient plan" (sin Web Analytics). **GHL**: sin conector. **advanz.cl**: el proxy de la sesión lo bloquea (Chromium instalado, sin salida).
+
+## Artifact y datos para el Command Center
+- `ops/advanz/cro/os-data.json` (contrato 1.0, `fuente: "os"`): 5 KPIs (todos sin dato) y 6 fugas (F01–F06; se agregaron F05 medición y F06 funnel Cyber).
+- Dashboard **Advanz · OS CRO**: https://claude.ai/artifact/JosGimV3RiLAsjf2qKdW3h (privado; lee archivos fijos cargados desde `os-data.json`, se recargan en cada cierre).
+
 ## Decisiones tomadas
 - **2026-09-07**: Funnel Cyber de 2 pasos adaptado de Peakk, con marca, mercado Chile y data propia anonimizada. La oferta es un diagnóstico o llamada gratis atada al Growth Engine y al Motor de Cyber.
 - **2026-09-08**: VSL primero en **HTML + GSAP** (prototipo editable). Se pasa a MP4 con Remotion solo cuando esté aprobada.
@@ -23,6 +32,7 @@
 - **(sin fecha)** Web funnel: probar end-to-end con 1 lead real y después no seguir puliendo.
 
 ## Pendientes / próximos pasos
+- [ ] Habilitar una fuente de medición (Ahrefs Web Analytics, Clarity/GA4 o export de GHL) para tener la línea base de CVR, opt-in y agenda.
 - [ ] Conectar el form del lead magnet Shopify a GHL, crear o confirmar el PDF y validar o quitar los claims no verificables.
 - [ ] Decisiones abiertas del funnel Cyber: nombre exacto de la oferta, calendario (GHL o Calendly), opt-in más VSL o página única, y si el lead magnet es el "Cyber Opportunity Preview".
 - [ ] Feedback de la VSL (copy, timing, colores) → render MP4 con Remotion → embeber en `/cyber`. La publicación como Artifact quedó bloqueada por permisos.

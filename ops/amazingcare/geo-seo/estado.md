@@ -26,6 +26,15 @@
   - Tendencia: may 14 → jun 14 → jul 12 → ago 22 → sep 24 (en 14 días).
 - **Señales GEO:** autoría ✅ · schema ✅ · FAQ parcial · Wikidata y `llms.txt` pendientes · AggregateRating sin verificar · AI Citation Score sin línea base.
 
+## Pedidos de Antonia Quezada (WhatsApp, 19-oct) · en curso
+Diagnóstico solo de lectura (Shopify + Notion), sin cambios aplicados todavía. Esperando el OK del usuario.
+- [ ] **POTS y disautonomía** (`pots-disautonomia-mareos-fatiga-desmayos`, publicado el 28-sep): Antonia no lo escribió ni lo aprobó. Ocultarlo y redirigir 301 a `electrolitos-disautonomia`, que es el blog de disautonomía con más clics y no se toca.
+- [ ] **Creatina y electrolitos** (`creatina-y-electrolitos-hidratacion`, autor "Amazing Care"): ocultarlo y relanzarlo después en la misma URL con texto de Antonia y enlace a la PDP de Creatina Creapure.
+- [ ] **Los 2 de Cyber** (`suplementos-en-cyber-como-comparar` y `mejores-electrolitos-chile`): están sin portada y quedaron primeros en el listado. Al de Cyber se le cambia la fecha a una anterior; "Mejores electrolitos" es keyword evergreen, así que se queda y necesita portada.
+- [ ] **Alergias y Viajes**: Shopify tiene la versión vieja. Hay que pasar a Shopify la versión de Notion que corrigió Antonia (texto, imágenes y bibliografía). En Viajes, Antonia volvió a mencionar el **alcohol**, que se había sacado el 28-sep: confirmar con ella.
+- [ ] **Quimioterapia** (nuevo, para el mes del cáncer de mama, plazo 19-oct): el borrador está en `borradores/2026-10-19-electrolitos-quimioterapia.html`, sin cupón. Faltan subir las imágenes de Notion y el OK para publicar.
+- [ ] Antonia pide ideas para los nuevos blogs de creatina este mes.
+
 ## Decisiones tomadas
 - **1-sep:** el reporte SEO excluye PMax (va por el carril pagado y aparece solo como nota). Separa orgánico, Merchant free listing, blog y GEO.
 - **No cambiar los titles de artículos** (Patricio: resetea las impresiones). La palanca es el CTR y empujar posiciones.

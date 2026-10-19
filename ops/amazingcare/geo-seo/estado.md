@@ -1,6 +1,8 @@
 # AmazingCare · OS GEO-SEO (SEO, GEO/IA, blog, Search Console, Merchant)
 
 ## Estado actual
+- **Artifact del OS (19-oct):** https://claude.ai/artifact/BJq7vAVShgbSBKiVoucpot (Dashboard sobre `os-data.json`, contrato 1.0 de Growth). Tiene 8 fugas (F01–F08), 8 KPIs y 7 accesos. Se actualiza en cada cierre junto con este archivo.
+- **Accesos probados el 19-oct (solo lectura):** Shopify ✅ · Google Drive ✅ · Ahrefs ❌ "Insufficient plan" · Semrush ❌ sin unidades de API · Search Console, GA4 y Merchant sin conector.
 **Último dato leído: Search Console del 1-jul-2025 al 10-sep-2026 (export del 11-sep) y GA4 de jun–sep 2026.**
 - **SEO total (GSC, ~12 meses):** 299.351 impresiones (+87% contra enero), 5.837 clics, posición media 6,0.
   - Septiembre parcial (al 10-sep): 15.509 impresiones (−19%), 244 clics y posición 6,88.
@@ -36,6 +38,7 @@ Diagnóstico solo de lectura (Shopify + Notion), sin cambios aplicados todavía.
 - [ ] Antonia pide ideas para los nuevos blogs de creatina este mes.
 
 ## Decisiones tomadas
+- **19-oct:** el OS publica `os-data.json` con `fuente: "os"`. Respecto de la semilla de Growth: F02 pasa a `en-curso` (relanzar el blog de creatina con Antonia), F04 lo ejecuta geo-seo (depende de cro.F04 para AggregateRating) y se agregan F05 (blogs en página 2), F06 (blogs YMYL sin aprobar), F07 (sin GSC en vivo) y F08 (GEO sin línea base).
 - **1-sep:** el reporte SEO excluye PMax (va por el carril pagado y aparece solo como nota). Separa orgánico, Merchant free listing, blog y GEO.
 - **No cambiar los titles de artículos** (Patricio: resetea las impresiones). La palanca es el CTR y empujar posiciones.
 - **Keywords atadas a producto real:** foco en electrolitos, fibra y Energy. Magnesio no tiene producto. En sep-26 creatina tampoco tenía, pero **desde oct-26 sí existe Creatina Creapure**, así que el blog de creatina (6,8K impresiones) pasa a tener producto detrás (sin confirmar si ya se enlazó).

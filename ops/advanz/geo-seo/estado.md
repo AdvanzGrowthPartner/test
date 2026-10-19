@@ -22,6 +22,7 @@
 - Accesos probados el 19-oct: Ahrefs sin plan ("Insufficient plan"), Semrush sin unidades de API, Drive y Notion OK, Shopify conectado a amazingcare.cl (no aplica a Advanz).
 
 ## Decisiones tomadas
+- **2026-10-19 (usuario): stack GEO/SEO = Notion + Search Console (por navegador/Cowork o export CSV) + Google Ads (Planificador de palabras clave) + una herramienta GEO por definir.** Ahrefs, Semrush y GHL quedan fuera. Ciclo semanal: export de GSC → `gsc_cubos.py` (cubos GANA / CASI / CTR_BAJO / NO_RINDE) → acciones en la grilla de Notion; además, 10 prompts GEO manuales hasta tener la herramienta.
 - **(sin fecha, vigente)** SEO/GEO propio detenido. **Condición de reactivación**: caja resuelta por outbound y margen para invertir en un canal de retorno diferido.
 - **2026-09-03**: Cada módulo de servicio en el board de Miro = **entregable/SOP (captura HTML) + card de la skill (Notion)**. El módulo SEO quedó completo. Las páginas de skill en Notion se escriben en lenguaje de negocio, con lo técnico en toggles.
 - **2026-09-12**: Para publicar en GHL, se recomienda el flujo manual primero y automatizar con Make o n8n solo si la frecuencia lo justifica (sin confirmar la aceptación).

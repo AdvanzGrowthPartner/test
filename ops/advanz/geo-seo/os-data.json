@@ -26,7 +26,7 @@
       "periodo": "—",
       "meta": null,
       "estado": "sin-dato",
-      "fuente": "Ahrefs"
+      "fuente": "Search_Console"
     },
     {
       "id": "ia_sov",
@@ -36,7 +36,7 @@
       "periodo": "—",
       "meta": null,
       "estado": "sin-dato",
-      "fuente": "Ahrefs"
+      "fuente": "manual"
     },
     {
       "id": "leads_organicos",
@@ -58,36 +58,36 @@
       "severidad": 2,
       "impacto_clp_mes": null,
       "impacto_nota": "Sin línea base no se puede medir ni reactivar el canal",
-      "evidencia": "estado.md: no hay GSC, keywords ni prueba de citas del sitio propio. Ahrefs responde 'Insufficient plan' y Semrush no tiene unidades de API (prueba del 2026-10-19)",
+      "evidencia": "No hay datos del sitio propio. Search Console sí está disponible por navegador (usuario, 19-oct)",
       "estado": "abierta",
       "depende_de": [],
       "afecta_os": [],
       "accion": {
-        "descripcion": "Dar acceso a Search Console de advanz.cl y correr 10 prompts en ChatGPT/Perplexity ('agencia ecommerce Chile' y similares)",
+        "descripcion": "Exportar Search Console de advanz.cl (Páginas y Consultas, 3 meses) por navegador, pasarlo por gsc_cubos.py y correr 10 prompts GEO en ChatGPT/Perplexity",
         "os_ejecutor": "geo-seo",
         "via": "cowork",
         "conector": "Search_Console",
         "requiere_ok": false,
-        "acceso": "sin-conector"
+        "acceso": "sin-probar"
       }
     },
     {
       "id": "advanz.geo-seo.F02",
-      "titulo": "Vía de publicación del blog en GHL sin decidir",
+      "titulo": "Publicación del blog de advanz.cl sin proceso definido",
       "etapa": "systems",
       "punto_funnel": "contenido",
       "severidad": 2,
       "impacto_clp_mes": null,
       "impacto_nota": "Frena publicar los blogs HTML ya terminados",
-      "evidencia": "Opciones planteadas el 2026-09-12 (manual / Make-n8n / conector); recomendación: manual. Sin respuesta del usuario",
+      "evidencia": "GHL fuera del stack (19-oct): queda el flujo manual",
       "estado": "abierta",
       "depende_de": [],
       "afecta_os": [],
       "accion": {
-        "descripcion": "Decidir manual (pegar en GHL) vs API",
+        "descripcion": "Publicar a mano en el blog de advanz.cl: Claude deja el post listo (SEO/GEO, meta, FAQ) y se pega",
         "os_ejecutor": "geo-seo",
         "via": "manual",
-        "conector": "GHL",
+        "conector": "manual",
         "requiere_ok": false,
         "acceso": "sin-conector"
       }
@@ -112,7 +112,7 @@
         "descripcion": "Reactivar cuando la caja lo permita, partiendo del baseline (F01) y publicando lo ya hecho (F02)",
         "os_ejecutor": "geo-seo",
         "via": "manual",
-        "conector": "GHL",
+        "conector": "Search_Console",
         "requiere_ok": true,
         "acceso": "sin-conector"
       }
@@ -120,37 +120,27 @@
   ],
   "accesos": [
     {
-      "conector": "Search_Console",
-      "estado": "sin-conector",
-      "nota": "Sin acceso a advanz.cl"
-    },
-    {
-      "conector": "Ahrefs",
-      "estado": "sin-plan",
-      "nota": "'Insufficient plan' en site explorer y proyectos (2026-10-19)"
-    },
-    {
-      "conector": "Semrush",
-      "estado": "sin-plan",
-      "nota": "Suscripción activa sin unidades de API (2026-10-19)"
-    },
-    {
-      "conector": "GHL",
-      "estado": "sin-conector",
-      "nota": "El blog de advanz.cl vive en GHL; no hay MCP"
-    },
-    {
-      "conector": "GA4",
-      "estado": "sin-conector",
-      "nota": "Sin acceso a GA4 de advanz.cl"
-    },
-    {
-      "conector": "Google_Drive",
+      "conector": "Notion",
       "estado": "ok",
       "nota": "Lectura probada 2026-10-19"
     },
     {
-      "conector": "Notion",
+      "conector": "Search_Console",
+      "estado": "sin-probar",
+      "nota": "Disponible por navegador/Cowork o export CSV (no por conector en esta sesión)"
+    },
+    {
+      "conector": "Google_Ads",
+      "estado": "sin-probar",
+      "nota": "Planificador de palabras clave por navegador/Cowork"
+    },
+    {
+      "conector": "Herramienta GEO",
+      "estado": "sin-conector",
+      "nota": "Por definir; mientras tanto, 10 prompts manuales a la semana"
+    },
+    {
+      "conector": "Google_Drive",
       "estado": "ok",
       "nota": "Lectura probada 2026-10-19"
     }

@@ -38,6 +38,7 @@ Diagnóstico solo de lectura (Shopify + Notion), sin cambios aplicados todavía.
 - [ ] Antonia pide ideas para los nuevos blogs de creatina este mes.
 
 ## Decisiones tomadas
+- **2026-10-19 (usuario): stack GEO/SEO = Notion + Search Console (por navegador/Cowork o export CSV) + Google Ads (Planificador de palabras clave) + una herramienta GEO por definir.** Ahrefs, Semrush y GHL quedan fuera. Ciclo semanal: export de GSC → `gsc_cubos.py` (cubos GANA / CASI / CTR_BAJO / NO_RINDE) → acciones en la grilla de Notion; además, 10 prompts GEO manuales hasta tener la herramienta.
 - **19-oct:** el OS publica `os-data.json` con `fuente: "os"`. Respecto de la semilla de Growth: F02 pasa a `en-curso` (relanzar el blog de creatina con Antonia), F04 lo ejecuta geo-seo (depende de cro.F04 para AggregateRating) y se agregan F05 (blogs en página 2), F06 (blogs YMYL sin aprobar), F07 (sin GSC en vivo) y F08 (GEO sin línea base).
 - **1-sep:** el reporte SEO excluye PMax (va por el carril pagado y aparece solo como nota). Separa orgánico, Merchant free listing, blog y GEO.
 - **No cambiar los titles de artículos** (Patricio: resetea las impresiones). La palanca es el CTR y empujar posiciones.

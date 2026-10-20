@@ -1,0 +1,156 @@
+<style>
+.h2-mark { background:#0C2340; color:#fff !important; padding:0.12em 0.35em; box-decoration-break:clone; -webkit-box-decoration-break:clone; line-height:1.35; }
+.intro-lede { font-size:1.12em !important; line-height:1.7 !important; background:#E6F7FD !important; border-left:4px solid #0CB7F2 !important; padding:22px 26px !important; border-radius:8px !important; margin:1rem 0 2rem 0 !important; color:#0C2340 !important; opacity:1 !important; }
+.intro-lede strong { font-weight:600 !important; color:#0A4A66 !important; }
+.lede-answer { font-size:1.06em !important; line-height:1.7 !important; background:#E6F7FD !important; border-left:3px solid #0CB7F2 !important; padding:20px 24px !important; border-radius:6px !important; margin:1.5rem 0 2rem 0 !important; color:#0C2340 !important; opacity:1 !important; }
+.lede-answer strong { font-weight:600 !important; color:#0A4A66 !important; }
+.article-content h2, .rte h2, article h2 { margin-top:3rem !important; margin-bottom:1.25rem !important; }
+.article-content ul, .article-content ol, .rte ul, .rte ol, article ul, article ol { margin-top:1rem !important; margin-bottom:1.75rem !important; padding-left:1.75rem !important; }
+.article-content li, .rte li, article li { margin-bottom:0.6rem !important; line-height:1.7 !important; }
+.article-image-center { text-align:center !important; margin:2.5rem auto !important; }
+.article-image-center img { display:block !important; margin:0 auto !important; max-width:100% !important; height:auto !important; border-radius:10px !important; }
+.toc { background:#FAFAFA; padding:22px 30px; border-radius:12px; margin:2rem 0 3rem 0; border-left:3px solid #0CB7F2; }
+.toc h3 { margin-top:0 !important; margin-bottom:1rem !important; font-size:1.05em; color:#0C2340 !important; opacity:1 !important; }
+.toc ul { list-style:none !important; padding-left:0 !important; margin:0 !important; }
+.toc li { padding:0.6rem 0 !important; border-bottom:1px solid #E5E5E5; margin-bottom:0 !important; }
+.toc li:last-child { border-bottom:none; }
+.toc a { color:#0A4A66 !important; text-decoration:none; opacity:1 !important; }
+.reconoces { background:#fff; border:2px solid #B8E7F5; border-radius:12px; padding:1.75rem 2rem; margin:2.5rem 0; }
+.reconoces h3 { margin:0 0 1.1rem 0 !important; font-size:1.15em !important; color:#0A4A66 !important; opacity:1 !important; }
+.reconoces ul { list-style:none !important; padding-left:0 !important; margin:0 0 1.1rem 0 !important; }
+.reconoces li { padding:0.7rem 0 0.7rem 2rem !important; margin:0 !important; position:relative; line-height:1.65 !important; border-bottom:1px solid #F0F0F0; color:#0C2340 !important; opacity:1 !important; }
+.reconoces li:last-child { border-bottom:none; }
+.reconoces li::before { content:"!"; position:absolute; left:0.4rem; top:0.65rem; color:#0CB7F2; font-weight:700; font-size:1.05em; }
+.reconoces .verdict { margin:0 !important; padding-top:0.9rem; border-top:2px solid #E6F7FD; font-size:1em !important; line-height:1.65 !important; color:#0C2340 !important; opacity:1 !important; }
+.reconoces .verdict strong { color:#0A4A66 !important; }
+.cta-product { background:linear-gradient(135deg,#E6F7FD 0%,#F0FCFE 100%); padding:2rem 2.5rem; border-radius:16px; text-align:center; margin:2rem 0 3rem 0; border:1px solid #B8E7F5; }
+.cta-product h3 { margin-top:0 !important; margin-bottom:0.75rem !important; color:#0A4A66 !important; opacity:1 !important; }
+.cta-product p { font-size:1.02em !important; line-height:1.7 !important; margin-bottom:1.25rem !important; color:#0C2340 !important; opacity:1 !important; }
+.btn-goal { display:inline-block; padding:0.9rem 1.6rem; background:#0CB7F2; color:#fff !important; border-radius:999px; text-decoration:none; font-weight:600; font-size:0.98em; opacity:1 !important; margin:0.35rem; }
+.related-posts { margin:2.5rem 0; padding:1.75rem 2rem; background:#FAFAFA; border-radius:12px; }
+.related-posts h3 { margin:0 0 1rem 0 !important; color:#0C2340 !important; opacity:1 !important; font-size:1.1em; }
+.related-posts ul { list-style:none !important; padding-left:0 !important; margin:0 !important; }
+.related-posts li { padding:0.75rem 0 !important; border-bottom:1px solid #E5E5E5; margin-bottom:0 !important; line-height:1.6 !important; }
+.related-posts li:last-child { border-bottom:none; }
+.related-posts a { color:#0A4A66 !important; opacity:1 !important; text-decoration:none; font-weight:600; }
+.faq-section { background:#FAFAFA; border-radius:12px; padding:1.75rem 2rem; margin:2.5rem 0; }
+.faq-section h2 { margin-top:0 !important; margin-bottom:1rem !important; }
+.faq-item { border-bottom:1px solid #E5E5E5; padding:1.2rem 0; }
+.faq-item:last-child { border-bottom:none; padding-bottom:0; }
+.faq-item h3 { margin:0 0 0.5rem 0 !important; font-size:1.05em !important; color:#0A4A66 !important; opacity:1 !important; }
+.faq-item p { margin:0 !important; line-height:1.7 !important; color:#0C2340 !important; opacity:1 !important; }
+.author-box { background:#E6F7FD; border-radius:12px; padding:1.4rem 1.6rem; margin:2rem 0; }
+.author-box p { margin:0 !important; line-height:1.6 !important; color:#0C2340 !important; opacity:1 !important; }
+.author-box .author-name { font-weight:700; color:#0A4A66 !important; }
+.medical-disclaimer { background:#FFF8E1; border-left:4px solid #FFA000; padding:1.35rem 1.6rem; border-radius:8px; font-size:0.95em; margin:2rem 0; }
+.medical-disclaimer p { margin:0 !important; font-size:0.95em !important; line-height:1.65 !important; color:#5C4500 !important; opacity:1 !important; }
+.medical-disclaimer strong { color:#5C4500 !important; }
+.biblio { font-size:0.92em !important; color:#445468 !important; line-height:1.6 !important; }
+@media (max-width:749px){
+  .intro-lede { font-size:1.02em !important; padding:16px 18px !important; margin:0.75rem 0 1.5rem 0 !important; }
+  .lede-answer { font-size:1em !important; padding:15px 17px !important; margin:1rem 0 1.25rem 0 !important; }
+  .reconoces { padding:1.3rem 1.4rem !important; margin:1.75rem 0 !important; }
+  .cta-product { padding:1.5rem 1.3rem !important; margin:1.25rem 0 2rem 0 !important; }
+  .article-image-center { margin:1.75rem auto !important; }
+  .toc,.faq-section,.related-posts { padding:1.3rem 1.4rem !important; }
+  .article-content h2,.rte h2,article h2 { margin-top:2.25rem !important; margin-bottom:0.9rem !important; }
+}
+</style>
+<p class="intro-lede"><strong>Llega septiembre, empieza el polen y cambia el cuerpo entero.</strong><br><br>Los ojos llorosos, la congestión nasal y los estornudos suelen ser los protagonistas de las alergias en primavera. Pero hay algo que muchas veces pasa desapercibido: durante esta temporada también puedes sentir la boca más seca, los labios partidos y una sensación de sed más frecuente.</p>
+
+<div class="toc">
+<h3>En este artículo verás:</h3>
+<ul>
+<li><a href="#relacion">1. Qué relación existe entre las alergias y la sequedad</a></li>
+<li><a href="#boca-seca">2. Por qué una alergia puede hacerte sentir la boca más seca</a></li>
+<li><a href="#rutina">3. Cómo ordenar tu hidratación en temporada de alergia</a></li>
+<li><a href="#formula">4. La fórmula de Electrolitos Amazing Care</a></li>
+<li><a href="#faq">5. Preguntas frecuentes</a></li>
+</ul>
+</div>
+
+<h2 id="relacion"><span class="h2-mark">¿Qué relación existe entre las alergias y esta sensación de sequedad?</span></h2>
+<p class="lede-answer"><strong>La congestión nasal puede dificultar la respiración por la nariz y favorecer la respiración por la boca, lo que puede contribuir a la sensación de sequedad oral.</strong> La respiración bucal está documentada como un síntoma asociado a la rinitis alérgica.</p>
+
+<h2 id="boca-seca"><span class="h2-mark">¿Por qué una alergia puede hacerte sentir la boca más seca?</span></h2>
+<!-- FOTO 2 (infografía, "image.png" bajo este título en Notion): insertar aquí -->
+<p class="lede-answer"><strong>Se juntan tres cosas propias de la temporada:</strong> la congestión nasal, algunos antihistamínicos que reducen las secreciones y resecan las mucosas, y la llegada de más calor.</p>
+<p><strong>Cuando estos factores se combinan</strong> (congestión nasal, respiración bucal, determinados medicamentos, calor y mayor actividad física), la sensación de sequedad se vuelve más evidente durante esta época.</p>
+
+<h3>1. La congestión nasal favorece la respiración por la boca</h3>
+<p>Cuando la nariz está congestionada por la rinitis alérgica, respirar por la nariz puede resultar más difícil. Como consecuencia, es frecuente respirar más por la boca, lo que puede aumentar la sensación de sequedad en la boca y la garganta.</p>
+
+<h3>2. Algunos antihistamínicos pueden aumentar la sequedad</h3>
+<p>Los antihistamínicos ayudan a controlar síntomas como estornudos, picazón y secreción nasal. Sobre todo los <strong>antihistamínicos de primera generación</strong>, como la <strong>clorfenamina y la difenhidramina</strong>, tienen efectos anticolinérgicos más marcados: pueden disminuir la producción de saliva y otras secreciones, favoreciendo la <strong>sequedad de boca y mucosas</strong>.</p>
+<p><em><strong>Importante:</strong> no todos los antihistamínicos producen este efecto con la misma intensidad y no se debe suspender ni modificar un tratamiento sin indicación médica.</em></p>
+
+<h3>3. La llegada del calor también influye</h3>
+<p>La primavera trae temperaturas más altas y más tiempo al aire libre. Si además realizas actividad física o sudas más, aumentan las pérdidas de líquidos y, con ellas, tus necesidades de hidratación.</p>
+
+<h2 id="rutina"><span class="h2-mark">Cómo ordenar tu hidratación en temporada de alergia</span></h2>
+<p class="lede-answer"><strong>Respirar por la boca puede aumentar la pérdida de agua a través de la respiración, ya que la nariz ayuda a humidificar el aire y a recuperar parte de la humedad del aire exhalado.</strong></p>
+<p>Si duermes con congestión, son ocho horas seguidas de esa pérdida. De ahí que la boca se sienta más seca al despertar.</p>
+<div class="tw-wrap" style="overflow-x:auto;margin:2rem 0 2.5rem 0;">
+<table style="width:100%;border-collapse:collapse;min-width:460px;">
+<thead><tr><th style="text-align:left;padding:0.9rem 1rem;background:#E6F7FD;color:#0A4A66;border-bottom:2px solid #0CB7F2;">Momento</th><th style="text-align:left;padding:0.9rem 1rem;background:#E6F7FD;color:#0A4A66;border-bottom:2px solid #0CB7F2;">Qué hacer</th></tr></thead>
+<tbody>
+<tr><td style="padding:0.9rem 1rem;border-bottom:1px solid #E5E5E5;"><strong>Al despertar</strong></td><td style="padding:0.9rem 1rem;border-bottom:1px solid #E5E5E5;">1 stick en 500 mL de agua. Recuperas lo que perdiste durmiendo respirando por la boca.</td></tr>
+<tr><td style="padding:0.9rem 1rem;border-bottom:1px solid #E5E5E5;"><strong>Durante el día</strong></td><td style="padding:0.9rem 1rem;border-bottom:1px solid #E5E5E5;">Agua a mano de forma constante, sin esperar a tener sed.</td></tr>
+<tr><td style="padding:0.9rem 1rem;border-bottom:1px solid #E5E5E5;"><strong>Días de mucho polen o calor</strong></td><td style="padding:0.9rem 1rem;border-bottom:1px solid #E5E5E5;">1 stick adicional si pasas varias horas al aire libre.</td></tr>
+<tr><td style="padding:0.9rem 1rem;border-bottom:1px solid #E5E5E5;"><strong>Antes de dormir</strong></td><td style="padding:0.9rem 1rem;border-bottom:1px solid #E5E5E5;">Un vaso de agua, y ventilar la pieza para bajar la carga de alérgenos.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="formula"><span class="h2-mark">La fórmula de Electrolitos Amazing Care</span></h2>
+<p class="lede-answer"><strong>Amazing Care aporta 6 electrolitos esenciales —sodio, potasio, magnesio, cloruro, calcio y zinc— más vitaminas B6, B12 y C, con 150 mg de magnesio por stick y sin azúcar añadida ni sucralosa.</strong> Un stick se disuelve en 500 mL de agua.</p>
+<p>El sodio favorece la absorción del agua en el intestino, así que el líquido que tomas se aprovecha mejor. Es la diferencia entre tomar agua y quedar hidratado.</p>
+<div class="cta-product">
+<h3>Que la primavera te pille hidratado</h3>
+<p>Elige según lo que necesitas esta temporada.</p>
+<p>
+<a class="btn-goal" href="https://amazingcare.cl/collections/electrolitos">Quiero recuperarme</a>
+<a class="btn-goal" href="https://amazingcare.cl/collections/energia-y-foco">Quiero energía</a>
+<a class="btn-goal" href="https://amazingcare.cl/collections/hidratacion-esencial">Quiero hidratación limpia</a>
+</p>
+<p style="font-weight:700;color:#0A4A66;letter-spacing:0.04em;margin-bottom:0.4rem !important;"><span style="border:2px dashed #0CB7F2;border-radius:10px;padding:0.5rem 1rem;display:inline-block;">Código BLOG10</span></p>
+<p style="font-size:0.95em !important;color:#445468 !important;"><strong>10% de descuento</strong> válido en tu primera compra web. No se acumula con otros cupones.</p>
+</div>
+<!-- FOTO 3 (producto, AMAZING_JULIO3955.jpg): insertar aquí -->
+
+<div class="faq-section">
+<h2 id="faq">Preguntas frecuentes</h2>
+<div class="faq-item"><h3>¿Por qué me da la boca seca con los antihistamínicos?</h3><p>Varios antihistamínicos, especialmente los de primera generación, tienen efecto anticolinérgico y reducen las secreciones del cuerpo, incluida la saliva. Aparece en el prospecto de muchos de ellos como efecto conocido.</p></div>
+<div class="faq-item"><h3>¿Qué tomar para la boca seca en primavera?</h3><p>Agua de forma constante durante el día, y una fórmula con electrolitos cuando la sequedad se mantiene pese a tomar líquido. El sodio favorece la absorción del agua, así que se aprovecha mejor lo que tomas.</p></div>
+<div class="faq-item"><h3>¿Los electrolitos sirven para la alergia?</h3><p>Los electrolitos aportan a la hidratación general. El tratamiento de la alergia estacional lo indica un profesional de la salud, y es lo que actúa sobre los síntomas alérgicos propiamente tales.</p></div>
+<div class="faq-item"><h3>¿Por qué despierto con la garganta seca en esta época?</h3><p>Con la nariz congestionada terminas respirando por la boca mientras duermes, y por esa vía se pierde más agua que respirando por la nariz, que humedece y recupera parte del vapor.</p></div>
+<div class="faq-item"><h3>¿Cuándo empieza la temporada de alergia en Chile?</h3><p>Suele intensificarse desde septiembre, con la llegada de la primavera y el aumento del polen en el aire, y se extiende buena parte de la estación.</p></div>
+</div>
+
+<div class="author-box"><p><span class="author-name">Nta. Antonia Quezada Zavala</span><br>Nutricionista · Amazing Care</p></div>
+
+<div class="medical-disclaimer"><p><strong>Aviso importante:</strong> este artículo tiene fines educativos y no reemplaza la indicación de un profesional de la salud. Los electrolitos no tratan ni previenen la alergia estacional. No suspendas ni modifiques tu medicación antialérgica sin hablar con tu médico. Si tienes hipertensión, insuficiencia renal o cardíaca, o sigues una dieta con restricción de sodio, consulta antes de incorporar una fórmula con electrolitos.</p></div>
+
+<h2>Bibliografía</h2>
+<ol class="biblio">
+<li>Svensson S, Olin AC, Hellgren J. Increased net water loss by oral compared to nasal expiration in healthy subjects. Rhinology. 2006;44(1):74–7.</li>
+<li>Yanai K, Rogala B, Chugh K, Paraskakis E, Pampura AN, Boev R. Safety considerations in the management of allergic diseases: focus on antihistamines. Curr Med Res Opin. 2012;28(4):623–42.</li>
+<li>American College of Allergy, Asthma and Immunology (ACAAI). Ring in the new year with resolutions to breathe easier [Internet]. [citado el 23 de septiembre de 2026]. Disponible en: <a href="https://acaai.org/news/ring-in-the-new-year-with-resolutions-to-breathe-easier/" rel="nofollow noopener" target="_blank">acaai.org</a></li>
+</ol>
+
+<div class="related-posts">
+<h3>Sigue leyendo</h3>
+<ul>
+<li><a href="https://amazingcare.cl/blogs/noticias/electrolitos-que-son-para-que-sirven">Qué son los electrolitos y para qué sirven</a></li>
+<li><a href="https://amazingcare.cl/blogs/noticias/electrolitos-para-migrana">Migraña y electrolitos: qué relación tienen</a></li>
+<li><a href="https://amazingcare.cl/blogs/noticias/salud-intestinal-que-es-microbiota-beneficios-como-mejorarla">Salud intestinal: la base de todo</a></li>
+</ul>
+</div>
+
+<p><script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Alergias de primavera e hidratación: por qué te sientes más seco en septiembre","description":"Los antihistamínicos reducen las secreciones y respirar por la boca aumenta la pérdida de líquidos. Cómo ordenar tu hidratación en temporada de alergia.","datePublished":"2026-09-12","dateModified":"2026-10-20","inLanguage":"es-CL","author":{"@type":"Person","name":"Antonia Quezada Zavala","jobTitle":"Nutricionista","worksFor":{"@type":"Organization","name":"Amazing Care"}},"publisher":{"@type":"Organization","name":"Amazing Care","logo":{"@type":"ImageObject","url":"https://amazingcare.cl/cdn/shop/files/Logo_1_transparente.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://amazingcare.cl/blogs/noticias/electrolitos-alergias-primavera"},"speakable":{"@type":"SpeakableSpecification","cssSelector":[".intro-lede",".lede-answer"]},"about":[{"@type":"Thing","name":"Hidratación"},{"@type":"Thing","name":"Electrolitos"},{"@type":"MedicalCondition","name":"Rinitis alérgica estacional"}]}
+</script> <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://amazingcare.cl/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://amazingcare.cl/blogs/noticias"},{"@type":"ListItem","position":3,"name":"Alergias de primavera e hidratación","item":"https://amazingcare.cl/blogs/noticias/electrolitos-alergias-primavera"}]}
+</script> <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Por qué me da la boca seca con los antihistamínicos?","acceptedAnswer":{"@type":"Answer","text":"Varios antihistamínicos, especialmente los de primera generación, tienen efecto anticolinérgico y reducen las secreciones del cuerpo, incluida la saliva."}},{"@type":"Question","name":"¿Qué tomar para la boca seca en primavera?","acceptedAnswer":{"@type":"Answer","text":"Agua de forma constante durante el día, y una fórmula con electrolitos cuando la sequedad se mantiene pese a tomar líquido. El sodio favorece la absorción del agua."}},{"@type":"Question","name":"¿Los electrolitos sirven para la alergia?","acceptedAnswer":{"@type":"Answer","text":"Los electrolitos aportan a la hidratación general. El tratamiento de la alergia estacional lo indica un profesional de la salud."}},{"@type":"Question","name":"¿Por qué despierto con la garganta seca en esta época?","acceptedAnswer":{"@type":"Answer","text":"Con la nariz congestionada terminas respirando por la boca mientras duermes, y por esa vía se pierde más agua que respirando por la nariz."}},{"@type":"Question","name":"¿Cuándo empieza la temporada de alergia en Chile?","acceptedAnswer":{"@type":"Answer","text":"Suele intensificarse desde septiembre, con la llegada de la primavera y el aumento del polen en el aire."}}]}
+</script></p>

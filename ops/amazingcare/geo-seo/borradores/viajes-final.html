@@ -1,0 +1,167 @@
+<style>
+.h2-mark { background:#0C2340; color:#fff !important; padding:0.12em 0.35em; box-decoration-break:clone; -webkit-box-decoration-break:clone; line-height:1.35; }
+.intro-lede { font-size:1.12em !important; line-height:1.7 !important; background:#E6F7FD !important; border-left:4px solid #0CB7F2 !important; padding:22px 26px !important; border-radius:8px !important; margin:1rem 0 2rem 0 !important; color:#0C2340 !important; opacity:1 !important; }
+.intro-lede strong { font-weight:600 !important; color:#0A4A66 !important; }
+.lede-answer { font-size:1.06em !important; line-height:1.7 !important; background:#E6F7FD !important; border-left:3px solid #0CB7F2 !important; padding:20px 24px !important; border-radius:6px !important; margin:1.5rem 0 2rem 0 !important; color:#0C2340 !important; opacity:1 !important; }
+.lede-answer strong { font-weight:600 !important; color:#0A4A66 !important; }
+.article-content h2, .rte h2, article h2 { margin-top:3rem !important; margin-bottom:1.25rem !important; }
+.article-content ul, .article-content ol, .rte ul, .rte ol, article ul, article ol { margin-top:1rem !important; margin-bottom:1.75rem !important; padding-left:1.75rem !important; }
+.article-content li, .rte li, article li { margin-bottom:0.6rem !important; line-height:1.7 !important; }
+.article-image-center { text-align:center !important; margin:2.5rem auto !important; }
+.article-image-center img { display:block !important; margin:0 auto !important; max-width:100% !important; height:auto !important; border-radius:10px !important; }
+.toc { background:#FAFAFA; padding:22px 30px; border-radius:12px; margin:2rem 0 3rem 0; border-left:3px solid #0CB7F2; }
+.toc h3 { margin-top:0 !important; margin-bottom:1rem !important; font-size:1.05em; color:#0C2340 !important; opacity:1 !important; }
+.toc ul { list-style:none !important; padding-left:0 !important; margin:0 !important; }
+.toc li { padding:0.6rem 0 !important; border-bottom:1px solid #E5E5E5; margin-bottom:0 !important; }
+.toc li:last-child { border-bottom:none; }
+.toc a { color:#0A4A66 !important; text-decoration:none; opacity:1 !important; }
+.reconoces { background:#fff; border:2px solid #B8E7F5; border-radius:12px; padding:1.75rem 2rem; margin:2.5rem 0; }
+.reconoces h3 { margin:0 0 1.1rem 0 !important; font-size:1.15em !important; color:#0A4A66 !important; opacity:1 !important; }
+.reconoces ul { list-style:none !important; padding-left:0 !important; margin:0 0 1.1rem 0 !important; }
+.reconoces li { padding:0.7rem 0 0.7rem 2rem !important; margin:0 !important; position:relative; line-height:1.65 !important; border-bottom:1px solid #F0F0F0; color:#0C2340 !important; opacity:1 !important; }
+.reconoces li:last-child { border-bottom:none; }
+.reconoces li::before { content:"!"; position:absolute; left:0.4rem; top:0.65rem; color:#0CB7F2; font-weight:700; font-size:1.05em; }
+.reconoces .verdict { margin:0 !important; padding-top:0.9rem; border-top:2px solid #E6F7FD; font-size:1em !important; line-height:1.65 !important; color:#0C2340 !important; opacity:1 !important; }
+.reconoces .verdict strong { color:#0A4A66 !important; }
+.cta-product { background:linear-gradient(135deg,#E6F7FD 0%,#F0FCFE 100%); padding:2rem 2.5rem; border-radius:16px; text-align:center; margin:2rem 0 3rem 0; border:1px solid #B8E7F5; }
+.cta-product h3 { margin-top:0 !important; margin-bottom:0.75rem !important; color:#0A4A66 !important; opacity:1 !important; }
+.cta-product p { font-size:1.02em !important; line-height:1.7 !important; margin-bottom:1.25rem !important; color:#0C2340 !important; opacity:1 !important; }
+.btn-goal { display:inline-block; padding:0.9rem 1.6rem; background:#0CB7F2; color:#fff !important; border-radius:999px; text-decoration:none; font-weight:600; font-size:0.98em; opacity:1 !important; margin:0.35rem; }
+.related-posts { margin:2.5rem 0; padding:1.75rem 2rem; background:#FAFAFA; border-radius:12px; }
+.related-posts h3 { margin:0 0 1rem 0 !important; color:#0C2340 !important; opacity:1 !important; font-size:1.1em; }
+.related-posts ul { list-style:none !important; padding-left:0 !important; margin:0 !important; }
+.related-posts li { padding:0.75rem 0 !important; border-bottom:1px solid #E5E5E5; margin-bottom:0 !important; line-height:1.6 !important; }
+.related-posts li:last-child { border-bottom:none; }
+.related-posts a { color:#0A4A66 !important; opacity:1 !important; text-decoration:none; font-weight:600; }
+.faq-section { background:#FAFAFA; border-radius:12px; padding:1.75rem 2rem; margin:2.5rem 0; }
+.faq-section h2 { margin-top:0 !important; margin-bottom:1rem !important; }
+.faq-item { border-bottom:1px solid #E5E5E5; padding:1.2rem 0; }
+.faq-item:last-child { border-bottom:none; padding-bottom:0; }
+.faq-item h3 { margin:0 0 0.5rem 0 !important; font-size:1.05em !important; color:#0A4A66 !important; opacity:1 !important; }
+.faq-item p { margin:0 !important; line-height:1.7 !important; color:#0C2340 !important; opacity:1 !important; }
+.author-box { background:#E6F7FD; border-radius:12px; padding:1.4rem 1.6rem; margin:2rem 0; }
+.author-box p { margin:0 !important; line-height:1.6 !important; color:#0C2340 !important; opacity:1 !important; }
+.author-box .author-name { font-weight:700; color:#0A4A66 !important; }
+.medical-disclaimer { background:#FFF8E1; border-left:4px solid #FFA000; padding:1.35rem 1.6rem; border-radius:8px; font-size:0.95em; margin:2rem 0; }
+.medical-disclaimer p { margin:0 !important; font-size:0.95em !important; line-height:1.65 !important; color:#5C4500 !important; opacity:1 !important; }
+.medical-disclaimer strong { color:#5C4500 !important; }
+.biblio { font-size:0.92em !important; color:#445468 !important; line-height:1.6 !important; }
+@media (max-width:749px){
+  .intro-lede { font-size:1.02em !important; padding:16px 18px !important; margin:0.75rem 0 1.5rem 0 !important; }
+  .lede-answer { font-size:1em !important; padding:15px 17px !important; margin:1rem 0 1.25rem 0 !important; }
+  .reconoces { padding:1.3rem 1.4rem !important; margin:1.75rem 0 !important; }
+  .cta-product { padding:1.5rem 1.3rem !important; margin:1.25rem 0 2rem 0 !important; }
+  .article-image-center { margin:1.75rem auto !important; }
+  .toc,.faq-section,.related-posts { padding:1.3rem 1.4rem !important; }
+  .article-content h2,.rte h2,article h2 { margin-top:2.25rem !important; margin-bottom:0.9rem !important; }
+}
+</style>
+<p class="intro-lede"><strong>Viajar significa cambiar de rutina:</strong> nuevos horarios, comidas diferentes, muchas horas sentado, caminatas, ejercicio, calor y, en algunos casos, largos trayectos en avión. En medio de todo esto, hay algo que muchas veces dejamos en segundo plano: <strong>la hidratación</strong>.<br><br>Cuando viajamos, no solo importa cuánto líquido bebemos, sino también las condiciones a las que estará expuesto nuestro cuerpo y las pérdidas de líquidos que podamos tener durante el trayecto. ¿El avión realmente nos deshidrata? ¿Necesitamos tomar electrolitos durante un vuelo? ¿Y qué pasa cuando llegamos a un destino con calor o realizamos actividad física? En este artículo te contamos cómo cuidar tu hidratación antes, durante y después de un viaje, y en qué situaciones los electrolitos pueden convertirse en un buen aliado.</p>
+
+<div class="toc">
+<h3>En este artículo verás:</h3>
+<ul>
+<li><a href="#por-que">1. ¿Por qué viajar deshidrata?</a></li>
+<li><a href="#vuelo">2. Hidratación antes, durante y después del vuelo</a></li>
+<li><a href="#tipo-viaje">3. Cómo hidratarte según el tipo de viaje</a></li>
+<li><a href="#equipaje">4. ¿Se pueden llevar electrolitos en el equipaje de mano?</a></li>
+<li><a href="#formula">5. La fórmula de Electrolitos Amazing Care</a></li>
+<li><a href="#faq">6. Preguntas frecuentes</a></li>
+</ul>
+</div>
+
+<h2 id="por-que"><span class="h2-mark">¿Por qué viajar deshidrata?</span></h2>
+<p class="lede-answer"><strong>Durante un vuelo estamos expuestos a condiciones diferentes a las habituales.</strong> La humedad relativa dentro de las cabinas de los aviones suele ser baja, con valores que pueden encontrarse aproximadamente entre un 10% y un 20%. Este ambiente puede favorecer la sensación de sequedad en ojos, piel y mucosas.</p>
+<p><strong>A esto se pueden sumar otros factores:</strong> vuelos prolongados, cambios de horario, menor acceso a líquidos, consumo de café, actividad física antes o después del vuelo y exposición a temperaturas elevadas al llegar al destino. El déficit se acumula sin que lo notes, y aparece recién al llegar.</p>
+<div class="reconoces">
+<h3>¿Te reconoces en esto?</h3>
+<ul>
+<li>Bajas del avión con la cabeza pesada y la piel tirante</li>
+<li>Después de manejar varias horas te dan calambres en las piernas</li>
+<li>El primer día de vacaciones lo pasas recuperándote del viaje</li>
+<li>Se te hinchan los pies y los tobillos en los vuelos largos</li>
+</ul>
+<p class="verdict"><strong>Si te reconoces en dos o más, la hidratación es la variable que más rápido puedes ordenar.</strong> Y se prepara antes de salir, no al llegar.</p>
+</div>
+
+<h2 id="vuelo"><span class="h2-mark">Hidratación antes, durante y después del vuelo</span></h2>
+<!-- FOTO 2 (infografía, "image.png" bajo este título en Notion): insertar aquí -->
+<p class="lede-answer"><strong>Viajar bien hidratado no significa beber grandes cantidades de agua de una sola vez.</strong> La clave está en mantener una hidratación adecuada y adaptar el consumo de líquidos y electrolitos al contexto del viaje.</p>
+
+<h3>Antes del vuelo: comienza bien hidratado</h3>
+<p>No esperes a subir al avión para preocuparte por la hidratación. Durante las horas previas:</p>
+<ul>
+<li>💧 Mantén tu consumo habitual de agua.</li>
+<li>🥗 Incluye alimentos que aporten agua y minerales, como frutas y verduras.</li>
+<li>☕️ Evita que el café reemplace tu consumo habitual de líquidos.</li>
+<li>⚡️ Los electrolitos pueden ser un buen complemento para mantener un correcto equilibrio de líquidos y evitar la deshidratación.</li>
+</ul>
+
+<h3>Durante el vuelo: hidratación constante, no excesiva</h3>
+<p>En la cabina existe una humedad ambiental baja, es decir, el aire es más seco, por lo que puedes experimentar mayor sensación de sequedad. Mantén agua disponible y bebe regularmente durante el trayecto.</p>
+<p><strong>¿Cuándo considerar electrolitos?</strong></p>
+<ul>
+<li>Ejercicio antes o después del vuelo</li>
+<li>Alta sudoración</li>
+<li>Destinos con mucho calor</li>
+<li>Vuelos de largas horas</li>
+<li>Si sufres de calambres</li>
+</ul>
+
+<h3>Después del vuelo: adapta tu hidratación al destino</h3>
+<p>Aquí comienza una nueva etapa del viaje. Si llegas a descansar, probablemente puedas continuar con tu hidratación habitual. Pero si aterrizas y vas directamente a caminar bajo el calor, hacer trekking, entrenar, pasar horas al aire libre o realizar una actividad con alta sudoración, <strong>tu estrategia de hidratación deberá adaptarse a esas condiciones.</strong></p>
+<p>El objetivo no es simplemente beber más agua, sino <strong>reponer los líquidos y electrolitos que realmente estás perdiendo.</strong></p>
+
+<h2 id="tipo-viaje"><span class="h2-mark">Cómo hidratarte según el tipo de viaje</span></h2>
+<div style="overflow-x:auto;margin:2rem 0 2.5rem 0;">
+<table style="width:100%;border-collapse:collapse;min-width:460px;">
+<thead><tr><th style="text-align:left;padding:0.9rem 1rem;background:#E6F7FD;color:#0A4A66;border-bottom:2px solid #0CB7F2;">Tipo de viaje</th><th style="text-align:left;padding:0.9rem 1rem;background:#E6F7FD;color:#0A4A66;border-bottom:2px solid #0CB7F2;">Qué hacer</th></tr></thead>
+<tbody>
+<tr><td style="padding:0.9rem 1rem;border-bottom:1px solid #E5E5E5;"><strong>Vuelo corto (menos de 3 h)</strong></td><td style="padding:0.9rem 1rem;border-bottom:1px solid #E5E5E5;">1 stick antes de embarcar y agua a bordo.</td></tr>
+<tr><td style="padding:0.9rem 1rem;border-bottom:1px solid #E5E5E5;"><strong>Vuelo largo (más de 4 h)</strong></td><td style="padding:0.9rem 1rem;border-bottom:1px solid #E5E5E5;">1 stick antes de embarcar y otro a mitad de vuelo, con 250 mL de agua por hora.</td></tr>
+<tr><td style="padding:0.9rem 1rem;border-bottom:1px solid #E5E5E5;"><strong>Carretera</strong></td><td style="padding:0.9rem 1rem;border-bottom:1px solid #E5E5E5;">1 stick al partir y una botella a mano. Aprovecha cada parada para rellenar.</td></tr>
+<tr><td style="padding:0.9rem 1rem;border-bottom:1px solid #E5E5E5;"><strong>Camping o trekking</strong></td><td style="padding:0.9rem 1rem;border-bottom:1px solid #E5E5E5;">1 stick en la mañana y otro después de la actividad con más sol o esfuerzo.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="equipaje"><span class="h2-mark">¿Se pueden llevar electrolitos en el equipaje de mano?</span></h2>
+<p class="lede-answer"><strong>Sí. Los electrolitos en polvo viajan como sólido, así que quedan fuera del límite de líquidos de 100 mL del equipaje de mano.</strong> Los sticks pasan sin problema por el control y se preparan con el agua que compres después de seguridad.</p>
+<p>Esa es la ventaja práctica del formato: cabe en el bolsillo del asiento, en la guantera del auto o en la mochila de trekking, y se prepara donde haya agua.</p>
+
+<h2 id="formula"><span class="h2-mark">La fórmula de Electrolitos Amazing Care</span></h2>
+<p class="lede-answer"><strong>Amazing Care aporta 6 electrolitos esenciales —sodio, potasio, magnesio, cloruro, calcio y zinc— más vitaminas B6, B12 y C, con 150 mg de magnesio por stick y sin azúcar añadida ni sucralosa.</strong> Un stick se disuelve en 500 mL de agua.</p>
+<p>El sodio favorece la absorción del agua en el intestino, así que el líquido que tomas se aprovecha mejor. Es la diferencia entre tomar agua y quedar hidratado. Si quieres entender la composición antes de elegir, explicamos <a href="https://amazingcare.cl/blogs/noticias/cuanto-sodio-debe-tener-un-electrolito">cuánto sodio debería tener un electrolito</a>.</p>
+<div class="cta-product">
+<h3>Llega listo para el primer día</h3>
+<p>El <strong>Starter Pack</strong> suma los sticks y la botella para llevarlos a cualquier parte.</p>
+<p>
+<a class="btn-goal" href="https://amazingcare.cl/products/pack-sport-1">Ver el Starter Pack</a>
+<a class="btn-goal" href="https://amazingcare.cl/collections/electrolitos">Ver electrolitos</a>
+</p>
+<p style="font-weight:700;color:#0A4A66;letter-spacing:0.04em;"><span style="border:2px dashed #0CB7F2;border-radius:10px;padding:0.5rem 1rem;display:inline-block;">Código AMAZING10</span></p>
+</div>
+<!-- FOTO 3 (producto, AMAZING_JULIO3973.jpg): insertar aquí -->
+
+<div class="faq-section">
+<h2 id="faq">Preguntas frecuentes</h2>
+<div class="faq-item"><h3>¿Por qué me deshidrato en el avión?</h3><p>El aire de la cabina tiene mucha menos humedad que un ambiente normal, así que pierdes agua al respirar durante todo el vuelo. Si además pasas varias horas sin tomar líquido, el déficit se acumula.</p></div>
+<div class="faq-item"><h3>¿Se pueden llevar electrolitos en polvo en el avión?</h3><p>Sí. Al ser polvo y no líquido, los sticks quedan fuera del límite de 100 mL y pasan en el equipaje de mano. Se preparan con agua comprada después del control de seguridad.</p></div>
+<div class="faq-item"><h3>¿Los electrolitos ayudan con el jet lag?</h3><p>El jet lag depende del ritmo circadiano, que se ajusta con luz y horarios de sueño. Una buena hidratación aporta a que llegues con más energía al destino, que es una parte del malestar del primer día.</p></div>
+</div>
+
+<div class="author-box"><p><span class="author-name">Nta. Antonia Quezada Zavala</span><br>Nutricionista Clínica y Deportiva · Amazing Care</p></div>
+
+<div class="medical-disclaimer"><p><strong>Aviso importante:</strong> este artículo tiene fines educativos y no reemplaza la indicación de un profesional de la salud. Si tienes hipertensión, insuficiencia renal o cardíaca, o sigues una dieta con restricción de sodio, consulta con tu médico o nutricionista antes de incorporar una fórmula con electrolitos.</p></div>
+
+<h2>Bibliografía</h2>
+<ol class="biblio">
+<li>Zubac D, Buoite Stella A, Morrison SA. Up in the Air: Evidence of Dehydration Risk and Long-Haul Flight on Athletic Performance. Nutrients. 2020;12(9):2574. Disponible en: <a href="http://dx.doi.org/10.3390/nu12092574" rel="nofollow noopener" target="_blank">doi.org/10.3390/nu12092574</a></li>
+<li>Guéhenneux S, Gardinier S, Morizot F, Le Fur I, Tschachler E. Skin surface hydration decreases rapidly during long distance flights. Skin Res Technol.</li>
+</ol>
+
+<p><script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Viajes y electrolitos: cómo mantener la hidratación dentro y fuera del avión","description":"Volar, manejar horas o romper la rutina te deshidrata sin que lo notes. Cómo hidratarte antes, durante y después del viaje, y por qué los sticks pasan en el equipaje de mano.","datePublished":"2026-09-12","dateModified":"2026-10-20","inLanguage":"es-CL","author":{"@type":"Person","name":"Antonia Quezada Zavala","jobTitle":"Nutricionista Clínica y Deportiva","worksFor":{"@type":"Organization","name":"Amazing Care"}},"publisher":{"@type":"Organization","name":"Amazing Care","logo":{"@type":"ImageObject","url":"https://amazingcare.cl/cdn/shop/files/Logo_1_transparente.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://amazingcare.cl/blogs/noticias/viajes-electrolitos-hidratacion"},"about":[{"@type":"Thing","name":"Hidratación"},{"@type":"Thing","name":"Electrolitos"},{"@type":"Thing","name":"Viajes"}]}
+</script> <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Por qué me deshidrato en el avión?","acceptedAnswer":{"@type":"Answer","text":"El aire de la cabina tiene mucha menos humedad que un ambiente normal, así que pierdes agua al respirar durante todo el vuelo. Si además pasas varias horas sin tomar líquido, el déficit se acumula."}},{"@type":"Question","name":"¿Se pueden llevar electrolitos en polvo en el avión?","acceptedAnswer":{"@type":"Answer","text":"Sí. Al ser polvo y no líquido, los sticks quedan fuera del límite de 100 mL y pasan en el equipaje de mano. Se preparan con agua comprada después del control de seguridad."}},{"@type":"Question","name":"¿Los electrolitos ayudan con el jet lag?","acceptedAnswer":{"@type":"Answer","text":"El jet lag depende del ritmo circadiano, que se ajusta con luz y horarios de sueño. Una buena hidratación aporta a que llegues con más energía al destino."}}]}
+</script></p>

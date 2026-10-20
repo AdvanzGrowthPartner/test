@@ -35,6 +35,14 @@ Detalle en CHANGELOG. POTS y Creatina-electrolitos quedaron ocultos y con redire
 - [ ] Ideas de blogs de creatina para Antonia: Creapure y pureza; cuándo y cómo tomarla; si retiene líquido; menopausia y adultos mayores.
 - [ ] Notion no se actualizó (por instrucción): "Publicado en Shopify" e "ID Shopify" del de quimio siguen vacíos.
 
+## Lectura orgánico 20-oct (Shopify, búsqueda sin utm = orgánico)
+- Sesiones orgánicas por mes 2026: ene 5.755 · feb 5.090 · mar 1.748 · abr 1.839 · may 3.674 · jun 1.378 · jul 997 · ago 1.854 · sep 2.150 · oct 2.086 (al día 20). Contra oct-25 (2.644 en el mes completo), octubre va a ~3.200 proyectado: +20% interanual.
+- Checkouts orgánicos: jul 28 → ago 77 → sep 101 → oct 202 (con el Cyber).
+- **Blog orgánico:** mar 19 → jun 54 → ago 132 → sep 268 → oct 150. Crece, pero es ~7% del orgánico y desde marzo ha convertido **1 vez** (2 checkouts en 90 días, ambos desde Disautonomía).
+- **La venta orgánica entra por marca:** `/collections/packs` (2.198 sesiones, 167 checkouts), home (1.956 / 166) y `/collections/electrolitos` (1.039 / 48), todo en 90 días.
+- Merchant free listings (`product_sync`): 32 sesiones en sep-oct con 15,6% de conversión, la mejor del sitio.
+- Blogs estacionales o de nicho casi sin tráfico: Fiestas Patrias 8, Cyber 6, POTS 6, Alergias 14 en 90 días.
+
 ## Decisiones tomadas
 - **2026-10-19 (usuario): stack GEO/SEO = Notion + Search Console (por navegador/Cowork o export CSV) + Google Ads (Planificador de palabras clave) + una herramienta GEO por definir.** Ahrefs, Semrush y GHL quedan fuera. Ciclo semanal: export de GSC → `gsc_cubos.py` (cubos GANA / CASI / CTR_BAJO / NO_RINDE) → acciones en la grilla de Notion; además, 10 prompts GEO manuales hasta tener la herramienta.
 - **19-oct:** el OS publica `os-data.json` con `fuente: "os"`. Respecto de la semilla de Growth: F02 pasa a `en-curso` (relanzar el blog de creatina con Antonia), F04 lo ejecuta geo-seo (depende de cro.F04 para AggregateRating) y se agregan F05 (blogs en página 2), F06 (blogs YMYL sin aprobar), F07 (sin GSC en vivo) y F08 (GEO sin línea base).

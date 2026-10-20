@@ -30,7 +30,7 @@
 
 ## Pedidos de Antonia Quezada (WhatsApp) · aplicado el 20-oct
 Detalle en CHANGELOG. POTS y Creatina-electrolitos quedaron ocultos y con redirección 301; los dos de Cyber bajaron en el listado; Alergias y Viajes tienen el texto que Antonia corrigió en Notion (en Viajes se quitó el alcohol); el de Quimioterapia está publicado.
-- [ ] **El usuario carga las fotos a mano** (portada e internas) en Alergias, Viajes y Quimio, en los puntos marcados con `<!-- FOTO n -->`. Los dos de Cyber siguen sin portada.
+- [x] 20-oct: el usuario cargó las fotos internas de Alergias, Viajes y Quimio, y la portada de Quimio. Alergias y Viajes conservan su portada anterior. Los dos de Cyber siguen sin portada.
 - [ ] Relanzar "Creatina y electrolitos" con texto de Antonia (borrar antes la redirección 301).
 - [ ] Ideas de blogs de creatina para Antonia: Creapure y pureza; cuándo y cómo tomarla; si retiene líquido; menopausia y adultos mayores.
 - [ ] Notion no se actualizó (por instrucción): "Publicado en Shopify" e "ID Shopify" del de quimio siguen vacíos.

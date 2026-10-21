@@ -35,6 +35,10 @@ Detalle en CHANGELOG. POTS y Creatina-electrolitos quedaron ocultos y con redire
 - [ ] Ideas de blogs de creatina para Antonia: Creapure y pureza; cuándo y cómo tomarla; si retiene líquido; menopausia y adultos mayores.
 - [ ] Notion no se actualizó (por instrucción): "Publicado en Shopify" e "ID Shopify" del de quimio siguen vacíos.
 
+## Reporte SEO y Blog oct-26 (21-oct)
+- Doc: https://claude.ai/artifact/SzgcEW48SPQNV4ci7ffta1. Incluye crecimiento, Search Console (export 11-sep), blog, 7 palancas para escalar y qué valida la nutricionista y qué el founder.
+- [ ] Pendiente: Planificador de palabras clave de Google Ads y proyecciones, más Search Console de octubre. Hay que sacarlos del navegador del usuario o de una sesión de Claude en su computador.
+
 ## Lectura orgánico 20-oct (Shopify, búsqueda sin utm = orgánico)
 - Sesiones orgánicas por mes 2026: ene 5.755 · feb 5.090 · mar 1.748 · abr 1.839 · may 3.674 · jun 1.378 · jul 997 · ago 1.854 · sep 2.150 · oct 2.086 (al día 20). Contra oct-25 (2.644 en el mes completo), octubre va a ~3.200 proyectado: +20% interanual.
 - Checkouts orgánicos: jul 28 → ago 77 → sep 101 → oct 202 (con el Cyber).

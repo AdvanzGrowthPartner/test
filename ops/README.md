@@ -1,40 +1,44 @@
 # Ops · Mapa de los OS
 
-Toda la operación corre desde Claude Code. Cada **OS** es una sesión fija + una carpeta en este repo con su memoria:
+Toda la operación corre desde Claude Code con **6 OS, uno por área**. Cada OS es una sesión fija (`<Área> OS`) y atiende a las dos marcas. Su memoria vive en este repo y su tablero de mando es el artifact `<Área> OS · Command`.
 
 ```
 ops/
-├── advanz/                 ← marketing propio de Advanz (leads → llamadas → clientes)
-│   ├── contexto-marca.md   ← quién es la marca (lo leen todos los OS del grupo)
-│   ├── handoffs.md         ← pedidos entre OS del grupo
-│   └── <os>/
-│       ├── CLAUDE.md       ← instrucciones del OS (misión, herramientas, skills, reglas)
-│       ├── estado.md       ← dónde quedamos: estado, decisiones, pendientes
-│       └── CHANGELOG.md    ← cambios aplicados en plataformas + cómo revertir
-└── amazingcare/            ← cliente ecommerce (misma estructura)
+├── marcas/
+│   ├── advanz.md            ← quién es Advanz (marketing propio: leads → llamadas → clientes)
+│   └── amazingcare.md       ← quién es AmazingCare (cliente ecommerce)
+├── handoffs.md              ← pedidos entre OS
+├── _command/                ← spec y exportador de los Command
+├── <área>/                  ← email · ads · cro · growth · creative · geo-seo
+│   ├── CLAUDE.md            ← instrucciones del OS (misión por marca, herramientas, skills, reglas)
+│   ├── command/             ← datos del Command (generados) + URL del artifact
+│   ├── advanz/
+│   │   ├── estado.md        ← dónde quedamos: estado, decisiones, pendientes
+│   │   ├── os-data.json     ← KPIs, fugas y accesos (contrato del Command Center)
+│   │   └── CHANGELOG.md     ← cambios aplicados + cómo revertir
+│   └── amazingcare/         ← misma estructura
+└── growth/command-center/   ← consolidado global de los 6 OS (lo mantiene Growth OS)
 ```
 
 ## Los 6 OS
 
 | OS | Qué cubre | Herramientas principales |
 |---|---|---|
-| **Email** | Flujos, campañas, segmentos, retención (AC) · nurturing, outbound, CRM (Advanz) | Klaviyo, Gmail, Shopify |
-| **Ads** | Meta / Google: estructura, presupuesto, tracking, testing | Meta Ads, Semrush |
-| **CRO** | Tienda/PDP/checkout (AC) · landings, lead magnets, quiz (Advanz) | Shopify, Vercel, navegador |
-| **Growth** | Reporting, KPIs de negocio, command center, roadmap y priorización | Shopify analytics, Notion, Drive |
-| **Creative** | Ángulos, hooks, UGC, estáticos, video, copies, sistema visual | Canva, Magnific, Pletor, Figma |
-| **GEO/SEO** | SEO técnico/on-page, blog, Search Console, visibilidad en IA | Ahrefs, Semrush, Shopify blog |
+| **Email OS** | Flujos, campañas y retención (AmazingCare). Nurturing, outbound y CRM (Advanz) | Klaviyo, Gmail, Shopify |
+| **Ads OS** | Meta y Google: estructura, presupuesto, tracking y testing | Meta Ads, export de Google Ads |
+| **CRO OS** | Tienda, PDP y checkout (AmazingCare). Landings, lead magnets y quiz (Advanz) | Shopify, Vercel, navegador |
+| **Growth OS** | Reporting, KPIs de negocio, roadmap y priorización entre áreas | Shopify analytics, Notion, Drive |
+| **Creative OS** | Ángulos, hooks, UGC, estáticos, video, copies y sistema visual | Canva, Magnific, Pletor, Figma |
+| **GEO/SEO OS** | SEO, blog, Search Console y visibilidad en IA | Notion, Search Console, Shopify blog |
 
-**Growth** es el OS que prioriza: define qué hay que hacer y lo deriva a los otros OS vía `handoffs.md`. Los otros cinco OS ejecutan.
+**Growth OS** prioriza: mantiene el Command Center global y deriva el trabajo a los otros OS a través de `handoffs.md`.
 
 ## Cómo operar
-1. Abre la sesión del OS (ver `ops/SESIONES.md`) y pide el cambio en lenguaje natural: *"sube 20% el presupuesto de la campaña de electrolitos"*, *"arma el flujo de carrito abandonado"*.
-2. El OS lee su contexto, propone el cambio y **espera tu OK** antes de tocar la plataforma.
-3. Aplica el cambio, lo registra en `CHANGELOG.md`, actualiza `estado.md` y hace push.
-4. Si el cambio toca otra área, deja un handoff y la sesión del otro OS lo toma.
+1. Abre el OS del área (`ops/SESIONES.md`) y su Command para ver qué hay pendiente en cada marca.
+2. Pide el cambio indicando la marca. Por ejemplo: *"AmazingCare: reactiva Pack_P6 con $10 USD/día"* o *"Advanz: arma la secuencia de follow-up del diagnóstico"*.
+3. El OS propone el cambio y **espera tu OK** antes de tocar la plataforma.
+4. Aplica el cambio y lo registra en `CHANGELOG.md`. Después actualiza `estado.md` y `os-data.json`, refresca el Command y hace push.
 
-## Nombres y grupos de sesión
-- **Grupo = marca:** `Advanz` y `AmazingCare` (se arman en la app como Projects; ver `ops/SESIONES.md`).
-- **Nombre = área/canal + OS:** `Email OS`, `Ads OS`, `CRO OS`, `Growth OS`, `Creative OS`, `GEO/SEO OS`.
-- Etiquetas de respaldo: `grupo:<marca>`, `os:<área>`, `tipo:os`.
-- Sesiones puntuales nuevas: `<Área> — <tema>` (ej. `Ads — Black Friday`), dentro del grupo de su marca.
+## Nombres de sesión
+- Los OS se llaman `Email OS`, `Ads OS`, `CRO OS`, `Growth OS`, `Creative OS` y `GEO/SEO OS`.
+- Una sesión puntual nueva se nombra `<Área> — <tema>` (por ejemplo `Ads — Black Friday AmazingCare`) y deja su resultado en la carpeta del área.

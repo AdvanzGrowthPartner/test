@@ -1,0 +1,74 @@
+[
+ {
+  "marca": "Advanz",
+  "conector": "Gmail",
+  "estado": "ok",
+  "nota": "Operaciones@advanz.cl: lectura de borradores probada el 2026-10-19"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Notion",
+  "estado": "sin-probar",
+  "nota": "Conectado; repo-ecommerces aún sin leer en esta sesión"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Google_Drive",
+  "estado": "ok",
+  "nota": "Lectura probada; lo reciente es material de AmazingCare"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "GHL",
+  "estado": "sin-conector",
+  "nota": "Necesita export CSV, API o capturas"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Klaviyo",
+  "estado": "bloqueado",
+  "nota": "Conectado a la cuenta de AmazingCare, no a Advanz"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Shopify",
+  "estado": "bloqueado",
+  "nota": "Conectado a la tienda amazingcare.cl, no a Advanz"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Klaviyo",
+  "estado": "ok",
+  "nota": "Cuenta XseJpL. Campañas, flujos, reportes y métricas OK. El MCP no edita formularios."
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Shopify",
+  "estado": "ok",
+  "nota": "Tienda amazingcare.cl (CLP)"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Gmail",
+  "estado": "ok",
+  "nota": "Borradores en Operaciones@advanz.cl"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Notion",
+  "estado": "sin-probar",
+  "nota": "Grilla de correos y lineamientos"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Google_Drive",
+  "estado": "sin-probar",
+  "nota": ""
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "GA4",
+  "estado": "sin-conector",
+  "nota": "Necesario para validar UTMs (F04)"
+ }
+]

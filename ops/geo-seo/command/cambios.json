@@ -1,0 +1,51 @@
+[
+ {
+  "marca": "AmazingCare",
+  "fecha": "2026-10-20",
+  "cambio": "POTS y disautonomía (`pots-disautonomia-mareos-fatiga-desmayos`, Article/617683517736): oculto, porque Antonia no lo escribió ni lo aprobó. Redirección 301 → `/blogs/noticias/electrolitos-disautonomia` (UrlRedirect/611860381992).",
+  "por_que": "Blogs pedidos por Antonia Quezada (OK del usuario el 20-oct)",
+  "revertir": "`isPublished:true` y borrar la redirección."
+ },
+ {
+  "marca": "AmazingCare",
+  "fecha": "2026-10-20",
+  "cambio": "Creatina y electrolitos (`creatina-y-electrolitos-hidratacion`, Article/617683616040): oculto hasta que se relance con texto de Antonia. Redirección 301 → `/blogs/noticias/creatina-beneficios-como-tomarla` (UrlRedirect/611860414760).",
+  "por_que": "Blogs pedidos por Antonia Quezada (OK del usuario el 20-oct)",
+  "revertir": "igual que el anterior. Al relanzar en la misma URL, borrar antes la redirección."
+ },
+ {
+  "marca": "AmazingCare",
+  "fecha": "2026-10-20",
+  "cambio": "Cyber: `suplementos-en-cyber-como-comparar` cambia su fecha de publicación del 28-sep al 10-sep 12:00 UTC, y `mejores-electrolitos-chile` del 28-sep al 10-sep 11:00 UTC. Así bajan en el listado y quedan después de Fiestas Patrias.",
+  "por_que": "Blogs pedidos por Antonia Quezada (OK del usuario el 20-oct)",
+  "revertir": "volver la fecha al 2026-09-28."
+ },
+ {
+  "marca": "AmazingCare",
+  "fecha": "2026-10-20",
+  "cambio": "Alergias (Article/617683583272): el cuerpo se reemplazó por la versión de Notion corregida por Antonia (sección nueva sobre la relación alergia–sequedad, 3 factores, antihistamínicos de 1ª generación, bibliografía de 3 referencias) y la autora pasa a \"Antonia Quezada Zavala\". Se mantiene BLOG10.",
+  "por_que": "Blogs pedidos por Antonia Quezada (OK del usuario el 20-oct)",
+  "revertir": "el cuerpo anterior está en el transcript de la sesión del 19–20 oct; no se guardó copia en el repo."
+ },
+ {
+  "marca": "AmazingCare",
+  "fecha": "2026-10-20",
+  "cambio": "Viajes (Article/617683550504): cuerpo reemplazado por la versión de Notion de Antonia (humedad de cabina, antes/durante/después del vuelo, bibliografía Zubac + Guéhenneux). Se quitó \"alcohol\" (dos menciones) por la decisión interna del 28-sep. Se mantiene AMAZING10.",
+  "por_que": "Blogs pedidos por Antonia Quezada (OK del usuario el 20-oct)",
+  "revertir": "igual que Alergias."
+ },
+ {
+  "marca": "AmazingCare",
+  "fecha": "2026-10-20",
+  "cambio": "Nuevo: Electrolitos y quimioterapia (`electrolitos-quimioterapia-hidratacion`, Article/635071791400): publicado el 20-oct 14:16 UTC, autora Antonia, con title y meta SEO, sin cupón.",
+  "por_que": "Blogs pedidos por Antonia Quezada (OK del usuario el 20-oct)",
+  "revertir": "`isPublished:false`."
+ },
+ {
+  "marca": "AmazingCare",
+  "fecha": "2026-10-20",
+  "cambio": "En los 3 cuerpos (Alergias, Viajes, Quimio) quedaron comentarios HTML invisibles `<!-- FOTO n ... insertar aquí -->` que marcan dónde cargar a mano cada foto.",
+  "por_que": "Blogs pedidos por Antonia Quezada (OK del usuario el 20-oct)",
+  "revertir": ""
+ }
+]

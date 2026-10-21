@@ -1,0 +1,74 @@
+[
+ {
+  "marca": "Advanz",
+  "conector": "Canva",
+  "estado": "sin-probar",
+  "nota": ""
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Figma",
+  "estado": "sin-probar",
+  "nota": ""
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Magnific",
+  "estado": "sin-probar",
+  "nota": ""
+ },
+ {
+  "marca": "Advanz",
+  "conector": "pletor",
+  "estado": "sin-probar",
+  "nota": ""
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Instagram",
+  "estado": "sin-conector",
+  "nota": ""
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Meta_Ads",
+  "estado": "ok",
+  "nota": "Cuenta DTC 2911300959169889 y Mayorista habilitadas en el MCP (probado 19-oct)"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Notion",
+  "estado": "ok",
+  "nota": "Búsqueda probada: SOP Sistema Content y AC | Creativos Octubre - CYBER"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Canva",
+  "estado": "ok",
+  "nota": "Se ven los diseños de Amazing Care (probado 19-oct)"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Google_Drive",
+  "estado": "ok",
+  "nota": "Carpetas AMAZING CARE y Material Amazing Care visibles"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Magnific",
+  "estado": "ok",
+  "nota": "Cuenta de Operaciones Advanz conectada"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Figma",
+  "estado": "bloqueado",
+  "nota": "Asiento View en plan starter: lee, no edita"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "pletor",
+  "estado": "sin-plan",
+  "nota": "El MCP exige plan pago; sin brain de marca"
+ }
+]

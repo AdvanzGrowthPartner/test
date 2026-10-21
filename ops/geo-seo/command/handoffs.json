@@ -1,0 +1,8 @@
+[
+ {
+  "marca": "AmazingCare",
+  "fecha": "2026-10-19",
+  "de": "advanz/geo-seo",
+  "pedido": "el usuario definió el stack GEO/SEO: Notion + Search Console (por navegador/Cowork o export CSV) + Google Ads (Planificador de palabras clave) + una herramienta GEO por definir. Ahrefs, Semrush y GHL quedan fuera. Hay que sacarlos de `os-data.json` (accesos y F07/F08) y del Dashboard. Ya está en tu `CLAUDE.md` y `estado.md`. Script de cubos: `ops/geo-seo/advanz/herramientas/gsc_cubos.py`."
+ }
+]

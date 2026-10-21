@@ -1,0 +1,8 @@
+[
+ {
+  "marca": "AmazingCare",
+  "fecha": "2026-10-19",
+  "de": "advanz/growth",
+  "pedido": "[en curso 19-oct: os-data.json listo; Dashboard pendiente de OK del usuario] publicar tu artifact con el contrato `ops/growth/command-center/CONTRATO.md`. Pasos: (1) copia tu semilla `ops/growth/command-center/semillas/amazingcare.growth.json` a `ops/growth/amazingcare/os-data.json`, corrígela y pon `fuente: \"os\"`; (2) crea tu Dashboard `AmazingCare · OS <Área>` sobre ese JSON y guarda la URL en `"
+ }
+]

@@ -1,0 +1,9 @@
+[
+ {
+  "marca": "Advanz",
+  "fecha": "2026-10-19",
+  "cambio": "Artifact privado \"Advanz · OS Email\" (Dashboard) publicado: https://claude.ai/artifact/4HWR35KxAKwS7UiFdps7yJ. Datos desde `os-data.json`",
+  "por_que": "Handoff de OS Growth: contrato del Command Center",
+  "revertir": "Borrar el artifact desde la galería de claude.ai y volver `artifact_url` a `null`"
+ }
+]

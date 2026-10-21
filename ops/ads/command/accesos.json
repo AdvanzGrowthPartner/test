@@ -1,0 +1,50 @@
+[
+ {
+  "marca": "Advanz",
+  "conector": "Meta_Ads",
+  "estado": "bloqueado",
+  "nota": "MCP conecta; cuenta Advanz 120273191181276 UNSETTLED, no consultable (2026-10-19)"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Semrush",
+  "estado": "sin-plan",
+  "nota": "Responde, pero sin unidades de API (2026-10-19)"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Google_Ads",
+  "estado": "sin-conector",
+  "nota": "Solo export manual / CSV"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "GHL",
+  "estado": "sin-conector",
+  "nota": "Tracking del sitio sin verificar por MCP"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Meta_Ads",
+  "estado": "ok",
+  "nota": "DTC 2911300959169889 + Mayorista 3131920510317594 (lectura verificada 19-oct)"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Google_Ads",
+  "estado": "sin-conector",
+  "nota": "Solo desde la terminal de Matías (Cowork) o export"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Semrush",
+  "estado": "sin-plan",
+  "nota": "Conectado, sin unidades de API (19-oct)"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Shopify",
+  "estado": "sin-probar",
+  "nota": "Conector disponible en la sesión"
+ }
+]

@@ -1,0 +1,62 @@
+[
+ {
+  "id": "advanz.email.F01",
+  "titulo": "~40 diagnósticos listos sin contacto del founder: no se pueden enviar",
+  "severidad": 5,
+  "estado": "abierta",
+  "punto_funnel": "lead",
+  "evidencia": "Bloqueo declarado: enriquecimiento de contacto",
+  "impacto": "Es el canal principal: 0 envíos = 0 agendas",
+  "accion": "Correr la cascada footer → IG → LinkedIn → WHOIS y cargar en repo-ecommerces",
+  "ejecuta": "email",
+  "via": "mcp",
+  "conector": "Notion",
+  "requiere_ok": false,
+  "acceso": "ok"
+ },
+ {
+  "id": "advanz.email.F02",
+  "titulo": "Sin herramienta ni dominio secundario de envío en frío definidos",
+  "severidad": 4,
+  "estado": "abierta",
+  "punto_funnel": "lead",
+  "evidencia": "Propuesta Gmail → Instantly/Smartlead sin confirmar",
+  "impacto": null,
+  "accion": "Decidir herramienta (Gmail en borradores o Instantly/Smartlead) y dominio secundario con SPF/DKIM/warmup",
+  "ejecuta": "email",
+  "via": "mcp",
+  "conector": "Gmail",
+  "requiere_ok": true,
+  "acceso": "ok"
+ },
+ {
+  "id": "advanz.email.F03",
+  "titulo": "Leads del lead magnet Shopify no entran al workflow GHL",
+  "severidad": 4,
+  "estado": "abierta",
+  "punto_funnel": "captura",
+  "evidencia": "fetch('/api/leads') comentado en el form",
+  "impacto": null,
+  "accion": "Conectar el form al workflow de 5 correos",
+  "ejecuta": "cro",
+  "via": "manual",
+  "conector": "GHL",
+  "requiere_ok": true,
+  "acceso": "sin-conector"
+ },
+ {
+  "id": "advanz.email.F04",
+  "titulo": "Nurturing de 5 correos en GHL sin documentar ni medir",
+  "severidad": 3,
+  "estado": "abierta",
+  "punto_funnel": "agenda",
+  "evidencia": "GHL sin conector MCP; asuntos, timing, CTA y métricas no levantados",
+  "impacto": "Sin tasas no se sabe en qué correo se cae el lead antes de agendar",
+  "accion": "Levantar los 5 correos y sus tasas desde GHL (export o capturas) y documentarlos en este OS",
+  "ejecuta": "email",
+  "via": "manual",
+  "conector": "GHL",
+  "requiere_ok": false,
+  "acceso": "sin-conector"
+ }
+]

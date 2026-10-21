@@ -1,0 +1,44 @@
+[
+ {
+  "fecha": "2026-10-20",
+  "cambio": "POTS y disautonomía (`pots-disautonomia-mareos-fatiga-desmayos`, Article/617683517736) oculto + redirección 301 → `/blogs/noticias/electrolitos-disautonomia` (UrlRedirect/611860381992)",
+  "por_que": "Pedido de Antonia Quezada: no lo escribió ni lo aprobó (OK del usuario 20-oct)",
+  "revertir": "`isPublished:true` y borrar la redirección"
+ },
+ {
+  "fecha": "2026-10-20",
+  "cambio": "Creatina y electrolitos (`creatina-y-electrolitos-hidratacion`, Article/617683616040) oculto + redirección 301 → `/blogs/noticias/creatina-beneficios-como-tomarla` (UrlRedirect/611860414760)",
+  "por_que": "Se relanza con texto de Antonia (OK del usuario 20-oct)",
+  "revertir": "`isPublished:true` y borrar la redirección. Al relanzar en la misma URL, borrar antes la redirección"
+ },
+ {
+  "fecha": "2026-10-20",
+  "cambio": "Cyber: fecha de `suplementos-en-cyber-como-comparar` 28-sep → 10-sep 12:00 UTC y de `mejores-electrolitos-chile` 28-sep → 10-sep 11:00 UTC",
+  "por_que": "Que bajen en el listado y queden después de Fiestas Patrias (OK del usuario 20-oct)",
+  "revertir": "Volver la fecha a 2026-09-28"
+ },
+ {
+  "fecha": "2026-10-20",
+  "cambio": "Alergias (Article/617683583272): cuerpo reemplazado por la versión de Notion corregida por Antonia; autora \"Antonia Quezada Zavala\"; se mantiene BLOG10",
+  "por_que": "Correcciones de Antonia (OK del usuario 20-oct)",
+  "revertir": "Cuerpo anterior solo en el transcript de la sesión del 19–20 oct (no hay copia en el repo)"
+ },
+ {
+  "fecha": "2026-10-20",
+  "cambio": "Viajes (Article/617683550504): cuerpo reemplazado por la versión de Notion de Antonia; se quitó \"alcohol\" (2 menciones); se mantiene AMAZING10",
+  "por_que": "Correcciones de Antonia + decisión interna del 28-sep (OK del usuario 20-oct)",
+  "revertir": "Igual que Alergias"
+ },
+ {
+  "fecha": "2026-10-20",
+  "cambio": "Nuevo: Electrolitos y quimioterapia (`electrolitos-quimioterapia-hidratacion`, Article/635071791400) publicado 14:16 UTC, autora Antonia, con title y meta SEO, sin cupón",
+  "por_que": "Blog pedido por Antonia (OK del usuario 20-oct)",
+  "revertir": "`isPublished:false`"
+ },
+ {
+  "fecha": "2026-10-20",
+  "cambio": "Comentarios HTML invisibles `<!-- FOTO n ... insertar aquí -->` en Alergias, Viajes y Quimio",
+  "por_que": "Marcar dónde cargar a mano cada foto",
+  "revertir": "Borrar los comentarios del cuerpo"
+ }
+]

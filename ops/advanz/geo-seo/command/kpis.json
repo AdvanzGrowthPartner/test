@@ -1,0 +1,46 @@
+[
+ {
+  "id": "gsc_clics",
+  "nombre": "Clics orgánicos advanz.cl",
+  "valor": null,
+  "unidad": "clics",
+  "periodo": "—",
+  "meta": null,
+  "estado": "sin-dato",
+  "fuente": "Search_Console",
+  "actualizado": "2026-10-21"
+ },
+ {
+  "id": "kw_top10",
+  "nombre": "Keywords en top-10",
+  "valor": null,
+  "unidad": "keywords",
+  "periodo": "—",
+  "meta": null,
+  "estado": "sin-dato",
+  "fuente": "Search_Console",
+  "actualizado": "2026-10-21"
+ },
+ {
+  "id": "ia_sov",
+  "nombre": "Citas en IA (share of voice)",
+  "valor": null,
+  "unidad": "%",
+  "periodo": "—",
+  "meta": null,
+  "estado": "sin-dato",
+  "fuente": "manual",
+  "actualizado": "2026-10-21"
+ },
+ {
+  "id": "leads_organicos",
+  "nombre": "Leads orgánicos",
+  "valor": 0,
+  "unidad": "leads/semana",
+  "periodo": "2026-10",
+  "meta": 0,
+  "estado": "sin-dato",
+  "fuente": "GHL",
+  "actualizado": "2026-10-21"
+ }
+]

@@ -1,0 +1,42 @@
+[
+ {
+  "conector": "Instagram",
+  "estado": "sin-conector",
+  "nota": "Sin conector y bloqueado en el entorno; falta el handle"
+ },
+ {
+  "conector": "Figma",
+  "estado": "bloqueado",
+  "nota": "Asiento View en plan starter: lee, no edita (probado 19-oct)"
+ },
+ {
+  "conector": "pletor",
+  "estado": "sin-plan",
+  "nota": "El MCP exige plan pago (probado 19-oct)"
+ },
+ {
+  "conector": "GHL",
+  "estado": "sin-conector",
+  "nota": "Atribución de leads a contenido"
+ },
+ {
+  "conector": "Canva",
+  "estado": "ok",
+  "nota": "Misma cuenta de Operaciones (probado 19-oct)"
+ },
+ {
+  "conector": "Magnific",
+  "estado": "ok",
+  "nota": "Cuenta de Operaciones Advanz (probado 19-oct)"
+ },
+ {
+  "conector": "Notion",
+  "estado": "ok",
+  "nota": "SOP de contenido (fichas C1, C4, FICHA 17)"
+ },
+ {
+  "conector": "Google_Drive",
+  "estado": "ok",
+  "nota": ""
+ }
+]

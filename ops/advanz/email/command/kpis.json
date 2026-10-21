@@ -1,0 +1,46 @@
+[
+ {
+  "id": "diag_vercel",
+  "nombre": "Diagnósticos vivos colgados",
+  "valor": 40,
+  "unidad": "diag",
+  "periodo": "acumulado",
+  "meta": 100,
+  "estado": "warn",
+  "fuente": "estado.md (meta 100/semana)",
+  "actualizado": "2026-10-19"
+ },
+ {
+  "id": "diag_enviados",
+  "nombre": "Diagnósticos enviados al founder",
+  "valor": null,
+  "unidad": "diag",
+  "periodo": "—",
+  "meta": 100,
+  "estado": "sin-dato",
+  "fuente": "—",
+  "actualizado": "2026-10-19"
+ },
+ {
+  "id": "reply_rate",
+  "nombre": "Tasa de respuesta outbound",
+  "valor": null,
+  "unidad": "%",
+  "periodo": "—",
+  "meta": null,
+  "estado": "sin-dato",
+  "fuente": "—",
+  "actualizado": "2026-10-19"
+ },
+ {
+  "id": "agendas",
+  "nombre": "Llamadas agendadas",
+  "valor": null,
+  "unidad": "agendas",
+  "periodo": "semana",
+  "meta": 6,
+  "estado": "sin-dato",
+  "fuente": "—",
+  "actualizado": "2026-10-19"
+ }
+]

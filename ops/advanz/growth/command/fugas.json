@@ -1,0 +1,47 @@
+[
+ {
+  "id": "advanz.growth.F01",
+  "titulo": "No se registran los números del embudo (diagnósticos → agendas → cierres)",
+  "severidad": 4,
+  "estado": "abierta",
+  "punto_funnel": "medicion",
+  "evidencia": "estado.md: pendiente registrar números semana a semana; GHL sin conector",
+  "impacto": "Sin esto no se sabe qué capa del embudo falla",
+  "accion": "Cargar la semana en el tablero 📊 Canales de Adquisición y exportar GHL a CSV",
+  "ejecuta": "growth",
+  "via": "mcp",
+  "conector": "Notion",
+  "requiere_ok": true,
+  "acceso": "ok"
+ },
+ {
+  "id": "advanz.growth.F03",
+  "titulo": "Canal video 🟡 trabado por la sesión batch de Patricio",
+  "severidad": 3,
+  "estado": "abierta",
+  "punto_funnel": "contenido",
+  "evidencia": "Video pendiente; la cadena SOP → video → página → CTA no arranca",
+  "impacto": null,
+  "accion": "Agendar sesión batch de 2–3 h",
+  "ejecuta": "creative",
+  "via": "manual",
+  "conector": "Notion",
+  "requiere_ok": false,
+  "acceso": "ok"
+ },
+ {
+  "id": "advanz.growth.F02",
+  "titulo": "Resultado del deal Marê sin confirmar: el aprendizaje de cierre no vuelve al pitch",
+  "severidad": 2,
+  "estado": "abierta",
+  "punto_funnel": "cierre",
+  "evidencia": "Propuesta 21/08, sin registro de resultado",
+  "impacto": null,
+  "accion": "Confirmar resultado y registrar en Aprendizajes",
+  "ejecuta": "growth",
+  "via": "mcp",
+  "conector": "Notion",
+  "requiere_ok": false,
+  "acceso": "ok"
+ }
+]

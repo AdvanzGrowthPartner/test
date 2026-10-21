@@ -1,0 +1,62 @@
+[
+ {
+  "id": "advanz.ads.F01",
+  "titulo": "Cuenta Meta Advanz UNSETTLED: sin lectura de historial ni opción de reactivar",
+  "severidad": 3,
+  "estado": "abierta",
+  "punto_funnel": "medicion",
+  "evidencia": "ads_get_ad_accounts 2026-10-19: account_status UNSETTLED, is_queryable=false; tiene método de pago",
+  "impacto": null,
+  "accion": "Regularizar el pago pendiente en Meta Business",
+  "ejecuta": "ads",
+  "via": "manual",
+  "conector": "Meta_Ads",
+  "requiere_ok": true,
+  "acceso": "bloqueado"
+ },
+ {
+  "id": "advanz.ads.F02",
+  "titulo": "Pixel/CAPI de advanz.cl y landers sin verificar",
+  "severidad": 2,
+  "estado": "abierta",
+  "punto_funnel": "medicion",
+  "evidencia": "Tracking previsto (Pixel+CAPI+GA4 en growth-engine-lander), sin confirmar; el dataset no se puede leer mientras la cuenta esté UNSETTLED",
+  "impacto": null,
+  "accion": "Revisar el dataset en Meta y el script en GHL/Vercel",
+  "ejecuta": "ads",
+  "via": "mcp",
+  "conector": "Meta_Ads",
+  "requiere_ok": false,
+  "acceso": "bloqueado"
+ },
+ {
+  "id": "advanz.ads.F03",
+  "titulo": "Sin historial de la campaña de $450k (1 cierre): no hay CPL ni costo por llamada de referencia",
+  "severidad": 2,
+  "estado": "abierta",
+  "punto_funnel": "medicion",
+  "evidencia": "estado.md: $450k CLP → 1 cierre; fechas, objetivo y CPL sin levantar",
+  "impacto": "Sin línea base, un test futuro no tiene contra qué compararse",
+  "accion": "Exportar el historial desde Ads Manager cuando se regularice la cuenta",
+  "ejecuta": "ads",
+  "via": "mcp",
+  "conector": "Meta_Ads",
+  "requiere_ok": false,
+  "acceso": "bloqueado"
+ },
+ {
+  "id": "advanz.ads.F04",
+  "titulo": "Cuenta Google Ads propia sin confirmar",
+  "severidad": 1,
+  "estado": "abierta",
+  "punto_funnel": "medicion",
+  "evidencia": "No aparece en los transcripts; no hay conector Google Ads",
+  "impacto": null,
+  "accion": "Confirmar si existe y su ID; si existe, export manual o Cowork",
+  "ejecuta": "ads",
+  "via": "manual",
+  "conector": "Google_Ads",
+  "requiere_ok": false,
+  "acceso": "sin-conector"
+ }
+]

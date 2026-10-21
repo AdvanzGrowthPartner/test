@@ -1,0 +1,32 @@
+[
+ {
+  "conector": "Klaviyo",
+  "estado": "ok",
+  "nota": "Cuenta XseJpL. Campañas, flujos, reportes y métricas OK. El MCP no edita formularios."
+ },
+ {
+  "conector": "Shopify",
+  "estado": "ok",
+  "nota": "Tienda amazingcare.cl (CLP)"
+ },
+ {
+  "conector": "Gmail",
+  "estado": "ok",
+  "nota": "Borradores en Operaciones@advanz.cl"
+ },
+ {
+  "conector": "Notion",
+  "estado": "sin-probar",
+  "nota": "Grilla de correos y lineamientos"
+ },
+ {
+  "conector": "Google_Drive",
+  "estado": "sin-probar",
+  "nota": ""
+ },
+ {
+  "conector": "GA4",
+  "estado": "sin-conector",
+  "nota": "Necesario para validar UTMs (F04)"
+ }
+]

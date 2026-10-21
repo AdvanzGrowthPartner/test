@@ -1,0 +1,37 @@
+[
+ {
+  "conector": "Meta_Ads",
+  "estado": "ok",
+  "nota": "Cuenta DTC 2911300959169889 y Mayorista habilitadas en el MCP (probado 19-oct)"
+ },
+ {
+  "conector": "Notion",
+  "estado": "ok",
+  "nota": "Búsqueda probada: SOP Sistema Content y AC | Creativos Octubre - CYBER"
+ },
+ {
+  "conector": "Canva",
+  "estado": "ok",
+  "nota": "Se ven los diseños de Amazing Care (probado 19-oct)"
+ },
+ {
+  "conector": "Google_Drive",
+  "estado": "ok",
+  "nota": "Carpetas AMAZING CARE y Material Amazing Care visibles"
+ },
+ {
+  "conector": "Magnific",
+  "estado": "ok",
+  "nota": "Cuenta de Operaciones Advanz conectada"
+ },
+ {
+  "conector": "Figma",
+  "estado": "bloqueado",
+  "nota": "Asiento View en plan starter: lee, no edita"
+ },
+ {
+  "conector": "pletor",
+  "estado": "sin-plan",
+  "nota": "El MCP exige plan pago; sin brain de marca"
+ }
+]

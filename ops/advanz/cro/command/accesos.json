@@ -1,0 +1,27 @@
+[
+ {
+  "conector": "Vercel",
+  "estado": "ok",
+  "nota": "Equipo matiasroldan-7968's projects: landeradvanz, web, advanz-hub, paid-media-engine, test (2026-10-19)"
+ },
+ {
+  "conector": "GHL",
+  "estado": "sin-conector",
+  "nota": "CRM, landers y workflows de Advanz; sin MCP en Claude"
+ },
+ {
+  "conector": "Ahrefs",
+  "estado": "sin-plan",
+  "nota": "Web Analytics responde 'Insufficient plan'"
+ },
+ {
+  "conector": "Shopify",
+  "estado": "bloqueado",
+  "nota": "La sesión apunta a amazingcare.cl, no a Advanz; no tocar desde este OS"
+ },
+ {
+  "conector": "Clarity",
+  "estado": "sin-conector",
+  "nota": "Alternativa para abandono de form y grabaciones"
+ }
+]

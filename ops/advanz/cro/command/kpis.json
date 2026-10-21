@@ -1,0 +1,57 @@
+[
+ {
+  "id": "leads_web",
+  "nombre": "Leads web por semana",
+  "valor": null,
+  "unidad": "leads",
+  "periodo": "semana actual",
+  "meta": 20,
+  "estado": "sin-dato",
+  "fuente": "GHL",
+  "actualizado": "2026-10-19"
+ },
+ {
+  "id": "cvr_landing",
+  "nombre": "CVR de landing",
+  "valor": null,
+  "unidad": "%",
+  "periodo": null,
+  "meta": null,
+  "estado": "sin-dato",
+  "fuente": "Ahrefs",
+  "actualizado": "2026-10-19"
+ },
+ {
+  "id": "optin_lead_magnet",
+  "nombre": "Opt-in del lead magnet",
+  "valor": null,
+  "unidad": "%",
+  "periodo": null,
+  "meta": null,
+  "estado": "sin-dato",
+  "fuente": "GHL",
+  "actualizado": "2026-10-19"
+ },
+ {
+  "id": "tasa_agendamiento",
+  "nombre": "Tasa de agendamiento (lead → agenda)",
+  "valor": null,
+  "unidad": "%",
+  "periodo": null,
+  "meta": null,
+  "estado": "sin-dato",
+  "fuente": "GHL",
+  "actualizado": "2026-10-19"
+ },
+ {
+  "id": "abandono_form",
+  "nombre": "Abandono de formulario",
+  "valor": null,
+  "unidad": "%",
+  "periodo": null,
+  "meta": null,
+  "estado": "sin-dato",
+  "fuente": "Clarity",
+  "actualizado": "2026-10-19"
+ }
+]

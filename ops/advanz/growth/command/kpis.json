@@ -1,0 +1,46 @@
+[
+ {
+  "id": "diag_sem",
+  "nombre": "Diagnósticos entregados por semana",
+  "valor": null,
+  "unidad": "diag",
+  "periodo": "semana actual",
+  "meta": 100,
+  "estado": "sin-dato",
+  "fuente": "Notion · Canales de Adquisición",
+  "actualizado": "2026-10-19"
+ },
+ {
+  "id": "agendas_sem",
+  "nombre": "Llamadas agendadas por semana",
+  "valor": null,
+  "unidad": "llamadas",
+  "periodo": "semana actual",
+  "meta": 8,
+  "estado": "sin-dato",
+  "fuente": "GHL",
+  "actualizado": "2026-10-19"
+ },
+ {
+  "id": "cierres_sem",
+  "nombre": "Cierres por semana",
+  "valor": null,
+  "unidad": "cierres",
+  "periodo": "semana actual",
+  "meta": 2,
+  "estado": "sin-dato",
+  "fuente": "Notion · Cotizaciones",
+  "actualizado": "2026-10-19"
+ },
+ {
+  "id": "canales_on",
+  "nombre": "Canales de adquisición activos",
+  "valor": 3,
+  "unidad": "de 6",
+  "periodo": "2026-10-19",
+  "meta": null,
+  "estado": "warn",
+  "fuente": "estado.md",
+  "actualizado": "2026-10-19"
+ }
+]

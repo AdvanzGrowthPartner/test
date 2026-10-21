@@ -1,0 +1,57 @@
+[
+ {
+  "id": "posts_sem",
+  "nombre": "Posts por semana (social estático)",
+  "valor": null,
+  "unidad": "posts",
+  "periodo": "semana actual",
+  "meta": 5,
+  "estado": "sin-dato",
+  "fuente": "Instagram",
+  "actualizado": "2026-10-21"
+ },
+ {
+  "id": "alcance_reels",
+  "nombre": "Alcance promedio de reels",
+  "valor": null,
+  "unidad": "cuentas",
+  "periodo": null,
+  "meta": null,
+  "estado": "sin-dato",
+  "fuente": "Instagram",
+  "actualizado": "2026-10-21"
+ },
+ {
+  "id": "reviews_grabadas",
+  "nombre": "Reviews de ecommerce grabadas (social video)",
+  "valor": 0,
+  "unidad": "videos",
+  "periodo": "al 2026-10-21",
+  "meta": 4,
+  "estado": "bad",
+  "fuente": "estado.md",
+  "actualizado": "2026-10-21"
+ },
+ {
+  "id": "guiones_validados",
+  "nombre": "Guiones del Storyboard validados",
+  "valor": 0,
+  "unidad": "de 5",
+  "periodo": "al 2026-10-21",
+  "meta": 5,
+  "estado": "warn",
+  "fuente": "estado.md",
+  "actualizado": "2026-10-21"
+ },
+ {
+  "id": "leads_contenido",
+  "nombre": "Leads atribuidos a contenido",
+  "valor": null,
+  "unidad": "leads",
+  "periodo": null,
+  "meta": null,
+  "estado": "sin-dato",
+  "fuente": "GHL",
+  "actualizado": "2026-10-21"
+ }
+]

@@ -1,0 +1,79 @@
+[
+ {
+  "id": "venta_neta_cyber",
+  "nombre": "Venta neta Cyber oct-26 (parcial)",
+  "valor": 3.86,
+  "unidad": "M CLP",
+  "periodo": "2026-10-02/2026-10-03",
+  "meta": 18,
+  "estado": "warn",
+  "fuente": "War room Cyber (ritmo ~$14M vs $18M proyectado)",
+  "actualizado": "2026-10-19"
+ },
+ {
+  "id": "venta_neta",
+  "nombre": "Venta neta",
+  "valor": 7.66,
+  "unidad": "M CLP",
+  "periodo": "2026-09-01/2026-09-14",
+  "meta": null,
+  "estado": "ok",
+  "fuente": "Shopify (reporte quincenal)",
+  "actualizado": "2026-10-19"
+ },
+ {
+  "id": "roas",
+  "nombre": "ROAS blended",
+  "valor": 3.98,
+  "unidad": "x",
+  "periodo": "2026-09-01/2026-09-14",
+  "meta": 2.5,
+  "estado": "ok",
+  "fuente": "Shopify + plataformas",
+  "actualizado": "2026-10-19"
+ },
+ {
+  "id": "ordenes",
+  "nombre": "Órdenes",
+  "valor": 217,
+  "unidad": "órdenes",
+  "periodo": "2026-09-01/2026-09-14",
+  "meta": null,
+  "estado": "ok",
+  "fuente": "Shopify (reporte quincenal)",
+  "actualizado": "2026-10-19"
+ },
+ {
+  "id": "pct_nuevos",
+  "nombre": "% clientes nuevos",
+  "valor": 67,
+  "unidad": "%",
+  "periodo": "2026-09-01/2026-09-14",
+  "meta": null,
+  "estado": "ok",
+  "fuente": "Shopify (145 nuevos / 216 clientes)",
+  "actualizado": "2026-10-19"
+ },
+ {
+  "id": "cac_nuevo",
+  "nombre": "CAC real por cliente nuevo",
+  "valor": 13700,
+  "unidad": "CLP",
+  "periodo": "CyberDay jun-26",
+  "meta": 8000,
+  "estado": "bad",
+  "fuente": "Gasto ÷ clientes nuevos (estado.md)",
+  "actualizado": "2026-10-19"
+ },
+ {
+  "id": "margen_contrib",
+  "nombre": "Margen de contribución",
+  "valor": null,
+  "unidad": "CLP",
+  "periodo": "—",
+  "meta": null,
+  "estado": "sin-dato",
+  "fuente": "Falta COGS por producto",
+  "actualizado": "2026-10-19"
+ }
+]

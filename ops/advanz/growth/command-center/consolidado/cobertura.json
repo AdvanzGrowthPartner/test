@@ -1,0 +1,122 @@
+[
+ {
+  "os_id": "advanz.email",
+  "marca": "Advanz",
+  "area": "email",
+  "fuente": "os",
+  "actualizado": "2026-10-19",
+  "fugas_abiertas": 4,
+  "artifact_url": "https://claude.ai/artifact/KEm68mZ8Ezs6RXWkw1cAZc",
+  "archivo": "ops/advanz/email/os-data.json"
+ },
+ {
+  "os_id": "advanz.ads",
+  "marca": "Advanz",
+  "area": "ads",
+  "fuente": "os",
+  "actualizado": "2026-10-19",
+  "fugas_abiertas": 4,
+  "artifact_url": "https://claude.ai/artifact/FfZgya6fwoGvMNqcJ2kbjB",
+  "archivo": "ops/advanz/ads/os-data.json"
+ },
+ {
+  "os_id": "advanz.cro",
+  "marca": "Advanz",
+  "area": "cro",
+  "fuente": "os",
+  "actualizado": "2026-10-19",
+  "fugas_abiertas": 6,
+  "artifact_url": "https://claude.ai/artifact/4Lbw3Q7xcoAXmeFC1MVcZw",
+  "archivo": "ops/advanz/cro/os-data.json"
+ },
+ {
+  "os_id": "advanz.growth",
+  "marca": "Advanz",
+  "area": "growth",
+  "fuente": "os",
+  "actualizado": "2026-10-19",
+  "fugas_abiertas": 3,
+  "artifact_url": "https://claude.ai/artifact/44LVZUHY5tgGH6P7Nb6vHk",
+  "archivo": "ops/advanz/growth/os-data.json"
+ },
+ {
+  "os_id": "advanz.creative",
+  "marca": "Advanz",
+  "area": "creative",
+  "fuente": "os",
+  "actualizado": "2026-10-21",
+  "fugas_abiertas": 6,
+  "artifact_url": "https://claude.ai/artifact/Lp1TYgozy1cMnH3Lnemq63",
+  "archivo": "ops/advanz/creative/os-data.json"
+ },
+ {
+  "os_id": "advanz.geo-seo",
+  "marca": "Advanz",
+  "area": "geo-seo",
+  "fuente": "os",
+  "actualizado": "2026-10-21",
+  "fugas_abiertas": 3,
+  "artifact_url": "https://claude.ai/artifact/CzrFV5p38h6jZwyctchVmM",
+  "archivo": "ops/advanz/geo-seo/os-data.json"
+ },
+ {
+  "os_id": "amazingcare.email",
+  "marca": "AmazingCare",
+  "area": "email",
+  "fuente": "os",
+  "actualizado": "2026-10-19",
+  "fugas_abiertas": 5,
+  "artifact_url": "https://claude.ai/artifact/KEm68mZ8Ezs6RXWkw1cAZc",
+  "archivo": "ops/amazingcare/email/os-data.json"
+ },
+ {
+  "os_id": "amazingcare.ads",
+  "marca": "AmazingCare",
+  "area": "ads",
+  "fuente": "os",
+  "actualizado": "2026-10-19",
+  "fugas_abiertas": 5,
+  "artifact_url": "https://claude.ai/artifact/FfZgya6fwoGvMNqcJ2kbjB",
+  "archivo": "ops/amazingcare/ads/os-data.json"
+ },
+ {
+  "os_id": "amazingcare.cro",
+  "marca": "AmazingCare",
+  "area": "cro",
+  "fuente": "os",
+  "actualizado": "2026-10-19",
+  "fugas_abiertas": 7,
+  "artifact_url": "https://claude.ai/artifact/4Lbw3Q7xcoAXmeFC1MVcZw",
+  "archivo": "ops/amazingcare/cro/os-data.json"
+ },
+ {
+  "os_id": "amazingcare.growth",
+  "marca": "AmazingCare",
+  "area": "growth",
+  "fuente": "os",
+  "actualizado": "2026-10-19",
+  "fugas_abiertas": 5,
+  "artifact_url": "—",
+  "archivo": "ops/amazingcare/growth/os-data.json"
+ },
+ {
+  "os_id": "amazingcare.creative",
+  "marca": "AmazingCare",
+  "area": "creative",
+  "fuente": "os",
+  "actualizado": "2026-10-21",
+  "fugas_abiertas": 6,
+  "artifact_url": "https://claude.ai/artifact/Lp1TYgozy1cMnH3Lnemq63",
+  "archivo": "ops/amazingcare/creative/os-data.json"
+ },
+ {
+  "os_id": "amazingcare.geo-seo",
+  "marca": "AmazingCare",
+  "area": "geo-seo",
+  "fuente": "os",
+  "actualizado": "2026-10-21",
+  "fugas_abiertas": 8,
+  "artifact_url": "https://claude.ai/artifact/CzrFV5p38h6jZwyctchVmM",
+  "archivo": "ops/amazingcare/geo-seo/os-data.json"
+ }
+]

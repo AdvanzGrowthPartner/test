@@ -1,0 +1,57 @@
+[
+ {
+  "conector": "Shopify",
+  "estado": "ok",
+  "nota": "amazingcare.cl, CLP (probado 19-oct)"
+ },
+ {
+  "conector": "Meta_Ads",
+  "estado": "ok",
+  "nota": "DTC 2911300959169889 y Mayorista 3131920510317594 habilitadas (probado 19-oct)"
+ },
+ {
+  "conector": "Notion",
+  "estado": "ok",
+  "nota": "Reportes Mensuales / Reporte Cierre Cyber (probado 19-oct)"
+ },
+ {
+  "conector": "Google_Drive",
+  "estado": "ok",
+  "nota": "Probado 19-oct"
+ },
+ {
+  "conector": "Klaviyo",
+  "estado": "sin-probar",
+  "nota": ""
+ },
+ {
+  "conector": "Miro",
+  "estado": "sin-probar",
+  "nota": ""
+ },
+ {
+  "conector": "Ahrefs",
+  "estado": "sin-probar",
+  "nota": "Trae módulos de GSC; podría cubrir Search Console"
+ },
+ {
+  "conector": "Semrush",
+  "estado": "sin-plan",
+  "nota": "Fuera por decisión (plan/unidades insuficientes)"
+ },
+ {
+  "conector": "Google_Ads",
+  "estado": "sin-conector",
+  "nota": "Solo desde la terminal de Matías (Cowork) o export"
+ },
+ {
+  "conector": "GA4",
+  "estado": "sin-conector",
+  "nota": "Propiedad 354353475"
+ },
+ {
+  "conector": "Cloudflare",
+  "estado": "sin-conector",
+  "nota": "Deploy del Command Center del cliente"
+ }
+]

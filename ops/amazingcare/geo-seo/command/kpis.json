@@ -1,0 +1,90 @@
+[
+ {
+  "id": "gsc_impresiones",
+  "nombre": "Impresiones orgánicas (12 meses)",
+  "valor": 299351,
+  "unidad": "impresiones",
+  "periodo": "2025-07-01/2026-09-10",
+  "meta": null,
+  "estado": "ok",
+  "fuente": "Search_Console",
+  "actualizado": "2026-10-21"
+ },
+ {
+  "id": "gsc_clics",
+  "nombre": "Clics orgánicos (12 meses)",
+  "valor": 5837,
+  "unidad": "clics",
+  "periodo": "2025-07-01/2026-09-10",
+  "meta": null,
+  "estado": "ok",
+  "fuente": "Search_Console",
+  "actualizado": "2026-10-21"
+ },
+ {
+  "id": "gsc_posicion",
+  "nombre": "Posición media",
+  "valor": 6.0,
+  "unidad": "posición",
+  "periodo": "2025-07-01/2026-09-10",
+  "meta": null,
+  "estado": "warn",
+  "fuente": "Search_Console",
+  "actualizado": "2026-10-21"
+ },
+ {
+  "id": "ctr_electrolitos",
+  "nombre": "CTR 'electrolitos' (69,7K impresiones)",
+  "valor": 0.49,
+  "unidad": "%",
+  "periodo": "2025-07-01/2026-09-10",
+  "meta": null,
+  "estado": "bad",
+  "fuente": "Search_Console",
+  "actualizado": "2026-10-21"
+ },
+ {
+  "id": "sesiones_organicas",
+  "nombre": "Sesiones orgánicas (agosto)",
+  "valor": 1875,
+  "unidad": "sesiones",
+  "periodo": "2026-08-01/2026-08-31",
+  "meta": null,
+  "estado": "ok",
+  "fuente": "Shopify",
+  "actualizado": "2026-10-21"
+ },
+ {
+  "id": "sesiones_ia",
+  "nombre": "Sesiones desde IA (ChatGPT + Gemini)",
+  "valor": 80,
+  "unidad": "sesiones",
+  "periodo": "2026-06-01/2026-09-14",
+  "meta": null,
+  "estado": "ok",
+  "fuente": "GA4",
+  "actualizado": "2026-10-21"
+ },
+ {
+  "id": "compras_ia",
+  "nombre": "Compras desde ChatGPT",
+  "valor": 3,
+  "unidad": "órdenes",
+  "periodo": "2026-06-01/2026-09-14",
+  "meta": null,
+  "estado": "ok",
+  "fuente": "GA4",
+  "actualizado": "2026-10-21"
+ },
+ {
+  "id": "gsc_octubre",
+  "nombre": "Search Console de septiembre y octubre completos",
+  "valor": null,
+  "unidad": "clics",
+  "periodo": "2026-09-11/2026-10-19",
+  "meta": null,
+  "estado": "sin-dato",
+  "fuente": "Search_Console",
+  "actualizado": "2026-10-21"
+ }
+]

@@ -1,0 +1,37 @@
+[
+ {
+  "conector": "Notion",
+  "estado": "ok",
+  "nota": "Tablero 📊 Canales de Adquisición encontrado"
+ },
+ {
+  "conector": "Google_Drive",
+  "estado": "ok",
+  "nota": ""
+ },
+ {
+  "conector": "Miro",
+  "estado": "ok",
+  "nota": ""
+ },
+ {
+  "conector": "Meta_Ads",
+  "estado": "bloqueado",
+  "nota": "Cuenta 120273191181276 UNSETTLED"
+ },
+ {
+  "conector": "GHL",
+  "estado": "sin-conector",
+  "nota": "CRM y funnel sin MCP"
+ },
+ {
+  "conector": "Ahrefs",
+  "estado": "sin-plan",
+  "nota": ""
+ },
+ {
+  "conector": "Semrush",
+  "estado": "sin-plan",
+  "nota": "Sin unidades de API"
+ }
+]

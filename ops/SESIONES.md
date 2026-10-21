@@ -1,21 +1,39 @@
 # Índice de sesiones
 
-## OS activos (uno por área)
+Separado por marca. Cada marca tiene sus 6 OS, y cada OS tiene su Command, que muestra solo esa marca.
 
-Cada OS atiende a **Advanz** y a **AmazingCare**. En cada pedido dile para qué marca es.
+## Advanz
 
-| Sesión | Carpeta | Command (artifact) |
+| Sesión | Command | Carpeta |
 |---|---|---|
-| [Email OS](https://claude.ai/code/session_01Ba72FPkY5CV1VJFuSrtgZE) | `ops/email/` | URL en `ops/email/command/URL` |
-| [Ads OS](https://claude.ai/code/session_01Wk72peUfycWRXpdJ823o4d) | `ops/ads/` | URL en `ops/ads/command/URL` |
-| [CRO OS](https://claude.ai/code/session_01Lbj5HJFWizvMXhemeSf65K) | `ops/cro/` | URL en `ops/cro/command/URL` |
-| [Growth OS](https://claude.ai/code/session_01KYPg3EwxWi3TnhM7cxX1Sw) | `ops/growth/` | URL en `ops/growth/command/URL` |
-| [Creative OS](https://claude.ai/code/session_01LRD4aGSBsJn9br84u5H9sR) | `ops/creative/` | URL en `ops/creative/command/URL` |
-| [GEO/SEO OS](https://claude.ai/code/session_01TRtVCCXjpmhvKhQLkKt2Zm) | `ops/geo-seo/` | URL en `ops/geo-seo/command/URL` |
+| [Email OS](https://claude.ai/code/session_01RWXdYvdkBSjz3AMKNi45bR) | `Email OS · Advanz` (URL en `ops/advanz/email/command/URL`) | `ops/advanz/email/` |
+| [Ads OS](https://claude.ai/code/session_01NRwmKqff5GE8sf8kbvcXQ4) | `Ads OS · Advanz` (URL en `ops/advanz/ads/command/URL`) | `ops/advanz/ads/` |
+| [CRO OS](https://claude.ai/code/session_015JAuUwVRTEGJao24pQNXV9) | `CRO OS · Advanz` (URL en `ops/advanz/cro/command/URL`) | `ops/advanz/cro/` |
+| [Growth OS](https://claude.ai/code/session_01HJcK5B9TkhrWRzVMacNcHM) | `Growth OS · Advanz` (URL en `ops/advanz/growth/command/URL`) | `ops/advanz/growth/` |
+| [Creative OS](https://claude.ai/code/session_01AFgDnGY7uftMsHqZGhdSpb) | `Creative OS · Advanz` (URL en `ops/advanz/creative/command/URL`) | `ops/advanz/creative/` |
+| [GEO/SEO OS](https://claude.ai/code/session_018Wd9wcnCba8vsnDnWzzF7k) | `GEO/SEO OS · Advanz` (URL en `ops/advanz/geo-seo/command/URL`) | `ops/advanz/geo-seo/` |
+
+## AmazingCare
+
+| Sesión | Command | Carpeta |
+|---|---|---|
+| [Email OS](https://claude.ai/code/session_016wdGkE6sAqWwmG2ZRfbjWo) | `Email OS · AmazingCare` (URL en `ops/amazingcare/email/command/URL`) | `ops/amazingcare/email/` |
+| [Ads OS](https://claude.ai/code/session_01GyAic6oByAumjSDeDms9Qy) | `Ads OS · AmazingCare` (URL en `ops/amazingcare/ads/command/URL`) | `ops/amazingcare/ads/` |
+| [CRO OS](https://claude.ai/code/session_01E2WodPnkSH788pKwwxWygE) | `CRO OS · AmazingCare` (URL en `ops/amazingcare/cro/command/URL`) | `ops/amazingcare/cro/` |
+| [Growth OS](https://claude.ai/code/session_01Wju5Ux2p2ECNEeqmoGN39Y) | `Growth OS · AmazingCare` (URL en `ops/amazingcare/growth/command/URL`) | `ops/amazingcare/growth/` |
+| [Creative OS](https://claude.ai/code/session_01W3actBkSkCVQDdJpPxHesx) | `Creative OS · AmazingCare` (URL en `ops/amazingcare/creative/command/URL`) | `ops/amazingcare/creative/` |
+| [GEO/SEO OS](https://claude.ai/code/session_01BGkyj7SY2YcCd8cpbwhKj2) | `GEO/SEO OS · AmazingCare` (URL en `ops/amazingcare/geo-seo/command/URL`) | `ops/amazingcare/geo-seo/` |
+
+## Armar los grupos en la app (una vez)
+La app no permite asignar grupos desde una API, así que hay que hacerlo a mano:
+1. En claude.ai/code, en el sidebar, entra a **Projects** y crea `Advanz` y `AmazingCare`.
+2. Entra a cada sesión con los links de arriba, abre el menú (⋯) y usa **Move to project** para moverla al proyecto de su marca.
+
+Etiquetas de respaldo en cada sesión: `grupo:<marca>`, `os:<área>` y `tipo:os`.
 
 Sesiones puntuales activas:
-- [Email — Klaviyo-Loox recuperación y reseñas (AmazingCare)](https://claude.ai/code/session_01U4wHUAdzXad6pDszrQihiw). Sus hallazgos están en `ops/handoffs.md` para el Email OS.
+- [Email — Klaviyo-Loox recuperación y reseñas (AmazingCare)](https://claude.ai/code/session_01U4wHUAdzXad6pDszrQihiw). Sus hallazgos quedaron en `ops/amazingcare/handoffs.md`.
 
 ## Legacy
-- **2026-10-21:** los 12 OS por marca (`<Marca> · OS <Área>`) se archivaron con la etiqueta `legacy:2026-10-21`. Lo que tenían pendiente quedó en `ops/handoffs.md`, y sus dashboards por marca quedan congelados.
-- **2026-10-19:** 58 sesiones viejas se archivaron con la etiqueta `legacy:2026-10-19`, entre ellas las de otros clientes (Nad, Kite, Marê y Vanguard) y las internas de MCP, skills y repos. Lo útil quedó en `ops/marcas/*.md` y en los `estado.md` de cada área; la sección **Fuentes** de cada uno lista los IDs de las sesiones de origen.
+- **2026-10-21:** 6 OS por área que mezclaban las dos marcas, con su Command combinado. Se archivaron con la etiqueta `legacy:2026-10-21-mezclado`. Sus cambios útiles siguen en el repo: el CHANGELOG de GEO/SEO AmazingCare como tabla y el `os-data.json` de Creative Advanz.
+- **2026-10-19:** 58 sesiones viejas, archivadas con la etiqueta `legacy:2026-10-19`, entre ellas las de otros clientes y las de infraestructura. Lo útil quedó en `contexto-marca.md` y en cada `estado.md`.

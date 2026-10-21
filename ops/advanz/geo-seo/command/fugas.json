@@ -1,0 +1,47 @@
+[
+ {
+  "id": "advanz.geo-seo.F01",
+  "titulo": "Sin baseline de Search Console ni de citas en LLM de advanz.cl",
+  "severidad": 2,
+  "estado": "abierta",
+  "punto_funnel": "medicion",
+  "evidencia": "No hay datos del sitio propio. Search Console sí está disponible por navegador (usuario, 19-oct)",
+  "impacto": "Sin línea base no se puede medir ni reactivar el canal",
+  "accion": "Exportar Search Console de advanz.cl (Páginas y Consultas, 3 meses) por navegador, pasarlo por gsc_cubos.py y correr 10 prompts GEO en ChatGPT/Perplexity",
+  "ejecuta": "geo-seo",
+  "via": "cowork",
+  "conector": "Search_Console",
+  "requiere_ok": false,
+  "acceso": "sin-probar"
+ },
+ {
+  "id": "advanz.geo-seo.F02",
+  "titulo": "Publicación del blog de advanz.cl sin proceso definido",
+  "severidad": 2,
+  "estado": "abierta",
+  "punto_funnel": "contenido",
+  "evidencia": "GHL fuera del stack (19-oct): queda el flujo manual",
+  "impacto": "Frena publicar los blogs HTML ya terminados",
+  "accion": "Publicar a mano en el blog de advanz.cl: Claude deja el post listo (SEO/GEO, meta, FAQ) y se pega",
+  "ejecuta": "geo-seo",
+  "via": "manual",
+  "conector": "manual",
+  "requiere_ok": false,
+  "acceso": "sin-conector"
+ },
+ {
+  "id": "advanz.geo-seo.F03",
+  "titulo": "Canal SEO/GEO detenido: 0 leads orgánicos",
+  "severidad": 2,
+  "estado": "abierta",
+  "punto_funnel": "lead",
+  "evidencia": "advanz-acquisition-system: SEO/GEO 🔴, meta 0/semana",
+  "impacto": "Detenido a propósito: la autoridad tarda meses y hoy la prioridad es caja vía outbound. Se reactiva cuando haya margen",
+  "accion": "Reactivar cuando la caja lo permita, partiendo del baseline (F01) y publicando lo ya hecho (F02)",
+  "ejecuta": "geo-seo",
+  "via": "manual",
+  "conector": "Search_Console",
+  "requiere_ok": true,
+  "acceso": "sin-conector"
+ }
+]

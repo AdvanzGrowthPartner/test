@@ -1,0 +1,37 @@
+[
+ {
+  "conector": "Shopify",
+  "estado": "ok",
+  "nota": "amazingcare.cl, probado el 19-oct"
+ },
+ {
+  "conector": "Google_Drive",
+  "estado": "ok",
+  "nota": "Lectura probada el 19-oct"
+ },
+ {
+  "conector": "Notion",
+  "estado": "sin-probar",
+  "nota": "Otra sesión de este OS lo leyó el 19-oct"
+ },
+ {
+  "conector": "Search_Console",
+  "estado": "sin-probar",
+  "nota": "Por navegador/Cowork o export CSV de Rendimiento; secrets del command center pendientes"
+ },
+ {
+  "conector": "GA4",
+  "estado": "sin-conector",
+  "nota": "Necesario para el canal IA"
+ },
+ {
+  "conector": "Google_Ads",
+  "estado": "sin-probar",
+  "nota": "Planificador de palabras clave por navegador/Cowork"
+ },
+ {
+  "conector": "Herramienta GEO",
+  "estado": "sin-conector",
+  "nota": "Por definir; mientras tanto, 10 prompts manuales a la semana"
+ }
+]

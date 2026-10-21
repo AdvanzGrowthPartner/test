@@ -1,0 +1,32 @@
+[
+ {
+  "conector": "Gmail",
+  "estado": "ok",
+  "nota": "Operaciones@advanz.cl: lectura de borradores probada el 2026-10-19"
+ },
+ {
+  "conector": "Notion",
+  "estado": "sin-probar",
+  "nota": "Conectado; repo-ecommerces aún sin leer en esta sesión"
+ },
+ {
+  "conector": "Google_Drive",
+  "estado": "ok",
+  "nota": "Lectura probada; lo reciente es material de AmazingCare"
+ },
+ {
+  "conector": "GHL",
+  "estado": "sin-conector",
+  "nota": "Necesita export CSV, API o capturas"
+ },
+ {
+  "conector": "Klaviyo",
+  "estado": "bloqueado",
+  "nota": "Conectado a la cuenta de AmazingCare, no a Advanz"
+ },
+ {
+  "conector": "Shopify",
+  "estado": "bloqueado",
+  "nota": "Conectado a la tienda amazingcare.cl, no a Advanz"
+ }
+]

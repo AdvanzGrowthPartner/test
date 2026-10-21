@@ -1,0 +1,22 @@
+[
+ {
+  "conector": "Meta_Ads",
+  "estado": "bloqueado",
+  "nota": "MCP conecta; cuenta Advanz 120273191181276 UNSETTLED, no consultable (2026-10-19)"
+ },
+ {
+  "conector": "Semrush",
+  "estado": "sin-plan",
+  "nota": "Responde, pero sin unidades de API (2026-10-19)"
+ },
+ {
+  "conector": "Google_Ads",
+  "estado": "sin-conector",
+  "nota": "Solo export manual / CSV"
+ },
+ {
+  "conector": "GHL",
+  "estado": "sin-conector",
+  "nota": "Tracking del sitio sin verificar por MCP"
+ }
+]

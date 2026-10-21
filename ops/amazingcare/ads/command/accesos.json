@@ -1,0 +1,22 @@
+[
+ {
+  "conector": "Meta_Ads",
+  "estado": "ok",
+  "nota": "DTC 2911300959169889 + Mayorista 3131920510317594 (lectura verificada 19-oct)"
+ },
+ {
+  "conector": "Google_Ads",
+  "estado": "sin-conector",
+  "nota": "Solo desde la terminal de Matías (Cowork) o export"
+ },
+ {
+  "conector": "Semrush",
+  "estado": "sin-plan",
+  "nota": "Conectado, sin unidades de API (19-oct)"
+ },
+ {
+  "conector": "Shopify",
+  "estado": "sin-probar",
+  "nota": "Conector disponible en la sesión"
+ }
+]

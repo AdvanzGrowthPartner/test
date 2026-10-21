@@ -1,0 +1,35 @@
+[
+ {
+  "id": "spend",
+  "nombre": "Inversión propia",
+  "valor": 0,
+  "unidad": "CLP",
+  "periodo": "actual",
+  "meta": 0,
+  "estado": "ok",
+  "fuente": "Decisión: canal detenido",
+  "actualizado": "2026-10-19"
+ },
+ {
+  "id": "campanas_activas",
+  "nombre": "Campañas propias activas",
+  "valor": 0,
+  "unidad": "campañas",
+  "periodo": "2026-10-19",
+  "meta": 0,
+  "estado": "ok",
+  "fuente": "Decisión: canal detenido",
+  "actualizado": "2026-10-19"
+ },
+ {
+  "id": "cpl",
+  "nombre": "Costo por lead (histórico)",
+  "valor": null,
+  "unidad": "CLP",
+  "periodo": "campaña de $450k (fecha sin confirmar)",
+  "meta": null,
+  "estado": "sin-dato",
+  "fuente": "Meta_Ads (bloqueado)",
+  "actualizado": "2026-10-19"
+ }
+]

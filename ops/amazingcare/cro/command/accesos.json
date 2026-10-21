@@ -1,0 +1,32 @@
+[
+ {
+  "conector": "Shopify",
+  "estado": "ok",
+  "nota": "Conectado a amazingcare.cl (CLP), probado 19-oct"
+ },
+ {
+  "conector": "Vercel",
+  "estado": "ok",
+  "nota": "Equipo matiasroldan-7968's projects, probado 19-oct"
+ },
+ {
+  "conector": "Ahrefs",
+  "estado": "sin-plan",
+  "nota": "Responde 'Insufficient plan': Web Analytics no disponible"
+ },
+ {
+  "conector": "Clarity",
+  "estado": "sin-conector",
+  "nota": "Sin historial ni conector; usar exportes manuales"
+ },
+ {
+  "conector": "GA4",
+  "estado": "sin-conector",
+  "nota": "Propiedad 354353475; sin acceso desde este OS"
+ },
+ {
+  "conector": "Klaviyo",
+  "estado": "sin-probar",
+  "nota": "Conector disponible en la sesión; lo opera el OS Email"
+ }
+]

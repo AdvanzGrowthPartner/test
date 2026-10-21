@@ -1,0 +1,27 @@
+[
+ {
+  "conector": "Notion",
+  "estado": "ok",
+  "nota": "Lectura probada 2026-10-19"
+ },
+ {
+  "conector": "Search_Console",
+  "estado": "sin-probar",
+  "nota": "Disponible por navegador/Cowork o export CSV (no por conector en esta sesión)"
+ },
+ {
+  "conector": "Google_Ads",
+  "estado": "sin-probar",
+  "nota": "Planificador de palabras clave por navegador/Cowork"
+ },
+ {
+  "conector": "Herramienta GEO",
+  "estado": "sin-conector",
+  "nota": "Por definir; mientras tanto, 10 prompts manuales a la semana"
+ },
+ {
+  "conector": "Google_Drive",
+  "estado": "ok",
+  "nota": "Lectura probada 2026-10-19"
+ }
+]

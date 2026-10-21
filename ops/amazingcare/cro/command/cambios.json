@@ -1,0 +1,8 @@
+[
+ {
+  "fecha": "2026-10-21",
+  "cambio": "Se creó el artifact \"CRO OS · Command\" (https://claude.ai/artifact/4Lbw3Q7xcoAXmeFC1MVcZw) con las dos marcas; `artifact_url` de os-data.json apunta ahí. El dashboard anterior por marca queda congelado.",
+  "por_que": "Spec `ops/_command/COMMAND.md`: un Command por área",
+  "revertir": "Volver `artifact_url` al dashboard anterior y borrar el artifact"
+ }
+]

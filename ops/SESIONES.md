@@ -18,7 +18,4 @@ Sesiones puntuales activas:
 
 ## Legacy
 - **2026-10-21:** los 12 OS por marca (`<Marca> · OS <Área>`) se archivaron con la etiqueta `legacy:2026-10-21`. Lo que tenían pendiente quedó en `ops/handoffs.md`, y sus dashboards por marca quedan congelados.
-- **2026-10-19:**
-- 58 sesiones que seguían abiertas se archivaron con la etiqueta `legacy:2026-10-19`. Siguen siendo legibles y se pueden desarchivar.
-- Lo útil de esas sesiones quedó resumido en `ops/<grupo>/contexto-marca.md` y en cada `ops/<grupo>/<os>/estado.md`. La sección **Fuentes** de cada archivo lista los IDs de las sesiones de origen.
-- Las sesiones de otros clientes (Nad, Kite, Marê, Vanguard) y las internas de infraestructura (MCP, skills, repos) también quedaron archivadas.
+- **2026-10-19:** 58 sesiones viejas se archivaron con la etiqueta `legacy:2026-10-19`, entre ellas las de otros clientes (Nad, Kite, Marê y Vanguard) y las internas de MCP, skills y repos. Lo útil quedó en `ops/marcas/*.md` y en los `estado.md` de cada área; la sección **Fuentes** de cada uno lista los IDs de las sesiones de origen.

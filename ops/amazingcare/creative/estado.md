@@ -1,6 +1,10 @@
 # AmazingCare · OS Creative (creativos, videos, copies, contenido, paleta)
 
 ## Estado actual
+**21-oct-2026 · Command por marca.**
+- Command **Creative OS · AmazingCare**: https://claude.ai/artifact/GXrYePKXhZf99tCa7qu6h3 (tipo Dashboard, solo AmazingCare, spec `ops/_command/COMMAND.md`). Datasets: kpis, fugas, handoffs, accesos y cambios, desde `exportar.py`.
+- El dashboard del 19-oct "AmazingCare · OS Creative" (A15ucnSsaqSpmcLpp4HSkp) queda congelado.
+
 **21-oct-2026:** el Dashboard propio queda congelado; el tablero vigente es el Creative OS · Command https://claude.ai/artifact/Lp1TYgozy1cMnH3Lnemq63.
 
 **19-oct-2026 · arranque del OS y artifact.**

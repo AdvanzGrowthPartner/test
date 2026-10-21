@@ -8,7 +8,7 @@
   "meta": null,
   "estado": "warn",
   "fuente": "Shopify",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "atc_rate",
@@ -19,7 +19,7 @@
   "meta": null,
   "estado": "warn",
   "fuente": "Shopify",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "checkout_completion",
@@ -30,7 +30,7 @@
   "meta": null,
   "estado": "bad",
   "fuente": "Shopify",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "cvr_movil",
@@ -41,7 +41,7 @@
   "meta": null,
   "estado": "warn",
   "fuente": "Shopify",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "cvr_desktop",
@@ -52,7 +52,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Shopify",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "clic_a_visita_meta",
@@ -63,7 +63,7 @@
   "meta": 75,
   "estado": "bad",
   "fuente": "Meta_Ads",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "cvr_pack_mix_60",
@@ -74,7 +74,7 @@
   "meta": null,
   "estado": "bad",
   "fuente": "Shopify",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "aov",
@@ -85,7 +85,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Shopify",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "lcp",
@@ -96,6 +96,6 @@
   "meta": 2.5,
   "estado": "sin-dato",
   "fuente": "Shopify",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  }
 ]

@@ -36,6 +36,10 @@
 ## Command (21-oct-2026)
 - **CRO OS · Command**: https://claude.ai/artifact/4Lbw3Q7xcoAXmeFC1MVcZw (privado, dos marcas, selector Advanz/AmazingCare/Ambas). El dashboard anterior por marca queda congelado.
 
+## Command 21-oct-2026
+- Command propio **CRO OS · AmazingCare** (solo AmazingCare): https://claude.ai/artifact/Dc1qxXa6SRSnEhv6x2ERFY. URL en `command/URL` y en `artifact_url`. Los artifacts "AmazingCare · OS CRO" y "CRO OS · Command" (combinado) quedan congelados.
+- Se refresca con `python3 ops/_command/exportar.py amazingcare cro` en cada cierre.
+
 ## Decisiones tomadas
 - **2-oct:** se armó la pestaña "Deploy CRO" en el war room, con línea de tiempo, simulador de escalera y checklist (`ac_deploy_fix`). Solo lectura: no se tocó la tienda.
 - **Sep-26:** los anuncios se derivan a la PDP que más convierte para cada producto (Energy→Energy Tropical, Berries→Berries 30, packs→Súper Pack 150, mix→Mix 30), no a `pack-mix-60`.

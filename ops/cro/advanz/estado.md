@@ -25,6 +25,9 @@
 - `ops/cro/advanz/os-data.json` (contrato 1.0, `fuente: "os"`): 5 KPIs (todos sin dato) y 6 fugas (F01–F06; se agregaron F05 medición y F06 funnel Cyber).
 - Dashboard **Advanz · OS CRO**: https://claude.ai/artifact/JosGimV3RiLAsjf2qKdW3h (privado; lee archivos fijos cargados desde `os-data.json`, se recargan en cada cierre).
 
+## Command (21-oct-2026)
+- **CRO OS · Command**: https://claude.ai/artifact/4Lbw3Q7xcoAXmeFC1MVcZw (privado, dos marcas, selector Advanz/AmazingCare/Ambas). El dashboard anterior por marca queda congelado.
+
 ## Decisiones tomadas
 - **2026-09-07**: Funnel Cyber de 2 pasos adaptado de Peakk, con marca, mercado Chile y data propia anonimizada. La oferta es un diagnóstico o llamada gratis atada al Growth Engine y al Motor de Cyber.
 - **2026-09-08**: VSL primero en **HTML + GSAP** (prototipo editable). Se pasa a MP4 con Remotion solo cuando esté aprobada.

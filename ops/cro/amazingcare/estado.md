@@ -33,6 +33,9 @@
 - **Accesos probados:** Shopify MCP ok (amazingcare.cl, CLP) · Vercel ok · Ahrefs "Insufficient plan" · Clarity y GA4 sin conector · el navegador no llega a amazingcare.cl (proxy 403).
 - **Command Center:** publicado `os-data.json` (contrato v1.0, `fuente: "os"`, 7 fugas F01–F07) y el Dashboard **AmazingCare · OS CRO** (https://claude.ai/artifact/7vMZFu8B3vY6Sh4aYcuY5j). Hay que actualizar los dos en cada cierre.
 
+## Command (21-oct-2026)
+- **CRO OS · Command**: https://claude.ai/artifact/4Lbw3Q7xcoAXmeFC1MVcZw (privado, dos marcas, selector Advanz/AmazingCare/Ambas). El dashboard anterior por marca queda congelado.
+
 ## Decisiones tomadas
 - **2-oct:** se armó la pestaña "Deploy CRO" en el war room, con línea de tiempo, simulador de escalera y checklist (`ac_deploy_fix`). Solo lectura: no se tocó la tienda.
 - **Sep-26:** los anuncios se derivan a la PDP que más convierte para cada producto (Energy→Energy Tropical, Berries→Berries 30, packs→Súper Pack 150, mix→Mix 30), no a `pack-mix-60`.

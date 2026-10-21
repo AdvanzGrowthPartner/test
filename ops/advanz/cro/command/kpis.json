@@ -8,7 +8,7 @@
   "meta": 20,
   "estado": "sin-dato",
   "fuente": "GHL",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "cvr_landing",
@@ -19,7 +19,7 @@
   "meta": null,
   "estado": "sin-dato",
   "fuente": "Ahrefs",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "optin_lead_magnet",
@@ -30,7 +30,7 @@
   "meta": null,
   "estado": "sin-dato",
   "fuente": "GHL",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "tasa_agendamiento",
@@ -41,7 +41,7 @@
   "meta": null,
   "estado": "sin-dato",
   "fuente": "GHL",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "abandono_form",
@@ -52,6 +52,6 @@
   "meta": null,
   "estado": "sin-dato",
   "fuente": "Clarity",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  }
 ]

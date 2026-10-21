@@ -1,6 +1,6 @@
 # Advanz · OS CRO · Estado
 
-> Landings, lead magnets, funnels, quiz y web **propios** de Advanz. Actualizado: 2026-10-19.
+> Landings, lead magnets, funnels, quiz y web **propios** de Advanz. Actualizado: 2026-10-21.
 
 ## Estado actual
 - **Web funnel 🟢 activo**: home de advanz.cl + lander + workflow GHL. El sitio y el blog viven en **GoHighLevel** (sin confirmar si todo el home está en GHL). Meta: 20 leads por semana y 0 sin gestionar.
@@ -21,12 +21,10 @@
 - **Shopify ⚠️**: conecta a amazingcare.cl, no a Advanz. No tocar desde este OS.
 - **Ahrefs ❌**: "Insufficient plan" (sin Web Analytics). **GHL**: sin conector. **advanz.cl**: el proxy de la sesión lo bloquea (Chromium instalado, sin salida).
 
-## Artifact y datos para el Command Center
-- `ops/advanz/cro/os-data.json` (contrato 1.0, `fuente: "os"`): 5 KPIs (todos sin dato) y 6 fugas (F01–F06; se agregaron F05 medición y F06 funnel Cyber).
-- Dashboard **Advanz · OS CRO**: https://claude.ai/artifact/JosGimV3RiLAsjf2qKdW3h (privado; lee archivos fijos cargados desde `os-data.json`, se recargan en cada cierre).
-
-## Command (21-oct-2026)
-- **CRO OS · Command**: https://claude.ai/artifact/4Lbw3Q7xcoAXmeFC1MVcZw (privado, dos marcas, selector Advanz/AmazingCare/Ambas). El dashboard anterior por marca queda congelado.
+## Command (CRO OS · Advanz)
+- **Command vigente**: https://claude.ai/artifact/3GJg2aU3AJRYjMcRmhM2rw (privado, solo Advanz). URL en `command/URL` y en `artifact_url`. Datasets: `kpis`, `fugas`, `handoffs`, `accesos`, `cambios` (salen de `exportar.py advanz cro`).
+- **Congelados**: "Advanz · OS CRO" (JosGimV3…) y el "CRO OS · Command", que mezclaba las dos marcas (4Lbw3Q…).
+- `os-data.json`: 5 KPIs (todos sin dato) y 6 fugas abiertas (F01–F06), todas con "requiere OK".
 
 ## Decisiones tomadas
 - **2026-09-07**: Funnel Cyber de 2 pasos adaptado de Peakk, con marca, mercado Chile y data propia anonimizada. La oferta es un diagnóstico o llamada gratis atada al Growth Engine y al Motor de Cyber.

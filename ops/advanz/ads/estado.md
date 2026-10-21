@@ -12,6 +12,8 @@
 - Tracking previsto para landers: Pixel + CAPI + GA4 en el stack `growth-engine-lander` (sin confirmar si está activo en advanz.cl).
 
 ## Artifact y datos del OS
+- **Command "Ads OS · Advanz"** (2026-10-21): https://claude.ai/artifact/VoTvJuaJ7p6bdhGGzobSvC. Tiene 5 datasets salidos de `exportar.py advanz ads` (kpis, fugas, handoffs, accesos, cambios). El dashboard viejo "Advanz · OS Ads" queda congelado.
+- Saqué el ID de la cuenta Meta de la nota de accesos para no publicarlo en el artifact (sigue en `contexto-marca.md`).
 - `os-data.json` publicado según el contrato del Command Center (`fuente: "os"`): 3 KPIs, 4 fugas (F01–F04), 4 accesos.
 - Dashboard **Advanz · OS Ads**: https://claude.ai/artifact/EPTBn5enjm5DQ54usEhkQY (privado hasta que se comparta). Muestra KPIs y fugas; la tabla de accesos no se subió (el clasificador bloqueó esa subida) y queda solo en el JSON.
 - Accesos probados el 2026-10-19: Meta Ads MCP conecta, pero la cuenta Advanz está UNSETTLED (`is_queryable=false`). Semrush responde, sin unidades de API. No hay conector para Google Ads, LinkedIn Ads ni GHL.

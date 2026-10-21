@@ -6,7 +6,7 @@
   "marca": "Advanz",
   "actualizado": "2026-10-19",
   "fuente": "os",
-  "artifact_url": "https://claude.ai/artifact/FfZgya6fwoGvMNqcJ2kbjB",
+  "artifact_url": "https://claude.ai/artifact/VoTvJuaJ7p6bdhGGzobSvC",
   "kpis": [
     {
       "id": "spend",
@@ -135,7 +135,7 @@
     {
       "conector": "Meta_Ads",
       "estado": "bloqueado",
-      "nota": "MCP conecta; cuenta Advanz 120273191181276 UNSETTLED, no consultable (2026-10-19)"
+      "nota": "MCP conecta; la cuenta propia está UNSETTLED y no se puede consultar (2026-10-19)"
     },
     {
       "conector": "Semrush",

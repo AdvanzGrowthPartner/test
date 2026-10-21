@@ -1,5 +1,7 @@
 # AmazingCare · OS Ads (paid media Meta/Google, UTM, tracking)
 
+> **2026-10-21:** el tablero del área ahora es **Ads OS · Command** (https://claude.ai/artifact/FfZgya6fwoGvMNqcJ2kbjB), con las dos marcas. El dashboard anterior por marca queda congelado.
+
 ## Estado actual
 **Actualización 19-oct (lectura Meta, sin cambios en plataforma):**
 - Cierre Meta del Cyber (2–11 oct, cuenta DTC): US$3.376 invertidos, ROAS de plataforma 6,27×, 441 compras, frecuencia 2,36. Falta cruzarlo con Shopify y con Google.

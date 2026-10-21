@@ -2,6 +2,8 @@
 
 > Paid media **propio** de Advanz (no clientes). Actualizado: 2026-10-19.
 
+> **2026-10-21:** el tablero del área ahora es **Ads OS · Command** (https://claude.ai/artifact/FfZgya6fwoGvMNqcJ2kbjB), con las dos marcas. El dashboard anterior por marca queda congelado.
+
 ## Estado actual
 - 🔴 **Canal detenido por decisión**, no por olvido (skill `advanz-acquisition-system`). Meta semanal: 0.
 - Cuenta Meta **"Advanz Growth Partner"** `120273191181276` (BM `936238854582653`, CLP). Al 2026-09-28 estaba en **UNSETTLED**: tiene un pago pendiente y el MCP de Meta no la puede consultar.

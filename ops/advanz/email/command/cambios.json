@@ -1,6 +1,12 @@
 [
  {
   "fecha": "2026-10-21",
+  "cambio": "Artifact privado \"Email OS · Advanz\" (Dashboard, solo Advanz) publicado: https://claude.ai/artifact/RDdvnsPtwXTKgerJWTriZs. Los dashboards anteriores (\"Advanz · OS Email\" y \"Email OS · Command\" de ambas marcas) quedan congelados",
+  "por_que": "Separación por marca: spec `ops/_command/COMMAND.md`",
+  "revertir": "Borrar el artifact desde la galería de claude.ai y volver `artifact_url` al dashboard anterior"
+ },
+ {
+  "fecha": "2026-10-21",
   "cambio": "Artifact privado \"Email OS · Command\" (Dashboard, ambas marcas) publicado: https://claude.ai/artifact/KEm68mZ8Ezs6RXWkw1cAZc. Reemplaza al dashboard por marca, que queda congelado",
   "por_que": "Arranque del OS: spec `ops/_command/COMMAND.md`",
   "revertir": "Borrar el artifact desde la galería de claude.ai y volver `artifact_url` al dashboard anterior"

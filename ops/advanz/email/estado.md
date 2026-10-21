@@ -1,6 +1,6 @@
 # Advanz · OS Email · Estado
 
-> Email, CRM, GHL, outbound y cold email **propios** de Advanz. Actualizado: 2026-10-19.
+> Email, CRM, GHL, outbound y cold email **propios** de Advanz. Actualizado: 2026-10-21.
 
 ## Estado actual
 - **Cold outreach con Diagnóstico Vivo = 🟢 canal principal** de adquisición. Meta: **100 diagnósticos entregados por semana** (15–20 por día). Dueño: el socio, más Patricio en las URLs top.
@@ -13,7 +13,8 @@
 - Correos de ventas post-llamada: skills `advanz-sales-push-emails` y `advanz-closing-agent` (envío de contrato, follow-up, recuperación).
 
 - **Accesos probados (2026-10-19, solo lectura)**: Gmail ✅ (Operaciones@advanz.cl, borradores) · Drive ✅ · Notion conectado, sin probar · **Klaviyo y Shopify conectados a AmazingCare, no a Advanz** · GHL sin conector.
-- **Command**: Email OS · Command https://claude.ai/artifact/KEm68mZ8Ezs6RXWkw1cAZc (ambas marcas, desde 2026-10-21). El Dashboard "Advanz · OS Email" queda congelado.
+- **Command**: Email OS · Advanz https://claude.ai/artifact/RDdvnsPtwXTKgerJWTriZs (solo Advanz, desde 2026-10-21). Quedan congelados el Dashboard "Advanz · OS Email" y el Command combinado "Email OS · Command".
+- **Próximo paso propuesto (espera OK)**: leer `repo-ecommerces` en Notion (solo lectura) y armar la lista de los ~40 diagnósticos con el contacto del founder que falte, siguiendo la búsqueda footer → IG → LinkedIn → WHOIS. No se envía nada.
 
 ## Decisiones tomadas
 - **2026-08-13**: Arquitectura de outbound en 3 capas (scraping → Notion → envío con seguimiento). Personalización de 1 línea por marca, opt-out, warmup y nunca el dominio principal. Solo correos corporativos públicos. (Propuesta; no quedó registrada la elección de A/B/C.)
@@ -26,7 +27,7 @@
 - [ ] Documentar los 5 correos del workflow GHL (asuntos, timing, CTA) en este OS.
 - [ ] Secuencia de outbound: apertura con hallazgo + 2 follow-ups (día 3 y día 7).
 - [ ] Conectar el form del lead magnet Shopify al workflow GHL: hoy el `fetch('/api/leads')` está comentado (ver OS CRO).
-- [ ] En cada cierre: actualizar `os-data.json` y volver a subir sus datos al Dashboard.
+- [ ] En cada cierre: actualizar `os-data.json`, correr `ops/_command/exportar.py advanz email` y refrescar los datasets del Command.
 - Falta levantar: tasas reales (envíos, respuesta, agendas), acceso o API de GHL y la lista de dominios de envío.
 
 ## Fuentes

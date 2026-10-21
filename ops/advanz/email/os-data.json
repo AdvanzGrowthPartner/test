@@ -4,9 +4,9 @@
   "grupo": "advanz",
   "area": "email",
   "marca": "Advanz",
-  "actualizado": "2026-10-19",
+  "actualizado": "2026-10-21",
   "fuente": "os",
-  "artifact_url": "https://claude.ai/artifact/KEm68mZ8Ezs6RXWkw1cAZc",
+  "artifact_url": "https://claude.ai/artifact/RDdvnsPtwXTKgerJWTriZs",
   "kpis": [
     {
       "id": "diag_vercel",

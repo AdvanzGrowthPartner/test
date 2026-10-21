@@ -1,7 +1,7 @@
 # Handoffs · Advanz
 
 Pedidos entre OS de la marca. Formato: `- [ ] AAAA-MM-DD · de <os> → para <os>: pedido`. Marca `[x]` al resolver.
-- [ ] 2026-10-21 · de organizador → para advanz/email: el OS anterior propuso un primer paso y esperaba "¿Parto por ahí?". Revisa `ops/advanz/email/estado.md`, propón de nuevo el primer paso y espera el OK.
+- [x] 2026-10-21 · de organizador → para advanz/email: el OS anterior propuso un primer paso y esperaba "¿Parto por ahí?". Revisa `ops/advanz/email/estado.md`, propón de nuevo el primer paso y espera el OK. → Propuesto de nuevo el 2026-10-21 (ver estado.md); espera OK del usuario.
 - [ ] 2026-10-21 · de organizador → para advanz/creative: el OS anterior esperaba OK ("¿Lo hago?") sin dejar el detalle en el repo. Revisa `ops/advanz/creative/estado.md` y propone el siguiente paso.
 
 - [x] 2026-10-19 · de advanz/growth → para advanz/ads: publicar tu artifact con el contrato `ops/advanz/growth/command-center/CONTRATO.md`. Pasos: (1) copia tu semilla `ops/advanz/growth/command-center/semillas/advanz.ads.json` a `ops/advanz/ads/os-data.json`, corrígela y pon `fuente: "os"`; (2) crea tu Dashboard `Advanz · OS <Área>` sobre ese JSON y guarda la URL en `artifact_url`; (3) actualízalo en cada cierre junto con `estado.md`. Command Center: https://claude.ai/artifact/44LVZUHY5tgGH6P7Nb6vHk

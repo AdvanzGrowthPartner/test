@@ -8,7 +8,7 @@
   "meta": 100,
   "estado": "warn",
   "fuente": "estado.md (meta 100/semana)",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "diag_enviados",
@@ -19,7 +19,7 @@
   "meta": 100,
   "estado": "sin-dato",
   "fuente": "—",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "reply_rate",
@@ -30,7 +30,7 @@
   "meta": null,
   "estado": "sin-dato",
   "fuente": "—",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "agendas",
@@ -41,6 +41,6 @@
   "meta": 6,
   "estado": "sin-dato",
   "fuente": "—",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  }
 ]

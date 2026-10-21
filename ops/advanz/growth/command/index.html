@@ -1,0 +1,226 @@
+<style>
+  .gc { font-family: var(--font-anthropic-sans); display: flex; flex-direction: column; gap: var(--cds-gap-xl); max-width: 72rem; margin-inline: auto; }
+  .gc-title { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; }
+  .gc-meta { margin: var(--cds-gap-xs) 0 0; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+  .gc-meta span { font-variant-numeric: tabular-nums; }
+  .gc-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: var(--cds-gap-md); min-height: 6rem; }
+  .gc-kpi { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-md) var(--cds-pad-lg); display: flex; flex-direction: column; gap: var(--cds-gap-xs); }
+  .gc-kpi .lbl { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .gc-kpi .num { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); font-variant-numeric: tabular-nums; }
+  .gc-kpi .row { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs); align-items: center; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .gc-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: flex; flex-direction: column; gap: var(--cds-gap-sm); min-width: 0; }
+  .gc-card h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; }
+  .gc-note { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; }
+  .gc-x { overflow-x: auto; }
+  .gc table { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+  .gc th { text-align: left; font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
+  .gc td { padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); vertical-align: top; }
+  .gc td.n, .gc th.n { text-align: right; }
+  .gc .t-main { color: var(--color-fg); font-size: var(--cds-font-size-body); }
+  .gc .t-sub { color: var(--color-fg-muted); margin-top: 2px; }
+  .gc .chips { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs); margin-top: var(--cds-gap-xs); }
+  .chip { display: inline-block; padding: 1px var(--cds-pad-sm); border-radius: 999px; border: 1px solid var(--color-border-line); white-space: nowrap; font-size: var(--cds-font-size-caption); }
+  .chip.ok { color: var(--color-ok); }
+  .chip.warn { color: var(--color-warn); }
+  .chip.bad { color: var(--color-bad); }
+  .chip.okreq { color: var(--color-fg); border-color: var(--color-fg); }
+  .sev { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .sev.s5, .sev.s4 { color: var(--color-bad); }
+  .sev.s3, .sev.s2 { color: var(--color-warn); }
+  .gc details summary { cursor: pointer; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .gc .empty { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  @media (max-width: 640px) { .gc .hide-narrow { display: none; } }
+  [data-dash-source-state=empty] { color: transparent; }
+  [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+</style>
+
+<div class="gc">
+  <header id="encabezado">
+    <h1 class="gc-title">Growth OS · Advanz</h1>
+    <p class="gc-meta">Marketing propio de Advanz: adquisición, pipeline y priorización entre OS. Datos al <span class="dash-skeleton" data-source="kpis" data-field="actualizado" data-row="0">—</span>.</p>
+  </header>
+
+  <section class="gc-kpis" id="kpis" data-source="kpis"></section>
+
+  <section class="gc-card" id="que-hacer">
+    <h2>Qué hacer ahora</h2>
+    <p class="gc-note">Fugas abiertas y en curso de este OS, por severidad (1 a 5).</p>
+    <div class="gc-x">
+      <table id="t-fugas" data-source="fugas" data-row-key="id">
+        <thead><tr><th data-field="severidad">Sev.</th><th data-field="titulo">Fuga y acción</th><th data-field="ejecuta">Ejecuta</th><th data-field="acceso">Acceso</th><th data-field="id" class="hide-narrow">ID</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <details id="resueltas" hidden>
+      <summary>Resueltas</summary>
+      <div class="gc-x">
+        <table id="t-resueltas" data-source="fugas" data-row-key="id">
+          <thead><tr><th data-field="id">ID</th><th data-field="titulo">Fuga</th><th data-field="accion">Qué se hizo</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </details>
+  </section>
+
+  <section class="gc-card" id="oportunidades">
+    <h2>Oportunidades entre OS de Advanz</h2>
+    <p class="gc-note">Fugas de distintos OS de Advanz que se arreglan juntas, del consolidado de Growth. Solo Advanz.</p>
+    <div class="gc-x">
+      <table id="t-oport" data-source="oportunidades" data-row-key="rank">
+        <thead><tr><th data-field="rank" class="n">#</th><th data-field="titulo">Oportunidad</th><th data-field="primer_paso">Primer paso</th><th data-field="os_involucrados" class="hide-narrow">OS</th><th data-field="puntaje" class="n">Puntaje</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="gc-card" id="pedidos">
+    <h2>Pedidos de otros OS</h2>
+    <div class="gc-x">
+      <table id="t-handoffs" data-source="handoffs" data-row-key="pedido">
+        <thead><tr><th data-field="fecha">Fecha</th><th data-field="de">De</th><th data-field="pedido">Pedido</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="empty" id="handoffs-vacio" hidden>Sin pedidos abiertos para Growth.</p>
+  </section>
+
+  <section class="gc-card" id="accesos">
+    <h2>Accesos</h2>
+    <div class="gc-x">
+      <table id="t-accesos" data-source="accesos" data-row-key="conector">
+        <thead><tr><th data-field="conector">Conector</th><th data-field="estado">Estado</th><th data-field="nota">Nota</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="gc-card" id="cambios">
+    <h2>Últimos cambios</h2>
+    <div class="gc-x">
+      <table id="t-cambios" data-source="cambios" data-row-key="fecha,cambio">
+        <thead><tr><th data-field="fecha">Fecha</th><th data-field="cambio">Cambio</th><th data-field="por_que" class="hide-narrow">Por qué</th><th data-field="revertir">Cómo revertir</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="empty" id="cambios-vacio" hidden>Growth no ha aplicado cambios en plataformas: prioriza y deriva a los otros OS.</p>
+  </section>
+</div>
+
+<script>
+(function () {
+  const $ = s => document.querySelector(s);
+  const claseEstado = { ok: 'ok', warn: 'warn', bad: 'bad', 'sin-dato': '' };
+  const textoEstado = { ok: 'ok', warn: 'atención', bad: 'mal', 'sin-dato': 'sin dato' };
+  const claseAcceso = { ok: 'ok', 'sin-probar': 'warn', bloqueado: 'bad', 'sin-conector': 'bad', 'sin-plan': 'bad' };
+  const rangoAcceso = { bloqueado: 0, 'sin-conector': 1, 'sin-plan': 2, 'sin-probar': 3, ok: 4 };
+  const num = d3.format(',');
+
+  function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function chip(text, cls) { return el('span', 'chip ' + (cls || ''), text); }
+  function filaFalla(tbody, cols) { tbody.textContent = ''; const tr = el('tr'); const td = el('td', 'gc-note', 'No cargó'); td.colSpan = cols; tr.appendChild(td); tbody.appendChild(tr); }
+
+  function draw() {
+    const k = dash.data('kpis');
+    const fecha = document.querySelector('[data-field="actualizado"]');
+    const box = $('#kpis');
+    if (k.status === 'ok') {
+      fecha.textContent = k.data.length ? k.data[0].actualizado : '—';
+      fecha.classList.remove('dash-skeleton');
+      box.textContent = '';
+      k.data.forEach(r => {
+        const c = el('div', 'gc-kpi');
+        c.appendChild(el('span', 'lbl', r.nombre));
+        const v = el('span', 'num', r.valor == null ? '—' : num(r.valor));
+        v.setAttribute('data-source', 'kpis'); v.setAttribute('data-field', 'valor'); v.setAttribute('data-where', 'id=' + encodeURIComponent(r.id));
+        c.appendChild(v);
+        const row = el('div', 'row');
+        row.appendChild(chip(textoEstado[r.estado] || r.estado, claseEstado[r.estado]));
+        row.appendChild(el('span', null, [r.unidad, r.periodo].filter(Boolean).join(' · ')));
+        if (r.meta != null) row.appendChild(el('span', null, 'meta ' + num(r.meta)));
+        c.appendChild(row);
+        c.appendChild(el('span', 'row', r.fuente || ''));
+        box.appendChild(c);
+      });
+    } else if (k.status !== 'loading') { fecha.textContent = '—'; fecha.classList.remove('dash-skeleton'); box.textContent = ''; box.appendChild(el('p', 'gc-note', 'Los KPIs no cargaron.')); }
+
+    const f = dash.data('fugas');
+    const tb = $('#t-fugas tbody'), tr2 = $('#t-resueltas tbody');
+    if (f.status === 'ok') {
+      tb.textContent = ''; tr2.textContent = '';
+      const abiertas = f.data.filter(r => r.estado !== 'resuelta').sort((a, b) => Number(b.severidad) - Number(a.severidad));
+      abiertas.forEach(r => {
+        const tr = el('tr');
+        tr.appendChild(el('td', 'sev s' + r.severidad, String(r.severidad)));
+        const t = el('td');
+        t.appendChild(el('div', 't-main', r.titulo));
+        t.appendChild(el('div', 't-sub', r.accion));
+        const ch = el('div', 'chips');
+        if (r.requiere_ok === true || r.requiere_ok === 'true') ch.appendChild(chip('Necesita tu OK', 'okreq'));
+        if (r.estado === 'en-curso') ch.appendChild(chip('en curso', 'warn'));
+        if (r.evidencia) ch.appendChild(el('span', 't-sub', r.evidencia));
+        t.appendChild(ch);
+        tr.appendChild(t);
+        tr.appendChild(el('td', null, r.ejecuta));
+        const a = el('td'); a.appendChild(chip(r.acceso, claseAcceso[r.acceso])); tr.appendChild(a);
+        tr.appendChild(el('td', 'hide-narrow', r.id));
+        tb.appendChild(tr);
+      });
+      const resueltas = f.data.filter(r => r.estado === 'resuelta');
+      $('#resueltas').hidden = resueltas.length === 0;
+      resueltas.forEach(r => { const tr = el('tr'); tr.appendChild(el('td', null, r.id)); tr.appendChild(el('td', null, r.titulo)); tr.appendChild(el('td', null, r.accion)); tr2.appendChild(tr); });
+    } else if (f.status !== 'loading') filaFalla(tb, 5);
+
+    const o = dash.data('oportunidades');
+    const to = $('#t-oport tbody');
+    if (o.status === 'ok') {
+      to.textContent = '';
+      o.data.forEach(r => {
+        const tr = el('tr');
+        tr.appendChild(el('td', 'n', String(r.rank)));
+        const t = el('td'); t.appendChild(el('div', 't-main', r.titulo)); t.appendChild(el('div', 't-sub', r.fugas)); tr.appendChild(t);
+        const p = el('td'); p.appendChild(el('div', 't-main', r.primer_paso)); p.appendChild(el('div', 't-sub', 'Ejecuta: ' + r.ejecutor + ' · vía ' + r.via)); tr.appendChild(p);
+        tr.appendChild(el('td', 'hide-narrow', r.os_involucrados));
+        tr.appendChild(el('td', 'n', String(r.puntaje)));
+        to.appendChild(tr);
+      });
+    } else if (o.status !== 'loading') filaFalla(to, 5);
+
+    const h = dash.data('handoffs');
+    const th = $('#t-handoffs tbody');
+    if (h.status === 'ok') {
+      th.textContent = '';
+      h.data.forEach(r => { const tr = el('tr'); tr.appendChild(el('td', null, r.fecha)); tr.appendChild(el('td', null, r.de)); tr.appendChild(el('td', null, r.pedido)); th.appendChild(tr); });
+      $('#t-handoffs').hidden = h.data.length === 0;
+      $('#handoffs-vacio').hidden = h.data.length !== 0;
+    } else if (h.status !== 'loading') filaFalla(th, 3);
+
+    const ac = dash.data('accesos');
+    const ta = $('#t-accesos tbody');
+    if (ac.status === 'ok') {
+      ta.textContent = '';
+      ac.data.slice().sort((a, b) => (rangoAcceso[a.estado] ?? 5) - (rangoAcceso[b.estado] ?? 5)).forEach(r => {
+        const tr = el('tr');
+        tr.appendChild(el('td', null, r.conector));
+        const e = el('td'); e.appendChild(chip(r.estado, claseAcceso[r.estado])); tr.appendChild(e);
+        tr.appendChild(el('td', null, r.nota || ''));
+        ta.appendChild(tr);
+      });
+    } else if (ac.status !== 'loading') filaFalla(ta, 3);
+
+    const cb = dash.data('cambios');
+    const tc = $('#t-cambios tbody');
+    if (cb.status === 'ok') {
+      tc.textContent = '';
+      cb.data.slice(0, 10).forEach(r => {
+        const tr = el('tr'); tr.dataset.key = encodeURIComponent(r.fecha) + ',' + encodeURIComponent(r.cambio);
+        tr.appendChild(el('td', null, r.fecha)); tr.appendChild(el('td', null, r.cambio)); tr.appendChild(el('td', 'hide-narrow', r.por_que)); tr.appendChild(el('td', null, r.revertir));
+        tc.appendChild(tr);
+      });
+      $('#t-cambios').hidden = cb.data.length === 0;
+      $('#cambios-vacio').hidden = cb.data.length !== 0;
+    } else if (cb.status !== 'loading') filaFalla(tc, 4);
+  }
+
+  dash.onData(draw);
+})();
+</script>

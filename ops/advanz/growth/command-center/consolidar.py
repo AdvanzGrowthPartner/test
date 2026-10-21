@@ -55,6 +55,7 @@ def validar(d):
 def oportunidades(fugas):
     """Une fugas abiertas de una marca cuando una depende de otra o le pega en el mismo punto del funnel."""
     padre = {f["id"]: f["id"] for f in fugas}
+    marca = {f["id"]: f["marca"] for f in fugas}
 
     def raiz(x):
         while padre[x] != x:
@@ -62,8 +63,8 @@ def oportunidades(fugas):
             x = padre[x]
         return x
 
-    def unir(a, b):
-        if a in padre and b in padre:
+    def unir(a, b):  # nunca junta fugas de marcas distintas
+        if a in padre and b in padre and marca[a] == marca[b]:
             padre[raiz(a)] = raiz(b)
 
     for f in fugas:
@@ -164,6 +165,9 @@ def main():
     for nombre, filas in [("fugas", fugas), ("oportunidades", ops_), ("accesos", acc_filas),
                           ("cobertura", cobertura), ("kpis", kpis)]:
         (out / f"{nombre}.json").write_text(json.dumps(filas, ensure_ascii=False, indent=1) + "\n")
+    for g in GRUPOS:  # oportunidades de una sola marca, para el Growth OS de esa marca
+        propias = [r for r in ops_ if r["marca"].lower() == g]
+        (out / f"oportunidades.{g}.json").write_text(json.dumps(propias, ensure_ascii=False, indent=1) + "\n")
     print(f"{len(datos)} OS · {len(fugas)} fugas abiertas · {len(ops_)} oportunidades cruzadas · "
           f"{sum(1 for c in cobertura if c['fuente'] != 'os')} OS en semilla")
     for e in errores:

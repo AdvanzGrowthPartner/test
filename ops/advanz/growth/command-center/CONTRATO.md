@@ -83,7 +83,7 @@ Mientras un OS no publique su archivo, el Command Center usa la **semilla** `ops
 `python3 ops/advanz/growth/command-center/consolidar.py` lee los 12 archivos (o sus semillas), valida los vocabularios y genera `consolidado/`:
 
 - **fugas.json**: todas las fugas abiertas, con su OS y su marca.
-- **oportunidades.json**: grupos de fugas de **distintos OS** de una misma marca, que se juntan cuando una depende de otra, cuando una afecta al área de la otra o cuando caen en el mismo punto del funnel. Una fuga sola también entra si su `afecta_os` toca otra área. Puntaje = severidad máxima × 5 + OS involucrados × 3 + severidad del resto de las fugas del grupo: manda lo más grave y, a igual gravedad, lo que mueve a más OS.
+- **oportunidades.json** (y `oportunidades.<marca>.json`): grupos de fugas de **distintos OS** de una misma marca. **Nunca se juntan fugas de marcas distintas**, ni siquiera por `depende_de`. Las fugas se juntan cuando una depende de otra, cuando una afecta al área de la otra o cuando caen en el mismo punto del funnel. Una fuga sola también entra si su `afecta_os` toca otra área. Puntaje = severidad máxima × 5 + OS involucrados × 3 + severidad del resto de las fugas del grupo: manda lo más grave y, a igual gravedad, lo que mueve a más OS.
 - **accesos.json**: qué conector destraba más fugas (por ejemplo, "regularizar Meta Advanz destraba N fugas"). Así se priorizan los accesos que faltan.
 - **cobertura.json**: qué OS ya publicó su archivo y cuáles siguen en semilla.
 

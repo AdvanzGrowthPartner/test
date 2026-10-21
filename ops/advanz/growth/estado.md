@@ -1,14 +1,14 @@
 # Advanz · OS Growth · Estado
 
-> Funnel comercial, adquisición, métricas del negocio, pipeline y OS interno. Este OS prioriza y deriva a los demás. Actualizado: 2026-10-19.
+> Funnel comercial, adquisición, métricas del negocio, pipeline y OS interno. Este OS prioriza y deriva a los demás. Actualizado: 2026-10-21.
 
 ## Estado actual
-- **Command Center de los 12 OS** (2026-10-19): https://claude.ai/artifact/44LVZUHY5tgGH6P7Nb6vHk (tipo Dashboard).
-  - Contrato de datos común: `command-center/CONTRATO.md`. Cada OS publica `ops/<grupo>/<área>/os-data.json` (KPIs, fugas por etapa del Growth Engine y punto del funnel, acción con conector y acceso, accesos) y su propio artifact.
-  - `command-center/consolidar.py` combina los 12 archivos y saca las oportunidades entre OS, los accesos que destraban fugas y la cobertura. Primer corte: **41 fugas abiertas, 17 oportunidades cruzadas**.
-  - Top 3: (1) AmazingCare, el 59% de los clics de Meta llega a la página (ads + cro + creative + geo-seo); (2) AmazingCare, el Cyber oct-26 sigue sin cierre; (3) Advanz, no se registran los números del embudo.
-  - Accesos que más destraban: GHL (Advanz), Google Ads (AmazingCare, vía Cowork) y Meta UNSETTLED (Advanz).
-  - Solo Growth Advanz tiene `os-data.json` propio. Los otros 11 están en semilla (armada desde su `estado.md`), con un handoff para cada uno.
+- **Command propio "Growth OS · Advanz"** (2026-10-21): https://claude.ai/artifact/7qL12oAKhA3sgqgspnGrR5. Es de tipo Dashboard, solo tiene datos de Advanz y sigue la spec `ops/_command/COMMAND.md`. Muestra KPIs, qué hacer ahora, oportunidades entre OS de Advanz, pedidos, accesos y cambios. La URL está en `command/URL` y en `os-data.json`.
+- **Command Center de los 12 OS**: https://claude.ai/artifact/44LVZUHY5tgGH6P7Nb6vHk. Se ve **una marca a la vez** (Advanz o AmazingCare) y no tiene vista combinada.
+  - `command-center/consolidar.py` nunca une fugas de marcas distintas. También genera `consolidado/oportunidades.<marca>.json` para el Growth OS de cada marca.
+  - Corte del 21-oct: **los 12 OS tienen `os-data.json` propio** (0 en semilla). Hay 62 fugas abiertas y 17 oportunidades, 8 de ellas de Advanz.
+  - Top Advanz: (1) el funnel propio no tiene medición (no hay dato de CVR, opt-in, agenda ni abandono); (2) el social video está detenido porque no se ha hecho la sesión batch; (3) el form del lead magnet está desconectado de GHL.
+  - Accesos que más destraban en Advanz: GHL (sin conector) y Meta (UNSETTLED).
 - **Sistema de adquisición** (skill `advanz-acquisition-system`). Métrica única: **diagnósticos entregados → agendados → cerrados**. Meta: 100/sem → 15–20% interés → 6–10 agendas → 2–3 cierres.
   - 🟢 Cold outreach · 🟢 Social estático · 🟢 Web funnel · 🟡 Video · 🔴 Ads · 🔴 SEO/GEO.
   - Tablero en Notion: 📊 Canales de Adquisición (Interno › Dept. Marketing › 💵 Sistema Adquisición). Diagnóstico por síntoma: pocos envíos → volumen · no responden → copy · no agendan → workflow GHL · no cierran → pitch.
@@ -36,8 +36,8 @@
 - **2026-08-21 (Marê)**: No bajar el precio ante objeciones de validación. Siempre anclar fecha. Checkpoints en vez de promesas de cifras.
 
 ## Pendientes / próximos pasos
-- [ ] Re-correr `consolidar.py` y re-subir los 5 JSON al Command Center a medida que cada OS publique su `os-data.json`.
-- [ ] Crear el artifact propio de Advanz · OS Growth (el embudo diagnósticos → agendas → cierres) cuando haya números reales.
+- [ ] Cada vez que un OS cierre trabajo: re-correr `consolidar.py`, re-subir los JSON al Command Center y `oportunidades.advanz.json` al Command de Growth.
+- [ ] Sumar al Command de Growth el embudo diagnósticos → agendas → cierres cuando haya números reales (necesita export de GHL).
 - [ ] Registrar los números reales semana a semana (diagnósticos enviados, respuestas, agendas, cierres) en el tablero de Notion y reflejarlos acá.
 - [ ] Confirmar el resultado del deal Marê Swimwear y su aprendizaje (`funnel-intelligence`).
 - [ ] Destrabar 🟡 Video: una sesión batch de Patricio de 2–3 h (handoff a creative).

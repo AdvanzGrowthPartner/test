@@ -48,18 +48,17 @@
       <p class="cc-take" id="takeaway" data-source="oportunidades"></p>
     </div>
     <div class="cc-seg" role="group" aria-label="Marca">
-      <button type="button" id="m-todas" data-m="Todas" aria-pressed="true">Todas</button>
-      <button type="button" id="m-advanz" data-m="Advanz" aria-pressed="false">Advanz</button>
+      <button type="button" id="m-advanz" data-m="Advanz" aria-pressed="true">Advanz</button>
       <button type="button" id="m-ac" data-m="AmazingCare" aria-pressed="false">AmazingCare</button>
     </div>
   </header>
 
   <section class="cc-tiles" id="resumen">
-    <div class="cc-tile"><span class="lbl">Fugas abiertas</span><span class="num dash-skeleton" data-source="resumen" data-field="fugas" data-where="marca=Todas">—</span><span class="sub">en los 12 OS</span></div>
-    <div class="cc-tile"><span class="lbl">Severidad 5 (rompen el funnel)</span><span class="num dash-skeleton" data-source="resumen" data-field="sev5" data-where="marca=Todas">—</span><span class="sub">se pierde plata hoy</span></div>
-    <div class="cc-tile"><span class="lbl">Oportunidades entre OS</span><span class="num dash-skeleton" data-source="resumen" data-field="oportunidades" data-where="marca=Todas">—</span><span class="sub">un arreglo, varios OS</span></div>
-    <div class="cc-tile"><span class="lbl">Ejecutables hoy por MCP</span><span class="num dash-skeleton" data-source="resumen" data-field="mcp_ok" data-where="marca=Todas">—</span><span class="sub">fugas con conector y acceso ok</span></div>
-    <div class="cc-tile"><span class="lbl">OS con artifact propio</span><span class="num dash-skeleton" data-source="resumen" data-field="os_propios" data-where="marca=Todas">—</span><span class="sub">el resto usa semilla de Growth</span></div>
+    <div class="cc-tile"><span class="lbl">Fugas abiertas</span><span class="num dash-skeleton" data-source="resumen" data-field="fugas" data-where="marca=Advanz">—</span><span class="sub">en los 6 OS de la marca</span></div>
+    <div class="cc-tile"><span class="lbl">Severidad 5 (rompen el funnel)</span><span class="num dash-skeleton" data-source="resumen" data-field="sev5" data-where="marca=Advanz">—</span><span class="sub">se pierde plata hoy</span></div>
+    <div class="cc-tile"><span class="lbl">Oportunidades entre OS</span><span class="num dash-skeleton" data-source="resumen" data-field="oportunidades" data-where="marca=Advanz">—</span><span class="sub">un arreglo, varios OS</span></div>
+    <div class="cc-tile"><span class="lbl">Ejecutables hoy por MCP</span><span class="num dash-skeleton" data-source="resumen" data-field="mcp_ok" data-where="marca=Advanz">—</span><span class="sub">fugas con conector y acceso ok</span></div>
+    <div class="cc-tile"><span class="lbl">OS con artifact propio</span><span class="num dash-skeleton" data-source="resumen" data-field="os_propios" data-where="marca=Advanz">—</span><span class="sub">el resto usa semilla de Growth</span></div>
   </section>
 
   <section class="cc-card" id="oportunidades-card">
@@ -130,10 +129,10 @@
 <script>
 dash.calc('resumen', {
   title: 'Resumen por marca',
-  description: 'Cuenta fugas, severidad 5, oportunidades, fugas ejecutables por MCP y OS con archivo propio, por marca y en total.',
+  description: 'Cuenta fugas, severidad 5, oportunidades, fugas ejecutables por MCP y OS con archivo propio, por marca (nunca suma marcas).',
   inputs: ['fugas', 'oportunidades', 'cobertura'],
-  fn: (fugas, oportunidades, cobertura) => ['Todas', 'Advanz', 'AmazingCare'].map(marca => {
-    const de = r => marca === 'Todas' || r.marca === marca;
+  fn: (fugas, oportunidades, cobertura) => ['Advanz', 'AmazingCare'].map(marca => {
+    const de = r => r.marca === marca;
     const f = fugas.filter(de);
     return {
       marca,
@@ -154,10 +153,10 @@ dash.calc('matriz', {
     const etapas = ['foundations', 'offer', 'validation', 'acquisition', 'workflows', 'retention', 'feedback', 'systems'];
     const areas = ['email', 'ads', 'cro', 'growth', 'creative', 'geo-seo'];
     const out = [];
-    ['Todas', 'Advanz', 'AmazingCare'].forEach(marca => etapas.forEach(etapa => {
+    ['Advanz', 'AmazingCare'].forEach(marca => etapas.forEach(etapa => {
       const row = { marca, etapa };
       areas.forEach(a => {
-        row[a] = fugas.filter(r => (marca === 'Todas' || r.marca === marca) && r.etapa === etapa && r.area === a)
+        row[a] = fugas.filter(r => r.marca === marca && r.etapa === etapa && r.area === a)
           .reduce((s, r) => s + Number(r.severidad), 0);
       });
       out.push(row);
@@ -166,7 +165,7 @@ dash.calc('matriz', {
   }
 });
 
-window.ccMarca = 'Todas';
+window.ccMarca = 'Advanz';  // nunca se muestran dos marcas juntas
 window.ccBuscar = '';
 </script>
 
@@ -174,7 +173,7 @@ window.ccBuscar = '';
 (function () {
   const $ = s => document.querySelector(s);
   const claseAcceso = { ok: 'ok', 'sin-probar': 'warn', bloqueado: 'bad', 'sin-conector': 'bad', 'sin-plan': 'bad' };
-  const filtra = r => window.ccMarca === 'Todas' || r.marca === window.ccMarca;
+  const filtra = r => r.marca === window.ccMarca;
 
   function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
   function sev(n) { const s = el('span', 'sev s' + n); s.setAttribute('aria-label', 'Severidad ' + n); for (let i = 1; i <= 5; i++) s.appendChild(el('i', i <= n ? 'on' : '')); const w = el('span'); w.appendChild(s); w.appendChild(document.createTextNode(' ' + n)); return w; }

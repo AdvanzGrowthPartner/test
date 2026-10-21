@@ -1,7 +1,7 @@
 # AmazingCare · OS Email (Klaviyo, CRM, retención)
 
 ## Estado actual
-**Último dato leído: 19 oct 2026 (Klaviyo, 1–19 oct). Dashboard del OS: https://claude.ai/artifact/95qFrTBGfTPqeE8UcJYDZH · datos en `os-data.json`.**
+**Último dato leído: 19 oct 2026 (Klaviyo, 1–19 oct). Command: https://claude.ai/artifact/KEm68mZ8Ezs6RXWkw1cAZc (el dashboard por marca 95qFrTBGfTPqeE8UcJYDZH queda congelado) · datos en `os-data.json`.**
 
 ### Cierre email Cyber oct-26 y post-Cyber (leído el 19-oct)
 - **Campañas 1–19 oct:** $7,87M y 142 compras. Durante el Cyber (1–11 oct) fueron $7,45M y 137 compras, con ~$136 por destinatario.

@@ -13,7 +13,7 @@
 - Correos de ventas post-llamada: skills `advanz-sales-push-emails` y `advanz-closing-agent` (envío de contrato, follow-up, recuperación).
 
 - **Accesos probados (2026-10-19, solo lectura)**: Gmail ✅ (Operaciones@advanz.cl, borradores) · Drive ✅ · Notion conectado, sin probar · **Klaviyo y Shopify conectados a AmazingCare, no a Advanz** · GHL sin conector.
-- **Command Center**: `os-data.json` publicado (fuente `os`, 4 fugas F01–F04) y Dashboard https://claude.ai/artifact/4HWR35KxAKwS7UiFdps7yJ (privado). Se actualiza en cada cierre junto con este archivo.
+- **Command**: Email OS · Command https://claude.ai/artifact/KEm68mZ8Ezs6RXWkw1cAZc (ambas marcas, desde 2026-10-21). El Dashboard "Advanz · OS Email" queda congelado.
 
 ## Decisiones tomadas
 - **2026-08-13**: Arquitectura de outbound en 3 capas (scraping → Notion → envío con seguimiento). Personalización de 1 línea por marca, opt-out, warmup y nunca el dominio principal. Solo correos corporativos públicos. (Propuesta; no quedó registrada la elección de A/B/C.)

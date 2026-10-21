@@ -6,7 +6,7 @@
   "marca": "AmazingCare",
   "actualizado": "2026-10-19",
   "fuente": "os",
-  "artifact_url": "https://claude.ai/artifact/95qFrTBGfTPqeE8UcJYDZH",
+  "artifact_url": "https://claude.ai/artifact/KEm68mZ8Ezs6RXWkw1cAZc",
   "kpis": [
     {"id": "rev_campanas", "nombre": "Venta atribuida a campañas", "valor": 7873241, "unidad": "CLP", "periodo": "2026-10-01/2026-10-19",
      "meta": null, "estado": "ok", "fuente": "Klaviyo"},

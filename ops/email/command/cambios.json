@@ -1,6 +1,20 @@
 [
  {
   "marca": "Advanz",
+  "fecha": "2026-10-21",
+  "cambio": "Artifact privado \"Email OS · Command\" (Dashboard, ambas marcas) publicado: https://claude.ai/artifact/KEm68mZ8Ezs6RXWkw1cAZc. Reemplaza al dashboard por marca, que queda congelado",
+  "por_que": "Arranque del OS: spec `ops/_command/COMMAND.md`",
+  "revertir": "Borrar el artifact desde la galería de claude.ai y volver `artifact_url` al dashboard anterior"
+ },
+ {
+  "marca": "AmazingCare",
+  "fecha": "2026-10-21",
+  "cambio": "Artifact privado \"Email OS · Command\" (Dashboard, ambas marcas) publicado: https://claude.ai/artifact/KEm68mZ8Ezs6RXWkw1cAZc. Reemplaza al dashboard por marca, que queda congelado",
+  "por_que": "Arranque del OS: spec `ops/_command/COMMAND.md`",
+  "revertir": "Borrar el artifact desde la galería de claude.ai y volver `artifact_url` al dashboard anterior"
+ },
+ {
+  "marca": "Advanz",
   "fecha": "2026-10-19",
   "cambio": "Artifact privado \"Advanz · OS Email\" (Dashboard) publicado: https://claude.ai/artifact/4HWR35KxAKwS7UiFdps7yJ. Datos desde `os-data.json`",
   "por_que": "Handoff de OS Growth: contrato del Command Center",

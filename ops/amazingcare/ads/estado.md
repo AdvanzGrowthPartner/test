@@ -3,6 +3,10 @@
 > **2026-10-21:** el tablero del área ahora es **Ads OS · Command** (https://claude.ai/artifact/FfZgya6fwoGvMNqcJ2kbjB), con las dos marcas. El dashboard anterior por marca queda congelado.
 
 ## Estado actual
+**Actualización 21-oct (lectura Meta, sin cambios desde este OS):**
+- El 20-oct a las 21:33 el equipo de Advanz reactivó `AC | CBO - Prospeccion` y `AC | CBO - Trafico to web` desde Ads Manager. Pack_P6 Cotidiano volvió a entregar. Histórico de P6: US$66,7 · 7,71× · 9 compras · frecuencia 3,56. Como muestra es chica, se lee de nuevo el 27-oct.
+- Command del OS: **Ads OS · AmazingCare** → https://claude.ai/artifact/TqGTThsQCy2zoCAomDkt5k (URL en `command/URL`). El dashboard anterior "AmazingCare · OS Ads" queda congelado.
+
 **Actualización 19-oct (lectura Meta, sin cambios en plataforma):**
 - Cierre Meta del Cyber (2–11 oct, cuenta DTC): US$3.376 invertidos, ROAS de plataforma 6,27×, 441 compras, frecuencia 2,36. Falta cruzarlo con Shopify y con Google.
 - Adsets del 12-sep: Pack_P6 Cotidiano gastó US$57 con 6,56× y Pack_P2 gastó US$7,5. P3 y FP Refresh no gastaron. Los 4 están con la campaña en pausa (`CAMPAIGN_PAUSED`). P1yP4 está archivado.
@@ -53,8 +57,8 @@
 - [ ] **Cerrar el Cyber oct-26:** Meta ya está leído (6,27×, 441 compras). Falta el ROAS según Shopify, Google y el contraste con la proyección.
 - [ ] Traer la data real de Google Ads al war room y al command center (gasto, ROAS, PMax). Se habló de un conector Supermetrics/Windsor o de un prompt de Cowork.
 - [ ] Confirmar si se aplicó **tROAS 3,0×** a la PMax Principal (recomendado el 4-sep) y si se revisaron los negativos de Search Category Elect y la exclusión de marca en PMax.
-- [ ] Adsets del 12-sep: proponer reactivar Pack_P6 (6,56×) post-Cyber y decidir P2/P3. Requiere OK.
-- [ ] Mantener `os-data.json` y el dashboard al día en cada cierre.
+- [ ] Pack_P6: ya activo desde el 20-oct. Leerlo el 27-oct y proponer un presupuesto si sostiene ≥2,5× (requiere OK). P2/P3 siguen sin decisión.
+- [ ] Mantener `os-data.json` y el Command al día en cada cierre (`exportar.py` + refrescar los datasets).
 - [ ] Partnership Ad con Force (0031): falta vincular la identidad del partner.
 - [ ] Canibalización: había 3 campañas de adquisición en paralelo en ago-26. Validar si se consolidaron.
 - [ ] Acortador o redirect propio para el link-in-bio de IG (`go.amazingcare.cl/bio`, sin confirmar).

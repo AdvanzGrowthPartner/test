@@ -4,9 +4,9 @@
   "grupo": "amazingcare",
   "area": "ads",
   "marca": "AmazingCare",
-  "actualizado": "2026-10-19",
+  "actualizado": "2026-10-21",
   "fuente": "os",
-  "artifact_url": "https://claude.ai/artifact/FfZgya6fwoGvMNqcJ2kbjB",
+  "artifact_url": "https://claude.ai/artifact/TqGTThsQCy2zoCAomDkt5k",
   "kpis": [
     {
       "id": "roas_meta",
@@ -108,7 +108,7 @@
       "depende_de": [],
       "afecta_os": [],
       "accion": {
-        "descripcion": "Aplicar tROAS 3,0× y exclusión de marca",
+        "descripcion": "Aplicar tROAS 3,0× y exclusión de marca en PMax (vía terminal de Matías); necesita OK",
         "os_ejecutor": "ads",
         "via": "cowork",
         "conector": "Google_Ads",
@@ -142,20 +142,20 @@
     },
     {
       "id": "amazingcare.ads.F04",
-      "titulo": "Adsets de packs del 12-sep: corrieron y hoy están con la campaña en pausa",
+      "titulo": "Pack_P6 reactivado el 20-oct con la CBO Prospección: vigilar sin escalar todavía",
       "etapa": "acquisition",
       "punto_funnel": "trafico",
       "severidad": 2,
       "impacto_clp_mes": null,
-      "impacto_nota": "P6 rindió sobre el breakeven (2,5×): candidato a reactivar post-Cyber",
-      "evidencia": "Meta 19-oct (30 días): Pack_P6 Cotidiano US$57 y 6,56×; Pack_P2 US$7,5; P3 y FP Refresh US$0; las 4 en CAMPAIGN_PAUSED; P1yP4 archivado",
+      "impacto_nota": "Sobre el breakeven (2,5×) pero con muestra chica (9 compras)",
+      "evidencia": "Activity log Meta: 'AC | CBO - Prospeccion' y 'AC | CBO - Trafico to web' pasaron a activas el 20-oct 21:33 (Ads Manager, equipo Advanz). Pack_P6 histórico: US$66,7, 7,71×, 9 compras, frecuencia 3,56",
       "estado": "en-curso",
       "depende_de": [],
       "afecta_os": [
         "creative"
       ],
       "accion": {
-        "descripcion": "Proponer reactivar Pack_P6 (y decidir P2/P3) con presupuesto acotado; requiere OK",
+        "descripcion": "Leer P6 a los 7 días (27-oct) y proponer presupuesto si sostiene ≥2,5×; P2/P3 siguen sin decisión",
         "os_ejecutor": "ads",
         "via": "mcp",
         "conector": "Meta_Ads",

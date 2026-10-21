@@ -8,7 +8,7 @@
   "meta": 2.5,
   "estado": "ok",
   "fuente": "Meta_Ads",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "spend_meta",
@@ -19,7 +19,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Meta_Ads",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "compras_meta",
@@ -30,7 +30,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Meta_Ads",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "freq_meta",
@@ -41,7 +41,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Meta_Ads",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "roas_meta_shop",
@@ -52,7 +52,7 @@
   "meta": 2.5,
   "estado": "warn",
   "fuente": "Shopify",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "pmax",
@@ -63,6 +63,6 @@
   "meta": 3.0,
   "estado": "bad",
   "fuente": "Google_Ads",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  }
 ]

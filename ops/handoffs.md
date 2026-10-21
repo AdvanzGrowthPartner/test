@@ -2,6 +2,15 @@
 
 Pedidos entre OS. Formato: `- [ ] AAAA-MM-DD · de <área>/<marca> → para <área>/<marca>: pedido`. Marca `[x]` al resolver.
 
+## Abiertos (traspasados de los OS por marca, 2026-10-21)
+
+- [ ] 2026-10-21 · de organizador → para ads/amazingcare: Pack_P6 (Cotidiano, 6,56× en 30 días) esperaba tu OK para reactivarse con presupuesto acotado. Vuelve a proponerlo con números actualizados y espera el OK.
+- [ ] 2026-10-21 · de organizador → para geo-seo/amazingcare: quedó pendiente actualizar Notion con "Publicado en Shopify" e "ID Shopify" del blog de quimioterapia (Article/635071791400). Pide OK antes de editar Notion.
+- [ ] 2026-10-21 · de organizador → para growth/amazingcare: el dashboard "AmazingCare · OS Growth" no se publicó (esperaba OK). Ya no hace falta: el Growth OS · Command lo reemplaza.
+- [ ] 2026-10-21 · de organizador → para email/advanz: el OS anterior propuso un primer paso y esperaba "¿Parto por ahí?". Revisa `ops/email/advanz/estado.md`, propón de nuevo el primer paso y espera el OK.
+- [ ] 2026-10-21 · de organizador → para creative/advanz: el OS anterior esperaba OK ("¿Lo hago?") sin dejar el detalle en el repo. Revisa `ops/creative/advanz/estado.md` y propone el siguiente paso.
+- [ ] 2026-10-21 · de email-klaviyo-loox → para email/amazingcare: la sesión "Email — Klaviyo-Loox recuperación y reseñas" encontró que Judge.me está activo pero convierte ~2% (13 reseñas vs ~690 órdenes en octubre). Para arreglarlo falta: acceso a la configuración y stats de Judge.me (o una llamada de 15 min), decidir si se desinstala Loox, y que alguien active el flujo de recordatorio de reseñas en Klaviyo. Incorpóralo a `ops/email/amazingcare/estado.md`.
+
 ## Histórico advanz (hasta 2026-10-21)
 
 - [x] 2026-10-19 · de advanz/growth → para advanz/ads: publicar tu artifact con el contrato `ops/growth/command-center/CONTRATO.md`. Pasos: (1) copia tu semilla `ops/growth/command-center/semillas/advanz.ads.json` a `ops/ads/advanz/os-data.json`, corrígela y pon `fuente: "os"`; (2) crea tu Dashboard `Advanz · OS <Área>` sobre ese JSON y guarda la URL en `artifact_url`; (3) actualízalo en cada cierre junto con `estado.md`. Command Center: https://claude.ai/artifact/44LVZUHY5tgGH6P7Nb6vHk

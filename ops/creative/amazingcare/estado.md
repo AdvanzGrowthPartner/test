@@ -1,6 +1,8 @@
 # AmazingCare · OS Creative (creativos, videos, copies, contenido, paleta)
 
 ## Estado actual
+**21-oct-2026:** el Dashboard propio queda congelado; el tablero vigente es el Creative OS · Command https://claude.ai/artifact/Lp1TYgozy1cMnH3Lnemq63.
+
 **19-oct-2026 · arranque del OS y artifact.**
 - Dashboard propio publicado: https://claude.ai/artifact/A15ucnSsaqSpmcLpp4HSkp (tipo Dashboard, privado). Se dibuja desde `os-data.json` (contrato v1.0 del Command Center), con 8 KPIs, 6 fugas (F01–F06) y los accesos.
 - Accesos probados con lectura simple: Meta Ads (DTC y Mayorista habilitadas), Notion, Canva, Drive y Magnific responden. En Figma el asiento es View en plan starter (lee, no edita). Pletor exige plan pago. Las skills `advanz-paid-media:*` no están cargadas en esta sesión.

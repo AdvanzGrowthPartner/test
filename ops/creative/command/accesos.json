@@ -1,32 +1,50 @@
 [
  {
   "marca": "Advanz",
-  "conector": "Canva",
-  "estado": "sin-probar",
-  "nota": ""
+  "conector": "Instagram",
+  "estado": "sin-conector",
+  "nota": "Sin conector y bloqueado en el entorno; falta el handle"
  },
  {
   "marca": "Advanz",
   "conector": "Figma",
-  "estado": "sin-probar",
-  "nota": ""
- },
- {
-  "marca": "Advanz",
-  "conector": "Magnific",
-  "estado": "sin-probar",
-  "nota": ""
+  "estado": "bloqueado",
+  "nota": "Asiento View en plan starter: lee, no edita (probado 19-oct)"
  },
  {
   "marca": "Advanz",
   "conector": "pletor",
-  "estado": "sin-probar",
-  "nota": ""
+  "estado": "sin-plan",
+  "nota": "El MCP exige plan pago (probado 19-oct)"
  },
  {
   "marca": "Advanz",
-  "conector": "Instagram",
+  "conector": "GHL",
   "estado": "sin-conector",
+  "nota": "Atribución de leads a contenido"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Canva",
+  "estado": "ok",
+  "nota": "Misma cuenta de Operaciones (probado 19-oct)"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Magnific",
+  "estado": "ok",
+  "nota": "Cuenta de Operaciones Advanz (probado 19-oct)"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Notion",
+  "estado": "ok",
+  "nota": "SOP de contenido (fichas C1, C4, FICHA 17)"
+ },
+ {
+  "marca": "Advanz",
+  "conector": "Google_Drive",
+  "estado": "ok",
   "nota": ""
  },
  {

@@ -3,6 +3,7 @@
 > Contenido orgánico **propio** (IG reels y estáticos), videos, copies y sistema visual de Advanz. Actualizado: 2026-10-19.
 
 ## Estado actual
+- **21-oct-2026 · arranque del Creative OS.** Se creó `os-data.json` (contrato v1.0, desde la semilla de Growth, con F04–F06 nuevas) y el Command del área: https://claude.ai/artifact/Lp1TYgozy1cMnH3Lnemq63 (las dos marcas).
 - **Social estático 🟢** (dueño: Diseño). Meta: 5 posts por semana con CTA "comenta [palabra] y te mando el diagnóstico de tu tienda".
   - 5 pilares: creencia rota · dolor del founder · sistema, no enchufe · corte de review · etapa del Growth Engine.
 - **Social video 🟡 pendiente** (dueño: Patricio). Formato oficial: **"Review de ecommerce como founder"**, 5–7 min sin guión. Recorrido home → PDP → carro → checkout → veredicto de sistema → CTA. Cada review se corta en 3–4 clips.
@@ -30,6 +31,7 @@
 - **2026-09-08**: El CTA de comment-bait deriva al quiz funnel de captura (ver OS CRO).
 
 ## Pendientes / próximos pasos
+- [ ] **Siguiente paso propuesto (espera OK):** agendar la sesión batch de video con Patricio (F04) y, en paralelo, que el equipo pase el handle de IG + export de Insights (F02) para medir alcance.
 - [ ] **Sesión batch de video** (Patricio): 4–5 reviews de tiendas ya diagnosticadas, cortadas en clips por Diseño.
 - [ ] Validar los 5 guiones del Storyboard y cargar el primer video real desarmado frame por frame al repositorio.
 - [ ] Probar hooks de mayor techo de alcance (resultado + número, curiosidad, contrarian) frente a calificación y cómo-hacer.

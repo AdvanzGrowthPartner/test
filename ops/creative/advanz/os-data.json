@@ -1,0 +1,245 @@
+{
+  "version": "1.0",
+  "os_id": "advanz.creative",
+  "grupo": "advanz",
+  "area": "creative",
+  "marca": "Advanz",
+  "actualizado": "2026-10-21",
+  "fuente": "os",
+  "artifact_url": "https://claude.ai/artifact/Lp1TYgozy1cMnH3Lnemq63",
+  "kpis": [
+    {
+      "id": "posts_sem",
+      "nombre": "Posts por semana (social estático)",
+      "valor": null,
+      "unidad": "posts",
+      "periodo": "semana actual",
+      "meta": 5,
+      "estado": "sin-dato",
+      "fuente": "Instagram"
+    },
+    {
+      "id": "alcance_reels",
+      "nombre": "Alcance promedio de reels",
+      "valor": null,
+      "unidad": "cuentas",
+      "periodo": null,
+      "meta": null,
+      "estado": "sin-dato",
+      "fuente": "Instagram"
+    },
+    {
+      "id": "reviews_grabadas",
+      "nombre": "Reviews de ecommerce grabadas (social video)",
+      "valor": 0,
+      "unidad": "videos",
+      "periodo": "al 2026-10-21",
+      "meta": 4,
+      "estado": "bad",
+      "fuente": "estado.md"
+    },
+    {
+      "id": "guiones_validados",
+      "nombre": "Guiones del Storyboard validados",
+      "valor": 0,
+      "unidad": "de 5",
+      "periodo": "al 2026-10-21",
+      "meta": 5,
+      "estado": "warn",
+      "fuente": "estado.md"
+    },
+    {
+      "id": "leads_contenido",
+      "nombre": "Leads atribuidos a contenido",
+      "valor": null,
+      "unidad": "leads",
+      "periodo": null,
+      "meta": null,
+      "estado": "sin-dato",
+      "fuente": "GHL"
+    }
+  ],
+  "fugas": [
+    {
+      "id": "advanz.creative.F01",
+      "titulo": "Reels con hooks de bajo techo de alcance (calificación / cómo-hacer)",
+      "etapa": "acquisition",
+      "punto_funnel": "contenido",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "2 reels propios: buen engagement, poco alcance; base ~180–199 reels virales (viral-hooks)",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Producir 3 reels con hooks resultado+número, curiosidad y contrarian, y comparar alcance contra los de calificación",
+        "os_ejecutor": "creative",
+        "via": "manual",
+        "conector": "Canva",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "advanz.creative.F02",
+      "titulo": "Sin métricas de IG (alcance, comentarios) en ningún OS",
+      "etapa": "systems",
+      "punto_funnel": "medicion",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Handle y métricas por levantar; Instagram bloqueado en el entorno (2026-09-10)",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Confirmar handle de IG y pasar un export manual de Insights (alcance, retención, guardados) cada semana",
+        "os_ejecutor": "creative",
+        "via": "manual",
+        "conector": "Instagram",
+        "requiere_ok": false,
+        "acceso": "sin-conector"
+      }
+    },
+    {
+      "id": "advanz.creative.F03",
+      "titulo": "CTA de comment-bait apunta a un quiz que no existe",
+      "etapa": "acquisition",
+      "punto_funnel": "captura",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Decisión 2026-09-08; advanz.cro.F04 sigue abierta (2026-10-21)",
+      "estado": "abierta",
+      "depende_de": [
+        "advanz.cro.F04"
+      ],
+      "afecta_os": [],
+      "accion": {
+        "descripcion": "Mientras CRO no construya el quiz, el CTA deriva a DM/WhatsApp con el diagnóstico",
+        "os_ejecutor": "creative",
+        "via": "manual",
+        "conector": "Vercel",
+        "requiere_ok": true,
+        "acceso": "sin-probar"
+      }
+    },
+    {
+      "id": "advanz.creative.F04",
+      "titulo": "Social video detenido: la sesión batch de reviews de ecommerce no se ha grabado",
+      "etapa": "acquisition",
+      "punto_funnel": "contenido",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Sin video no hay clips para reels ni prueba de criterio para el funnel",
+      "evidencia": "estado.md 2026-10-19: Social video 🟡 pendiente (dueño: Patricio)",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "growth",
+        "ads"
+      ],
+      "accion": {
+        "descripcion": "Agendar 2–3 h con Patricio: 4–5 reviews de tiendas ya diagnosticadas; Diseño corta 3–4 clips por review",
+        "os_ejecutor": "creative",
+        "via": "manual",
+        "conector": "Google_Drive",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "advanz.creative.F05",
+      "titulo": "5 guiones del Storyboard de Reels sin validar",
+      "etapa": "validation",
+      "punto_funnel": "contenido",
+      "severidad": 2,
+      "impacto_clp_mes": null,
+      "impacto_nota": "El generador no tiene un primer video real desarmado frame por frame",
+      "evidencia": "Storyboard v6 (2026-09-11)",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [],
+      "accion": {
+        "descripcion": "Revisar los 5 guiones con Patricio y cargar el primer video real al repositorio del Storyboard",
+        "os_ejecutor": "creative",
+        "via": "manual",
+        "conector": "Notion",
+        "requiere_ok": false,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "advanz.creative.F06",
+      "titulo": "VSL Motor de Cyber (90\") sin feedback ni MP4",
+      "etapa": "validation",
+      "punto_funnel": "contenido",
+      "severidad": 2,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "VSL en GSAP del 2026-09-08; ver advanz.cro.F06",
+      "estado": "abierta",
+      "depende_de": [
+        "advanz.cro.F06"
+      ],
+      "afecta_os": [
+        "cro"
+      ],
+      "accion": {
+        "descripcion": "Recoger feedback y renderizar MP4 con Remotion",
+        "os_ejecutor": "creative",
+        "via": "cowork",
+        "conector": "Vercel",
+        "requiere_ok": false,
+        "acceso": "sin-probar"
+      }
+    }
+  ],
+  "accesos": [
+    {
+      "conector": "Instagram",
+      "estado": "sin-conector",
+      "nota": "Sin conector y bloqueado en el entorno; falta el handle"
+    },
+    {
+      "conector": "Figma",
+      "estado": "bloqueado",
+      "nota": "Asiento View en plan starter: lee, no edita (probado 19-oct)"
+    },
+    {
+      "conector": "pletor",
+      "estado": "sin-plan",
+      "nota": "El MCP exige plan pago (probado 19-oct)"
+    },
+    {
+      "conector": "GHL",
+      "estado": "sin-conector",
+      "nota": "Atribución de leads a contenido"
+    },
+    {
+      "conector": "Canva",
+      "estado": "ok",
+      "nota": "Misma cuenta de Operaciones (probado 19-oct)"
+    },
+    {
+      "conector": "Magnific",
+      "estado": "ok",
+      "nota": "Cuenta de Operaciones Advanz (probado 19-oct)"
+    },
+    {
+      "conector": "Notion",
+      "estado": "ok",
+      "nota": "SOP de contenido (fichas C1, C4, FICHA 17)"
+    },
+    {
+      "conector": "Google_Drive",
+      "estado": "ok",
+      "nota": ""
+    }
+  ]
+}

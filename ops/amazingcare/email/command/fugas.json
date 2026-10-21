@@ -35,8 +35,8 @@
   "severidad": 3,
   "estado": "abierta",
   "punto_funnel": "recompra",
-  "evidencia": "PackMix_Push 14-oct: $35 por destinatario, 3 compras. Creatina_5 cosas 17-oct: $6 por destinatario, 2 compras. Cyber 1–11 oct: $136 promedio.",
-  "impacto": "Los clics bajan a 0,07–0,10%. Octubre ya va en 8 envíos principales (+4 seguimientos), en el techo de 6–8 al mes.",
+  "evidencia": "PackMix_Push 14-oct: $35 por destinatario, 3 compras. Creatina_5 cosas 17-oct: $6 por destinatario, 2 compras. Cyber 1–11 oct: $136 promedio. Push_Halloween 19-oct: $41 por destinatario, 9 compras ($421K). Seguimiento Creatina 19-oct: 291 entregados, 0 compras.",
+  "impacto": "Los clics bajan a 0,07–0,21%. Octubre ya va en 9 envíos principales (+5 seguimientos), sobre el techo de 6–8 al mes.",
   "accion": "Bajar la frecuencia a base completa, segmentar por enganche (60–90 días) y pasar a contenido educativo hasta el próximo evento",
   "ejecuta": "email",
   "via": "mcp",
@@ -58,6 +58,21 @@
   "conector": "Klaviyo",
   "requiere_ok": true,
   "acceso": "ok"
+ },
+ {
+  "id": "amazingcare.email.F07",
+  "titulo": "Judge.me convierte ~2%: 13 reseñas vs ~690 órdenes en octubre",
+  "severidad": 3,
+  "estado": "abierta",
+  "punto_funnel": "recompra",
+  "evidencia": "Handoff 21-oct de la sesión 'Email — Klaviyo-Loox recuperación y reseñas'. Judge.me activo; Loox también instalado.",
+  "impacto": "Sin reseñas nuevas se debilita la prueba social en PDP y en los correos.",
+  "accion": "Conseguir acceso a la configuración y stats de Judge.me (o llamada de 15 min), decidir si se desinstala Loox y activar el flujo de recordatorio de reseñas en Klaviyo",
+  "ejecuta": "email",
+  "via": "manual",
+  "conector": "Klaviyo",
+  "requiere_ok": true,
+  "acceso": "sin-conector"
  },
  {
   "id": "amazingcare.email.F04",

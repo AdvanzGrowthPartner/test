@@ -28,5 +28,10 @@
   "conector": "GA4",
   "estado": "sin-conector",
   "nota": "Necesario para validar UTMs (F04)"
+ },
+ {
+  "conector": "Judge.me",
+  "estado": "sin-conector",
+  "nota": "Falta acceso a configuración y stats (F07)"
  }
 ]

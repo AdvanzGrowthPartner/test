@@ -1,7 +1,13 @@
 # AmazingCare · OS Email (Klaviyo, CRM, retención)
 
 ## Estado actual
-**Último dato leído: 19 oct 2026 (Klaviyo, 1–19 oct). Command: https://claude.ai/artifact/KEm68mZ8Ezs6RXWkw1cAZc (el dashboard por marca 95qFrTBGfTPqeE8UcJYDZH queda congelado) · datos en `os-data.json`.**
+**Último dato leído: 21 oct 2026 (Klaviyo, 1–21 oct). Command: ver `command/URL`. Los dashboards anteriores (95qFrTBGfTPqeE8UcJYDZH, por marca, y KEm68mZ8Ezs6RXWkw1cAZc, combinado) quedan congelados · datos en `os-data.json`.**
+
+### Novedades 19–21 oct
+- **Seguimiento de Creatina (no-aperturas):** salió el 19-oct a las 10:57 sin que nadie lo frenara. Llegó a 291 destinatarios, 33% abrió y no hubo compras. Ya no hay nada que decidir.
+- **Push_Halloween (19-oct, 20:47):** 10.288 entregados, 22% de apertura, 0,21% de clics, 9 compras y $421K ($41 por destinatario).
+- **Campañas 1–21 oct:** $8,29M y 151 compras. Octubre suma 9 envíos principales y 5 seguimientos, sobre el techo de 6–8 al mes.
+- **Reseñas (handoff de la sesión "Email — Klaviyo-Loox", 21-oct):** Judge.me está activo, pero convierte ~2% (13 reseñas sobre ~690 órdenes en octubre). Faltan tres cosas: acceso a la configuración y stats de Judge.me (o una llamada de 15 min), decidir si se desinstala Loox y activar el flujo de recordatorio de reseñas en Klaviyo. Quedó como fuga F07.
 
 ### Cierre email Cyber oct-26 y post-Cyber (leído el 19-oct)
 - **Campañas 1–19 oct:** $7,87M y 142 compras. Durante el Cyber (1–11 oct) fueron $7,45M y 137 compras, con ~$136 por destinatario.
@@ -50,7 +56,8 @@
 - [ ] **UTMs:** las campañas ya los llevan. Faltan los flujos y validar en GA4 (F04).
 - [ ] **Post-Cyber:** bajar la frecuencia a base completa y segmentar por enganche (F05). Requiere OK.
 - [ ] **Flujos de post-compra y recompra sin compras:** revisar timing, oferta y CTA (F06).
-- [ ] Mantener `os-data.json` y el dashboard al día en cada cierre (contrato del Command Center).
+- [ ] **Reseñas (F07):** acceso a Judge.me, decidir sobre Loox y activar el flujo de recordatorio en Klaviyo. Requiere OK.
+- [ ] Mantener `os-data.json` y el Command al día en cada cierre (contrato del Command Center).
 - [ ] Pendientes FP que quedaron abiertos: fecha de activación y bases del concurso (el correo del 1-sep estaba mal calendarizado), y copy y propuesta del Plan Amazing Contigo. Validar si se cerraron (sin confirmar).
 - [ ] Huincha "18 sept" en los flujos: el cliente la dejó en radar para planificar cambios masivos con más tiempo en la próxima campaña.
 

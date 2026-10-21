@@ -2,24 +2,24 @@
  {
   "id": "rev_campanas",
   "nombre": "Venta atribuida a campañas",
-  "valor": 7873241,
+  "valor": 8294207,
   "unidad": "CLP",
-  "periodo": "2026-10-01/2026-10-19",
+  "periodo": "2026-10-01/2026-10-21",
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "compras_campanas",
   "nombre": "Compras atribuidas a campañas",
-  "valor": 142,
+  "valor": 151,
   "unidad": "órdenes",
-  "periodo": "2026-10-01/2026-10-19",
+  "periodo": "2026-10-01/2026-10-21",
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "rev_flujos",
@@ -30,7 +30,7 @@
   "meta": null,
   "estado": "warn",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "rev_dest_cyber",
@@ -41,18 +41,18 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "rev_dest_post",
   "nombre": "Venta por destinatario post-Cyber",
-  "valor": 20,
+  "valor": 29,
   "unidad": "CLP",
-  "periodo": "2026-10-14/2026-10-17",
+  "periodo": "2026-10-14/2026-10-21",
   "meta": null,
   "estado": "bad",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "open_rate",
@@ -63,7 +63,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "base",
@@ -74,7 +74,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "popup_vistas",
@@ -85,6 +85,6 @@
   "meta": null,
   "estado": "bad",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  }
 ]

@@ -1,6 +1,12 @@
 [
  {
   "fecha": "2026-10-21",
+  "cambio": "Artifact privado \"Email OS · AmazingCare\" (Command tipo Dashboard, solo AmazingCare) publicado: https://claude.ai/artifact/RhKD7ygrYif6epFeNkYgtA. Quedan congelados el combinado KEm68mZ8Ezs6RXWkw1cAZc y el por marca 95qFrTBGfTPqeE8UcJYDZH",
+  "por_que": "Separación por marca: spec `ops/_command/COMMAND.md`",
+  "revertir": "Borrar el artifact desde la galería de claude.ai y volver `artifact_url` y `command/URL` al anterior"
+ },
+ {
+  "fecha": "2026-10-21",
   "cambio": "Artifact privado \"Email OS · Command\" (Dashboard, ambas marcas) publicado: https://claude.ai/artifact/KEm68mZ8Ezs6RXWkw1cAZc. Reemplaza al dashboard por marca, que queda congelado",
   "por_que": "Arranque del OS: spec `ops/_command/COMMAND.md`",
   "revertir": "Borrar el artifact desde la galería de claude.ai y volver `artifact_url` al dashboard anterior"

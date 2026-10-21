@@ -1,0 +1,965 @@
+<title>AmazingCare GADS OS</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: una columna de lectura (1120px) con barra de secciones fija; tablas anchas con scroll propio. Paleta: agua y tinta, acento teal de electrolito. */
+:root{
+  --bg:#F2F7F8; --surface:#FFFFFF; --sunk:#E8F0F2; --ink:#0B2530; --muted:#4F6B74; --line:#D3E1E5;
+  --accent:#0A7C89; --accent-soft:#D7EEF0;
+  --good:#1B7F47; --good-soft:#DDF1E5; --warn:#9A6312; --warn-soft:#F7EBD3; --bad:#B9362F; --bad-soft:#F8E0DE; --info:#2C64A8; --info-soft:#DEE9F6;
+  --f-display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-data:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#09181E; --surface:#0F242C; --sunk:#0C1F26; --ink:#E3F0F2; --muted:#8EAAB2; --line:#20404A;
+  --accent:#41C3CF; --accent-soft:#123A41;
+  --good:#52C487; --good-soft:#123326; --warn:#E3AC52; --warn-soft:#3A2C12; --bad:#F2766E; --bad-soft:#3D1A18; --info:#78A9E8; --info-soft:#15263D;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#09181E; --surface:#0F242C; --sunk:#0C1F26; --ink:#E3F0F2; --muted:#8EAAB2; --line:#20404A;
+  --accent:#41C3CF; --accent-soft:#123A41;
+  --good:#52C487; --good-soft:#123326; --warn:#E3AC52; --warn-soft:#3A2C12; --bad:#F2766E; --bad-soft:#3D1A18; --info:#78A9E8; --info-soft:#15263D;
+  color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+a{color:var(--accent)}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(28px,4.4vw,44px);line-height:1.08;font-weight:800}
+h2{font-size:clamp(22px,2.6vw,28px);line-height:1.15;font-weight:700}
+h3{font-size:17px;font-weight:700;line-height:1.25}
+p{margin:0}
+.num,td.n,.mono{font-family:var(--f-data);font-variant-numeric:tabular-nums}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.muted{color:var(--muted)}
+.lead{font-size:17px;max-width:68ch}
+small,.small{font-size:13px}
+
+/* header */
+header.top{background:var(--surface);border-bottom:1px solid var(--line)}
+header.top .wrap{padding-block:28px 22px;display:grid;gap:14px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--muted)}
+nav.sec{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.sec .wrap{display:flex;gap:6px;overflow-x:auto;padding-block:9px;scrollbar-width:thin}
+nav.sec a{flex:none;font-size:13px;font-weight:600;text-decoration:none;color:var(--muted);padding:5px 10px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+nav.sec a:hover,nav.sec a:focus-visible{color:var(--ink);border-color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+main section{padding-block:40px;border-bottom:1px solid var(--line);scroll-margin-top:60px}
+main section > .wrap{display:grid;gap:18px}
+.sechead{display:grid;gap:6px}
+.sechead p{max-width:72ch;color:var(--muted)}
+.kicker{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+
+/* chips & states */
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;padding:2px 9px;border-radius:999px;white-space:nowrap;border:1px solid transparent}
+.c-good{background:var(--good-soft);color:var(--good)} .c-warn{background:var(--warn-soft);color:var(--warn)}
+.c-bad{background:var(--bad-soft);color:var(--bad)} .c-info{background:var(--info-soft);color:var(--info)}
+.c-neutral{background:var(--sunk);color:var(--muted);border-color:var(--line)}
+.legend{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px}
+
+/* panel */
+.panel{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:22px}
+@media (max-width:860px){.panel{grid-template-columns:1fr}}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.score{display:grid;gap:14px}
+.score .big{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.score .big b{font-family:var(--f-display);font-size:84px;line-height:.9;font-weight:800;color:var(--warn)}
+.score .big span{font-size:20px;color:var(--muted)}
+.gauge{position:relative;height:14px;border-radius:7px;display:flex;overflow:hidden}
+.gauge i{display:block;height:100%}
+.gauge-wrap{position:relative;padding-top:18px;padding-bottom:20px}
+.gauge-mark{position:absolute;top:0;transform:translateX(-50%);font-size:11px;font-weight:700;font-family:var(--f-data)}
+.gauge-mark::after{content:"";display:block;width:2px;height:26px;margin:2px auto 0;background:currentColor}
+.gauge-scale{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--f-data);margin-top:4px}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:640px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 13px;display:grid;gap:4px;align-content:start;border-top:3px solid var(--line)}
+.kpi.good{border-top-color:var(--good)} .kpi.warn{border-top-color:var(--warn)} .kpi.bad{border-top-color:var(--bad)} .kpi.info{border-top-color:var(--info)}
+.kpi .l{font-size:12px;color:var(--muted);font-weight:600}
+.kpi .v{font-family:var(--f-display);font-size:26px;font-weight:700;line-height:1.1}
+.kpi .s{font-size:12px;color:var(--muted)}
+
+.rank{display:grid;gap:8px}
+.rank-row{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px}
+.grade{width:34px;height:34px;border-radius:8px;display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:18px}
+.rank-row .t{min-width:0}
+.rank-row .t b{display:block}
+.rank-row .t span{font-size:13px;color:var(--muted)}
+.rank-row .sc{text-align:right;font-family:var(--f-data);font-weight:600;font-size:18px}
+.rank-row .sc small{display:block;font-family:var(--f-body);font-size:12px;font-weight:600;color:var(--muted)}
+.callout{border-radius:var(--r);padding:12px 14px;border:1px solid var(--line);background:var(--surface)}
+.callout.bad{background:var(--bad-soft);border-color:transparent}
+.callout.warn{background:var(--warn-soft);border-color:transparent}
+.callout.info{background:var(--info-soft);border-color:transparent}
+.callout.good{background:var(--good-soft);border-color:transparent}
+details.how{font-size:14px}
+details.how summary{cursor:pointer;font-weight:600;color:var(--accent)}
+details.how p{margin-top:8px;color:var(--muted);max-width:75ch}
+
+/* grids */
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:860px){.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.g2>*,.g3>*,.g4>*{min-width:0}
+
+/* tables */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;background:var(--sunk);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.n{text-align:right;white-space:nowrap}
+th.n{text-align:right}
+tfoot td{font-weight:700;background:var(--sunk)}
+.heat td.h{text-align:right;font-family:var(--f-data);white-space:nowrap}
+.h-good{background:var(--good-soft);color:var(--good)} .h-warn{background:var(--warn-soft);color:var(--warn)} .h-bad{background:var(--bad-soft);color:var(--bad)} .h-na{color:var(--muted)}
+.delta{font-size:11px;display:block;opacity:.85}
+
+/* blocks */
+.blocks{display:grid;gap:18px}
+.block{display:grid;gap:10px}
+.block-head{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:900px){.cards{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:grid;gap:9px;align-content:start;min-width:0}
+.card.locked{opacity:.72}
+.card .tags{display:flex;flex-wrap:wrap;gap:5px}
+.card dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:3px 10px;margin:0;font-size:13px}
+.card dt{color:var(--muted)} .card dd{margin:0;font-family:var(--f-data);font-size:12.5px}
+.card .ctrl{display:flex;flex-wrap:wrap;gap:6px;align-items:center;border-top:1px dashed var(--line);padding-top:9px}
+.who{font-size:12px;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--accent-soft);color:var(--accent)}
+select,input[type=text],input[type=date],textarea{font:inherit;font-size:13px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:7px;padding:5px 8px;min-width:0}
+textarea{width:100%;min-height:60px}
+button{font:inherit;font-size:13px;font-weight:600;border-radius:7px;padding:6px 12px;border:1px solid var(--accent);background:var(--accent);color:var(--surface);cursor:pointer}
+button.ghost{background:transparent;color:var(--accent)}
+button:disabled{opacity:.5;cursor:default}
+.empty{border:1px dashed var(--line);border-radius:var(--r);padding:16px;color:var(--muted);font-size:14px;background:var(--surface)}
+.note{font-size:13px;color:var(--muted)}
+
+/* charts */
+.chart svg{width:100%;height:auto;display:block}
+.chart text{fill:var(--muted);font-family:var(--f-data);font-size:11px}
+.chart .lbl{fill:var(--ink);font-family:var(--f-body);font-size:12px;font-weight:600}
+.split{display:grid;gap:6px}
+.split .bar{display:flex;height:30px;border-radius:7px;overflow:hidden;font-size:12px;font-weight:700;font-family:var(--f-data)}
+.split .bar i{display:flex;align-items:center;justify-content:center;font-style:normal;color:var(--surface);min-width:0;overflow:hidden;white-space:nowrap}
+.hbar{display:grid;gap:8px}
+.hbar .row{display:grid;grid-template-columns:150px minmax(0,1fr) 70px;gap:10px;align-items:center;font-size:13px}
+@media (max-width:520px){.hbar .row{grid-template-columns:105px minmax(0,1fr) 60px}}
+.hbar .track{position:relative;height:16px;background:var(--sunk);border-radius:4px}
+.hbar .fill{position:absolute;inset:0 auto 0 0;border-radius:4px}
+.hbar .ref{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--ink)}
+.hbar .val{font-family:var(--f-data);text-align:right;font-weight:600}
+
+.funnel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;align-items:stretch}
+@media (max-width:700px){.funnel{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px;display:grid;gap:2px}
+.step b{font-family:var(--f-display);font-size:26px}
+.list{margin:0;padding-left:18px;display:grid;gap:6px}
+.toggle{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:0}
+.toggle summary{cursor:pointer;padding:12px 14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-weight:600}
+.toggle summary::-webkit-details-marker{display:none}
+.toggle summary::before{content:"+";font-family:var(--f-data);color:var(--accent);width:12px}
+.toggle[open] summary::before{content:"−"}
+.toggle .body{padding:0 14px 14px 36px;display:grid;gap:8px;font-size:14px}
+.avatar{display:grid;gap:8px;align-content:start}
+.avatar .ang{font-family:var(--f-display);font-size:18px;font-weight:700;line-height:1.25}
+.code{font-family:var(--f-data);font-size:13px;background:var(--sunk);border:1px solid var(--line);border-radius:7px;padding:10px 12px;overflow-x:auto;white-space:pre}
+.timeline{list-style:none;margin:0;padding:0;display:grid;gap:0;border-left:2px solid var(--line)}
+.timeline li{padding:8px 0 12px 16px;position:relative}
+.timeline li::before{content:"";position:absolute;left:-6px;top:14px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.timeline .d{font-family:var(--f-data);font-size:12px;color:var(--muted)}
+.tasks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:900px){.tasks{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.tasks{grid-template-columns:1fr}}
+.col{display:grid;gap:8px;align-content:start;min-width:0}
+.task{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px;display:grid;gap:6px;font-size:14px}
+.task.done{opacity:.6} .task.done .tt{text-decoration:line-through}
+.task .row{display:flex;justify-content:space-between;gap:6px;align-items:center;flex-wrap:wrap}
+footer{padding-block:28px 40px;color:var(--muted);font-size:13px}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="eyebrow">Auditoría y sistema de Google Ads · cuenta 880-095-0215 · Amazing Care · Advanz</div>
+    <h1>Google ya vende barato por marca. El crecimiento está en categoría y Creatina, después de limpiar PMax.</h1>
+    <p class="lead">En los dos meses con detalle por campaña (mayo y agosto 2026) se fueron <b>$717k de $3,03M (24%)</b> en campañas bajo el equilibrio, casi todo en Performance Max. La conversión cuenta con una ventana de 90 días, así que el ROAS que ve Google incluye recompras que trae Klaviyo.</p>
+    <div class="meta">
+      <span>Histórico feb–oct 2026 · detalle por campaña mayo y agosto · Shopify 21/9–20/10</span>
+      <span>Fuentes: reportes Advanz (Dashbo), auditoría API Google Ads 18/08, Shopify, Klaviyo, Notion</span>
+      <span>Relevado el 21/10/2026</span>
+    </div>
+  </div>
+</header>
+
+<nav class="sec" aria-label="Secciones">
+  <div class="wrap">
+    <a href="#panel">Score y bloques</a><a href="#seguimiento">Seguimiento</a><a href="#plata">Pérdidas y ganancias</a><a href="#ticket">CPA por ticket</a><a href="#visual">Resumen visual</a><a href="#tablero">Mapa de calor</a><a href="#faltan">Campañas que faltan</a><a href="#blog">Pago y blog</a><a href="#fuga">Fuga</a><a href="#canales">Search vs PMax</a><a href="#config">Configuración</a><a href="#roto">Roto y sobra</a><a href="#embudo">Clic → compra</a><a href="#clientes">Clientes y listas</a><a href="#category">Category</a><a href="#brand">Brand</a><a href="#pmax">Recursos PMax</a><a href="#avatares">Avatares</a><a href="#copy">Anuncios A→B</a><a href="#videos">Videos</a><a href="#textos">Textos</a><a href="#publicos">Públicos</a><a href="#escalar">Prioridades</a><a href="#equipo">Quién hace qué</a><a href="#bitacora">Bitácora</a>
+  </div>
+</nav>
+
+<main>
+<!-- PANEL -->
+<section id="panel"><div class="wrap">
+  <div class="kicker">Panel</div>
+  <div class="panel">
+    <div class="box score">
+      <div class="eyebrow">Score Google Ads · lo que manda</div>
+      <div class="big"><b class="num">50</b><span>de 100</span> <span class="chip c-warn">VIGILAR</span></div>
+      <div class="gauge-wrap">
+        <span class="gauge-mark" style="left:50%;color:var(--warn)">50 hoy</span>
+        <span class="gauge-mark" style="left:70%;color:var(--good)">70 objetivo</span>
+        <div class="gauge" aria-hidden="true"><i style="width:50%;background:var(--bad-soft)"></i><i style="width:20%;background:var(--warn-soft)"></i><i style="width:30%;background:var(--good-soft)"></i></div>
+        <div class="gauge-scale"><span>0</span><span>50</span><span>70</span><span>100</span></div>
+      </div>
+      <p>Objetivo <b>70</b>. Search Brand está en 98, PMax en 46 y Search Category en 3: la cuenta baja porque el 74% del gasto va a PMax. Con el bloque 1 esperamos <b>≈ 60</b>; con el bloque 2, <b>≈ 65</b>; con los tres bloques, <b>≈ 70</b>.</p>
+      <div class="legend"><span class="chip c-bad">0–49 Mal</span><span class="chip c-warn">50–69 Vigilar</span><span class="chip c-good">70–100 Bien</span></div>
+      <p class="small muted"><b>Cómo leer los colores:</b> verde = dentro del objetivo · ámbar = en el límite · rojo = mal o plata perdida · azul = información.</p>
+    </div>
+    <div class="kpis">
+      <div class="kpi bad"><span class="l">Fuga medida</span><span class="v num">−$717k</span><span class="s">MAL · 24% de lo invertido en mayo + agosto</span></div>
+      <div class="kpi bad"><span class="l">Se pierde por mes hoy</span><span class="v num">−$143k</span><span class="s">MAL · PMax $85k y Category $58k bajo equilibrio (ago)</span></div>
+      <div class="kpi warn"><span class="l">CPA Google · sep 1–28</span><span class="v num">$11.053</span><span class="s">VIGILAR · máximo $10.000 · <b>▲ 11%</b></span></div>
+      <div class="kpi good"><span class="l">ROAS Google · 12–18 oct</span><span class="v num">9,2x</span><span class="s">BIEN · equilibrio 2,5x · Meta 4,6x</span></div>
+      <div class="kpi warn"><span class="l">Carrito → compra PMax</span><span class="v num">30%</span><span class="s">VIGILAR · sano ≥ 35% · búsqueda Google 39%</span></div>
+      <div class="kpi info"><span class="l">Ganancia posible</span><span class="v num">+$1,2M</span><span class="s">POR MES · facturación, bloques 1 a 3</span></div>
+    </div>
+  </div>
+  <p>Bloque en curso: <b id="blockNow">1</b> · <span id="blockNowName">Cortar la fuga y limpiar la medición</span></p>
+
+  <h2>Ranking del canal</h2>
+  <div class="rank" id="rank"></div>
+  <details class="how"><summary>Cómo se calcula el score</summary>
+    <p>50 puntos por costo por compra (≤ $5.000 suma 50; $10.000 suma 25; ≥ $20.000 suma 0), 25 por calidad del carrito (35% o más de carritos que compran suma 25 a escala, 40% el tope) y 25 por escala (la mitad de las compras de Google o más suma 25). Donde no hay dato de carritos, esa parte suma 0. El score de la cuenta pondera cada campaña por su gasto de agosto, el último mes completo con detalle por campaña. Brand saca 98 porque es demanda que ya existe: se defiende, no se escala.</p>
+  </details>
+  <div class="callout bad"><b>⛔ Bloqueante</b> antes del bloque 1: <b>conectar Google Ads</b> a la medición (en esta sesión Supermetrics no conectó y no hay API directa) · <b>confirmar qué cambios del 18/08 quedaron aplicados</b> · Amazing publica <b>Creatina + Electrolitos</b> con stock (hoy en borrador). Sin esto no se puede medir la línea base.</div>
+
+  <h2>Dónde está la palanca</h2>
+  <p class="muted">Cada cambio según cuánto mueve y cuán urgente es. Arriba a la derecha va primero. El número es el bloque al que pertenece.</p>
+  <div class="box chart" id="matrix"><div class="empty">Cargando los cambios desde el tablero compartido…</div></div>
+
+  <h2>Bloques de 3</h2>
+  <p class="muted" style="max-width:75ch">Se trabaja un bloque por vez: 3 cambios, una línea base antes y una medición 7 días después. El resultado dice si mejoró o cayó por ese cambio, y recién ahí se abre el bloque siguiente. Quien tenga acceso de edición carga el estado y el resultado en cada tarjeta.</p>
+  <div class="legend"><span class="chip c-bad">🔥 Urgente</span><span class="chip c-warn">Pronto</span><span class="chip c-good">⚡ Palanca alta</span><span class="chip c-neutral">Palanca media</span><span class="chip c-info">🎯 Intención</span><span class="chip c-neutral">🔧 Arreglo</span><span class="chip c-neutral">📏 Medición</span></div>
+  <p class="note" id="writeNote"></p>
+  <div class="blocks" id="blocks"><div class="empty">Cargando bloques… Si no aparece nada, el tablero compartido no está disponible en esta vista.</div></div>
+</div></section>
+
+<!-- SEGUIMIENTO -->
+<section id="seguimiento"><div class="wrap">
+  <div class="sechead"><h2>Seguimiento de cambios e índice</h2><p>Cada cambio aplicado queda con su línea base (agosto o los 7 días previos), lo que esperamos y el resultado a 7 días. El índice se vuelve a medir cada lunes: puntos llenos = medido, puntos huecos = proyectado.</p></div>
+  <div class="box chart"><h3>Score Google Ads</h3><div id="idxChart"></div><div class="legend small"><span>● Medido</span><span>○ Proyectado</span><span>— Objetivo 70</span></div></div>
+  <h3>Qué esperamos del índice</h3>
+  <div class="tbl"><table><thead><tr><th>Fecha</th><th>Cambio</th><th>Quién</th><th>Estado</th><th>Métrica</th><th>Base</th><th>Esperado</th><th>A 7 días</th><th>Resultado</th></tr></thead><tbody id="trackBody"><tr><td colspan="9" class="muted">Cargando cambios…</td></tr></tbody></table></div>
+</div></section>
+
+<!-- PLATA -->
+<section id="plata"><div class="wrap">
+  <div class="sechead"><h2>Cuánto perdemos y cuánto ganamos</h2><p>Por mes, al ritmo de agosto (último mes con detalle por campaña). Ticket real de cada campaña. Las ventas no captadas usan la mitad de la tasa de compra actual, para no prometer de más.</p></div>
+  <div class="g2">
+    <div class="box" style="display:grid;gap:12px">
+      <h3>Lo que se pierde hoy</h3>
+      <div class="tbl"><table><tbody>
+        <tr><td><b>Plata gastada bajo el equilibrio</b><br><span class="small muted">PMax $85k · Search Category $58k (ROAS 2,3 y 1,5 contra 2,5)</span></td><td class="n h-bad"><b>−$143k</b></td></tr>
+        <tr><td><b>Ventas que no salen por presupuesto</b><br><span class="small muted">≈ 4,5 compras. Brand pierde 13,2% de las impresiones por presupuesto</span></td><td class="n h-bad"><b>−$210k</b></td></tr>
+        <tr><td><b>Ventas que no salen por ranking</b><br><span class="small muted">≈ 5 compras, techo teórico. Category pierde 54% de las impresiones por ranking</span></td><td class="n h-bad"><b>−$177k</b></td></tr>
+      </tbody></table></div>
+    </div>
+    <div class="box" style="display:grid;gap:12px">
+      <h3>Lo que se gana con los cambios</h3>
+      <div class="tbl"><table><tbody>
+        <tr><td><b>Bloque 1 · limpiar PMax y la medición</b><br><span class="small muted">≈ 12 compras más con el mismo gasto (mitad de lo que daría bajar el CPA de $18,6k a $13k)</span></td><td class="n h-good"><b>+$0,4M</b></td></tr>
+        <tr><td><b>Bloque 2 · Brand sin tope, Category v2 y Creatina</b><br><span class="small muted">Brand +$0,21M · Creatina ≈ 17 ventas con $150k ($0,37M) · Category +25% del ranking perdido</span></td><td class="n h-good"><b>+$0,6M</b></td></tr>
+        <tr><td><b>Bloque 3 · carrito → compra PMax de 30% a 35%</b><br><span class="small muted">≈ 8 compras sobre los ≈ 157 carritos por mes, ticket $31,2k</span></td><td class="n h-good"><b>+$0,25M</b></td></tr>
+        <tr><td><b>Total posible por mes</b><br><span class="small muted">Hoy Google reporta ≈ $5,2M al mes (agosto, con ventana de 90 días)</span></td><td class="n"><b>+$1,2M</b></td></tr>
+      </tbody></table></div>
+    </div>
+  </div>
+  <div class="g2">
+    <div class="box"><span class="chip c-bad">🔥 Pérdida por presupuesto</span><h3 style="margin-top:8px">Cómo se recupera</h3>
+      <ul class="list" style="margin-top:8px">
+        <li>Pasar los $143k que hoy quedan bajo el equilibrio a Search Brand: de $8.100 a $10.500 por día.</li>
+        <li>Brand sin tROAS dos semanas; recién después tROAS 600% (bajo su 7,96x real).</li>
+        <li>Geo por fases: hoy solo 5 regiones; fase 1 suma Antofagasta, Coquimbo, Araucanía y Los Lagos.</li>
+        <li>Creatina con presupuesto propio ($12.500 por día): vendió $2,2M en octubre y solo 5 unidades después del Cyber sin pauta.</li>
+      </ul></div>
+    <div class="box"><span class="chip c-warn">⚡ Pérdida por ranking</span><h3 style="margin-top:8px">Cómo se recupera</h3>
+      <ul class="list" style="margin-top:8px">
+        <li>Category en 3 grupos (Categoría, Formato, Sin azúcar), cada uno con su anuncio y su página.</li>
+        <li>Reactivar [electrolitos] exacta y "electrolitos" frase, hoy pausadas; nada nuevo en amplia hasta 30 compras al mes.</li>
+        <li>CTR esperado "inferior a la media" en las 3 palabras principales: títulos con formato y ahorro, no atributos abstractos.</li>
+        <li>Extensiones de imagen en Category (Brand las tiene y Category no), más promoción, precio y fragmentos en todas.</li>
+        <li>Pasar Category de Max. conversiones + tCPA $10.000 a Max. valor + tROAS 300%.</li>
+      </ul></div>
+  </div>
+</div></section>
+
+<!-- TICKET -->
+<section id="ticket"><div class="wrap">
+  <div class="sechead"><h2>CPA bien o mal según el ticket</h2><p>Un CPA no se juzga solo: depende de qué vende la campaña. El tope es el ticket dividido por 2,5 (ROAS de equilibrio con margen de trabajo 54–59%, sin COGS cargado). En eventos con 30–40% off el equilibrio sube a 6.</p></div>
+  <div class="tbl"><table><thead><tr><th>Campaña</th><th class="n">Compras</th><th class="n">Ticket</th><th>Qué vende</th><th class="n">CPA tope</th><th class="n">CPA real</th><th>Veredicto</th></tr></thead><tbody id="ticketCamp"></tbody></table></div>
+  <p class="note">Agosto, compras y valor según Google (ventana de 90 días, valor inflado por recompras). PMax Captación: pedidos con UTM en Shopify, 21/9–20/10; Google no entrega su gasto por campaña en esta sesión.</p>
+  <div class="tbl"><table><thead><tr><th>Producto</th><th class="n">Ticket</th><th class="n">Pedidos 30 d</th><th class="n">CPA tope</th><th>Lectura</th></tr></thead><tbody id="ticketProd"></tbody></table></div>
+  <p class="note">Ticket = venta neta del producto ÷ pedidos que lo incluyen, Shopify 21/9–20/10 (incluye Cyber 2–11 oct).</p>
+</div></section>
+
+<!-- VISUAL -->
+<section id="visual"><div class="wrap">
+  <div class="kicker">Resumen visual</div>
+  <div class="g2">
+    <div class="box split"><h3>PMax se lleva 3 de cada 4 pesos y trae la mitad de las compras</h3><p class="small muted">Agosto 2026, Google Ads.</p>
+      <span class="small">Gasto $1,44M</span>
+      <div class="bar"><i style="width:16%;background:var(--good)">16%</i><i style="width:74%;background:var(--warn)">PMax 74%</i><i style="width:10%;background:var(--bad)">10%</i></div>
+      <span class="small">Compras 118</span>
+      <div class="bar"><i style="width:47%;background:var(--good)">Brand 47%</i><i style="width:48%;background:var(--warn)">48%</i><i style="width:5%;background:var(--bad)"></i></div>
+      <div class="legend small"><span><b style="color:var(--good)">■</b> Search Brand</span><span><b style="color:var(--warn)">■</b> Performance Max</span><span><b style="color:var(--bad)">■</b> Search Category</span></div>
+    </div>
+    <div class="box"><h3>Costo por compra según la campaña</h3><p class="small muted">Agosto. La línea es el CPA máximo de $10.000.</p>
+      <div class="hbar" id="cpaBars" style="margin-top:12px"></div><p class="small muted" style="margin-top:8px">Escala 0 a $25k</p></div>
+    <div class="box"><h3>De cada 100 carritos, cuántos terminan en compra</h3><p class="small muted">Shopify, 21/9–20/10. La línea es el promedio de la tienda: 36.</p>
+      <div class="hbar" id="cartBars" style="margin-top:12px"></div><p class="small muted" style="margin-top:8px">Escala 0 a 60%</p></div>
+    <div class="box"><h3>Inversión Google por mes y costo por venta</h3><p class="small muted">Reportes Advanz. Junio y julio sin detalle en las fuentes. Costo por venta según la matriz de canales.</p>
+      <div class="chart" id="monthChart"></div></div>
+  </div>
+  <div class="box"><h3>Dónde se fueron los $717k de fuga</h3><p class="small muted">Mayo y agosto 2026, gasto por sobre lo que justificaban sus ventas al ROAS de equilibrio 2,5.</p>
+    <div class="hbar" id="leakBars" style="margin-top:12px"></div></div>
+</div></section>
+
+<!-- TABLERO / HEAT -->
+<section id="tablero"><div class="wrap">
+  <div class="sechead"><h2>Mapa de calor por campaña</h2><p>Agosto 2026 contra mayo donde hay dato comparable. Las filas de Shopify miden lo que la campaña trae a la tienda (21/9–20/10). Cada celda se colorea con las reglas de abajo.</p></div>
+  <div class="tbl"><table class="heat"><thead><tr><th>Campaña</th><th class="n">Costo</th><th class="n">CTR</th><th class="n">CPC</th><th class="n">Compras</th><th class="n">CPA</th><th class="n">ROAS</th><th class="n">IS</th><th class="n">Carrito → compra</th></tr></thead><tbody id="heatBody"></tbody></table></div>
+  <div class="legend small"><span class="chip c-good">Sano</span><span class="chip c-warn">Vigilar</span><span class="chip c-bad">Actuar</span><span>▲▼ contra mayo · "nueva" = no existía con ese nombre</span></div>
+  <h2>Rangos sanos y qué hacer</h2>
+  <p class="muted">El sistema para decidir cada lunes. Se mira con 7 días de datos mínimo y gasto de al menos 2 CPA máximos ($20.000) en la campaña.</p>
+  <div class="tbl"><table><thead><tr><th>Métrica</th><th>Sano</th><th>Vigilar</th><th>Actuar</th><th>Si está en rojo, hacer</th></tr></thead><tbody id="rangeBody"></tbody></table></div>
+</div></section>
+
+<!-- FALTAN -->
+<section id="faltan"><div class="wrap">
+  <div class="sechead"><h2>Campañas que faltan</h2><p>Lo que no existe hoy y hace falta para crecer con rentabilidad. Cada una arranca con su presupuesto y su regla de corte. Los textos de Creatina ya están escritos y validados por largo en Notion.</p></div>
+  <div class="tbl"><table><thead><tr><th>Campaña</th><th>Tipo</th><th>Para qué</th><th>Arranca con</th><th class="n">Presupuesto</th><th>Se corta si</th><th>Urgencia</th><th>Estado</th></tr></thead><tbody id="missingBody"></tbody></table></div>
+</div></section>
+
+<!-- BLOG -->
+<section id="blog"><div class="wrap">
+  <div class="sechead"><h2>Qué va pago, qué va al blog</h2><p>Google pago muestra qué busca la gente. Lo que se busca para aprender no compra en el momento: eso va al blog (framework SEO/GEO en Notion) y sale del pago como negativa.</p></div>
+  <div class="funnel">
+    <div class="step"><span class="small muted">1</span><b style="font-size:16px">Search y PMax detectan qué busca la gente</b></div>
+    <div class="step"><span class="small muted">2</span><b style="font-size:16px">Lo informativo va al blog y a NEG_Informacional</b></div>
+    <div class="step"><span class="small muted">3</span><b style="font-size:16px">El blog trae orgánico y alimenta AMAZING10</b></div>
+    <div class="step"><span class="small muted">4</span><b style="font-size:16px">El pago queda solo con intención de compra</b></div>
+  </div>
+  <div class="tbl"><table><thead><tr><th>Búsqueda</th><th>Qué pasa hoy en pago</th><th>Dónde tiene que vivir</th><th>Pieza</th></tr></thead><tbody id="blogBody"></tbody></table></div>
+  <div class="callout warn"><b>Riesgo · claims.</b> La descripción de PMax "Dile adiós al cansancio, la deshidratación y la fatiga" es la más expuesta de la cuenta (43.334 impresiones) y promete un efecto de salud amplio. Google restringe salud y suplementos: sacarla, igual que "La Mejor Bebida Hidratante" (superlativo sin respaldo).</div>
+</div></section>
+
+<!-- FUGA -->
+<section id="fuga"><div class="wrap">
+  <div class="kicker">Diagnóstico</div>
+  <div class="sechead"><h2>Fuga de presupuesto medida</h2><p>Suma del gasto que no se justificó con ventas, sin contar dos veces el mismo peso. Cuando una campaña trajo compras, se descuenta lo que esas compras justificaban al ROAS de equilibrio de 2,5.</p></div>
+  <div class="g2">
+    <div class="box"><div class="num" style="font-family:var(--f-display);font-size:64px;font-weight:800;color:var(--bad);line-height:1">$717k</div>
+      <p style="margin-top:10px"><b>24% de los $3,03M invertidos en Google en mayo (1–25) y agosto.</b> Es un piso: solo cuenta los meses con detalle por campaña y no incluye el costo de pujar con un valor de conversión inflado por la ventana de 90 días.</p></div>
+    <div class="box"><h3>Fuga que no entra en la suma</h3>
+      <ul class="list" style="margin-top:8px">
+        <li><b>Ventana de conversión de 90 días con conteo múltiple.</b> El 86% de las compras cierra en menos de 24 horas, pero un clic de junio se acredita la recompra de agosto que trajo un correo de Klaviyo.</li>
+        <li><b>Brand sin prueba de incrementalidad.</b> Parte de sus 55 compras al mes habría llegado por orgánico.</li>
+        <li><b>Search sin UTMs:</b> Brand y Category llegan a Shopify mezcladas con el orgánico (google/search).</li>
+        <li><b>Una promo vencida quedó 16 días al aire</b> por no usar la extensión de promoción, que caduca sola.</li>
+      </ul></div>
+  </div>
+  <div class="box"><h3>Lo que sí funcionó</h3>
+    <ul class="list" style="margin-top:8px">
+      <li>Search Brand (ago): $233k, 55 compras, CPA $4.236, ROAS 11,0, CTR 24,8%.</li>
+      <li>Cyber 2–8 oct: Google $530k, 106 ventas, $5.000 por venta, ROAS 14,1 (PMax 5,7, bajo el equilibrio de evento de 6).</li>
+      <li>PMax Brand Todos (mayo): ROAS 3,51, la única PMax de marca sana.</li>
+      <li>Descripción "Electrolitos sin azúcar ni colorantes. Compra en pack y ahorra…": 41,4 compras con CTR 6,12%. Títulos "0% Azúcar" (7,5 compras) y "Sin Colorantes Artificiales" (CVR 11,6%).</li>
+    </ul></div>
+</div></section>
+
+<!-- CANALES -->
+<section id="canales"><div class="wrap">
+  <div class="sechead"><h2>Search, PMax y lo que ve Shopify</h2><p>Shopify llama "google/search" a toda visita desde google.com, pague o no. Solo PMax Captación lleva UTM, así que las ventas de Search Brand y Category quedan mezcladas con el orgánico: 250 pedidos y $9,72M en 30 días que no se pueden repartir.</p></div>
+  <div class="g2">
+    <div class="callout good"><span class="chip c-good">LISTO</span> PMax Captación llega a Shopify con utm_source=google, utm_medium=cpc, utm_campaign=AC_Pmax_Captacion: 3.154 sesiones, 157 carritos, 47 compras y 37 clientes nuevos en 30 días.</div>
+    <div class="callout bad"><span class="chip c-bad">FALTA</span> Plantilla de seguimiento a nivel de cuenta para que Search Brand, Category y las de Creatina también se separen en Shopify. Lo carga Matías en Administrador → Configuración de la cuenta → Seguimiento.</div>
+  </div>
+  <div class="code">{lpurl}?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign={campaignid}&amp;utm_content={adgroupid}&amp;utm_term={keyword}&amp;matchtype={matchtype}&amp;network={network}&amp;device={device}</div>
+  <h3>Quién vende, agosto 2026</h3>
+  <div class="g2">
+    <div class="box"><span class="chip c-good">Search</span><h3 style="margin-top:6px">Brand + Category</h3>
+      <div class="g4" style="margin-top:10px"><div><div class="small muted">Costo</div><b class="num">$379k</b></div><div><div class="small muted">Compras</div><b class="num">61</b></div><div><div class="small muted">CPA</div><b class="num">$6,2k</b></div><div><div class="small muted">ROAS</div><b class="num">7,3x</b></div></div>
+      <p class="small muted" style="margin-top:8px">26% del gasto y la mitad de las compras. Casi todo lo pone Brand.</p></div>
+    <div class="box"><span class="chip c-warn">PMax</span><h3 style="margin-top:6px">Performance Max</h3>
+      <div class="g4" style="margin-top:10px"><div><div class="small muted">Costo</div><b class="num">$1,06M</b></div><div><div class="small muted">Compras</div><b class="num">57</b></div><div><div class="small muted">CPA</div><b class="num">$18,6k</b></div><div><div class="small muted">ROAS</div><b class="num">2,3x</b></div></div>
+      <p class="small muted" style="margin-top:8px">74% del gasto y la otra mitad de las compras, bajo el equilibrio de 2,5. En mayo, el 94% del gasto de Google era PMax de marca.</p></div>
+  </div>
+  <h3>Toda la historia por campaña</h3>
+  <p class="note">Valores según Google, con la ventana de 90 días. Sirven para comparar campañas entre sí, no como cifra exacta.</p>
+  <div class="tbl"><table><thead><tr><th>Período</th><th>Campaña</th><th class="n">Costo</th><th class="n">ROAS</th><th class="n">Compras</th><th>Lectura</th></tr></thead><tbody id="histBody"></tbody></table></div>
+</div></section>
+
+<!-- CONFIG -->
+<section id="config"><div class="wrap">
+  <div class="sechead"><h2>Configuración de cada campaña</h2><p>Según la lectura por API del 18/08. Lo que se haya cambiado después hay que confirmarlo en la cuenta antes de abrir el bloque 1.</p></div>
+  <div class="tbl"><table><thead><tr><th>Campaña</th><th>Estado</th><th>Puja</th><th>Objetivo</th><th>Redes</th><th>Geo</th><th>Públicos</th><th>Problema</th></tr></thead><tbody id="cfgBody"></tbody></table></div>
+  <p class="muted" style="max-width:80ch">Ninguna campaña tiene el objetivo de clientes nuevos activo y no hay listas de Customer Match cargadas, así que Google no distingue a quien ya compró. La conversión principal es "Compra (GA4 purchase)" con valor real y sin doble conteo; el problema es la ventana de 90 días.</p>
+  <div class="g4">
+    <div class="kpi"><span class="l">Gasto Google sep 1–28</span><span class="v num">$1,26M</span><span class="s">114 ventas · $11.053 c/u</span></div>
+    <div class="kpi"><span class="l">Cyber 2–9 oct</span><span class="v num">$548k</span><span class="s">73% de $750k asignados</span></div>
+    <div class="kpi"><span class="l">Brand · cuota de impresiones</span><span class="v num">78%</span><span class="s">"electrolitos": 34%</span></div>
+    <div class="kpi"><span class="l">Equilibrio</span><span class="v num">2,5x</span><span class="s">CPA máx $10.000 · evento 6x</span></div>
+  </div>
+  <div class="g3">
+    <div class="callout warn"><h3>La medición infla</h3><p class="small" style="margin-top:4px">Ventana de 90 días y conteo por cada compra: Google se acredita recompras que trae el email. Para decidir, Shopify.</p></div>
+    <div class="callout bad"><h3>Category no despega</h3><p class="small" style="margin-top:4px">33,4% de cuota, 54,1% perdido por ranking, nivel de calidad 4–6 y CTR esperado inferior a la media.</p></div>
+    <div class="callout bad"><h3>Recursos incompletos</h3><p class="small" style="margin-top:4px">Ninguna campaña tiene extensión de promoción, precio ni fragmentos. Category no tiene imágenes.</p></div>
+  </div>
+</div></section>
+
+<!-- ROTO -->
+<section id="roto"><div class="wrap">
+  <div class="sechead"><h2>Lo que está roto o sobra</h2><p>Ordenado por impacto en el crecimiento.</p></div>
+  <div class="tbl"><table><thead><tr><th>#</th><th>Qué</th><th>Dato</th><th>Impacto</th><th>Arreglo</th></tr></thead><tbody id="brokenBody"></tbody></table></div>
+</div></section>
+
+<!-- EMBUDO -->
+<section id="embudo"><div class="wrap">
+  <div class="kicker">Estrategia</div>
+  <div class="sechead"><h2>Clic → carrito → compra → cliente nuevo</h2><p>El orden en que cada campaña se tiene que medir en Shopify. AMAZING10 (10% primera compra) es el código de captación: sin evento activo, suma 10 de 36 órdenes comerciales de la semana 22–28 sep.</p></div>
+  <div class="funnel">
+    <div class="step"><span class="small muted">1 · Sesiones PMax</span><b class="num">3.154</b><span class="small">30 días con UTM</span></div>
+    <div class="step"><span class="small muted">2 · Carritos</span><b class="num">157</b><span class="small">5,0% de las sesiones</span></div>
+    <div class="step"><span class="small muted">3 · Compras</span><b class="num">47</b><span class="small">30% de los carritos</span></div>
+    <div class="step"><span class="small muted">4 · Clientes nuevos</span><b class="num">37</b><span class="small">82% de los pedidos</span></div>
+  </div>
+  <div class="tbl"><table><thead><tr><th>Origen</th><th class="n">Sesiones</th><th class="n">Carritos</th><th class="n">% carrito</th><th class="n">Compras</th><th class="n">Carrito → compra</th><th>Lectura</th></tr></thead><tbody id="funnelBody"></tbody></table></div>
+  <div class="box"><h3>Rangos y reglas</h3>
+    <ul class="list" style="margin-top:8px">
+      <li><b>% de sesiones con carrito:</b> sano ≥ 6% · vigilar 4–6% · actuar &lt; 4%. PMax en 5,0%: imágenes con pack y precio.</li>
+      <li><b>Carrito → compra:</b> sano ≥ 35% · vigilar 28–35% · actuar &lt; 28%. PMax en 30%: revisar envío gratis desde $50.000 y AMAZING10 visible.</li>
+      <li><b>Clientes nuevos en captación:</b> sano ≥ 70%. PMax Captación en 82%: va bien, no hace falta "solo nuevos".</li>
+      <li>Meta "packdeportistas" trajo 7.570 sesiones con 5 carritos y 0 compras: no es Google, pero ensucia el promedio de la tienda.</li>
+    </ul></div>
+</div></section>
+
+<!-- CLIENTES -->
+<section id="clientes"><div class="wrap">
+  <div class="sechead"><h2>Clientes nuevos y recurrentes</h2><p>Octubre al día 20: 398 clientes nuevos y 290 recurrentes (58% / 42%). Recompra a 90 días: 43,7%. LTV estimado $60.251 con ticket neto $33.925.</p></div>
+  <div class="g3">
+    <div class="callout bad"><span class="chip c-bad">Bloqueo</span><h3 style="margin-top:6px">Google no sabe quién es cliente</h3><p class="small" style="margin-top:4px">No hay listas de Customer Match. Los términos de datos del cliente ya están aceptados en la cuenta, así que solo falta subirlas desde Klaviyo.</p></div>
+    <div class="callout good"><span class="chip c-good">Nuevos</span><h3 style="margin-top:6px">Pujar más por quien no compró</h3><p class="small" style="margin-top:4px">Objetivo de clientes nuevos en PMax y Category en "Pujar más", valor extra <b>$25.000</b> (LTV − primera compra, redondeado a la baja). Al activarlo, subir el tROAS en la misma proporción: 180% → 260%.</p></div>
+    <div class="callout info"><span class="chip c-info">Recurrentes</span><h3 style="margin-top:6px">Pujar menos y en el momento justo</h3><p class="small" style="margin-top:4px">Excluir compradores de 180 días de la captación. Nunca "solo clientes nuevos" en Brand: se pierde a quien busca la marca para recomprar.</p></div>
+  </div>
+  <h3>Listas y segmentos de Klaviyo, estandarizados</h3>
+  <p class="muted">Convención: segmentos "S · Etapa · Descripción". Google pide 1.000 miembros activos por lista; con 1.281 pedidos en 90 días, compradores 180 d y 180–365 d califican. Sincronizar con la integración nativa de Klaviyo, no con CSV.</p>
+  <div class="legend small"><span class="chip c-good">Listo</span><span class="chip c-info">Renombrar</span><span class="chip c-warn">Crear</span><span class="chip c-neutral">Archivar / solo email</span></div>
+  <div class="tbl"><table><thead><tr><th>Nombre actual</th><th>Nombre estándar</th><th>Estado</th><th>Uso en Google</th></tr></thead><tbody id="kvBody"></tbody></table></div>
+</div></section>
+
+<!-- CATEGORY -->
+<section id="category"><div class="wrap">
+  <div class="sechead"><h2>Category según cómo compran</h2><p>Pedidos de 30 días: 30 sticks (los 5 sabores) ≈ 564 pedidos y $11,1M; Pack 60 sticks 152 y $5,07M; Súper Pack 150 sticks 76 y $5,93M. Un solo grupo genérico es la causa del CTR esperado bajo: el mismo anuncio responde a "electrolitos", "sin azúcar" y "en sobre".</p></div>
+  <div class="tbl"><table><thead><tr><th>Grupo de anuncios</th><th>Palabras clave</th><th>Página</th><th>Anuncio lidera con</th><th>Puja</th></tr></thead><tbody id="catBody"></tbody></table></div>
+  <p class="muted">Sacar como producto principal de PMax los formatos que no se pagan solos por Google: 12 sticks (ticket ≈ $8.300, tope $3.300) y Energy 10 sticks (≈ $12.500, tope $5.000). Se venden como entrada en Meta, email y retención.</p>
+</div></section>
+
+<!-- BRAND -->
+<section id="brand"><div class="wrap">
+  <div class="sechead"><h2>Brand: cubierta sin quemar plata</h2><p>Brand es la campaña más rentable de la cuenta y está frenada por presupuesto: 81,1% de impresiones ganadas, 13,2% perdidas por presupuesto, 5,7% por ranking y 70,9% en la parte superior absoluta.</p></div>
+  <div class="tbl"><table><thead><tr><th>Búsqueda (sep 1–28)</th><th class="n">Impresiones</th><th class="n">Clics</th><th class="n">CTR</th><th class="n">Ventas</th></tr></thead><tbody id="brandBody"></tbody></table></div>
+  <div class="g2">
+    <div class="box"><h3>Qué es marca de verdad</h3><ul class="list" style="margin-top:8px"><li>"amazing care", "amazingcare", "amazing care chile"</li><li>"amazing care electrolitos", "amazing care fibra", "amazing care creatina", "amazing care energy"</li></ul></div>
+    <div class="box"><h3>Qué no es marca</h3><ul class="list" style="margin-top:8px"><li>"electrolitos", "bebida isotónica", "creatina" → Category</li><li>"amazing care cruz verde", "electrolitos jumbo" → retail (mayorista), negativa en Search</li><li>"gatorade", "extralife" → hoy son temas de búsqueda de PMax: quitarlos</li></ul></div>
+  </div>
+  <h3>Cómo configurarla</h3>
+  <ol class="list">
+    <li>Marca en exacta y frase. Eliminar "Amazing Care" amplia (duplicada) y activar [amazingcare] exacta, hoy pausada.</li>
+    <li>Presupuesto de $8.100 a $10.500 por día, sin tROAS dos semanas; después tROAS 600%.</li>
+    <li>Lista de marcas con Amazing Care y amazingcare, excluida en PMax Captación y en las PMax de Creatina.</li>
+    <li>"amazing care" como negativa de frase en Category (ya está; mantener).</li>
+    <li>Pausar el sitelink "Entrena sin límites" (0 compras) y corregir "Envio Rapido" → "Envío Rápido".</li>
+    <li>Revisar la subasta cada semana. Si alguien puja por la marca, subir el tope.</li>
+    <li>Prueba de incrementalidad cuando la cuenta esté estable: 7 días con Brand pausada, midiendo las ventas totales con marca en Shopify.</li>
+  </ol>
+</div></section>
+
+<!-- PMAX -->
+<section id="pmax"><div class="wrap">
+  <div class="sechead"><h2>Qué le falta a PMax</h2><p>Cada recurso con su urgencia y su estado. Abre cada uno para ver qué hay hoy y qué falta.</p></div>
+  <div style="display:grid;gap:8px" id="pmaxList"></div>
+</div></section>
+
+<!-- AVATARES -->
+<section id="avatares"><div class="wrap">
+  <div class="sechead"><h2>Un grupo de recursos por avatar</h2><p>Avatares tomados de lo que ya convierte en la cuenta y de la estructura de Meta (packdeportistas, profesionales, retención). Títulos de 30 caracteres, tuteo y español de Chile. Revisarlos con Amazing antes de cargar.</p></div>
+  <div class="g4" id="avatarGrid"></div>
+</div></section>
+
+<!-- COPY -->
+<section id="copy"><div class="wrap">
+  <div class="sechead"><h2>Anuncios A → B: promesa más prueba</h2><p>Para CTR alto el título muestra el cambio, de dónde sale la persona a dónde llega, y el segundo título o la descripción pone la prueba (0% azúcar, 6 iones, Creapure® 99,9%). Respetan 30 caracteres en títulos y 90 en descripciones. Matías los aprueba antes de cargarlos.</p></div>
+  <div class="tbl"><table><thead><tr><th>Avatar</th><th>De A</th><th>A B</th><th>Título promesa</th><th>Título prueba</th><th>Descripción</th></tr></thead><tbody id="copyBody"></tbody></table></div>
+  <p class="muted">Regla: cada grupo lleva al menos 3 títulos de promesa A→B, 3 de prueba (0% azúcar, 10 kcal, 6 iones + B6 y B12, Creapure® 99,9%) y 2 de oferta o logística (pack, envío gratis sobre $50.000, same day). Fijar un título de promesa en la posición 1.</p>
+</div></section>
+
+<!-- VIDEOS -->
+<section id="videos"><div class="wrap">
+  <div class="sechead"><h2>Videos para PMax</h2><p>PMax sin video propio genera uno automático de baja calidad. Los mejores videos de Meta del Cyber llevan la oferta por delante: esos se adaptan primero. Cada pieza se exporta en horizontal 16:9, cuadrado 1:1 y vertical 9:16.</p></div>
+  <div class="tbl"><table><thead><tr><th>Pieza</th><th>Origen</th><th>Resultado en Meta</th><th>Uso en PMax</th><th>Decisión</th></tr></thead><tbody id="videoBody"></tbody></table></div>
+</div></section>
+
+<!-- TEXTOS -->
+<section id="textos"><div class="wrap">
+  <div class="sechead"><h2>Textos para cambiar</h2><p>Según el rendimiento por recurso de la auditoría del 18/08 y el criterio de copy de Creatina: sin claims médicos absolutos, sin superlativos sin respaldo, nada que la marca no diga en la PDP.</p></div>
+  <div class="g2">
+    <div class="box"><span class="chip c-bad">Sacar</span><ul class="list" style="margin-top:10px">
+      <li>"Dile adiós al cansancio, la deshidratación y la fatiga" (descripción PMax: 43.334 impresiones, 9 compras)</li>
+      <li>"La Mejor Bebida Hidratante", "Electrolitos Apto Keto", "Más Hidratación" (0 compras)</li>
+      <li>"Disfruta de Bebidas Isotónicas de la Mejor Calidad con Amazing Care" (título largo, 0 compras)</li>
+      <li>Tildes: "Hidratacion Post Entrenamiento", "Manten tu cuerpo hidratado", "0% Azucar", "Envio Rapido"</li>
+      <li>"Envío gratis en RM desde $45.000" si el umbral vigente es $50.000 a todo Chile</li>
+      <li>Creatina: "aumenta tu masa muscular", "la mejor creatina"</li>
+    </ul></div>
+    <div class="box"><span class="chip c-good">Usar</span><ul class="list" style="margin-top:10px">
+      <li>"0% Azúcar", "Sin Colorantes Artificiales", "10 Kcal"</li>
+      <li>"6 Iones + Vitaminas B6 y B12"</li>
+      <li>"Pack 60 Sticks con Ahorro", "menor precio por stick"</li>
+      <li>"Envío Gratis Sobre $50.000", "Same Day antes de las 11 AM" (confirmar cobertura)</li>
+      <li>"Creapure® 99,9% pura", "5 g exactos, sin cuchara", "+10.000 clientes"</li>
+      <li>En la página: "Su uso no es recomendable para menores de 8 años, embarazadas y nodrizas, salvo indicación profesional"</li>
+    </ul></div>
+  </div>
+</div></section>
+
+<!-- PUBLICOS -->
+<section id="publicos"><div class="wrap">
+  <div class="sechead"><h2>Públicos disponibles en Google</h2><p>Lo que hay hoy y lo que se puede crear. En PMax, máximo 5 señales de calidad: la cuenta agrupa audiencias automáticamente y el exceso diluye.</p></div>
+  <div class="tbl"><table><thead><tr><th>Público</th><th>Estado</th><th>Tamaño</th><th>Uso</th></tr></thead><tbody id="audBody"></tbody></table></div>
+</div></section>
+
+<!-- ESCALAR -->
+<section id="escalar"><div class="wrap">
+  <div class="sechead"><h2>Plan por prioridad y efecto en el resto</h2><p>Cada cambio mueve números en otras campañas. Esta tabla dice qué esperar para no leer un efecto normal como un problema.</p></div>
+  <div class="tbl"><table><thead><tr><th>#</th><th>Acción</th><th>Por qué ahora</th><th>Cómo afecta al resto</th><th>Qué mirar</th></tr></thead><tbody id="prioBody"></tbody></table></div>
+  <h3>Reparto de presupuesto sugerido mientras se ordena</h3>
+  <div class="tbl"><table><thead><tr><th>Campaña</th><th class="n">Hoy por día</th><th class="n">Propuesta</th><th>Condición para subir</th></tr></thead><tbody id="budgetBody"></tbody><tfoot><tr><td>Total Google</td><td class="n">≈ $46.800</td><td class="n">$56.000</td><td>≈ +$280k al mes, dentro de la propuesta del 19/10 (+$600k Meta + Google y $150k Creatina)</td></tr></tfoot></table></div>
+</div></section>
+
+<!-- EQUIPO -->
+<section id="equipo"><div class="wrap">
+  <div class="kicker">Trabajo</div>
+  <div class="sechead"><h2>Quién hace qué</h2><p>Tablero compartido: quien tenga acceso de edición cambia el estado y todos ven el cambio al instante. Las tareas de Claude se ejecutan cuando se las pidas en el chat, con aprobación antes de cada cambio en la cuenta.</p></div>
+  <div class="tasks" id="tasks"><div class="empty">Cargando tareas…</div></div>
+</div></section>
+
+<!-- BITACORA -->
+<section id="bitacora"><div class="wrap">
+  <div class="kicker">Registro</div>
+  <div class="sechead"><h2>Bitácora</h2><p>Lo que se hizo, en orden. La fuente de cada entrada queda en Notion (Amazing Care → Growth y Reportes Mensuales).</p></div>
+  <form id="logForm" class="box" style="display:grid;gap:8px" hidden>
+    <label for="logText" class="small muted">Nueva entrada</label>
+    <textarea id="logText" placeholder="Qué se cambió, en qué campaña y con qué número"></textarea>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+      <input type="date" id="logDate" aria-label="Fecha">
+      <select id="logWho" aria-label="Quién"><option>Matías</option><option>Claude</option><option>Amazing</option><option>Patricio</option><option>Juntos</option></select>
+      <button type="submit">Agregar a la bitácora</button><span class="small muted" id="logMsg"></span>
+    </div>
+  </form>
+  <ol class="timeline" id="log"><li class="muted">Cargando bitácora…</li></ol>
+  <h2 style="margin-top:12px">Pendiente de verificar</h2>
+  <ul class="list">
+    <li>Qué cambios de la auditoría del 18/08 se aplicaron (puja de Category, geo, negativas, ventana de conversión, recursos).</li>
+    <li>Si AC_Pmax_Brand sigue activa: aparece 1 pedido con esa UTM en 30 días.</li>
+    <li>Gasto por campaña de septiembre y octubre: los reportes traen el total de Google, no el detalle.</li>
+    <li>Enhanced Conversions for Web activo (Objetivos → Conversiones → Compra → Configuración).</li>
+    <li>"hydration boost" está en la lista NEG_Marcas_Competencia propuesta y también en el empaque de Amazing Care: confirmar antes de cargarla.</li>
+    <li>Umbral de envío gratis ($45.000 en RM en anuncios viejos, $50.000 a todo Chile en la web) y cobertura del same day.</li>
+    <li>COGS por producto: sin eso, el equilibrio de 2,5x es un margen de trabajo de 54–59%.</li>
+    <li>Merchant Center 705911980: los formatos de 30 sticks tienen CTR 0,39–0,58% contra 1,05% de los que venden; revisar competitividad de precio y rechazos.</li>
+    <li>Que la licencia de Creapure® cubra su uso en anuncios.</li>
+  </ul>
+</div></section>
+</main>
+
+<footer><div class="wrap">Relevado el 21 de octubre de 2026. Cifras en pesos chilenos (CLP). Las compras y el ROAS por campaña son los que reporta Google Ads con ventana de 90 días; los pedidos de Shopify vienen de la UTM google/cpc o del referente google/search. Meta convertido a ~$1.000 por dólar en los reportes de origen. Preparado por Advanz · Paid Media.</div></footer>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const rows=(el,arr,fn)=>{const t=$(el); if(t) t.innerHTML=arr.map(fn).join("");};
+const chip=(cls,txt)=>`<span class="chip ${cls}">${esc(txt)}</span>`;
+const verdict={bien:["c-good","Bien"],mal:["c-bad","Mal"],vig:["c-warn","Vigilar"],info:["c-info","Por medir"]};
+
+/* ranking */
+const rank=[
+ {g:"A",c:"good",n:"Search Brand",d:"CPA $4,2k · CTR 24,8% · 78% de cuota · 47% de las compras",s:98,a:"Defender"},
+ {g:"D",c:"bad",n:"Performance Max",d:"CPA $18,6k · ROAS 2,3 · 74% del gasto · carrito → compra 30%",s:46,a:"Limpiar marca"},
+ {g:"F",c:"bad",n:"Search Category",d:"CPA $24,3k · ROAS 1,5 · 34% de cuota, 54% perdido por ranking",s:3,a:"Rehacer"},
+ {g:"—",c:"info",n:"Creatina",d:"86 pedidos en 30 días sin campaña propia · plan listo en Notion",s:"—",a:"Lanzar"},
+ {g:"—",c:"info",n:"Blog y Google orgánico",d:"Búsquedas informativas que hoy se pagan: \"como tomar electrolitos\", \"que es la creatina\"",s:"—",a:"Activar"}
+];
+rows("#rank",rank,r=>`<div class="rank-row"><span class="grade c-${r.c}">${r.g}</span><span class="t"><b>${esc(r.n)}</b><span>${esc(r.d)}</span></span><span class="sc">${r.s}<small>${esc(r.a)}</small></span></div>`);
+
+/* ticket */
+rows("#ticketCamp",[
+ ["Search Brand",55,"$46,6k","Packs y recompra","$18,6k","$4,2k","bien"],
+ ["Performance Max",57,"$42,8k","Packs 60 y 150, 30 sticks","$17,1k","$18,6k","mal"],
+ ["Search Category",6,"$36,5k","30 sticks y packs","$14,6k","$24,3k","mal"],
+ ["PMax Captación (Shopify)",45,"$31,2k","82% clientes nuevos","$12,5k","—","info"]
+],r=>`<tr><td><b>${r[0]}</b></td><td class="n">${r[1]}</td><td class="n">${r[2]}</td><td>${r[3]}</td><td class="n">${r[4]}</td><td class="n">${r[5]}</td><td>${chip(verdict[r[6]][0],verdict[r[6]][1])}</td></tr>`);
+rows("#ticketProd",[
+ ["Súper Pack 5 Sabores · 150 sticks","$78,1k",76,"$31,2k","El ticket que más aguanta: prioridad en Shopping y PMax"],
+ ["Pack Mix 5 Sabores · 60 sticks","$33,4k",152,"$13,4k","El pedido típico de Google; la descripción de packs trae 34 compras"],
+ ["Electrolitos 30 sticks (5 sabores)","$19,8k",564,"$7,9k","Berries lidera con 207 pedidos; rentable solo con CPA bajo $8k"],
+ ["Creatina Creapure® · 30 sticks","$22,1k",86,"$8,8k","Sin campaña propia; Pack x3 sube el ticket"],
+ ["Fibra Prebiótica · 20 sticks","$18,0k",52,"$7,2k","Volumen chico; va dentro de PMax, sin campaña propia"],
+ ["Energy · 10 sticks","$12,5k",70,"$5,0k","No se paga solo por Google: venta cruzada"],
+ ["Electrolitos 12 sticks","$8,3k",180,"$3,3k","Producto de entrada: sacarlo de PMax como principal"]
+],r=>`<tr><td>${r[0]}</td><td class="n">${r[1]}</td><td class="n">${r[2]}</td><td class="n">${r[3]}</td><td>${r[4]}</td></tr>`);
+
+/* bars */
+function hbars(el,data,max,ref,fmt){
+  const t=$(el); if(!t) return;
+  t.innerHTML=data.map(d=>`<div class="row"><span>${esc(d[0])}</span><span class="track"><span class="fill" style="width:${Math.min(100,d[1]/max*100)}%;background:var(--${d[2]})"></span>${ref!=null?`<span class="ref" style="left:${ref/max*100}%"></span>`:""}</span><span class="val">${fmt(d[1])}</span></div>`).join("");
+}
+hbars("#cpaBars",[["Search Brand",4236,"good"],["Performance Max",18596,"bad"],["Search Category",24333,"bad"]],25000,10000,v=>"$"+(v/1000).toFixed(1).replace(".",",")+"k");
+hbars("#cartBars",[["Directo",41.8,"good"],["Email Klaviyo",40,"good"],["Google búsqueda",39.3,"good"],["Meta Cyber regiones",29.1,"warn"],["PMax Captación",29.9,"warn"],["Instagram",24.8,"bad"],["Meta Cyber RM",25.4,"bad"],["Facebook",21.8,"bad"]],60,36,v=>v.toFixed(0)+"%");
+hbars("#leakBars",[["PMax Brand Packs · may",301,"bad"],["PMax Brand Elect · may",177,"bad"],["PMax · ago",85,"bad"],["Category · ago",58,"warn"],["PMax Elect no marca · may",46,"warn"],["PMax Brand Fibra · may",38,"warn"],["Category · may",12,"warn"]],320,null,v=>"$"+v+"k");
+
+/* month chart */
+(function(){
+  const m=[["feb",1317,null],["mar",2057,null],["abr",1888,null],["may*",1593,null],["jun",null,null],["jul",null,null],["ago",1440,12699],["sep*",1260,11053],["oct Cyber",548,5000]];
+  const W=560,H=230,L=46,B=34,T=14,R=10,max=2200; const bw=(W-L-R)/m.length;
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Inversión Google por mes">`;
+  [0,500,1000,1500,2000].forEach(v=>{const y=H-B-(v/max)*(H-B-T);s+=`<line x1="${L}" x2="${W-R}" y1="${y}" y2="${y}" stroke="var(--line)"/><text x="${L-6}" y="${y+4}" text-anchor="end">${v?("$"+(v/1000).toString().replace(".",",")+"M"):"0"}</text>`;});
+  m.forEach((d,i)=>{const x=L+i*bw+bw*.18,w=bw*.64;
+    if(d[1]==null){s+=`<rect x="${x}" y="${H-B-24}" width="${w}" height="24" fill="none" stroke="var(--line)" stroke-dasharray="3 3"/><text x="${x+w/2}" y="${H-B-8}" text-anchor="middle">s/d</text>`;}
+    else{const h=(d[1]/max)*(H-B-T);s+=`<rect x="${x}" y="${H-B-h}" width="${w}" height="${h}" rx="3" fill="var(--accent)" opacity="${d[0].startsWith('oct')?1:.75}"/>`;
+      if(d[2]) s+=`<text class="lbl" x="${x+w/2}" y="${H-B-h-6}" text-anchor="middle">$${(d[2]/1000).toFixed(1).replace(".",",")}k</text>`;}
+    s+=`<text x="${x+w/2}" y="${H-B+16}" text-anchor="middle">${d[0]}</text>`;});
+  s+=`</svg><p class="small muted">Etiqueta = costo por venta. * mayo al 25 y septiembre al 28. Octubre: solo el Cyber (2–9).</p>`;
+  $("#monthChart").innerHTML=s;
+})();
+
+/* heat */
+const H={
+  ctr:v=>v>=6?"good":v>=4?"warn":"bad", ctrP:v=>v>=2?"good":v>=1.2?"warn":"bad",
+  cpa:v=>v<=10000?"good":v<=14000?"warn":"bad", cpaB:v=>v<=5000?"good":v<=8000?"warn":"bad",
+  roas:v=>v>=4?"good":v>=2.5?"warn":"bad", isB:v=>v>=90?"good":v>=75?"warn":"bad", isC:v=>v>=50?"good":v>=35?"warn":"bad",
+  cart:v=>v>=35?"good":v>=28?"warn":"bad"
+};
+const cell=(txt,cls,delta)=>`<td class="h ${cls?("h-"+cls):"h-na"}">${txt}${delta?`<span class="delta">${delta}</span>`:""}</td>`;
+$("#heatBody").innerHTML=[
+ `<tr><td><b>Search Brand</b></td>${cell("$233k","","nueva")}${cell("24,8%",H.ctr(24.8))}${cell("$328","")}${cell("55","")}${cell("$4.236",H.cpaB(4236))}${cell("11,0",H.roas(11))}${cell("78%",H.isB(78))}${cell("—","")}</tr>`,
+ `<tr><td><b>Performance Max</b><br><span class="small muted">may: 5 PMax</span></td>${cell("$1,06M","","may $1,56M ▼")}${cell("1,48%",H.ctrP(1.48))}${cell("$396","")}${cell("57","")}${cell("$18.596",H.cpa(18596))}${cell("2,3",H.roas(2.3),"may 1,93 ▲")}${cell("—","")}${cell("—","")}</tr>`,
+ `<tr><td><b>Search Category</b></td>${cell("$146k","","may $29k ▲")}${cell("4,24%",H.ctr(4.24))}${cell("$622","")}${cell("6","")}${cell("$24.333",H.cpa(24333))}${cell("1,5",H.roas(1.5),"may 1,43 ▲")}${cell("34%",H.isC(34))}${cell("—","")}</tr>`,
+ `<tr><td><b>PMax Captación</b><br><span class="small muted">Shopify 21/9–20/10</span></td>${cell("—","")}${cell("—","")}${cell("—","")}${cell("47","")}${cell("—","")}${cell("—","")}${cell("—","")}${cell("30%",H.cart(29.9))}</tr>`,
+ `<tr><td><b>Google búsqueda</b><br><span class="small muted">pago + orgánico, Shopify</span></td>${cell("—","")}${cell("—","")}${cell("—","")}${cell("256","")}${cell("—","")}${cell("—","")}${cell("—","")}${cell("39%",H.cart(39.3))}</tr>`
+].join("");
+rows("#rangeBody",[
+ ["CPA compra (no marca)","≤ $10.000","$10.000–14.000","> $14.000","Revisar términos, sacar productos de ticket bajo, bajar tROAS de a 10 puntos"],
+ ["CPA Brand","≤ $5.000","$5.000–8.000","> $8.000","Revisar subasta: alguien puja por la marca; subir CPC máx solo si aparece"],
+ ["ROAS día normal","≥ 4","2,5–4","< 2,5","Bajo equilibrio: recortar el tramo o el producto que lo arrastra"],
+ ["ROAS en evento (30–40% off)","≥ 8","6–8","< 6","Mover presupuesto a lo verde; no escalar sin 2 días seguidos sobre 6"],
+ ["CTR Search no marca","≥ 6%","4–6%","< 4%","Un RSA por grupo, títulos con formato y ahorro, fijar promesa en posición 1"],
+ ["CTR PMax","≥ 2%","1,2–2%","< 1,2%","Rotar imágenes cada 6–8 semanas; pack y precio a la vista"],
+ ["Cuota de impresiones Brand","≥ 90%","75–90%","< 75%","Subir presupuesto antes que la puja"],
+ ["Cuota de impresiones Category","≥ 50%","35–50%","< 35%","Relevancia y nivel de calidad, no presupuesto"],
+ ["% sesiones con carrito","≥ 6%","4–6%","< 4%","Revisar página de destino y precio por stick"],
+ ["Carrito → compra","≥ 35%","28–35%","< 28%","Envío, AMAZING10 visible, checkout en mobile"]
+],r=>`<tr><td><b>${r[0]}</b></td><td class="h-good">${r[1]}</td><td class="h-warn">${r[2]}</td><td class="h-bad">${r[3]}</td><td>${r[4]}</td></tr>`);
+
+/* faltan */
+const urg={u:["c-bad","🔥 Urgente"],p:["c-warn","Pronto"],d:["c-neutral","Después"]};
+rows("#missingBody",[
+ ["PMax Creatina","PMax","Escalar Creatina con feed (AG1 Sin Sabor)","AG1 listo; AG2 + Electrolitos pausado hasta tener stock","$7.000/día","ROAS < 2,5 a 14 días","u","Textos listos"],
+ ["Search Creatina Producto","Search","\"creatina en sticks\", \"creapure\" y marca","Grupos Sticks/Sobres y Marca","$3.500/día","CPA > $8.800 a 14 días","u","Textos listos"],
+ ["Search Creatina Category","Search","\"creatina\", \"creatina monohidratada\" contra potes genéricos","13 palabras exacta y frase","$1.000/día","CPA > $12.000","p","Textos listos"],
+ ["Search Category Electrolitos v2","Search","Reemplaza el grupo único actual","3 grupos, 11 palabras nuevas exactas","$8.000/día","CPA > $14.000 dos semanas","p","Por armar"],
+ ["Win-back compradores 180–365 días","Demand Gen","Recompra antes de que se vayan a retail","Lista Customer Match","$2.000/día","ROAS < 3","d","Bloqueada por la lista"]
+],r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td class="n">${r[4]}</td><td>${r[5]}</td><td>${chip(urg[r[6]][0],urg[r[6]][1])}</td><td>${r[7]}</td></tr>`);
+
+/* blog */
+rows("#blogBody",[
+ ["como tomar electrolitos","207 impresiones en PMax sin intención de compra","Blog + NEG_Informacional","Guía \"Cómo y cuándo tomar electrolitos\""],
+ ["para qué sirven los electrolitos, beneficios","Cae en Category amplia","Blog","Artículo con nutricionista, enlace a la colección"],
+ ["mejores electrolitos","2.367 impresiones, 0 compras","Search en frase con tope de CPC + blog","Comparativa \"Cómo elegir electrolitos sin azúcar\""],
+ ["creatina qué es, efectos secundarios, retiene líquido","Negativa en las 3 campañas de Creatina","Blog + FAQ de la PDP","F&Q Creatina (ya existe en Notion)"],
+ ["creatinina, examen, riñón, cpk","Riesgo si \"creatina\" corre en amplia","Negativa","—"],
+ ["agua con electrolitos","473 impresiones; busca agua lista para tomar","Negativa (ya está en Brand)","—"],
+ ["electrolitos jumbo, cruz verde, farmacia","322 impresiones solo \"electrolitos jumbo\"","Retail y mayorista; NEG_Retail_Terceros","Página \"Dónde comprar\""]
+],r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`);
+
+/* hist */
+rows("#histBody",[
+ ["may 1–25","PMax Brand Packs","$521k","1,06","—","Vende lo que gasta: cortar 60%"],
+ ["may 1–25","PMax Brand Todos","$507k","3,51","—","La única PMax de marca sana"],
+ ["may 1–25","PMax Brand Elect","$248k","0,72","—","La peor de la cuenta: pausar"],
+ ["may 1–25","PMax Brand Fibra","$222k","2,08","—","Bajo equilibrio"],
+ ["may 1–25","PMax Electrolitos (no marca)","$65k","0,74","—","Feed y señales sin calibrar"],
+ ["may 1–25","Search Category Elect","$29k","1,43","—","La única prospección; escalar con estructura"],
+ ["ago","Search Brand","$233k","11,0","55","Frenada por presupuesto"],
+ ["ago","Performance Max","$1,06M","2,3","57","74% del gasto"],
+ ["ago","Search Category","$146k","1,5","6","Estrangulada por ranking"],
+ ["sep 1–28","Google total","$1,26M","—","114","$11.053 por venta (matriz)"],
+ ["oct 2–8 (Cyber)","Google total","$530k","14,1","106","$5.000 por venta; PMax 5,7"],
+ ["oct 12–18","Google total","—","9,2","—","Sobre septiembre (8,3)"]
+],r=>`<tr><td class="mono small">${r[0]}</td><td>${r[1]}</td><td class="n">${r[2]}</td><td class="n">${r[3]}</td><td class="n">${r[4]}</td><td>${r[5]}</td></tr>`);
+
+/* config */
+rows("#cfgBody",[
+ ["Search Brand","Activa","Max. valor","Sin tROAS","Búsqueda","5 regiones","Observación","Frenada por presupuesto (13,2%); marca en amplia; 1 grupo y 1 RSA"],
+ ["Search Category","Activa","Max. conversiones","tCPA $10.000","Búsqueda","5 regiones","Observación","6 palabras amplias, exactas pausadas, nivel de calidad 4–6, sin imágenes"],
+ ["PMax Captación","Activa","Max. valor","Sin tROAS","Todas","—","1 señal","Sin exclusión de marca; temas \"gatorade\" y \"extralife\"; sin clientes nuevos"],
+ ["PMax Brand","Por confirmar","—","—","Todas","—","—","1 pedido con su UTM en 30 días; en mayo eran 4 PMax de marca"]
+],r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td><td>${r[5]}</td><td>${r[6]}</td><td>${r[7]}</td></tr>`);
+
+/* roto */
+const sev={a:["c-bad","Alto"],m:["c-warn","Medio"],b:["c-neutral","Bajo"]};
+rows("#brokenBody",[
+ ["PMax sin exclusión de marca","En mayo el 94% del gasto Google fue PMax de marca; en agosto PMax 74% del gasto con ROAS 2,3","a","Lista de marcas excluida + negativas a nivel de cuenta"],
+ ["Ventana de conversión de 90 días","86% de las compras cierra en 24 h; recompra a 90 días 43,7%","a","Bajar a 30 días, mantener conteo por cada compra"],
+ ["Category en amplia y con exactas pausadas","6 palabras amplias; 1 compra con $77k al 18/08","a","3 grupos, exacta y frase, tROAS 300%"],
+ ["Creatina sin pauta propia","$2,2M en octubre; 5 unidades después del Cyber","a","Lanzar las 3 campañas del plan"],
+ ["Search sin UTMs","250 pedidos de google/search sin separar pago de orgánico","m","Plantilla de seguimiento de cuenta"],
+ ["Sin listas negativas compartidas; negativas en exacta","[chispa electrolitos] excluida igual tuvo 74 impresiones; esa búsqueda convirtió 1 vez","m","4 listas en frase; quitar la negativa de chispa"],
+ ["Geo en 5 regiones","Faltan 11 regiones ≈ 30% de la población; los anuncios dicen \"envío a todo Chile\"","m","Abrir por fases y medir CVR por región"],
+ ["Imágenes PMax mal repartidas","2 imágenes con 63% del inventario: 1 compra y $0 de valor","m","Borrar 4, subir 6 con pack y precio"],
+ ["Sin extensiones de promoción, precio y fragmentos","Una promo vencida quedó 16 días al aire","m","Cargarlas en las 3 campañas"],
+ ["Temas de búsqueda de competencia en PMax","gatorade, extralife, suplementos clean label","b","Quitar 3, sumar 6 con volumen propio"]
+],(r,i)=>`<tr><td class="mono">${i+1}</td><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${chip(sev[r[2]][0],sev[r[2]][1])}</td><td>${r[3]}</td></tr>`);
+
+/* funnel */
+rows("#funnelBody",[
+ ["Google búsqueda (pago + orgánico)",5509,651,"11,8%",256,"39%","El tráfico que mejor compra; no se puede separar sin UTM"],
+ ["Google · PMax Captación",3154,157,"5,0%",47,"30%","82% de clientes nuevos; carrito → compra bajo búsqueda"],
+ ["Meta · Cyber regiones",2136,227,"10,6%",66,"29%","Referencia de Meta en evento"],
+ ["Meta · Cyber RM",2203,185,"8,4%",47,"25%","Carrito alto, cierre bajo"],
+ ["Meta · packdeportistas",7570,5,"0,1%",0,"0%","Tráfico sin intención: no compra"],
+ ["Email · pre-cyber",826,65,"7,9%",26,"40%","Base propia, cierra como búsqueda"],
+ ["Sin UTM (directo y otros)",8126,1004,"12,4%",440,"44%","Incluye recompra y marca orgánica"]
+],r=>`<tr><td><b>${r[0]}</b></td><td class="n">${r[1].toLocaleString("es-CL")}</td><td class="n">${r[2].toLocaleString("es-CL")}</td><td class="n">${r[3]}</td><td class="n">${r[4]}</td><td class="n">${r[5]}</td><td>${r[6]}</td></tr>`);
+
+/* klaviyo */
+const kv={ok:["c-good","Listo"],ren:["c-info","Renombrar"],cre:["c-warn","Crear"],arc:["c-neutral","Solo email"]};
+rows("#kvBody",[
+ ["AC | Compradores 90 días","S · Cliente · Compradores 90 d","ren","Excluir de captación mientras se crea la de 180 d"],
+ ["—","S · Cliente · Compradores 180 d","cre","Excluir de captación; define cliente existente para el objetivo de nuevos"],
+ ["—","S · Cliente · Compradores 180–365 d","cre","Win-back en Demand Gen"],
+ ["—","S · VIP · Top 20% por valor de vida","cre","Señal de valor en PMax"],
+ ["—","S · Lead · Suscriptores sin compra","cre","Señal de captación"],
+ ["—","S · Intención · Carrito 30 d","cre","Remarketing PMax y Demand Gen; si no llega a 1.000, fusionar con suscriptores"],
+ ["[Engaged non-openers] … (9 segmentos de campañas)","—","arc","No usar en Google"]
+],r=>`<tr><td>${esc(r[0])}</td><td><b>${esc(r[1])}</b></td><td>${chip(kv[r[2]][0],kv[r[2]][1])}</td><td>${esc(r[3])}</td></tr>`);
+
+/* category */
+rows("#catBody",[
+ ["A · Categoría","[electrolitos] [electrolitos en polvo] [comprar electrolitos] [electrolitos chile] [donde comprar electrolitos]","/collections/electrolitos","Precio y formato","tROAS 300%"],
+ ["B · Formato","[electrolitos en sobre] (3.098 impr.) [electrolitos en sticks] [sachet de hidratación] \"electrolitos individuales\"","Página de packs","Practicidad y ahorro por stick","tROAS 300%"],
+ ["C · Sin azúcar ⭐","[electrolitos sin azúcar] [electrolitos saludables] \"isotónica sin azúcar\" \"polvo isotónico\"","/collections/electrolitos","0% azúcar, 10 kcal, sin colorantes (CTR 10,8% en PMax)","La más alta"],
+ ["D · Comparativa","\"mejores electrolitos\" (2.367 impr.)","Comparativa en blog con acceso a la colección","Cómo elegir: azúcar, iones, precio por stick","Baja, con tope de CPC"]
+],r=>`<tr><td><b>${r[0]}</b></td><td class="mono small">${esc(r[1])}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td></tr>`);
+
+/* brand */
+rows("#brandBody",[
+ ["amazing care",1604,470,"29,3%",47],["amazing care electrolitos",645,133,"20,6%",8],["electrolitos amazing care",396,64,"16,2%",2],
+ ["amazingcare",79,34,"43,0%",4],["amazing care fibra / fibra amazing care",38,5,"13,2%",1],["amazing care cruz verde",16,2,"12,5%","—"],
+ ["electrolitos (genérica, para comparar)",3609,134,"3,7%",5]
+],r=>`<tr><td>${r[0]}</td><td class="n">${r[1].toLocaleString("es-CL")}</td><td class="n">${r[2]}</td><td class="n">${r[3]}</td><td class="n">${r[4]}</td></tr>`);
+
+/* pmax */
+const st={ok:["c-good","Listo"],fix:["c-bad","Arreglar"],add:["c-warn","Falta"],chk:["c-info","Verificar"]};
+const pm=[
+ ["Exclusión de marca","u","add","No existe lista de marcas. PMax cosecha \"amazing care\" a precio de captación.","Lista de marcas con Amazing Care y amazingcare, excluida en todas las PMax."],
+ ["Descripciones","u","fix","\"Dile adiós al cansancio…\" se lleva 43.334 impresiones y trae 9 compras.","Borrarla. Subexpuestas con CTR 10–13%: \"Sin azúcar, sin colorantes, con vitaminas y minerales\", \"Mejora tu rendimiento y bienestar diario\", \"Hidratación inteligente con nuestros electrolitos naturales\"."],
+ ["Imágenes","u","fix","\"Imagen de sitio web mejorado\" (26.816 impr., 0 compras) y \"31_2026-02-08\" (14.534, 1 compra con $0). La mejor (10,5 compras) recibe 3.557.","Borrar 4. Subir 6 nuevas, 2 por formato (1:1, 1.91:1, 4:5): producto + pack + precio o ahorro legible."],
+ ["Títulos largos","p","fix","4 títulos con 0 compras; el peor: \"Disfruta de Bebidas Isotónicas de la Mejor Calidad\".","Formato + ahorro + diferencial: \"Pack 60 sticks: 0% azúcar, 10 Kcal y el menor precio por stick\"."],
+ ["Temas de búsqueda","p","fix","12 temas; 3 son marcas ajenas o jerga.","Quitar gatorade, extralife, suplementos clean label. Sumar electrolitos en sobre, mejores electrolitos, sachet de hidratación, polvo isotónico, electrolitos chile, electrolitos saludables."],
+ ["Señales de audiencia","p","add","1 señal.","Hasta 5: compradores (Customer Match), visitantes 30 d sin compra, visitantes 90 d, in-market nutrición deportiva, afinidad vida saludable."],
+ ["Videos","p","add","Sin video propio verificado.","3 videos ganadores de Meta adaptados a 16:9, 1:1 y 9:16; para Creatina, vertical de 15 s (abrir stick → shaker)."],
+ ["Feed Merchant Center","p","chk","Formatos de 30 sticks con CTR 0,39–0,58% contra 1,05% de los que venden.","Revisar el informe de competitividad de precios y rechazos en 705911980. Etiqueta \"Creatina\" para su PMax."],
+ ["Objetivo de clientes nuevos","d","add","Apagado.","Después de Customer Match y la ventana de 30 días: \"Pujar más\", $25.000, tROAS 180% → 260%."],
+ ["Sitelinks, promoción y precio","p","add","Sin promoción, precio ni fragmentos.","Promoción con fecha de término, precio por pack, fragmento \"Sabores: Berries, Limonada, Naranja, Piña, Maracuyá\"."]
+];
+const ur={u:"🔥 Urgente",p:"Pronto",d:"Después"}, urc={u:"c-bad",p:"c-warn",d:"c-neutral"};
+rows("#pmaxList",pm,r=>`<details class="toggle"><summary>${esc(r[0])} ${chip(urc[r[1]],ur[r[1]])} ${chip(st[r[2]][0],st[r[2]][1])}</summary><div class="body"><p><b>Hoy:</b> ${esc(r[3])}</p><p><b>Falta:</b> ${esc(r[4])}</p></div></details>`);
+
+/* avatars */
+rows("#avatarGrid",[
+ ["Validado · prioridad","c-good","Quien cuida lo que toma","Busca hidratarse sin azúcar ni colorantes","0% azúcar, 10 kcal, sin colorantes.","electrolitos sin azúcar, hidratación sin azúcar, bebida de electrolitos sin azúcar, electrolitos saludables"],
+ ["Validado","c-good","Deportista que entrena","Gym, running, trail, outdoor","Repón lo que sudas en un stick.","electrolitos para entrenar, hidratación deportiva, electrolitos con magnesio, isotónica en polvo"],
+ ["Validado","c-good","Quien compra por volumen","Ya probó y quiere pagar menos por stick","El menor precio por stick.","packs electrolitos, electrolitos en sobre, sachet de hidratación, pack 60 sticks"],
+ ["En prueba","c-warn","Creatina sin cuchara","Entrena fuerza y quiere dosis exacta","5 g de Creapure® en cada stick.","creatina en sticks, creatina creapure, creatina para mujeres, creatina monodosis"]
+],r=>`<div class="box avatar"><span>${chip(r[1],r[0])}</span><h3>${r[2]}</h3><p class="small muted">${r[3]}</p><div class="small muted">Ángulo</div><p class="ang">${r[4]}</p><div class="small muted">Temas de búsqueda</div><p class="small">${r[5]}</p></div>`);
+
+/* copy */
+rows("#copyBody",[
+ ["Quien cuida lo que toma","Las isotónicas traen azúcar","Hidratación con 10 kcal","Hidratación Sin Azúcar","Sin Colorantes Artificiales","Electrolitos 0% azúcar y sin colorantes, en 5 sabores. Compra en pack y ahorra por stick."],
+ ["Deportista que entrena","Terminas el entreno vacío","Repones 6 minerales","Repón lo que Sudas al Entrenar","6 Iones + Vitaminas B6 y B12","Electrolitos en sticks con 6 iones, vitaminas B6 y B12 y 0% azúcar. Mézclalo y entrena."],
+ ["Quien compra por volumen","Pagas de más por stick","El menor precio por stick","Pack 60 Sticks con Ahorro","+10.000 Clientes nos Eligen","Pack 60 y 150 sticks: menor precio por stick, 5 sabores y envío gratis sobre $50.000."],
+ ["Creatina sin cuchara","Medir creatina con cuchara","5 g exactos en cada stick","5 g Exactos, Sin Cuchara","Pureza Alemana del 99,9%","Creatina Creapure® en sticks de 5 g. Sin medir ni cucharas: abre, mezcla y listo."]
+],r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td><td>${esc(r[3])} <span class="mono small muted">${r[3].length}/30</span></td><td>${esc(r[4])} <span class="mono small muted">${r[4].length}/30</span></td><td>${esc(r[5])} <span class="mono small muted">${r[5].length}/90</span></td></tr>`);
+
+/* videos */
+rows("#videoBody",[
+ ["AC-VID-0049 · @PaulaCamus","UGC","40 compras, ROAS 5,4 (Cyber)","Grupo Deportista y Packs","Adaptar a 16:9 y 1:1"],
+ ["AC-VID-0045 · @DiegoBustos","UGC","20 compras, ROAS 6,8","Grupo Deportista","Adaptar"],
+ ["AC-VID-0047 · @JosefaVallejo","UGC","18 compras, ROAS 6,4","Grupo Sin azúcar","Adaptar"],
+ ["Video \"Últimas horas\" (oferta)","Propio","21 compras, ROAS 13,0 (agosto)","Solo en eventos, con fecha","Versión sin fecha para Always On"],
+ ["Creatina · abrir stick → shaker 15 s","Por producir","—","PMax Creatina AG1","Brief a Amazing"],
+ ["Video Cyber Creatina","UGC","6 compras, ROAS 1,4","—","No usar: revisar el mensaje"],
+ ["AC-VID-0051 · @Ivania","UGC","2 compras, ROAS 1,1","—","No usar"]
+],r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td></tr>`);
+
+/* audiences */
+rows("#audBody",[
+ ["Compradores 90 días (Klaviyo)","Existe en Klaviyo, no en Google","—","Customer Match: exclusión provisoria"],
+ ["Compradores 180 días","Por crear","≈ 2.000–2.500 (est.)","Excluir de captación; base del objetivo de nuevos"],
+ ["Compradores 180–365 días","Por crear","≈ 1.000–1.500 (est.)","Win-back en Demand Gen"],
+ ["Top 20% por valor de vida","Por crear","≈ 500–800 (est.)","Señal de valor en PMax"],
+ ["Compradores de electrolitos","Por crear","—","Señal para Creatina + Electrolitos (venta cruzada)"],
+ ["Visitantes 30 días sin compra","Verificar etiqueta","—","Señal PMax"],
+ ["In-market nutrición deportiva","Disponible en Google","—","Completar señales, no como base"]
+],r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`);
+
+/* priorities */
+rows("#prioBody",[
+ ["Excluir marca en PMax","74% del gasto con CPA $18,6k","Brand recibe esas búsquedas: su gasto y sus compras suben; PMax reporta menos","Compras totales de Google, no por campaña"],
+ ["Ventana de 90 a 30 días","El ROAS reportado incluye recompras de email","Todas las campañas reportan menos valor: no es una caída real","Shopify contra Google, semana a semana"],
+ ["Brand a $10.500 por día","13,2% de cuota perdida por presupuesto","Más clics de marca; el CPA de Brand puede subir un poco","Cuota ≥ 90% con CPA ≤ $5.000"],
+ ["Lanzar Creatina","Vendió $2,2M en octubre sin pauta propia","Puede tomar ventas de la creatina en Meta","CPA ≤ $8.800 y ventas totales de Creatina"],
+ ["Category v2","34% de cuota, CPA $24,3k","Dos semanas de aprendizaje con CPA alto","CPA ≤ $14.000 en la semana 2"],
+ ["Customer Match + clientes nuevos","Google no sabe quién es cliente","El ROAS reportado sube por el valor de $25.000: subir el tROAS igual","CAC de clientes nuevos en Shopify"],
+ ["Geo fase 1","≈ 30% de la población fuera","El CVR de regiones puede caer por costo de envío","CVR por región; si cae más de 40% contra RM, es envío y no demanda"]
+],(r,i)=>`<tr><td class="mono">${i+1}</td><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`);
+rows("#budgetBody",[
+ ["Search Brand","$8.100","$10.500","Cuota < 90% con CPA ≤ $5.000"],
+ ["PMax Captación","≈ $34.000","$26.000","ROAS ≥ 3 con la marca excluida"],
+ ["Search Category Electrolitos","≈ $4.700","$8.000","CPA ≤ $12.000 dos semanas seguidas"],
+ ["PMax Creatina","—","$7.000","ROAS ≥ 2,5 a 14 días"],
+ ["Search Creatina (Producto + Marca + Category)","—","$4.500","CPA ≤ $8.800"],
+ ["Demand Gen win-back","—","$0 → $2.000","Lista 180–365 días con 1.000 activos"]
+],r=>`<tr><td>${r[0]}</td><td class="n">${r[1]}</td><td class="n">${r[2]}</td><td>${r[3]}</td></tr>`);
+
+/* ---------- shared board (db) ---------- */
+const TAGS={urgente:["c-bad","🔥 Urgente"],pronto:["c-warn","Pronto"],"palanca-alta":["c-good","⚡ Palanca alta"],"palanca-media":["c-neutral","Palanca media"],intencion:["c-info","🎯 Intención"],arreglo:["c-neutral","🔧 Arreglo"],medicion:["c-neutral","📏 Medición"]};
+const EST={pendiente:["c-neutral","Pendiente"],aplicado:["c-warn","Aplicado · midiendo"],medido:["c-good","Medido"]};
+const RES={"":["c-neutral","—"],mejoro:["c-good","Mejoró"],igual:["c-warn","Igual"],cayo:["c-bad","Cayó"]};
+const BLOCKNAMES={1:"Cortar la fuga y limpiar la medición",2:"Pasar ese dinero a lo que vende",3:"Que Google sepa quién es cliente"};
+let db=null, canWrite=true, cards=[], tasks=[], logs=[], idx=[];
+
+function renderMatrix(){
+  const el=$("#matrix"); if(!cards.length){el.innerHTML='<div class="empty">Todavía no hay cambios cargados en el tablero.</div>';return;}
+  const W=640,H=330,L=40,B=36,T=12,R=12, cw=(W-L-R), ch=(H-B-T);
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Matriz de impacto y urgencia">`;
+  s+=`<rect x="${L+cw/2}" y="${T}" width="${cw/2}" height="${ch/2}" fill="var(--good-soft)"/>`;
+  s+=`<rect x="${L}" y="${T}" width="${cw}" height="${ch}" fill="none" stroke="var(--line)"/><line x1="${L+cw/2}" x2="${L+cw/2}" y1="${T}" y2="${T+ch}" stroke="var(--line)"/><line x1="${L}" x2="${L+cw}" y1="${T+ch/2}" y2="${T+ch/2}" stroke="var(--line)"/>`;
+  s+=`<text class="lbl" x="${L+8}" y="${T+18}">Planificar</text><text class="lbl" x="${L+cw-8}" y="${T+18}" text-anchor="end">Hacer ya</text><text class="lbl" x="${L+8}" y="${T+ch-8}">Después</text><text class="lbl" x="${L+cw-8}" y="${T+ch-8}" text-anchor="end">Rápido y chico</text>`;
+  s+=`<text x="${L+cw/2}" y="${H-8}" text-anchor="middle">Urgencia →</text><text x="14" y="${T+ch/2}" text-anchor="middle" transform="rotate(-90 14 ${T+ch/2})">Impacto en compras y costo →</text>`;
+  const seen={};
+  cards.forEach(c=>{const u=+c.urgencia||1, im=+c.impacto||1; const k=u+"_"+im; const off=(seen[k]=(seen[k]||0)+1)-1;
+    const x=L+((u-.5)/5)*cw+off*16, y=T+ch-((im-.5)/5)*ch; const col=c.bloque==1?"var(--bad)":c.bloque==2?"var(--warn)":"var(--info)";
+    s+=`<g><title>${esc(c.titulo)}</title><circle cx="${x}" cy="${y}" r="11" fill="${col}" opacity="${c.estado==='medido'?.45:1}"/><text x="${x}" y="${y+4}" text-anchor="middle" style="fill:var(--surface);font-weight:700">${esc(c.bloque)}</text></g>`;});
+  s+=`</svg><div class="legend small"><span><b style="color:var(--bad)">●</b> Bloque 1</span><span><b style="color:var(--warn)">●</b> Bloque 2</span><span><b style="color:var(--info)">●</b> Bloque 3</span><span>Pasa el cursor para ver el cambio</span></div>`;
+  el.innerHTML=s;
+}
+function currentBlock(){ for(const b of [1,2,3]){const cs=cards.filter(c=>+c.bloque===b); if(!cs.length) continue; if(cs.some(c=>c.estado!=="medido")) return b;} return 3; }
+function renderBlocks(){
+  const el=$("#blocks"); if(!cards.length){el.innerHTML='<div class="empty">El tablero está vacío. Los cambios se cargan desde el chat con Claude.</div>';return;}
+  const cur=currentBlock(); $("#blockNow").textContent=cur; $("#blockNowName").textContent=BLOCKNAMES[cur]||"";
+  el.innerHTML=[1,2,3].map(b=>{const cs=cards.filter(c=>+c.bloque===b).sort((a,z)=>(a.orden||0)-(z.orden||0)); if(!cs.length) return "";
+    const done=cs.filter(c=>c.estado==="medido").length; const locked=b>cur;
+    return `<div class="block"><div class="block-head"><h3>Bloque ${b} · ${esc(BLOCKNAMES[b])}</h3><span class="chip ${b<cur?'c-good':b===cur?'c-warn':'c-neutral'}">${b<cur?'Cerrado':b===cur?'En curso':'Se abre al medir el anterior'}</span><span class="small muted">${done}/${cs.length} medidos</span></div>
+    <div class="cards">${cs.map(c=>cardHTML(c,locked)).join("")}</div></div>`;}).join("");
+}
+function cardHTML(c,locked){
+  const tags=(c.tags||[]).map(t=>TAGS[t]?chip(TAGS[t][0],TAGS[t][1]):"").join("");
+  const dis=(!canWrite||!db)?"disabled":"";
+  return `<article class="card${locked?' locked':''}" data-id="${esc(c._id)}">
+    <div class="tags"><span class="who">${esc(c.quien)}</span>${tags}</div>
+    <h3>${esc(c.titulo)}</h3><p class="small muted">${esc(c.detalle)}</p>
+    <dl><dt>Métrica</dt><dd>${esc(c.metrica)}</dd><dt>Base</dt><dd>${esc(c.base)}</dd><dt>Esperado</dt><dd>${esc(c.esperado)}</dd><dt>A 7 días</dt><dd>${esc(c.a7||"—")}</dd></dl>
+    <div class="ctrl">
+      <select data-f="estado" aria-label="Estado" ${dis}>${Object.keys(EST).map(k=>`<option value="${k}" ${c.estado===k?'selected':''}>${EST[k][1]}</option>`).join("")}</select>
+      <select data-f="resultado" aria-label="Resultado" ${dis}>${Object.keys(RES).map(k=>`<option value="${k}" ${(c.resultado||"")===k?'selected':''}>${k?RES[k][1]:'Resultado…'}</option>`).join("")}</select>
+      <input type="text" data-f="a7" placeholder="Dato a 7 días" value="${esc(c.a7||"")}" aria-label="Dato a 7 días" ${dis}>
+    </div></article>`;
+}
+function renderTrack(){
+  const tb=$("#trackBody"); const list=cards.slice().sort((a,z)=>(a.bloque-z.bloque)||((a.orden||0)-(z.orden||0)));
+  if(!list.length){tb.innerHTML='<tr><td colspan="9" class="muted">Sin cambios cargados todavía.</td></tr>';return;}
+  tb.innerHTML=list.map(c=>`<tr><td class="mono small">${esc(c.fecha||"—")}</td><td><b>${esc(c.titulo)}</b></td><td>${esc(c.quien)}</td><td>${chip(EST[c.estado]?.[0]||"c-neutral",EST[c.estado]?.[1]||c.estado)}</td><td>${esc(c.metrica)}</td><td class="small">${esc(c.base)}</td><td class="small">${esc(c.esperado)}</td><td class="small">${esc(c.a7||"—")}</td><td>${chip(RES[c.resultado||""][0],RES[c.resultado||""][1])}</td></tr>`).join("");
+}
+function renderIdx(){
+  const meas=idx.slice().sort((a,b)=>String(a.fecha).localeCompare(String(b.fecha)));
+  const proj=[["2026-11-04",60,"Bloque 1"],["2026-11-18",65,"Bloque 2"],["2026-12-02",70,"Bloque 3"]];
+  const pts=[...meas.map(m=>[m.fecha,+m.score,m.nota||"Medido",true]),...proj.map(p=>[p[0],p[1],p[2],false])];
+  const W=640,H=220,L=36,B=30,T=12,R=16; const d0=new Date("2026-08-15"),d1=new Date("2026-12-15");
+  const X=d=>L+(new Date(d)-d0)/(d1-d0)*(W-L-R), Y=v=>T+(1-v/100)*(H-B-T);
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Evolución del score">`;
+  [0,25,50,70,100].forEach(v=>{s+=`<line x1="${L}" x2="${W-R}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)" ${v===70?'stroke-dasharray="5 4" style="stroke:var(--good)"':''}/><text x="${L-6}" y="${Y(v)+4}" text-anchor="end">${v}</text>`;});
+  ["2026-09-01","2026-10-01","2026-11-01","2026-12-01"].forEach(m=>{s+=`<text x="${X(m)}" y="${H-8}" text-anchor="middle">${["sep","oct","nov","dic"][["2026-09-01","2026-10-01","2026-11-01","2026-12-01"].indexOf(m)]}</text>`;});
+  if(pts.length>1) s+=`<polyline fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4 4" points="${pts.map(p=>X(p[0])+","+Y(p[1])).join(" ")}"/>`;
+  if(meas.length>1) s+=`<polyline fill="none" stroke="var(--accent)" stroke-width="2.5" points="${meas.map(m=>X(m.fecha)+","+Y(+m.score)).join(" ")}"/>`;
+  pts.forEach(p=>{s+=`<g><title>${esc(p[2])}: ${p[1]}</title><circle cx="${X(p[0])}" cy="${Y(p[1])}" r="5.5" fill="${p[3]?'var(--accent)':'var(--surface)'}" stroke="var(--accent)" stroke-width="2"/><text x="${X(p[0])}" y="${Y(p[1])-10}" text-anchor="middle" class="lbl">${p[1]}</text></g>`;});
+  s+=`</svg>`; if(!meas.length) s+=`<p class="small muted">Sin mediciones cargadas todavía; se muestran solo las proyecciones.</p>`;
+  $("#idxChart").innerHTML=s;
+}
+function renderTasks(){
+  const el=$("#tasks"); if(!tasks.length){el.innerHTML='<div class="empty">Sin tareas cargadas. Se agregan desde el chat con Claude.</div>';return;}
+  const people=["Matías","Claude","Amazing","Juntos"]; const dis=(!canWrite||!db)?"disabled":"";
+  el.innerHTML=people.map(p=>{const ts=tasks.filter(t=>t.quien===p).sort((a,z)=>(a.estado==="listo")-(z.estado==="listo")||(a.orden||0)-(z.orden||0));
+    return `<div class="col"><h3>${p} <span class="small muted">${ts.filter(t=>t.estado!=="listo").length} abiertas</span></h3>${ts.map(t=>`<div class="task ${t.estado==='listo'?'done':''}" data-tid="${esc(t._id)}"><span class="tt">${esc(t.titulo)}</span><div class="row"><span class="small muted">${t.bloque?('Bloque '+esc(t.bloque)):'General'}</span><select data-tf="estado" aria-label="Estado de la tarea" ${dis}><option value="pendiente" ${t.estado==='pendiente'?'selected':''}>Pendiente</option><option value="en-curso" ${t.estado==='en-curso'?'selected':''}>En curso</option><option value="listo" ${t.estado==='listo'?'selected':''}>Listo</option></select></div></div>`).join("")||'<div class="empty small">Nada asignado</div>'}</div>`;}).join("");
+}
+function renderLog(){
+  const el=$("#log"); const l=logs.slice().sort((a,b)=>String(b.fecha).localeCompare(String(a.fecha)));
+  if(!l.length){el.innerHTML='<li class="muted">La bitácora está vacía.</li>';return;}
+  el.innerHTML=l.map(e=>`<li><div class="d">${esc(e.fecha)} · ${esc(e.quien)}</div><div>${esc(e.texto)}</div></li>`).join("");
+}
+function renderAll(){renderMatrix();renderBlocks();renderTrack();renderTasks();}
+
+async function save(ref,data){
+  try{await ref.update(data);}catch(e){ if(e&&e.code==="invalid_argument"){canWrite=false;$("#writeNote").textContent="Tu acceso es de lectura: los cambios no se guardan.";renderAll();} else {$("#writeNote").textContent="No se pudo guardar. Prueba de nuevo en unos segundos.";} }
+}
+document.addEventListener("change",e=>{
+  const t=e.target; if(!db) return;
+  const card=t.closest("[data-id]"); if(card&&t.dataset.f){const data={[t.dataset.f]:t.value}; if(t.dataset.f==="estado"&&t.value==="aplicado"){const c=cards.find(c=>c._id===card.dataset.id); if(c&&!c.fecha) data.fecha=new Date().toISOString().slice(0,10);} save(db.collection("cards").doc(card.dataset.id),data); return;}
+  const task=t.closest("[data-tid]"); if(task&&t.dataset.tf){save(db.collection("tareas").doc(task.dataset.tid),{estado:t.value});}
+});
+$("#logForm").addEventListener("submit",async e=>{
+  e.preventDefault(); if(!db) return; const txt=$("#logText").value.trim(); if(!txt){$("#logMsg").textContent="Escribe qué se hizo.";return;}
+  const btn=e.target.querySelector("button"); btn.disabled=true;
+  try{await db.collection("bitacora").add({fecha:$("#logDate").value||new Date().toISOString().slice(0,10),quien:$("#logWho").value,texto:txt}); $("#logText").value=""; $("#logMsg").textContent="Agregada.";}
+  catch(err){$("#logMsg").textContent=err&&err.code==="invalid_argument"?"Tu acceso es de lectura.":"No se pudo guardar.";}
+  btn.disabled=false;
+});
+
+renderIdx();
+(async()=>{
+  if(!window.claude||!window.claude.use){ $("#blocks").innerHTML='<div class="empty">El tablero compartido solo funciona dentro de claude.ai.</div>'; return; }
+  db=await window.claude.use("db");
+  if(!db){ ["#blocks","#tasks"].forEach(s=>$(s).innerHTML='<div class="empty">El tablero compartido no está disponible en esta vista (inicia sesión para verlo).</div>'); $("#log").innerHTML='<li class="muted">No disponible en esta vista.</li>'; $("#trackBody").innerHTML='<tr><td colspan="9" class="muted">No disponible en esta vista.</td></tr>'; $("#matrix").innerHTML='<div class="empty">No disponible en esta vista.</div>'; return; }
+  const user=await window.claude.use("user");
+  const cw=user?await user.can("data.write"):null; canWrite=cw!==false;
+  if(!canWrite) $("#writeNote").textContent="Tu acceso es de lectura: ves el tablero, pero no puedes cambiar estados.";
+  else { $("#logForm").hidden=false; try{$("#logDate").value=new Date().toISOString().slice(0,10);}catch(_){} }
+  const err=()=>{};
+  db.collection("cards").onSnapshot(s=>{cards=s.docs.map(d=>Object.assign({_id:d.id},d.data()));renderAll();},err);
+  db.collection("tareas").onSnapshot(s=>{tasks=s.docs.map(d=>Object.assign({_id:d.id},d.data()));renderTasks();},err);
+  db.collection("bitacora").onSnapshot(s=>{logs=s.docs.map(d=>Object.assign({_id:d.id},d.data()));renderLog();},err);
+  db.collection("indice").onSnapshot(s=>{idx=s.docs.map(d=>d.data());renderIdx();},err);
+})();
+})();
+</script>

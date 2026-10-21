@@ -4,18 +4,90 @@
   "grupo": "amazingcare",
   "area": "geo-seo",
   "marca": "AmazingCare",
-  "actualizado": "2026-10-19",
+  "actualizado": "2026-10-21",
   "fuente": "os",
-  "artifact_url": "https://claude.ai/artifact/BJq7vAVShgbSBKiVoucpot",
+  "artifact_url": "https://claude.ai/artifact/CzrFV5p38h6jZwyctchVmM",
   "kpis": [
-    {"id": "gsc_impresiones", "nombre": "Impresiones orgánicas (12 meses)", "valor": 299351, "unidad": "impresiones", "periodo": "2025-07-01/2026-09-10", "meta": null, "estado": "ok", "fuente": "Search_Console"},
-    {"id": "gsc_clics", "nombre": "Clics orgánicos (12 meses)", "valor": 5837, "unidad": "clics", "periodo": "2025-07-01/2026-09-10", "meta": null, "estado": "ok", "fuente": "Search_Console"},
-    {"id": "gsc_posicion", "nombre": "Posición media", "valor": 6.0, "unidad": "posición", "periodo": "2025-07-01/2026-09-10", "meta": null, "estado": "warn", "fuente": "Search_Console"},
-    {"id": "ctr_electrolitos", "nombre": "CTR 'electrolitos' (69,7K impresiones)", "valor": 0.49, "unidad": "%", "periodo": "2025-07-01/2026-09-10", "meta": null, "estado": "bad", "fuente": "Search_Console"},
-    {"id": "sesiones_organicas", "nombre": "Sesiones orgánicas (agosto)", "valor": 1875, "unidad": "sesiones", "periodo": "2026-08-01/2026-08-31", "meta": null, "estado": "ok", "fuente": "Shopify"},
-    {"id": "sesiones_ia", "nombre": "Sesiones desde IA (ChatGPT + Gemini)", "valor": 80, "unidad": "sesiones", "periodo": "2026-06-01/2026-09-14", "meta": null, "estado": "ok", "fuente": "GA4"},
-    {"id": "compras_ia", "nombre": "Compras desde ChatGPT", "valor": 3, "unidad": "órdenes", "periodo": "2026-06-01/2026-09-14", "meta": null, "estado": "ok", "fuente": "GA4"},
-    {"id": "gsc_octubre", "nombre": "Search Console de septiembre y octubre completos", "valor": null, "unidad": "clics", "periodo": "2026-09-11/2026-10-19", "meta": null, "estado": "sin-dato", "fuente": "Search_Console"}
+    {
+      "id": "gsc_impresiones",
+      "nombre": "Impresiones orgánicas (12 meses)",
+      "valor": 299351,
+      "unidad": "impresiones",
+      "periodo": "2025-07-01/2026-09-10",
+      "meta": null,
+      "estado": "ok",
+      "fuente": "Search_Console"
+    },
+    {
+      "id": "gsc_clics",
+      "nombre": "Clics orgánicos (12 meses)",
+      "valor": 5837,
+      "unidad": "clics",
+      "periodo": "2025-07-01/2026-09-10",
+      "meta": null,
+      "estado": "ok",
+      "fuente": "Search_Console"
+    },
+    {
+      "id": "gsc_posicion",
+      "nombre": "Posición media",
+      "valor": 6.0,
+      "unidad": "posición",
+      "periodo": "2025-07-01/2026-09-10",
+      "meta": null,
+      "estado": "warn",
+      "fuente": "Search_Console"
+    },
+    {
+      "id": "ctr_electrolitos",
+      "nombre": "CTR 'electrolitos' (69,7K impresiones)",
+      "valor": 0.49,
+      "unidad": "%",
+      "periodo": "2025-07-01/2026-09-10",
+      "meta": null,
+      "estado": "bad",
+      "fuente": "Search_Console"
+    },
+    {
+      "id": "sesiones_organicas",
+      "nombre": "Sesiones orgánicas (agosto)",
+      "valor": 1875,
+      "unidad": "sesiones",
+      "periodo": "2026-08-01/2026-08-31",
+      "meta": null,
+      "estado": "ok",
+      "fuente": "Shopify"
+    },
+    {
+      "id": "sesiones_ia",
+      "nombre": "Sesiones desde IA (ChatGPT + Gemini)",
+      "valor": 80,
+      "unidad": "sesiones",
+      "periodo": "2026-06-01/2026-09-14",
+      "meta": null,
+      "estado": "ok",
+      "fuente": "GA4"
+    },
+    {
+      "id": "compras_ia",
+      "nombre": "Compras desde ChatGPT",
+      "valor": 3,
+      "unidad": "órdenes",
+      "periodo": "2026-06-01/2026-09-14",
+      "meta": null,
+      "estado": "ok",
+      "fuente": "GA4"
+    },
+    {
+      "id": "gsc_octubre",
+      "nombre": "Search Console de septiembre y octubre completos",
+      "valor": null,
+      "unidad": "clics",
+      "periodo": "2026-09-11/2026-10-19",
+      "meta": null,
+      "estado": "sin-dato",
+      "fuente": "Search_Console"
+    }
   ],
   "fugas": [
     {
@@ -30,7 +102,14 @@
       "estado": "abierta",
       "depende_de": [],
       "afecta_os": [],
-      "accion": {"descripcion": "Empujar la PDP o la colección de electrolitos a top 3 (enlaces internos desde el blog, contenido de la colección y snippet). No se cambian los titles de los artículos", "os_ejecutor": "geo-seo", "via": "mcp", "conector": "Shopify", "requiere_ok": true, "acceso": "ok"}
+      "accion": {
+        "descripcion": "Empujar la PDP o la colección de electrolitos a top 3 (enlaces internos desde el blog, contenido de la colección y snippet). No se cambian los titles de los artículos",
+        "os_ejecutor": "geo-seo",
+        "via": "mcp",
+        "conector": "Shopify",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
     },
     {
       "id": "amazingcare.geo-seo.F02",
@@ -43,8 +122,17 @@
       "evidencia": "GSC 11-sep. Shopify 19-oct: 'creatina-y-electrolitos-hidratacion' figura con autor 'Amazing Care'",
       "estado": "en-curso",
       "depende_de": [],
-      "afecta_os": ["cro"],
-      "accion": {"descripcion": "Ocultarlo y relanzarlo en la misma URL, con texto de Nta. Antonia Quezada y enlace a la PDP de Creatina", "os_ejecutor": "geo-seo", "via": "mcp", "conector": "Shopify", "requiere_ok": true, "acceso": "ok"}
+      "afecta_os": [
+        "cro"
+      ],
+      "accion": {
+        "descripcion": "Ocultarlo y relanzarlo en la misma URL, con texto de Nta. Antonia Quezada y enlace a la PDP de Creatina",
+        "os_ejecutor": "geo-seo",
+        "via": "mcp",
+        "conector": "Shopify",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
     },
     {
       "id": "amazingcare.geo-seo.F03",
@@ -57,8 +145,17 @@
       "evidencia": "GSC (tipo de búsqueda Merchant) y Shopify: 13 sesiones product_sync en agosto",
       "estado": "abierta",
       "depende_de": [],
-      "afecta_os": ["ads"],
-      "accion": {"descripcion": "Cotizar y optimizar el feed (títulos, GTIN, atributos) para ganar free listings", "os_ejecutor": "geo-seo", "via": "mcp", "conector": "Shopify", "requiere_ok": true, "acceso": "ok"}
+      "afecta_os": [
+        "ads"
+      ],
+      "accion": {
+        "descripcion": "Cotizar y optimizar el feed (títulos, GTIN, atributos) para ganar free listings",
+        "os_ejecutor": "geo-seo",
+        "via": "mcp",
+        "conector": "Shopify",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
     },
     {
       "id": "amazingcare.geo-seo.F04",
@@ -70,9 +167,20 @@
       "impacto_nota": "ChatGPT ya trae compras y aterriza en las PDP y en la página de ciencia",
       "evidencia": "Análisis del canal IA del 14-sep",
       "estado": "abierta",
-      "depende_de": ["amazingcare.cro.F04"],
-      "afecta_os": ["cro"],
-      "accion": {"descripcion": "Schema AggregateRating y Review en las PDP (junto con CRO), llms.txt, ficha en Wikidata y refuerzo de la página de ciencia y certificaciones", "os_ejecutor": "geo-seo", "via": "mcp", "conector": "Shopify", "requiere_ok": true, "acceso": "ok"}
+      "depende_de": [
+        "amazingcare.cro.F04"
+      ],
+      "afecta_os": [
+        "cro"
+      ],
+      "accion": {
+        "descripcion": "Schema AggregateRating y Review en las PDP (junto con CRO), llms.txt, ficha en Wikidata y refuerzo de la página de ciencia y certificaciones",
+        "os_ejecutor": "geo-seo",
+        "via": "mcp",
+        "conector": "Shopify",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
     },
     {
       "id": "amazingcare.geo-seo.F05",
@@ -86,7 +194,14 @@
       "estado": "abierta",
       "depende_de": [],
       "afecta_os": [],
-      "accion": {"descripcion": "Enriquecer el contenido (FAQ, schema y enlaces internos) sin cambiar los titles", "os_ejecutor": "geo-seo", "via": "mcp", "conector": "Shopify", "requiere_ok": true, "acceso": "ok"}
+      "accion": {
+        "descripcion": "Enriquecer el contenido (FAQ, schema y enlaces internos) sin cambiar los titles",
+        "os_ejecutor": "geo-seo",
+        "via": "mcp",
+        "conector": "Shopify",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
     },
     {
       "id": "amazingcare.geo-seo.F06",
@@ -100,7 +215,14 @@
       "estado": "en-curso",
       "depende_de": [],
       "afecta_os": [],
-      "accion": {"descripcion": "Ocultar el de POTS con redirect 301 a 'electrolitos-disautonomia' y pasar a Shopify las versiones corregidas en Notion", "os_ejecutor": "geo-seo", "via": "mcp", "conector": "Shopify", "requiere_ok": true, "acceso": "ok"}
+      "accion": {
+        "descripcion": "Ocultar el de POTS con redirect 301 a 'electrolitos-disautonomia' y pasar a Shopify las versiones corregidas en Notion",
+        "os_ejecutor": "geo-seo",
+        "via": "mcp",
+        "conector": "Shopify",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
     },
     {
       "id": "amazingcare.geo-seo.F07",
@@ -110,11 +232,20 @@
       "severidad": 3,
       "impacto_clp_mes": null,
       "impacto_nota": "No hay reportes de septiembre ni de octubre y el efecto del Cyber en orgánico no se ve",
-      "evidencia": "Sin conector de Search Console. Ahrefs (Insufficient plan) y Semrush (sin unidades de API) probados el 19-oct",
+      "evidencia": "Sin conector de Search Console; último export del 11-sep. Disponible por navegador/Cowork o export CSV (stack 19-oct)",
       "estado": "abierta",
       "depende_de": [],
-      "afecta_os": ["growth"],
-      "accion": {"descripcion": "Cargar los secrets de GSC en el command center de Cloudflare o subir un export CSV mensual", "os_ejecutor": "geo-seo", "via": "manual", "conector": "Search_Console", "requiere_ok": false, "acceso": "sin-conector"}
+      "afecta_os": [
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Exportar Search Console (Páginas y Consultas, sep–oct) por navegador/Cowork y pasarlo por gsc_cubos.py; a futuro, cargar los secrets de GSC en el command center de Cloudflare",
+        "os_ejecutor": "geo-seo",
+        "via": "manual",
+        "conector": "Search_Console",
+        "requiere_ok": false,
+        "acceso": "sin-conector"
+      }
     },
     {
       "id": "amazingcare.geo-seo.F08",
@@ -128,16 +259,51 @@
       "estado": "abierta",
       "depende_de": [],
       "afecta_os": [],
-      "accion": {"descripcion": "Auditar 10 prompts de compra en ChatGPT (navegador con sesión iniciada) y crear el segmento 'Canal IA' en GA4", "os_ejecutor": "geo-seo", "via": "cowork", "conector": "Ahrefs", "requiere_ok": false, "acceso": "sin-plan"}
+      "accion": {
+        "descripcion": "Auditar 10 prompts de compra en ChatGPT/Perplexity (manual, navegador con sesión) mientras se define la herramienta GEO, y crear el segmento 'Canal IA' en GA4",
+        "os_ejecutor": "geo-seo",
+        "via": "cowork",
+        "conector": "Herramienta GEO",
+        "requiere_ok": false,
+        "acceso": "sin-conector"
+      }
     }
   ],
   "accesos": [
-    {"conector": "Shopify", "estado": "ok", "nota": "amazingcare.cl, probado el 19-oct"},
-    {"conector": "Google_Drive", "estado": "ok", "nota": "Lectura probada el 19-oct"},
-    {"conector": "Notion", "estado": "sin-probar", "nota": "Otra sesión de este OS lo leyó el 19-oct"},
-    {"conector": "Ahrefs", "estado": "sin-plan", "nota": "Responde 'Insufficient plan' (19-oct)"},
-    {"conector": "Semrush", "estado": "sin-plan", "nota": "Suscripción activa, sin unidades de API (19-oct)"},
-    {"conector": "Search_Console", "estado": "sin-conector", "nota": "Solo export manual; los secrets del command center están pendientes"},
-    {"conector": "GA4", "estado": "sin-conector", "nota": "Necesario para el canal IA"}
+    {
+      "conector": "Shopify",
+      "estado": "ok",
+      "nota": "amazingcare.cl, probado el 19-oct"
+    },
+    {
+      "conector": "Google_Drive",
+      "estado": "ok",
+      "nota": "Lectura probada el 19-oct"
+    },
+    {
+      "conector": "Notion",
+      "estado": "sin-probar",
+      "nota": "Otra sesión de este OS lo leyó el 19-oct"
+    },
+    {
+      "conector": "Search_Console",
+      "estado": "sin-probar",
+      "nota": "Por navegador/Cowork o export CSV de Rendimiento; secrets del command center pendientes"
+    },
+    {
+      "conector": "GA4",
+      "estado": "sin-conector",
+      "nota": "Necesario para el canal IA"
+    },
+    {
+      "conector": "Google_Ads",
+      "estado": "sin-probar",
+      "nota": "Planificador de palabras clave por navegador/Cowork"
+    },
+    {
+      "conector": "Herramienta GEO",
+      "estado": "sin-conector",
+      "nota": "Por definir; mientras tanto, 10 prompts manuales a la semana"
+    }
   ]
 }

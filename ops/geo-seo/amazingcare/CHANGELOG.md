@@ -4,8 +4,15 @@ Cambios aplicados en plataformas (lo más reciente arriba).
 
 | Fecha | Cambio | Por qué | Cómo revertir |
 |---|---|---|---|
+| 2026-10-20 | POTS y disautonomía (`pots-disautonomia-mareos-fatiga-desmayos`, Article/617683517736) oculto + redirección 301 → `/blogs/noticias/electrolitos-disautonomia` (UrlRedirect/611860381992) | Pedido de Antonia Quezada: no lo escribió ni lo aprobó (OK del usuario 20-oct) | `isPublished:true` y borrar la redirección |
+| 2026-10-20 | Creatina y electrolitos (`creatina-y-electrolitos-hidratacion`, Article/617683616040) oculto + redirección 301 → `/blogs/noticias/creatina-beneficios-como-tomarla` (UrlRedirect/611860414760) | Se relanza con texto de Antonia (OK del usuario 20-oct) | `isPublished:true` y borrar la redirección. Al relanzar en la misma URL, borrar antes la redirección |
+| 2026-10-20 | Cyber: fecha de `suplementos-en-cyber-como-comparar` 28-sep → 10-sep 12:00 UTC y de `mejores-electrolitos-chile` 28-sep → 10-sep 11:00 UTC | Que bajen en el listado y queden después de Fiestas Patrias (OK del usuario 20-oct) | Volver la fecha a 2026-09-28 |
+| 2026-10-20 | Alergias (Article/617683583272): cuerpo reemplazado por la versión de Notion corregida por Antonia; autora "Antonia Quezada Zavala"; se mantiene BLOG10 | Correcciones de Antonia (OK del usuario 20-oct) | Cuerpo anterior solo en el transcript de la sesión del 19–20 oct (no hay copia en el repo) |
+| 2026-10-20 | Viajes (Article/617683550504): cuerpo reemplazado por la versión de Notion de Antonia; se quitó "alcohol" (2 menciones); se mantiene AMAZING10 | Correcciones de Antonia + decisión interna del 28-sep (OK del usuario 20-oct) | Igual que Alergias |
+| 2026-10-20 | Nuevo: Electrolitos y quimioterapia (`electrolitos-quimioterapia-hidratacion`, Article/635071791400) publicado 14:16 UTC, autora Antonia, con title y meta SEO, sin cupón | Blog pedido por Antonia (OK del usuario 20-oct) | `isPublished:false` |
+| 2026-10-20 | Comentarios HTML invisibles `<!-- FOTO n ... insertar aquí -->` en Alergias, Viajes y Quimio | Marcar dónde cargar a mano cada foto | Borrar los comentarios del cuerpo |
 
-## 2026-10-20 · Blogs pedidos por Antonia Quezada (OK del usuario el 20-oct)
+## Detalle de los cambios del 2026-10-20 (blogs pedidos por Antonia Quezada, OK del usuario el 20-oct)
 Todo en Shopify (Blog Amazing). En Notion no se tocó nada.
 - **POTS y disautonomía** (`pots-disautonomia-mareos-fatiga-desmayos`, Article/617683517736): oculto, porque Antonia no lo escribió ni lo aprobó. Redirección 301 → `/blogs/noticias/electrolitos-disautonomia` (UrlRedirect/611860381992). *Revertir:* `isPublished:true` y borrar la redirección.
 - **Creatina y electrolitos** (`creatina-y-electrolitos-hidratacion`, Article/617683616040): oculto hasta que se relance con texto de Antonia. Redirección 301 → `/blogs/noticias/creatina-beneficios-como-tomarla` (UrlRedirect/611860414760). *Revertir:* igual que el anterior. Al relanzar en la misma URL, borrar antes la redirección.

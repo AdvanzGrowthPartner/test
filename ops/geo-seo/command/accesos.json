@@ -49,26 +49,26 @@
  },
  {
   "marca": "AmazingCare",
-  "conector": "Ahrefs",
-  "estado": "sin-plan",
-  "nota": "Responde 'Insufficient plan' (19-oct)"
- },
- {
-  "marca": "AmazingCare",
-  "conector": "Semrush",
-  "estado": "sin-plan",
-  "nota": "Suscripción activa, sin unidades de API (19-oct)"
- },
- {
-  "marca": "AmazingCare",
   "conector": "Search_Console",
-  "estado": "sin-conector",
-  "nota": "Solo export manual; los secrets del command center están pendientes"
+  "estado": "sin-probar",
+  "nota": "Por navegador/Cowork o export CSV de Rendimiento; secrets del command center pendientes"
  },
  {
   "marca": "AmazingCare",
   "conector": "GA4",
   "estado": "sin-conector",
   "nota": "Necesario para el canal IA"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Google_Ads",
+  "estado": "sin-probar",
+  "nota": "Planificador de palabras clave por navegador/Cowork"
+ },
+ {
+  "marca": "AmazingCare",
+  "conector": "Herramienta GEO",
+  "estado": "sin-conector",
+  "nota": "Por definir; mientras tanto, 10 prompts manuales a la semana"
  }
 ]

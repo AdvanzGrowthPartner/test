@@ -102,9 +102,9 @@
   "severidad": 3,
   "estado": "abierta",
   "punto_funnel": "medicion",
-  "evidencia": "Sin conector de Search Console. Ahrefs (Insufficient plan) y Semrush (sin unidades de API) probados el 19-oct",
+  "evidencia": "Sin conector de Search Console; último export del 11-sep. Disponible por navegador/Cowork o export CSV (stack 19-oct)",
   "impacto": "No hay reportes de septiembre ni de octubre y el efecto del Cyber en orgánico no se ve",
-  "accion": "Cargar los secrets de GSC en el command center de Cloudflare o subir un export CSV mensual",
+  "accion": "Exportar Search Console (Páginas y Consultas, sep–oct) por navegador/Cowork y pasarlo por gsc_cubos.py; a futuro, cargar los secrets de GSC en el command center de Cloudflare",
   "ejecuta": "geo-seo",
   "via": "manual",
   "conector": "Search_Console",
@@ -168,11 +168,11 @@
   "punto_funnel": "medicion",
   "evidencia": "GEO Scoreboard propuesto el 14-sep, sin ejecutar",
   "impacto": "El canal IA crece (may 14 → sep 24 sesiones en 14 días) sin medir su share of voice",
-  "accion": "Auditar 10 prompts de compra en ChatGPT (navegador con sesión iniciada) y crear el segmento 'Canal IA' en GA4",
+  "accion": "Auditar 10 prompts de compra en ChatGPT/Perplexity (manual, navegador con sesión) mientras se define la herramienta GEO, y crear el segmento 'Canal IA' en GA4",
   "ejecuta": "geo-seo",
   "via": "cowork",
-  "conector": "Ahrefs",
+  "conector": "Herramienta GEO",
   "requiere_ok": false,
-  "acceso": "sin-plan"
+  "acceso": "sin-conector"
  }
 ]

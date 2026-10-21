@@ -9,7 +9,7 @@
   "meta": null,
   "estado": "sin-dato",
   "fuente": "Search_Console",
-  "actualizado": "2026-10-19",
+  "actualizado": "2026-10-21",
   "origen": "os"
  },
  {
@@ -22,7 +22,7 @@
   "meta": null,
   "estado": "sin-dato",
   "fuente": "Search_Console",
-  "actualizado": "2026-10-19",
+  "actualizado": "2026-10-21",
   "origen": "os"
  },
  {
@@ -35,7 +35,7 @@
   "meta": null,
   "estado": "sin-dato",
   "fuente": "manual",
-  "actualizado": "2026-10-19",
+  "actualizado": "2026-10-21",
   "origen": "os"
  },
  {
@@ -48,7 +48,7 @@
   "meta": 0,
   "estado": "sin-dato",
   "fuente": "GHL",
-  "actualizado": "2026-10-19",
+  "actualizado": "2026-10-21",
   "origen": "os"
  },
  {
@@ -61,7 +61,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Search_Console",
-  "actualizado": "2026-10-19",
+  "actualizado": "2026-10-21",
   "origen": "os"
  },
  {
@@ -74,7 +74,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Search_Console",
-  "actualizado": "2026-10-19",
+  "actualizado": "2026-10-21",
   "origen": "os"
  },
  {
@@ -87,7 +87,7 @@
   "meta": null,
   "estado": "warn",
   "fuente": "Search_Console",
-  "actualizado": "2026-10-19",
+  "actualizado": "2026-10-21",
   "origen": "os"
  },
  {
@@ -100,7 +100,7 @@
   "meta": null,
   "estado": "bad",
   "fuente": "Search_Console",
-  "actualizado": "2026-10-19",
+  "actualizado": "2026-10-21",
   "origen": "os"
  },
  {
@@ -113,7 +113,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Shopify",
-  "actualizado": "2026-10-19",
+  "actualizado": "2026-10-21",
   "origen": "os"
  },
  {
@@ -126,7 +126,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "GA4",
-  "actualizado": "2026-10-19",
+  "actualizado": "2026-10-21",
   "origen": "os"
  },
  {
@@ -139,7 +139,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "GA4",
-  "actualizado": "2026-10-19",
+  "actualizado": "2026-10-21",
   "origen": "os"
  },
  {
@@ -152,7 +152,7 @@
   "meta": null,
   "estado": "sin-dato",
   "fuente": "Search_Console",
-  "actualizado": "2026-10-19",
+  "actualizado": "2026-10-21",
   "origen": "os"
  }
 ]

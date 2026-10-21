@@ -1,7 +1,8 @@
 # AmazingCare · OS GEO-SEO (SEO, GEO/IA, blog, Search Console, Merchant)
 
 ## Estado actual
-- **Artifact del OS (19-oct):** https://claude.ai/artifact/BJq7vAVShgbSBKiVoucpot (Dashboard sobre `os-data.json`, contrato 1.0 de Growth). Tiene 8 fugas (F01–F08), 8 KPIs y 7 accesos. Se actualiza en cada cierre junto con este archivo.
+- **Command del área (21-oct):** [GEO/SEO OS · Command](https://claude.ai/artifact/CzrFV5p38h6jZwyctchVmM) con las dos marcas, sobre los datasets de `ops/geo-seo/command/`. El dashboard viejo "AmazingCare · OS GEO/SEO" (BJq7vAVShgbSBKiVoucpot) queda congelado.
+- **21-oct:** los cambios de blogs del 20-oct quedaron como filas de la tabla del CHANGELOG. Ahrefs y Semrush salieron de `os-data.json` (stack del 19-oct); F07 y F08 usan Search Console por navegador y la herramienta GEO.
 - **Accesos probados el 19-oct (solo lectura):** Shopify ✅ · Google Drive ✅ · Ahrefs ❌ "Insufficient plan" · Semrush ❌ sin unidades de API · Search Console, GA4 y Merchant sin conector.
 **Último dato leído: Search Console del 1-jul-2025 al 10-sep-2026 (export del 11-sep) y GA4 de jun–sep 2026.**
 - **SEO total (GSC, ~12 meses):** 299.351 impresiones (+87% contra enero), 5.837 clics, posición media 6,0.

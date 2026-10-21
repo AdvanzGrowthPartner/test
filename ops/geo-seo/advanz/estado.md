@@ -1,6 +1,6 @@
 # Advanz · OS GEO/SEO · Estado
 
-> SEO, GEO y blog **propios** de advanz.cl. Actualizado: 2026-10-19.
+> SEO, GEO y blog **propios** de advanz.cl. Actualizado: 2026-10-21.
 
 ## Estado actual
 - 🔴 **Detenido como motor de leads** (no como activo). Es correcto para el largo plazo, pero no sirve para la necesidad de caja actual: la autoridad no se construye en semanas.
@@ -18,7 +18,7 @@
   - Pricing del retainer en `contexto-marca.md`.
 
 ## Artifact del OS
-- Dashboard "Advanz · OS GEO/SEO": https://claude.ai/artifact/BWRXxdf18LTzm3iBu5SUwS. Se dibuja desde `os-data.json` (contrato del Command Center). Actualizar ambos en cada cierre.
+- **Command del área (21-oct):** [GEO/SEO OS · Command](https://claude.ai/artifact/CzrFV5p38h6jZwyctchVmM), con las dos marcas, sobre los datasets de `ops/geo-seo/command/`. El dashboard viejo "Advanz · OS GEO/SEO" (BWRXxdf18LTzm3iBu5SUwS) queda congelado.
 - Accesos probados el 19-oct: Ahrefs sin plan ("Insufficient plan"), Semrush sin unidades de API, Drive y Notion OK, Shopify conectado a amazingcare.cl (no aplica a Advanz).
 
 ## Decisiones tomadas

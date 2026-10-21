@@ -37,5 +37,5 @@ ops/
 
 ## Nombres y grupos
 - **Grupo = marca** (`Advanz`, `AmazingCare`). En la app los grupos se arman a mano con **Projects**; ver `ops/SESIONES.md`.
-- **Nombre de la sesión = área + OS**: `Email OS`, `Ads OS`, `CRO OS`, `Growth OS`, `Creative OS` y `GEO/SEO OS`.
+- **Nombre de la sesión = prefijo de marca + área + OS**: `AVZ - Ads OS` (Advanz) o `AC - Ads OS` (AmazingCare). Una sesión puntual: `AC - Ads — Black Friday`.
 - **Command = `<Área> OS · <Marca>`**, para distinguirlos en la galería de artifacts.

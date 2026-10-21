@@ -36,7 +36,7 @@ Detalle en CHANGELOG. POTS y Creatina-electrolitos quedaron ocultos y con redire
 - [ ] Notion no se actualizó (por instrucción): "Publicado en Shopify" e "ID Shopify" del de quimio siguen vacíos.
 
 ## Reporte SEO y Blog oct-26 (21-oct)
-- Doc: https://claude.ai/artifact/SzgcEW48SPQNV4ci7ffta1. Incluye crecimiento, Search Console (export 11-sep), blog, 7 palancas para escalar y qué valida la nutricionista y qué el founder.
+- Página: https://claude.ai/artifact/FA4yYDZxaGjfa5Xgs81jwY (fuente: `reportes/2026-10-reporte-seo-blog.html`). La versión en Docs (SzgcEW48SPQNV4ci7ffta1) quedó descartada. Incluye crecimiento, Search Console (export 11-sep), blog, 7 palancas para escalar y qué valida la nutricionista y qué el founder.
 - [ ] Pendiente: Planificador de palabras clave de Google Ads y proyecciones, más Search Console de octubre. Hay que sacarlos del navegador del usuario o de una sesión de Claude en su computador.
 
 ## Lectura orgánico 20-oct (Shopify, búsqueda sin utm = orgánico)

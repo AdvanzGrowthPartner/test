@@ -1,0 +1,242 @@
+<title>Amazing Care · SEO y Blog oct-26</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: informe de una columna, cifras clave arriba, tablas de trabajo debajo, colores de marca Amazing */
+:root{
+  --bg:#F4FBFE; --panel:#FFFFFF; --ink:#020C56; --text:#1C2A5E; --muted:#5B6890; --line:#D6EAF3;
+  --brand:#00C3F0; --brand-soft:#E3F7FD; --ok:#0E8A5F; --ok-bg:#E2F5EC; --warn:#A86200; --warn-bg:#FDF2DE; --bad:#C2185B; --bad-bg:#FDE7EF;
+  --f-display:"Jost","Century Gothic","Futura",system-ui,sans-serif; --f-body:"Jost",system-ui,-apple-system,"Segoe UI",sans-serif; --f-data:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#060B2E; --panel:#0D1545; --ink:#EAF6FF; --text:#C9D6F2; --muted:#8C9AC4; --line:#1E2A66;
+  --brand:#33D1F5; --brand-soft:#0F2A55; --ok:#4FD3A0; --ok-bg:#0E2F2A; --warn:#F2B45A; --warn-bg:#33270E; --bad:#FF6FA3; --bad-bg:#3A1229; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#060B2E; --panel:#0D1545; --ink:#EAF6FF; --text:#C9D6F2; --muted:#8C9AC4; --line:#1E2A66;
+  --brand:#33D1F5; --brand-soft:#0F2A55; --ok:#4FD3A0; --ok-bg:#0E2F2A; --warn:#F2B45A; --warn-bg:#33270E; --bad:#FF6FA3; --bad-bg:#3A1229; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:980px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:40px 72px;display:flex;flex-direction:column;gap:44px}
+header{display:flex;flex-direction:column;gap:12px;border-bottom:3px solid var(--brand);padding-bottom:28px}
+.eyebrow{font-family:var(--f-data);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--f-display);font-weight:700;color:var(--ink);font-size:clamp(28px,5vw,42px);line-height:1.1;margin:0;text-wrap:balance}
+.lede{font-size:clamp(17px,2.2vw,20px);color:var(--ink);max-width:62ch;margin:0}
+h2{font-family:var(--f-display);font-weight:600;color:var(--ink);font-size:24px;margin:0;text-wrap:balance}
+section{display:flex;flex-direction:column;gap:16px}
+section>p{margin:0;max-width:68ch}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:4px}
+.kpi b{font-family:var(--f-display);font-weight:600;font-size:32px;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.1}
+.kpi span{font-size:14px;color:var(--muted)}
+.kpi.good{border-top:4px solid var(--ok)} .kpi.bad{border-top:4px solid var(--bad)} .kpi.warn{border-top:4px solid var(--warn)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;min-width:0}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{font-weight:600;color:var(--muted);font-size:13px;white-space:nowrap}
+td.n,th.n{text-align:right;font-family:var(--f-data);font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+.pill{display:inline-block;font-size:12.5px;font-weight:600;padding:2px 10px;border-radius:999px;white-space:nowrap}
+.p-ok{background:var(--ok-bg);color:var(--ok)} .p-bad{background:var(--bad-bg);color:var(--bad)} .p-warn{background:var(--warn-bg);color:var(--warn)} .p-info{background:var(--brand-soft);color:var(--ink)}
+ul.notes{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-width:72ch}
+.chart svg{width:100%;height:auto;display:block}
+.chart text{font-family:var(--f-data);font-size:11px;fill:var(--muted)}
+.chart .lab{fill:var(--ink);font-weight:500}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.callout{background:var(--warn-bg);border-left:4px solid var(--warn);border-radius:8px;padding:16px 18px;color:var(--text)}
+.callout b{color:var(--ink)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px}
+.who h3{margin:0 0 6px;font-family:var(--f-display);font-size:18px;color:var(--ink)}
+.who p{margin:0 0 10px;font-size:14.5px}
+.who .tag{font-family:var(--f-data);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
+footer a,section a{color:var(--ink)}
+a:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Amazing Care · Orgánico · al 21 de octubre de 2026</div>
+  <h1>SEO y Blog: qué crece, qué vende y por dónde escalar</h1>
+  <p class="lede">El orgánico crece: octubre va ~20% sobre octubre 2025. Pero vende la búsqueda de marca y "electrolitos". El blog trae más visitas cada mes y casi no vende.</p>
+</header>
+
+<section>
+  <div class="kpis">
+    <div class="kpi good"><b>~3.200</b><span>visitas orgánicas proyectadas en octubre (+20% vs oct-25)</span></div>
+    <div class="kpi good"><b>202</b><span>sesiones con compra desde orgánico en octubre (al día 20, con Cyber)</span></div>
+    <div class="kpi warn"><b>76%</b><span>de los clics de Google vienen de buscar la marca</span></div>
+    <div class="kpi bad"><b>2</b><span>compras desde el blog en 90 días, con ~1.000 visitas</span></div>
+  </div>
+</section>
+
+<section id="crece">
+  <h2>Crece o no</h2>
+  <p>Sí, desde julio. Las visitas orgánicas se duplicaron y la conversión subió de 2,8% a 4,7% antes del Cyber.</p>
+  <div class="card chart">
+    <div class="legend"><span><i style="background:var(--brand)"></i>Visitas orgánicas</span><span><i style="background:var(--ink)"></i>Visitas al blog desde Google</span></div>
+    <svg viewBox="0 0 640 230" role="img" aria-label="Visitas orgánicas y al blog por mes, junio a octubre 2026">
+      <line x1="40" y1="190" x2="630" y2="190" stroke="var(--line)"/>
+      <line x1="40" y1="130" x2="630" y2="130" stroke="var(--line)" stroke-dasharray="3 4"/>
+      <line x1="40" y1="70" x2="630" y2="70" stroke="var(--line)" stroke-dasharray="3 4"/>
+      <text x="34" y="194" text-anchor="end">0</text><text x="34" y="134" text-anchor="end">1.000</text><text x="34" y="74" text-anchor="end">2.000</text>
+      <!-- escala: 1.000 visitas = 60px -->
+      <g>
+        <rect x="70"  y="107.3" width="44" height="82.7"  rx="4" fill="var(--brand)"/><rect x="118" y="186.8" width="22" height="3.2" rx="2" fill="var(--ink)"/>
+        <rect x="190" y="130.2" width="44" height="59.8"  rx="4" fill="var(--brand)"/><rect x="238" y="184.4" width="22" height="5.6" rx="2" fill="var(--ink)"/>
+        <rect x="310" y="78.8"  width="44" height="111.2" rx="4" fill="var(--brand)"/><rect x="358" y="182.1" width="22" height="7.9" rx="2" fill="var(--ink)"/>
+        <rect x="430" y="61"    width="44" height="129"   rx="4" fill="var(--brand)"/><rect x="478" y="173.9" width="22" height="16.1" rx="2" fill="var(--ink)"/>
+        <rect x="550" y="62.8"  width="44" height="127.2" rx="4" fill="var(--brand)"/><rect x="598" y="181"  width="22" height="9"   rx="2" fill="var(--ink)"/>
+        <rect x="550" y="-1"    width="44" height="0" fill="none"/>
+      </g>
+      <text class="lab" x="92"  y="100" text-anchor="middle">1.378</text>
+      <text class="lab" x="212" y="123" text-anchor="middle">997</text>
+      <text class="lab" x="332" y="72"  text-anchor="middle">1.854</text>
+      <text class="lab" x="452" y="54"  text-anchor="middle">2.150</text>
+      <text class="lab" x="572" y="56"  text-anchor="middle">2.086</text>
+      <text x="104" y="210" text-anchor="middle">Jun</text><text x="224" y="210" text-anchor="middle">Jul</text><text x="344" y="210" text-anchor="middle">Ago</text><text x="464" y="210" text-anchor="middle">Sep</text><text x="584" y="210" text-anchor="middle">Oct (al 20)</text>
+    </svg>
+  </div>
+  <div class="card tw">
+    <table>
+      <thead><tr><th>Mes 2026</th><th class="n">Visitas orgánicas</th><th class="n">Con compra</th><th class="n">Conversión</th><th class="n">Blog desde Google</th><th class="n">Compras blog</th></tr></thead>
+      <tbody>
+        <tr><td>Octubre (al 20)</td><td class="n">2.086</td><td class="n">202</td><td class="n">9,7%</td><td class="n">150</td><td class="n">1</td></tr>
+        <tr><td>Septiembre</td><td class="n">2.150</td><td class="n">101</td><td class="n">4,7%</td><td class="n">268</td><td class="n">1</td></tr>
+        <tr><td>Agosto</td><td class="n">1.854</td><td class="n">77</td><td class="n">4,2%</td><td class="n">132</td><td class="n">0</td></tr>
+        <tr><td>Julio</td><td class="n">997</td><td class="n">28</td><td class="n">2,8%</td><td class="n">93</td><td class="n">0</td></tr>
+        <tr><td>Junio</td><td class="n">1.378</td><td class="n">71</td><td class="n">5,2%</td><td class="n">54</td><td class="n">0</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul class="notes">
+    <li><b>Dónde entra la venta orgánica (90 días):</b> Packs 2.198 visitas y 167 compras · home 1.956 y 166 · colección Electrolitos 1.039 y 48.</li>
+    <li><b>Google Shopping gratis:</b> 32 visitas en sep-oct con 15,6% de conversión, la más alta del sitio.</li>
+    <li>Octubre incluye el Cyber (2 al 11 de octubre). Enero y mayo tuvieron más visitas, pero de menor intención (2,2% y 1,0%).</li>
+  </ul>
+</section>
+
+<section id="search-console">
+  <h2>Search Console: qué gana, qué está cerca y dónde se pierde</h2>
+  <p>Fuera de la marca, la gran fuga es "electrolitos": 69.670 impresiones en posición 6,3 y solo 0,49% de clics. Últimos 12 meses al 10 de septiembre.</p>
+  <div class="card tw">
+    <table>
+      <thead><tr><th>Búsqueda (sin marca)</th><th class="n">Impresiones</th><th class="n">Clics</th><th class="n">CTR</th><th class="n">Posición</th><th>Estado</th></tr></thead>
+      <tbody>
+        <tr><td>electrolitos</td><td class="n">69.670</td><td class="n">341</td><td class="n">0,49%</td><td class="n">6,3</td><td><span class="pill p-bad">Se pierde</span></td></tr>
+        <tr><td>electrolitos en sobre</td><td class="n">8.101</td><td class="n">109</td><td class="n">1,35%</td><td class="n">3,0</td><td><span class="pill p-ok">Gana</span></td></tr>
+        <tr><td>magnesio para que sirve</td><td class="n">4.054</td><td class="n">3</td><td class="n">0,07%</td><td class="n">10,1</td><td><span class="pill p-warn">Sin producto</span></td></tr>
+        <tr><td>para que sirven los electrolitos</td><td class="n">3.618</td><td class="n">0</td><td class="n">0%</td><td class="n">9,4</td><td><span class="pill p-info">Cerca</span></td></tr>
+        <tr><td>electrolitos en polvo</td><td class="n">2.989</td><td class="n">53</td><td class="n">1,77%</td><td class="n">3,5</td><td><span class="pill p-ok">Gana</span></td></tr>
+        <tr><td>tipos de magnesio</td><td class="n">2.572</td><td class="n">6</td><td class="n">0,23%</td><td class="n">6,0</td><td><span class="pill p-warn">Sin producto</span></td></tr>
+        <tr><td>que son los electrolitos</td><td class="n">2.228</td><td class="n">3</td><td class="n">0,13%</td><td class="n">10,8</td><td><span class="pill p-info">Cerca</span></td></tr>
+        <tr><td>para que sirve la creatina en mujeres</td><td class="n">1.630</td><td class="n">0</td><td class="n">0%</td><td class="n">10,5</td><td><span class="pill p-info">Cerca · hay producto</span></td></tr>
+        <tr><td>fibra prebiotica</td><td class="n">1.088</td><td class="n">24</td><td class="n">2,21%</td><td class="n">3,3</td><td><span class="pill p-ok">Gana</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card tw">
+    <table>
+      <thead><tr><th>Página</th><th class="n">Impresiones</th><th class="n">CTR</th><th class="n">Posición</th><th>Qué hacer</th></tr></thead>
+      <tbody>
+        <tr><td>Ficha Electrolitos Berries 12</td><td class="n">79.204</td><td class="n">0,7%</td><td class="n">5,4</td><td><span class="pill p-bad">Mejorar lo que se ve en Google</span></td></tr>
+        <tr><td>Ficha Electrolitos Naranja 12</td><td class="n">63.422</td><td class="n">0,5%</td><td class="n">5,7</td><td><span class="pill p-bad">Mejorar lo que se ve en Google</span></td></tr>
+        <tr><td>Página "Por qué consumir electrolitos"</td><td class="n">36.377</td><td class="n">0,6%</td><td class="n">5,0</td><td><span class="pill p-bad">Mejorar lo que se ve en Google</span></td></tr>
+        <tr><td>Ficha Electrolitos Maracuyá 12</td><td class="n">31.206</td><td class="n">0,4%</td><td class="n">5,3</td><td><span class="pill p-bad">Mejorar lo que se ve en Google</span></td></tr>
+        <tr><td>Colección Electrolitos</td><td class="n">27.688</td><td class="n">2,3%</td><td class="n">2,4</td><td><span class="pill p-ok">Proteger</span></td></tr>
+        <tr><td>Blog Magnesio</td><td class="n">22.530</td><td class="n">0,2%</td><td class="n">8,1</td><td><span class="pill p-warn">Llevar a electrolitos</span></td></tr>
+        <tr><td>Blog Qué son los electrolitos</td><td class="n">12.825</td><td class="n">0,1%</td><td class="n">10,5</td><td><span class="pill p-info">Empujar a top 5</span></td></tr>
+        <tr><td>Blog Creatina</td><td class="n">6.760</td><td class="n">0,1%</td><td class="n">11,6</td><td><span class="pill p-info">Empujar + enlazar Creapure</span></td></tr>
+        <tr><td>Blog Disautonomía</td><td class="n">2.339</td><td class="n">2,8%</td><td class="n">6,0</td><td><span class="pill p-ok">Proteger + producto arriba</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="blog">
+  <h2>Blog: qué funciona y qué no</h2>
+  <p>Funciona el artículo de condición clínica firmado por nutricionista. No funciona el de temporada. Los 6 primeros traen la mitad del tráfico. Visitas de los últimos 90 días.</p>
+  <div class="card tw">
+    <table>
+      <thead><tr><th>Artículo</th><th class="n">Visitas</th><th class="n">Compras</th><th>Tipo</th></tr></thead>
+      <tbody>
+        <tr><td>Electrolitos en la disautonomía</td><td class="n">165</td><td class="n">2</td><td><span class="pill p-ok">Condición clínica</span></td></tr>
+        <tr><td>Magnesio: qué es y cómo elegir</td><td class="n">88</td><td class="n">0</td><td><span class="pill p-warn">Sin producto</span></td></tr>
+        <tr><td>Bebida isotónica casera</td><td class="n">67</td><td class="n">0</td><td><span class="pill p-info">Educativo</span></td></tr>
+        <tr><td>Migraña y electrolitos</td><td class="n">63</td><td class="n">0</td><td><span class="pill p-ok">Condición clínica</span></td></tr>
+        <tr><td>Electrolitos en pacientes bariátricos</td><td class="n">58</td><td class="n">0</td><td><span class="pill p-ok">Condición clínica</span></td></tr>
+        <tr><td>Creatina: qué es y cómo usarla</td><td class="n">52</td><td class="n">0</td><td><span class="pill p-info">Ahora con producto</span></td></tr>
+        <tr><td>Fibra y SOMP</td><td class="n">52</td><td class="n">0</td><td><span class="pill p-ok">Condición clínica</span></td></tr>
+        <tr><td>Viajes y electrolitos</td><td class="n">27</td><td class="n">0</td><td><span class="pill p-bad">Temporada</span></td></tr>
+        <tr><td>Mejores electrolitos en Chile 2026</td><td class="n">16</td><td class="n">0</td><td><span class="pill p-info">Comercial</span></td></tr>
+        <tr><td>Alergias de primavera</td><td class="n">14</td><td class="n">0</td><td><span class="pill p-bad">Temporada</span></td></tr>
+        <tr><td>Fiestas Patrias 2026</td><td class="n">8</td><td class="n">0</td><td><span class="pill p-bad">Temporada</span></td></tr>
+        <tr><td>Suplementos en Cyber</td><td class="n">6</td><td class="n">0</td><td><span class="pill p-bad">Temporada</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul class="notes">
+    <li><b>Por qué sí trae gente:</b> autora con nombre y bibliografía, y una pregunta de salud concreta. El 92% del tráfico del blog lo traen artículos firmados por nutricionista.</li>
+    <li><b>Por qué no vende:</b> el bloque de producto va al final, cuando el lector ya se fue.</li>
+    <li><b>Por qué lo nuevo no rinde:</b> los artículos de septiembre son de temporada o de nicho, sin una búsqueda que los respalde.</li>
+  </ul>
+</section>
+
+<section id="escalar">
+  <h2>Por dónde escalar</h2>
+  <p>Primero sacar provecho de lo que ya aparece en Google y después producir. Ordenado por impacto sobre esfuerzo.</p>
+  <div class="card tw">
+    <table>
+      <thead><tr><th>#</th><th>Palanca</th><th>Por qué</th><th>Esfuerzo</th><th>Valida</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Mejorar título y descripción en Google de las fichas Berries, Naranja y Maracuyá 12, y de "Por qué consumir electrolitos"</td><td>~210K impresiones al año con 0,4–0,7% de clics. Llevarlas a 2% son ~3.000 clics más al año, sin contenido nuevo</td><td><span class="pill p-ok">Bajo</span></td><td>Founder</td></tr>
+        <tr><td>2</td><td>Bloque de producto arriba y al medio en los 6 blogs con tráfico</td><td>~500 visitas en 90 días que hoy no llegan a la ficha</td><td><span class="pill p-ok">Bajo</span></td><td>Nutricionista</td></tr>
+        <tr><td>3</td><td>Enlazar Creatina y Creatina en mujeres a la ficha de Creatina Creapure</td><td>6.760 + 4.237 impresiones en página 1–2, y ahora hay producto</td><td><span class="pill p-ok">Bajo</span></td><td>Nutricionista</td></tr>
+        <tr><td>4</td><td>Empujar a top 5 "Qué son los electrolitos"</td><td>12.825 impresiones en posición 10,5; es la puerta de "para qué sirven los electrolitos"</td><td><span class="pill p-warn">Medio</span></td><td>Nutricionista</td></tr>
+        <tr><td>5</td><td>Optimizar el feed de Merchant para Shopping gratis</td><td>La conversión más alta del sitio (15,6%) y casi sin volumen</td><td><span class="pill p-warn">Medio</span></td><td>Founder</td></tr>
+        <tr><td>6</td><td>Nuevos artículos solo de condición clínica o con producto: creatina (Creapure, cuándo tomarla, mujeres y menopausia), electrolitos por condición, fibra</td><td>Es el formato que trae tráfico; nada de temporada</td><td><span class="pill p-bad">Alto</span></td><td>Nutricionista + founder</td></tr>
+        <tr><td>7</td><td>Magnesio: definir si habrá producto; si no, usar el artículo para llevar a electrolitos (150 mg de magnesio por sachet)</td><td>22.530 impresiones sin nada que vender</td><td><span class="pill p-ok">Bajo</span></td><td>Founder</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="validan">
+  <h2>Qué valida la nutricionista y qué valida el founder</h2>
+  <p>La nutricionista valida que el contenido sea correcto; el founder decide qué se vende y qué se puede decir. Advanz deja el artículo listo para Google y la IA sin cambiar su texto.</p>
+  <div class="two">
+    <div class="card who">
+      <div class="tag">Nutricionista · Antonia Quezada y cada autora</div>
+      <h3>Valida</h3>
+      <p>Que la afirmación se sostenga, dosis y momento de uso, matices, el aviso médico y que suene a ella. Firma con nombre y bibliografía.</p>
+      <h3>Pendiente hoy</h3>
+      <p>Bloque de producto en sus 6 blogs con tráfico · enlace de Creatina a Creapure · nuevo artículo de creatina · fotos de nutricionista en Bariátricos, Lipedema y Salud intestinal (pendientes desde el 25 de mayo).</p>
+    </div>
+    <div class="card who">
+      <div class="tag">Founder · Ignacio (según Notion, por confirmar)</div>
+      <h3>Valida</h3>
+      <p>Claims de salud permitidos (disautonomía, lipedema, oncología), qué producto se empuja en cada artículo, el cupón, los temas vetados y si habrá producto de magnesio.</p>
+      <h3>Pendiente hoy</h3>
+      <p>Unificar cupón (AMAZING10 vs BLOG10; 26 artículos sin cupón) · sacar alcohol de "Energy vs. bebidas energéticas" e "Invierno" · despublicar "Tabla Comparativa 2026" (vacía y visible) · aprobar los cambios en Google de las fichas (palanca 1).</p>
+    </div>
+  </div>
+  <p><b>Regla fija con el cliente:</b> no se habla de alcohol en ningún artículo, ni como causa, ni como advertencia, ni como recomendación.</p>
+</section>
+
+<section id="falta">
+  <h2>Lo que falta: Google Ads y tendencias</h2>
+  <div class="callout">
+    <b>Pendiente.</b> El Planificador de palabras clave de Google Ads y el Search Console de octubre no están en este reporte: desde la sesión en la nube no se puede abrir el navegador del equipo. Lo que sí se ve en Shopify: Google Ads pagado trajo 4.981 visitas en sep-oct con 1,2% de conversión; el orgánico, 4.096 con 7,1%.
+  </div>
+  <ul class="notes">
+    <li><b>Planificador de palabras clave (Chile, 12 meses):</b> electrolitos, electrolitos en polvo, sales de hidratación, creatina, creatina creapure, creatina mujer, magnesio, fibra prebiótica, suero oral.</li>
+    <li><b>Proyecciones</b> de noviembre a enero (temporada de calor).</li>
+    <li><b>Search Console de octubre:</b> Páginas y Consultas, últimos 3 meses contra los 3 anteriores.</li>
+  </ul>
+</section>
+
+<footer>
+  Fuentes: Shopify Analytics al 20-oct (orgánico = búsqueda sin parámetros de campaña) · Search Console, export del 11-sep (12 meses, 1.000 búsquedas y 160 páginas) · Notion, página <a href="https://app.notion.com/p/11fa30152d0080bb9ddcf8b4f4a16560">Blog / SEO</a> y Grilla de Contenidos. Preparado por Advanz.
+</footer>
+</div>

@@ -8,7 +8,7 @@
   "meta": 18,
   "estado": "warn",
   "fuente": "War room Cyber (ritmo ~$14M vs $18M proyectado)",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "venta_neta",
@@ -19,7 +19,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Shopify (reporte quincenal)",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "roas",
@@ -30,7 +30,7 @@
   "meta": 2.5,
   "estado": "ok",
   "fuente": "Shopify + plataformas",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "ordenes",
@@ -41,7 +41,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Shopify (reporte quincenal)",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "pct_nuevos",
@@ -52,7 +52,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Shopify (145 nuevos / 216 clientes)",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "cac_nuevo",
@@ -63,7 +63,7 @@
   "meta": 8000,
   "estado": "bad",
   "fuente": "Gasto ÷ clientes nuevos (estado.md)",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  },
  {
   "id": "margen_contrib",
@@ -74,6 +74,6 @@
   "meta": null,
   "estado": "sin-dato",
   "fuente": "Falta COGS por producto",
-  "actualizado": "2026-10-19"
+  "actualizado": "2026-10-21"
  }
 ]

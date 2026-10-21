@@ -1,12 +1,1 @@
-[
- {
-  "fecha": "2026-10-21",
-  "de": "organizador",
-  "pedido": "el dashboard \"AmazingCare · OS Growth\" no se publicó (esperaba OK). Lo reemplaza tu Command \"Growth OS · AmazingCare\"."
- },
- {
-  "fecha": "2026-10-19",
-  "de": "advanz/growth",
-  "pedido": "[en curso 19-oct: os-data.json listo; Dashboard pendiente de OK del usuario] publicar tu artifact con el contrato `ops/advanz/growth/command-center/CONTRATO.md`. Pasos: (1) copia tu semilla `ops/advanz/growth/command-center/semillas/amazingcare.growth.json` a `ops/amazingcare/growth/os-data.json`, corrígela y pon `fuente: \"os\"`; (2) crea tu Dashboard `AmazingCare · OS <Área>` sobre ese JSON y guar"
- }
-]
+[]

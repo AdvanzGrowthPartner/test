@@ -4,9 +4,9 @@
   "grupo": "amazingcare",
   "area": "growth",
   "marca": "AmazingCare",
-  "actualizado": "2026-10-19",
+  "actualizado": "2026-10-21",
   "fuente": "os",
-  "artifact_url": null,
+  "artifact_url": "https://claude.ai/artifact/AaQ652nEWo7t2cMSyruyfv",
   "kpis": [
     {
       "id": "venta_neta_cyber",

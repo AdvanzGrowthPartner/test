@@ -1,6 +1,12 @@
 [
  {
   "fecha": "2026-10-26",
+  "cambio": "Tema 191099437352 (sin publicar): `sections/main-blog-ac.liquid` corregido. En la vista previa salían tarjetas repetidas (Creatina, Energy) porque los más leídos se buscaban con el lookup global `articles[]`. Ahora se recorre solo `blog.articles` (más leídos primero, después el resto, cada uno una vez) y además hay un filtro en JS que borra tarjetas con el mismo link. No hay artículos duplicados en Shopify: son 37 en `noticias`, cada uno con un solo handle.",
+  "por_que": "Captura del usuario con tarjetas repetidas",
+  "revertir": "Volver a la versión anterior del archivo (en el historial del tema) o no publicar el tema"
+ },
+ {
+  "fecha": "2026-10-26",
   "cambio": "Tema 191099437352 (sin publicar): nueva `sections/ac-collection-faq.liquid` (texto + 6 preguntas en bloques editables + schema FAQPage) agregada al final de `templates/collection.electrolitos.json`, después de la grilla. El resto del template queda igual que en el MAIN. Afirmaciones tomadas de la ficha de producto; la pregunta de salud deriva a médico o nutricionista.",
   "por_que": "/collections/electrolitos no tenía descripción ni FAQ: cero texto indexable para \"electrolitos\" (69,7K impresiones, CTR 0,49%)",
   "revertir": "Quitar `ac_faq_electrolitos` del `order` del template, o no publicar el tema"

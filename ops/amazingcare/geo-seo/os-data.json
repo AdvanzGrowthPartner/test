@@ -4,7 +4,7 @@
   "grupo": "amazingcare",
   "area": "geo-seo",
   "marca": "AmazingCare",
-  "actualizado": "2026-10-21",
+  "actualizado": "2026-10-26",
   "fuente": "os",
   "artifact_url": "https://claude.ai/artifact/CzrFV5p38h6jZwyctchVmM",
   "kpis": [
@@ -98,8 +98,8 @@
       "severidad": 4,
       "impacto_clp_mes": null,
       "impacto_nota": "Es la keyword genérica de más volumen. Subir a top 3 multiplica el CTR; no hay un cálculo en CLP con fuente",
-      "evidencia": "Export de GSC del 11-sep",
-      "estado": "abierta",
+      "evidencia": "Export de GSC del 11-sep · 26-oct: SEO title y meta nuevos en /collections/electrolitos (el FAQ no se ve porque el banner de la colección está desactivado en el tema)",
+      "estado": "en-curso",
       "depende_de": [],
       "afecta_os": [],
       "accion": {
@@ -119,7 +119,7 @@
       "severidad": 3,
       "impacto_clp_mes": null,
       "impacto_nota": "Rankea en posición 11,6 y ahora tiene un producto detrás (lanzado en oct-26)",
-      "evidencia": "GSC 11-sep. Shopify 19-oct: 'creatina-y-electrolitos-hidratacion' figura con autor 'Amazing Care'",
+      "evidencia": "26-oct: blog de creatina y Creatina en mujeres ya enlazan a la PDP Creatina Creapure; 4 blogs nuevos de creatina de Antonia publicados. Falta relanzar creatina-y-electrolitos (oculto con 301)",
       "estado": "en-curso",
       "depende_de": [],
       "afecta_os": [
@@ -211,8 +211,8 @@
       "severidad": 4,
       "impacto_clp_mes": null,
       "impacto_nota": "Riesgo de E-E-A-T y de relación con la nutricionista. El blog de disautonomía con más clics no se toca",
-      "evidencia": "WhatsApp de Antonia (19-oct): no escribió ni aprobó 'pots-disautonomia-mareos-fatiga-desmayos'. Alergias y Viajes tienen la versión vieja en Shopify",
-      "estado": "en-curso",
+      "evidencia": "20-oct: POTS oculto con 301; Alergias y Viajes con la versión de Antonia",
+      "estado": "resuelta",
       "depende_de": [],
       "afecta_os": [],
       "accion": {
@@ -266,6 +266,29 @@
         "conector": "Herramienta GEO",
         "requiere_ok": false,
         "acceso": "sin-conector"
+      }
+    },
+    {
+      "id": "amazingcare.geo-seo.F09",
+      "titulo": "El listado del blog ordena por fecha: lo más leído queda enterrado y no hay filtro por tema",
+      "etapa": "acquisition",
+      "punto_funnel": "contenido",
+      "severidad": 2,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Los 5 artículos con más sesiones concentran ~49% de las sesiones del blog (Shopify, 90 días)",
+      "evidencia": "26-oct: listado nuevo (más leídos primero, filtro por tema, buscador y tiempo de lectura) listo en el tema sin publicar 191099437352",
+      "estado": "en-curso",
+      "depende_de": [],
+      "afecta_os": [
+        "cro"
+      ],
+      "accion": {
+        "descripcion": "Revisar la vista previa y publicar el tema 'Blog más leídos — Advanz 26-10' (o copiar sus 3 archivos al tema en vivo)",
+        "os_ejecutor": "geo-seo",
+        "via": "manual",
+        "conector": "Shopify",
+        "requiere_ok": true,
+        "acceso": "ok"
       }
     }
   ],

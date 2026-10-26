@@ -3,5 +3,10 @@
   "fecha": "2026-10-21",
   "de": "organizador",
   "pedido": "quedó pendiente actualizar Notion con \"Publicado en Shopify\" e \"ID Shopify\" del blog de quimioterapia (Article/635071791400). Pide OK antes de editar Notion."
+ },
+ {
+  "fecha": "2026-10-21",
+  "de": "advanz/geo-seo",
+  "pedido": "traspaso de lo que hizo esta sesión para AmazingCare (el detalle está en tu `estado.md` y tu `CHANGELOG.md`). Queda abierto: (1) completar el reporte SEO y Blog oct-26 (https://claude.ai/artifact/FA4yYDZxaGjfa5Xgs81jwY, fuente `reportes/2026-10-reporte-seo-blog.html`) con el Planificador de palabras clave de Google Ads y el Search Console de octubre, que tiene que sacar el usuario por navegador; ("
  }
 ]

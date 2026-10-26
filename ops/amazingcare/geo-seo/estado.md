@@ -29,12 +29,26 @@
   - Tendencia: may 14 → jun 14 → jul 12 → ago 22 → sep 24 (en 14 días).
 - **Señales GEO:** autoría ✅ · schema ✅ · FAQ parcial · Wikidata y `llms.txt` pendientes · AggregateRating sin verificar · AI Citation Score sin línea base.
 
+## Cierre 26-oct (canal orgánico)
+- **Bloques de producto** (marcados `AC-PRODUCTO-INLINE-TOP/MID`, se insertaron sin reemplazar imágenes) en Disautonomía, Migraña, Bariátricos, Bebida isotónica, Creatina y Creatina en mujeres. En Migraña, Isotónica y Creatina en mujeres también se corrigieron placeholders del schema y un link roto.
+- **Regla del usuario:** no se vuelve a editar el body de artículos antiguos. Por eso Magnesio quedó sin tocar.
+- **Colección Electrolitos:** SEO title y meta nuevos. El FAQ no se ve porque la sección banner/FAQ está desactivada en `collection.electrolitos`; hay que activarla a mano en el editor de temas.
+- **4 blogs nuevos de creatina de Antonia publicados:** cómo tomarla, Creapure, formato stick y running. Todos con CTA a la PDP Creapure y con schema.
+- **Listado del blog nuevo:** más leídos primero, filtro por tema, buscador y tiempo de lectura. Está armado en el tema sin publicar 191099437352. Vista previa: https://amazingcare.cl/blogs/noticias?preview_theme_id=191099437352. **Lo publica el usuario** (el agente no puede publicar temas). Ojo: si el MAIN cambia antes, conviene copiar los 3 archivos al tema en vivo en vez de publicar la copia.
+- **Notion al día:** los 4 de creatina y Quimio con Estado, ID y URL.
+- **Pendientes:**
+  - [ ] Publicar el tema del blog.
+  - [ ] Activar el FAQ de la colección.
+  - [ ] Feed de Merchant (no hay conector).
+  - [ ] Relanzar Creatina y electrolitos (los productos siguen en DRAFT).
+  - [ ] Export de GSC de octubre para medir.
+
 ## Pedidos de Antonia Quezada (WhatsApp) · aplicado el 20-oct
 Detalle en CHANGELOG. POTS y Creatina-electrolitos quedaron ocultos y con redirección 301; los dos de Cyber bajaron en el listado; Alergias y Viajes tienen el texto que Antonia corrigió en Notion (en Viajes se quitó el alcohol); el de Quimioterapia está publicado.
 - [x] 20-oct: el usuario cargó las fotos internas de Alergias, Viajes y Quimio, y la portada de Quimio. Alergias y Viajes conservan su portada anterior. Los dos de Cyber siguen sin portada.
 - [ ] Relanzar "Creatina y electrolitos" con texto de Antonia (borrar antes la redirección 301).
-- [ ] Ideas de blogs de creatina para Antonia: Creapure y pureza; cuándo y cómo tomarla; si retiene líquido; menopausia y adultos mayores.
-- [ ] Notion no se actualizó (por instrucción): "Publicado en Shopify" e "ID Shopify" del de quimio siguen vacíos.
+- [x] Blogs de creatina de Antonia: 4 publicados el 26-oct. Quedan como ideas: retención de líquido y menopausia/adultos mayores.
+- [x] 26-oct: Notion actualizado (Quimio y creatinas).
 
 ## Reporte SEO y Blog oct-26 (21-oct)
 - Página: https://claude.ai/artifact/FA4yYDZxaGjfa5Xgs81jwY (fuente: `reportes/2026-10-reporte-seo-blog.html`). La versión en Docs (SzgcEW48SPQNV4ci7ffta1) quedó descartada. Incluye crecimiento, Search Console (export 11-sep), blog, 7 palancas para escalar y qué valida la nutricionista y qué el founder.

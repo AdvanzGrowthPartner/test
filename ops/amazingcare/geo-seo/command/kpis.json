@@ -8,7 +8,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Search_Console",
-  "actualizado": "2026-10-21"
+  "actualizado": "2026-10-26"
  },
  {
   "id": "gsc_clics",
@@ -19,7 +19,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Search_Console",
-  "actualizado": "2026-10-21"
+  "actualizado": "2026-10-26"
  },
  {
   "id": "gsc_posicion",
@@ -30,7 +30,7 @@
   "meta": null,
   "estado": "warn",
   "fuente": "Search_Console",
-  "actualizado": "2026-10-21"
+  "actualizado": "2026-10-26"
  },
  {
   "id": "ctr_electrolitos",
@@ -41,7 +41,7 @@
   "meta": null,
   "estado": "bad",
   "fuente": "Search_Console",
-  "actualizado": "2026-10-21"
+  "actualizado": "2026-10-26"
  },
  {
   "id": "sesiones_organicas",
@@ -52,7 +52,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Shopify",
-  "actualizado": "2026-10-21"
+  "actualizado": "2026-10-26"
  },
  {
   "id": "sesiones_ia",
@@ -63,7 +63,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "GA4",
-  "actualizado": "2026-10-21"
+  "actualizado": "2026-10-26"
  },
  {
   "id": "compras_ia",
@@ -74,7 +74,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "GA4",
-  "actualizado": "2026-10-21"
+  "actualizado": "2026-10-26"
  },
  {
   "id": "gsc_octubre",
@@ -85,6 +85,6 @@
   "meta": null,
   "estado": "sin-dato",
   "fuente": "Search_Console",
-  "actualizado": "2026-10-21"
+  "actualizado": "2026-10-26"
  }
 ]

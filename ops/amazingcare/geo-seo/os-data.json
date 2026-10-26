@@ -98,7 +98,7 @@
       "severidad": 4,
       "impacto_clp_mes": null,
       "impacto_nota": "Es la keyword genérica de más volumen. Subir a top 3 multiplica el CTR; no hay un cálculo en CLP con fuente",
-      "evidencia": "Export de GSC del 11-sep · 26-oct: SEO title y meta nuevos en /collections/electrolitos (el FAQ no se ve porque el banner de la colección está desactivado en el tema)",
+      "evidencia": "Export de GSC del 11-sep · 26-oct: SEO title y meta nuevos en /collections/electrolitos. La página no tenía texto ni FAQ ni H1; el texto + FAQ con schema quedó en el tema sin publicar 191099437352",
       "estado": "en-curso",
       "depende_de": [],
       "afecta_os": [],
@@ -270,7 +270,7 @@
     },
     {
       "id": "amazingcare.geo-seo.F09",
-      "titulo": "El listado del blog ordena por fecha: lo más leído queda enterrado y no hay filtro por tema",
+      "titulo": "Listado del blog y FAQ de la colección Electrolitos listos en un tema sin publicar",
       "etapa": "acquisition",
       "punto_funnel": "contenido",
       "severidad": 2,
@@ -283,7 +283,7 @@
         "cro"
       ],
       "accion": {
-        "descripcion": "Revisar la vista previa y publicar el tema 'Blog más leídos — Advanz 26-10' (o copiar sus 3 archivos al tema en vivo)",
+        "descripcion": "Revisar la vista previa y publicar el tema 'Blog más leídos — Advanz 26-10' (es idéntico al MAIN salvo el blog y el FAQ). En el rebranding hay que llevar estos archivos: ver rebranding-seo-javier.md",
         "os_ejecutor": "geo-seo",
         "via": "manual",
         "conector": "Shopify",

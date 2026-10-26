@@ -1,6 +1,12 @@
 [
  {
   "fecha": "2026-10-26",
+  "cambio": "Tema 191099437352 (sin publicar): nueva `sections/ac-collection-faq.liquid` (texto + 6 preguntas en bloques editables + schema FAQPage) agregada al final de `templates/collection.electrolitos.json`, después de la grilla. El resto del template queda igual que en el MAIN. Afirmaciones tomadas de la ficha de producto; la pregunta de salud deriva a médico o nutricionista.",
+  "por_que": "/collections/electrolitos no tenía descripción ni FAQ: cero texto indexable para \"electrolitos\" (69,7K impresiones, CTR 0,49%)",
+  "revertir": "Quitar `ac_faq_electrolitos` del `order` del template, o no publicar el tema"
+ },
+ {
+  "fecha": "2026-10-26",
   "cambio": "Tema 191099437352 (sin publicar): archivos `snippets/bgr-card-ac.liquid` (tarjeta con tiempo de lectura = palabras/200 y sello \"Más leído\" top 3), `sections/main-blog-ac.liquid` (buscador, chips por tema y orden por ranking) y `templates/blog.json` apuntando a `main-blog-ac` con el ranking de los 20 artículos con más sesiones a 90 días y `tabla-comparativa-2026` oculto. Notion: Estado \"Publicado\", ID, handle, autora, SEO title y URL en los 4 blogs de creatina y en Quimio; notas de POTS y Creatina-y-electrolitos corregidas.",
   "por_que": "Pedido del usuario: más leídos primero, filtro por tema y tiempo de lectura, sin tocar los artículos. Notion al día con lo publicado.",
   "revertir": "Tema: no publicarlo, o borrarlo; el MAIN no se tocó. Notion: devolver las propiedades a su valor anterior."

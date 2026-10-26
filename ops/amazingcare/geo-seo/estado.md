@@ -32,13 +32,14 @@
 ## Cierre 26-oct (canal orgánico)
 - **Bloques de producto** (marcados `AC-PRODUCTO-INLINE-TOP/MID`, se insertaron sin reemplazar imágenes) en Disautonomía, Migraña, Bariátricos, Bebida isotónica, Creatina y Creatina en mujeres. En Migraña, Isotónica y Creatina en mujeres también se corrigieron placeholders del schema y un link roto.
 - **Regla del usuario:** no se vuelve a editar el body de artículos antiguos. Por eso Magnesio quedó sin tocar.
-- **Colección Electrolitos:** SEO title y meta nuevos. El FAQ no se ve porque la sección banner/FAQ está desactivada en `collection.electrolitos`; hay que activarla a mano en el editor de temas.
+- **Colección Electrolitos:** SEO title y meta nuevos. **Corrección:** antes dije que el FAQ estaba oculto, pero en realidad la colección no tenía ni descripción ni FAQ. Ahora hay texto + FAQ con schema en el tema sin publicar (sección `ac-collection-faq`). La página sigue sin H1 porque el banner está desactivado.
 - **4 blogs nuevos de creatina de Antonia publicados:** cómo tomarla, Creapure, formato stick y running. Todos con CTA a la PDP Creapure y con schema.
 - **Listado del blog nuevo:** más leídos primero, filtro por tema, buscador y tiempo de lectura. Está armado en el tema sin publicar 191099437352. Vista previa: https://amazingcare.cl/blogs/noticias?preview_theme_id=191099437352. **Lo publica el usuario** (el agente no puede publicar temas). Ojo: si el MAIN cambia antes, conviene copiar los 3 archivos al tema en vivo en vez de publicar la copia.
 - **Notion al día:** los 4 de creatina y Quimio con Estado, ID y URL.
 - **Pendientes:**
   - [ ] Publicar el tema del blog.
-  - [ ] Activar el FAQ de la colección.
+  - [ ] Activar el FAQ de la colección: se activa al publicar el tema 191099437352.
+  - [ ] Rebranding: checklist para Javier en `rebranding-seo-javier.md`.
   - [ ] Feed de Merchant (no hay conector).
   - [ ] Relanzar Creatina y electrolitos (los productos siguen en DRAFT).
   - [ ] Export de GSC de octubre para medir.

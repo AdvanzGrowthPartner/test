@@ -4,16 +4,36 @@
   "grupo": "amazingcare",
   "area": "email",
   "marca": "AmazingCare",
-  "actualizado": "2026-10-21",
+  "actualizado": "2026-10-29",
   "fuente": "os",
   "artifact_url": "https://claude.ai/artifact/RhKD7ygrYif6epFeNkYgtA",
   "kpis": [
     {
+      "id": "venta_tienda",
+      "nombre": "Venta total de la tienda",
+      "valor": 36360023,
+      "unidad": "CLP",
+      "periodo": "2026-10-01/2026-10-28",
+      "meta": null,
+      "estado": "ok",
+      "fuente": "Shopify"
+    },
+    {
+      "id": "email_share",
+      "nombre": "% de la venta de la tienda que trae email",
+      "valor": 26.9,
+      "unidad": "%",
+      "periodo": "2026-10-01/2026-10-28",
+      "meta": null,
+      "estado": "ok",
+      "fuente": "Klaviyo + Shopify"
+    },
+    {
       "id": "rev_campanas",
       "nombre": "Venta atribuida a campañas",
-      "valor": 8294207,
+      "valor": 8940659,
       "unidad": "CLP",
-      "periodo": "2026-10-01/2026-10-21",
+      "periodo": "2026-10-01/2026-10-29",
       "meta": null,
       "estado": "ok",
       "fuente": "Klaviyo"
@@ -21,19 +41,19 @@
     {
       "id": "compras_campanas",
       "nombre": "Compras atribuidas a campañas",
-      "valor": 151,
+      "valor": 161,
       "unidad": "órdenes",
-      "periodo": "2026-10-01/2026-10-21",
+      "periodo": "2026-10-01/2026-10-29",
       "meta": null,
       "estado": "ok",
       "fuente": "Klaviyo"
     },
     {
       "id": "rev_flujos",
-      "nombre": "Venta atribuida a flujos",
-      "valor": 735008,
+      "nombre": "Venta atribuida a flujos (carrito + recompra)",
+      "valor": 802564,
       "unidad": "CLP",
-      "periodo": "2026-10-01/2026-10-19",
+      "periodo": "2026-10-01/2026-10-28",
       "meta": null,
       "estado": "warn",
       "fuente": "Klaviyo"
@@ -51,9 +71,9 @@
     {
       "id": "rev_dest_post",
       "nombre": "Venta por destinatario post-Cyber",
-      "valor": 29,
+      "valor": 24,
       "unidad": "CLP",
-      "periodo": "2026-10-14/2026-10-21",
+      "periodo": "2026-10-14/2026-10-29",
       "meta": null,
       "estado": "bad",
       "fuente": "Klaviyo"
@@ -116,13 +136,13 @@
     },
     {
       "id": "amazingcare.email.F02",
-      "titulo": "El primer correo de carrito (5 min) no convierte",
+      "titulo": "Carrito AON: la escalera está invertida y el último correo no convierte",
       "etapa": "workflows",
       "punto_funnel": "carrito",
       "severidad": 3,
       "impacto_clp_mes": null,
       "impacto_nota": "El flujo completo rinde $1.231 por destinatario. En eventos se estimó un gap de $600–750K (estado.md, jun-26).",
-      "evidencia": "Flujo_Carritos_AON RCsVZf, 1–19 oct: 603 destinatarios, 13 compras, $735K. Mensaje ReD3SB: 141 entregados, 15% apertura, 0 compras.",
+      "evidencia": "Flujo_Carritos_AON RCsVZf, 90 días: 1.506 destinatarios, 27 compras, $1,54M. SEC3_ÚLTIMA: 336 entregados, 0 compras. SEC1_VARIACIÓN: 3 compras en 356.",
       "estado": "abierta",
       "depende_de": [],
       "afecta_os": [
@@ -207,13 +227,13 @@
     },
     {
       "id": "amazingcare.email.F06",
-      "titulo": "Flujos de post-compra y recompra: 0 compras en octubre",
+      "titulo": "Post-compra y recompra casi no venden (2 compras en 90 días)",
       "etapa": "retention",
       "punto_funnel": "recompra",
       "severidad": 3,
       "impacto_clp_mes": null,
       "impacto_nota": "La recompra citada es 43,7% (ago-26), pero los flujos no capturan nada de eso.",
-      "evidencia": "Flujo_Postcompra QQjgEa: 309 entregados, 49% apertura, 0 compras. Flujo_Recompra_AON VNCVuB: 263 entregados, 0,4% clics, 0 compras.",
+      "evidencia": "90 días: Postcompra 597 destinatarios y 1 compra ($14K); Recompra_AON 1.026 destinatarios y 1 compra ($22K). Recompra usa días 20 y 45 fijos para todos los formatos.",
       "estado": "abierta",
       "depende_de": [],
       "afecta_os": [
@@ -250,6 +270,56 @@
         "conector": "Klaviyo",
         "requiere_ok": true,
         "acceso": "sin-conector"
+      }
+    },
+    {
+      "id": "amazingcare.email.F08",
+      "titulo": "Welcome_AON en borrador desde el 4-oct: quien se suscribe no recibe nada",
+      "etapa": "workflows",
+      "punto_funnel": "captura",
+      "severidad": 5,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Septiembre: $278K y 6 compras por el welcome. Octubre: $0.",
+      "evidencia": "get_flows: S8bwJx status draft, updated 2026-10-04. Placed Order atribuido a S8bwJx: sep $278.157, oct $0.",
+      "estado": "abierta",
+      "depende_de": [
+        "amazingcare.email.F01"
+      ],
+      "afecta_os": [
+        "growth",
+        "cro"
+      ],
+      "accion": {
+        "descripcion": "Encender con espera de 5 min, sin el split con links nulos, A/B cerrado y correo de cierre con vencimiento",
+        "os_ejecutor": "email",
+        "via": "mcp",
+        "conector": "Klaviyo",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.email.F09",
+      "titulo": "Sin carrito de evento para Black: Carritos_Cyber quedó en borrador",
+      "etapa": "workflows",
+      "punto_funnel": "carrito",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": "CyberDay jun-26: $565K y 13 compras con el carrito de evento (CR 5,5%). En el Cyber de octubre no se encendió.",
+      "evidencia": "QSHsP9 status draft desde 2026-06-01; Placed Order atribuido: jun $565.400, oct $0.",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "ads",
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Clonar como Carritos_Black (Smart Sending OFF, UTMs, precios Black) y encender del 25-nov 10:00 al 30-nov 23:59",
+        "os_ejecutor": "email",
+        "via": "mcp",
+        "conector": "Klaviyo",
+        "requiere_ok": true,
+        "acceso": "ok"
       }
     }
   ],

@@ -1,0 +1,206 @@
+[
+ {
+  "id": "R01",
+  "grupo": "Horarios",
+  "regla": "Evento (apertura, cierre, pre-access): 12:30.",
+  "respaldo": "Franja 12–13: RPR ponderado 153. Ahí cayeron Black, Cyber y Flash."
+ },
+ {
+  "id": "R02",
+  "grupo": "Horarios",
+  "regla": "Segmento, contenido y retail: 14:30.",
+  "respaldo": "Franja 14–15: mejor mediana del día (88)."
+ },
+ {
+  "id": "R03",
+  "grupo": "Horarios",
+  "regla": "Nunca entre 18:00 y 19:00.",
+  "respaldo": "Peor franja (mediana 32) con la muestra más grande."
+ },
+ {
+  "id": "R04",
+  "grupo": "Horarios",
+  "regla": "Mejores días: jueves y lunes. Martes y miércoles son los más flojos.",
+  "respaldo": "RPR jueves 86, lunes 76, martes 44, miércoles 47 (12 meses)."
+ },
+ {
+  "id": "R05",
+  "grupo": "Frecuencia",
+  "regla": "6–8 spot al mes; 8 es techo, no meta. Contrato: 8 spot + 4 eventos.",
+  "respaldo": "6–8 envíos: $6,09M/mes; 9–11 envíos: $3,70M (−39%)."
+ },
+ {
+  "id": "R06",
+  "grupo": "Frecuencia",
+  "regla": "Techo de 80.000 destinatarios al mes mientras la apertura no pase de 29%.",
+  "respaldo": "El techo se lee en destinatarios, no en piezas."
+ },
+ {
+  "id": "R07",
+  "grupo": "Frecuencia",
+  "regla": "Nunca un tercer envío en 7 días al mismo segmento.",
+  "respaldo": ""
+ },
+ {
+  "id": "R08",
+  "grupo": "Frecuencia",
+  "regla": "Reenvío a no-abridores: sí, 2 días después, mismo correo y otro asunto. No consume spot.",
+  "respaldo": "Sep: 1.142 destinatarios, RPR 114 vs. 51."
+ },
+ {
+  "id": "R09",
+  "grupo": "Audiencias",
+  "regla": "Base completa solo en apertura y cierre de evento. Los spot van a segmento.",
+  "respaldo": "El segmento vale más que el copy."
+ },
+ {
+  "id": "R10",
+  "grupo": "Audiencias",
+  "regla": "Interesados (activos sin compra): producto de entrada y prueba social, nunca el pack grande.",
+  "respaldo": "RPR 313."
+ },
+ {
+  "id": "R11",
+  "grupo": "Audiencias",
+  "regla": "Con stock (compraron hace menos de 30 días): solo cross-sell o marca, nunca el mismo producto en oferta.",
+  "respaldo": ""
+ },
+ {
+  "id": "R12",
+  "grupo": "Audiencias",
+  "regla": "Exclusiones fijas: MAYORISTAS, Preview List y compras de los últimos 7 días en todo correo con descuento.",
+  "respaldo": "MAYORISTAS: bounce 3,75%, venta $0."
+ },
+ {
+  "id": "R13",
+  "grupo": "Asuntos",
+  "regla": "Mecanismo o % en los primeros 40 caracteres y en MAYÚSCULAS.",
+  "respaldo": "2,3x la media."
+ },
+ {
+  "id": "R14",
+  "grupo": "Asuntos",
+  "regla": "Asuntos de 60 o más caracteres. Máximo un emoji, al final.",
+  "respaldo": "RPR 93 vs. 61 de los cortos."
+ },
+ {
+  "id": "R15",
+  "grupo": "Asuntos",
+  "regla": "Evitar: pregunta como apertura (salvo evento activo), 'tu/tú' como eje, claim de marca sin razón de compra.",
+  "respaldo": ""
+ },
+ {
+  "id": "R16",
+  "grupo": "Asuntos",
+  "regla": "Preview de 60–90 caracteres que abre un bucle y aporta un dato.",
+  "respaldo": ""
+ },
+ {
+  "id": "R17",
+  "grupo": "Estructura",
+  "regla": "7 módulos: M0 huincha · M1 hero · M2 caja de mecanismo (obligatoria) · M3 2–3 líneas a su PDP · M4 reseña literal de Judge.me · M5 cierre · M6 letra chica.",
+  "respaldo": ""
+ },
+ {
+  "id": "R18",
+  "grupo": "Estructura",
+  "regla": "Todo correo de contenido lleva mecanismo abajo, sin excepción.",
+  "respaldo": "Energy sin código: $3 y $0; con código: RPR 87."
+ },
+ {
+  "id": "R19",
+  "grupo": "Estructura",
+  "regla": "Clic a PDP antes que a home. Un solo CTA sobre el pliegue. Prohibido el correo de una sola imagen o con dos CTA.",
+  "respaldo": "PDP 45% de los clics; home no convierte."
+ },
+ {
+  "id": "R20",
+  "grupo": "Estructura",
+  "regla": "Huincha roja o rosada solo si hay oferta; amarilla para evento. Celeste predominante, rosado para Fibra, amarillo y verde para Energy.",
+  "respaldo": ""
+ },
+ {
+  "id": "R21",
+  "grupo": "Claims",
+  "regla": "Permitidos: 0% azúcar · endulzado con stevia · sin sucralosa · sin colorantes artificiales · keto · vegano · sin gluten.",
+  "respaldo": ""
+ },
+ {
+  "id": "R22",
+  "grupo": "Claims",
+  "regla": "Copy fijo: 'Electrolitos + Vitaminas B6, B12 y C'. Nunca 'con electrolitos y vitaminas'.",
+  "respaldo": ""
+ },
+ {
+  "id": "R23",
+  "grupo": "Claims",
+  "regla": "Prohibido: nada médico ni curativo. Lipedema, POTS o migraña se validan con el cliente antes de usarlos.",
+  "respaldo": ""
+ },
+ {
+  "id": "R24",
+  "grupo": "Claims",
+  "regla": "Deportistas: decir 'nuestros deportistas'. Sin Copa Davis como propiedad de la marca, ni logos ni la palabra en asunto o hero.",
+  "respaldo": "Restricción legal."
+ },
+ {
+  "id": "R25",
+  "grupo": "Claims",
+  "regla": "'Hecha en Chile' necesita confirmación de Frani sobre qué se puede afirmar.",
+  "respaldo": ""
+ },
+ {
+  "id": "R26",
+  "grupo": "Códigos",
+  "regla": "Black: hasta 40% OFF (Fibra). Electrolitos $530, Energy $780, Creatina $630 y Creatina con Electrolitos $1.399 por stick.",
+  "respaldo": "Lineamientos de noviembre."
+ },
+ {
+  "id": "R27",
+  "grupo": "Códigos",
+  "regla": "Envío gratis sobre $50.000 en todo Chile. Es el mecanismo de los spot de noviembre.",
+  "respaldo": ""
+ },
+ {
+  "id": "R28",
+  "grupo": "Códigos",
+  "regla": "No contar los días que quedan: 'últimos días' o cierre con hora ('termina hoy a las 23:59').",
+  "respaldo": ""
+ },
+ {
+  "id": "R29",
+  "grupo": "Códigos",
+  "regla": "Código y envío gratis van en piezas distintas. El concurso nunca va el último día de la oferta.",
+  "respaldo": ""
+ },
+ {
+  "id": "R30",
+  "grupo": "Flujos",
+  "regla": "Smart Sending OFF en flujos con menos de 24 h entre correos.",
+  "respaldo": "Era la causa de los omitidos del Welcome."
+ },
+ {
+  "id": "R31",
+  "grupo": "Flujos",
+  "regla": "El carrito siempre gana sobre el welcome.",
+  "respaldo": ""
+ },
+ {
+  "id": "R32",
+  "grupo": "Flujos",
+  "regla": "Carritos de evento: clonar, Smart Sending OFF y UTMs antes de encender. Ventana exacta del evento.",
+  "respaldo": ""
+ },
+ {
+  "id": "R33",
+  "grupo": "Medición",
+  "regla": "Links limpios, sin UTM tipeada. Klaviyo agrega source, medium y campaign; utm_content sale del texto alternativo del botón.",
+  "respaldo": ""
+ },
+ {
+  "id": "R34",
+  "grupo": "Medición",
+  "regla": "Metas: RPR ≥ $100 · CTOR ≥ 4% · apertura ≥ 29% · bajas ≤ 0,35%.",
+  "respaldo": ""
+ }
+]

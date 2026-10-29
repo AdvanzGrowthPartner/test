@@ -1,36 +1,58 @@
 [
  {
+  "id": "venta_tienda",
+  "nombre": "Venta total de la tienda",
+  "valor": 36360023,
+  "unidad": "CLP",
+  "periodo": "2026-10-01/2026-10-28",
+  "meta": null,
+  "estado": "ok",
+  "fuente": "Shopify",
+  "actualizado": "2026-10-29"
+ },
+ {
+  "id": "email_share",
+  "nombre": "% de la venta de la tienda que trae email",
+  "valor": 26.9,
+  "unidad": "%",
+  "periodo": "2026-10-01/2026-10-28",
+  "meta": null,
+  "estado": "ok",
+  "fuente": "Klaviyo + Shopify",
+  "actualizado": "2026-10-29"
+ },
+ {
   "id": "rev_campanas",
   "nombre": "Venta atribuida a campañas",
-  "valor": 8294207,
+  "valor": 8940659,
   "unidad": "CLP",
-  "periodo": "2026-10-01/2026-10-21",
+  "periodo": "2026-10-01/2026-10-29",
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-21"
+  "actualizado": "2026-10-29"
  },
  {
   "id": "compras_campanas",
   "nombre": "Compras atribuidas a campañas",
-  "valor": 151,
+  "valor": 161,
   "unidad": "órdenes",
-  "periodo": "2026-10-01/2026-10-21",
+  "periodo": "2026-10-01/2026-10-29",
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-21"
+  "actualizado": "2026-10-29"
  },
  {
   "id": "rev_flujos",
-  "nombre": "Venta atribuida a flujos",
-  "valor": 735008,
+  "nombre": "Venta atribuida a flujos (carrito + recompra)",
+  "valor": 802564,
   "unidad": "CLP",
-  "periodo": "2026-10-01/2026-10-19",
+  "periodo": "2026-10-01/2026-10-28",
   "meta": null,
   "estado": "warn",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-21"
+  "actualizado": "2026-10-29"
  },
  {
   "id": "rev_dest_cyber",
@@ -41,18 +63,18 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-21"
+  "actualizado": "2026-10-29"
  },
  {
   "id": "rev_dest_post",
   "nombre": "Venta por destinatario post-Cyber",
-  "valor": 29,
+  "valor": 24,
   "unidad": "CLP",
-  "periodo": "2026-10-14/2026-10-21",
+  "periodo": "2026-10-14/2026-10-29",
   "meta": null,
   "estado": "bad",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-21"
+  "actualizado": "2026-10-29"
  },
  {
   "id": "open_rate",
@@ -63,7 +85,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-21"
+  "actualizado": "2026-10-29"
  },
  {
   "id": "base",
@@ -74,7 +96,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-21"
+  "actualizado": "2026-10-29"
  },
  {
   "id": "popup_vistas",
@@ -85,6 +107,6 @@
   "meta": null,
   "estado": "bad",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-21"
+  "actualizado": "2026-10-29"
  }
 ]

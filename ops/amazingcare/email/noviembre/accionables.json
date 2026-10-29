@@ -1,0 +1,178 @@
+[
+ {
+  "id": "A01",
+  "prioridad": "P0",
+  "area": "Flujos",
+  "titulo": "Encender Welcome_AON (en borrador desde el 4-oct)",
+  "detalle": "Pasó de $278K en septiembre a $0 en octubre. Antes de encenderlo: espera de 5 min, quitar el split con links nulos, cerrar el A/B y agregar el correo de cierre.",
+  "impacto": "~$300K al mes",
+  "fecha_limite": "2026-11-04",
+  "ejecuta": "Email OS",
+  "requiere_ok": true
+ },
+ {
+  "id": "A02",
+  "prioridad": "P0",
+  "area": "Flujos",
+  "titulo": "Armar Carritos_Black desde Carritos_Cyber",
+  "detalle": "Clonar QSHsP9 con Smart Sending OFF, UTMs limpias y precios Black. Encender mié 25 10:00, apagar lun 30 23:59, y pausar Carritos_AON en esa ventana.",
+  "impacto": "Junio: $565K en un evento",
+  "fecha_limite": "2026-11-20",
+  "ejecuta": "Email OS",
+  "requiere_ok": true
+ },
+ {
+  "id": "A03",
+  "prioridad": "P0",
+  "area": "Grilla",
+  "titulo": "Cargar las 12 piezas de noviembre en la grilla de Notion",
+  "detalle": "Crear N01–N12 en 'Grilla Correos Amazing B2C_8 Spot (+4 Eventos)' y resolver las 5 filas viejas (tabla de la pestaña Grilla).",
+  "impacto": "Destraba producción",
+  "fecha_limite": "2026-10-31",
+  "ejecuta": "Email OS",
+  "requiere_ok": true
+ },
+ {
+  "id": "A04",
+  "prioridad": "P0",
+  "area": "Captura",
+  "titulo": "Hacer visible el pop-up antes de Black",
+  "detalle": "18 vistas en 3 semanas. Revisar targeting y app embed de Klaviyo en el tema de Shopify. Sin esto, A01 no recibe gente.",
+  "impacto": "Base nueva de Black",
+  "fecha_limite": "2026-11-18",
+  "ejecuta": "Email OS + CRO OS",
+  "requiere_ok": true
+ },
+ {
+  "id": "A05",
+  "prioridad": "P0",
+  "area": "Cliente",
+  "titulo": "Cerrar con Frani la mecánica de Black",
+  "detalle": "¿Descuento automático o código? Nombre del código, stock de Creatina con Electrolitos al 24-nov, sorteo sí o no, y el dato real para N04 'Noticia de última hora'.",
+  "impacto": "Bloquea N04 y N09–N12",
+  "fecha_limite": "2026-11-09",
+  "ejecuta": "Patricio con Frani",
+  "requiere_ok": false
+ },
+ {
+  "id": "A06",
+  "prioridad": "P1",
+  "area": "Flujos",
+  "titulo": "Recompra por formato, empezando por 30 sticks y Pack Mix 60",
+  "detalle": "Hoy 1 compra en 1.026 destinatarios. Quien compró 30 sticks en el Cyber cumple ciclo entre el 27-oct y el 5-nov.",
+  "impacto": "Ventana antes de Black",
+  "fecha_limite": "2026-11-06",
+  "ejecuta": "Email OS",
+  "requiere_ok": true
+ },
+ {
+  "id": "A07",
+  "prioridad": "P1",
+  "area": "Flujos",
+  "titulo": "Corregir la escalera de Carritos_AON",
+  "detalle": "SEC3_ÚLTIMA: 0 compras en 336. Engancharla a abridores, retardo de 45–60 min, verificar que CARRITO10 expire en Shopify.",
+  "impacto": "El flujo que más vende",
+  "fecha_limite": "2026-11-13",
+  "ejecuta": "Email OS",
+  "requiere_ok": true
+ },
+ {
+  "id": "A08",
+  "prioridad": "P1",
+  "area": "Flujos",
+  "titulo": "Rehacer Post-compra y sumar el pedido de reseña",
+  "detalle": "597 destinatarios y 1 compra en 90 días. Sacar '¡Bienvenido!', publicar los borradores traducidos, filtrar Nutrikit y pedir reseña en Judge.me.",
+  "impacto": "Recompra de diciembre",
+  "fecha_limite": "2026-11-20",
+  "ejecuta": "Email OS",
+  "requiere_ok": true
+ },
+ {
+  "id": "A09",
+  "prioridad": "P1",
+  "area": "Frecuencia",
+  "titulo": "Respetar el techo de 80.000 destinatarios",
+  "detalle": "Octubre: 11 envíos principales + 5 seguimientos, casi todos a base completa (~10.900 c/u). La grilla de noviembre suma ~65.000 porque segmenta los spot. Si la apertura de un spot baja de 26%, el siguiente va solo a segmento.",
+  "impacto": "Entregabilidad para Black",
+  "fecha_limite": "2026-11-02",
+  "ejecuta": "Email OS",
+  "requiere_ok": false
+ },
+ {
+  "id": "A10",
+  "prioridad": "P1",
+  "area": "Grilla",
+  "titulo": "Aprobar el ajuste de audiencias de la semana Black",
+  "detalle": "El lineamiento pone 5 envíos entre el 23 y el 30. Para no pasar 3 en 7 días al mismo segmento, N08 va solo a Interesados y N11 solo a Compradores. Es un cambio sobre el lineamiento.",
+  "impacto": "Evita fatiga en el cierre",
+  "fecha_limite": "2026-11-16",
+  "ejecuta": "Usuario",
+  "requiere_ok": true
+ },
+ {
+  "id": "A11",
+  "prioridad": "P1",
+  "area": "Medición",
+  "titulo": "Verificar dominio y UTM en las plantillas",
+  "detalle": "En agosto el 82% de los clics a PDP iba a 25trtw-d5.myshopify.com por el bloque PRODUCTOS 4, y las plantillas traían utm=mail tipeado. No hay registro de que se corrigiera.",
+  "impacto": "Medición de Black",
+  "fecha_limite": "2026-11-13",
+  "ejecuta": "Email OS",
+  "requiere_ok": true
+ },
+ {
+  "id": "A12",
+  "prioridad": "P1",
+  "area": "Flujos",
+  "titulo": "Publicar Navegación abandonada",
+  "detalle": "La estructura existe (W6iCv8); falta la pieza.",
+  "impacto": "Nuevo flujo",
+  "fecha_limite": "2026-11-20",
+  "ejecuta": "Email OS + Creative OS",
+  "requiere_ok": true
+ },
+ {
+  "id": "A13",
+  "prioridad": "P2",
+  "area": "Higiene",
+  "titulo": "Limpiar la base antes de Black",
+  "detalle": "MAYORISTAS y Preview List fuera de todo B2C, bounces duros suprimidos, y fríos >180 días a reactivación y luego supresión.",
+  "impacto": "Apertura y costo de Klaviyo",
+  "fecha_limite": "2026-11-20",
+  "ejecuta": "Email OS",
+  "requiere_ok": true
+ },
+ {
+  "id": "A14",
+  "prioridad": "P2",
+  "area": "Creatividad",
+  "titulo": "Pedir a Creative los 10 UGC del lineamiento",
+  "detalle": "5 de Electrolitos y 5 de Creatina con Electrolitos, para N10 y N11. Va como handoff a Creative OS.",
+  "impacto": "Prueba social Black",
+  "fecha_limite": "2026-11-16",
+  "ejecuta": "Creative OS",
+  "requiere_ok": false
+ },
+ {
+  "id": "A15",
+  "prioridad": "P2",
+  "area": "Reseñas",
+  "titulo": "Acceso a Judge.me y decisión sobre Loox",
+  "detalle": "13 reseñas sobre ~690 órdenes en octubre. Falta acceso a configuración y stats, o una llamada de 15 min.",
+  "impacto": "Prueba social",
+  "fecha_limite": "2026-11-13",
+  "ejecuta": "Usuario",
+  "requiere_ok": true
+ },
+ {
+  "id": "A16",
+  "prioridad": "P2",
+  "area": "Flujos",
+  "titulo": "Consolidar Nutrikit 1 y 2",
+  "detalle": "Dos flujos con el mismo fin. Dejar uno y excluirlo de los reportes.",
+  "impacto": "Orden",
+  "fecha_limite": "2026-11-30",
+  "ejecuta": "Email OS",
+  "requiere_ok": true
+ }
+]

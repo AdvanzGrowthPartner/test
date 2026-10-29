@@ -1,0 +1,44 @@
+[
+ {
+  "linea": "Electrolitos y Packs",
+  "descuento": "30%",
+  "precio_stick": 530,
+  "split_ads": 0.5,
+  "nota": "Ads foco en Berries, Piña, Maracuyá y Pack Mix 30"
+ },
+ {
+  "linea": "Electrolitos Energy",
+  "descuento": "35%",
+  "precio_stick": 780,
+  "split_ads": 0.1,
+  "nota": ""
+ },
+ {
+  "linea": "Fibra",
+  "descuento": "40%",
+  "precio_stick": null,
+  "split_ads": null,
+  "nota": "Es la que permite comunicar 'hasta 40% OFF'"
+ },
+ {
+  "linea": "Creatina pura",
+  "descuento": "30%",
+  "precio_stick": 630,
+  "split_ads": 0.4,
+  "nota": "El 40% de ads se reparte entre pura y con electrolitos"
+ },
+ {
+  "linea": "Creatina con Electrolitos",
+  "descuento": "30%",
+  "precio_stick": 1399,
+  "split_ads": null,
+  "nota": "Disponible desde el 24-nov · lanzamiento para Black"
+ },
+ {
+  "linea": "Accesorios",
+  "descuento": "30%",
+  "precio_stick": null,
+  "split_ads": null,
+  "nota": "Comunicar la nueva bolsa e-commerce: se agrega por $1.000"
+ }
+]

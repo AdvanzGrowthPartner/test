@@ -29,6 +29,21 @@
   - Tendencia: may 14 → jun 14 → jul 12 → ago 22 → sep 24 (en 14 días).
 - **Señales GEO:** autoría ✅ · schema ✅ · FAQ parcial · Wikidata y `llms.txt` pendientes · AggregateRating sin verificar · AI Citation Score sin línea base.
 
+## Tablero SEO y GEO (29-oct)
+- **Link:** https://claude.ai/artifact/VNJoyyeG48NcU67u9X1Qj2 (tipo Dashboard). Es la versión nueva del reporte de oct-26, que queda como foto de octubre.
+- **Datos en vivo de Shopify:** orgánico, IA, blog, pedidos por búsqueda, entradas y artículos. El resto son copias fijas: Search Console (export del 11-sep), palancas, plan de noviembre, panel de preguntas para IAs y bitácora de cambios.
+- **Pestañas:** Resumen, Oportunidades, IA (GEO), Contenidos (cadencia, plan de noviembre y recorrido de un artículo) y Cómo hablamos (entidad, términos, checklist citable).
+- **Lectura al 29-oct:**
+  - Orgánico: 2.810 visitas en octubre (+31% contra septiembre), con 228 compras (8,1%).
+  - IAs: 42 visitas en octubre; 199 en 2026 con 7 compras. Aterrizan en la home y en las fichas, no en el blog.
+  - Blog: 333 visitas en octubre y 3 compras en todo 2026.
+  - Ritmo: 35 artículos publicados, unos 4 al mes desde marzo.
+- **Hallazgo:** la marca aparece como "Amazing Care" y como "AmazingCare", y la autora como "Antonia Quezada" y como "Antonia Quezada Zavala". Se propone unificar; lo decide el founder.
+- **Revisar:** la meta de la colección dice "0% azúcar", pero la ficha dice "sin azúcar añadida". Hay que alinearlas.
+- [ ] Plan de noviembre: 4 artículos, en espera del OK de Antonia y del founder.
+- [ ] Medir el panel de 10 preguntas de compra el 1-nov.
+- [ ] El pedido de email de este mismo mensaje se derivó a AC - Email OS (handoff del 29-oct).
+
 ## Cierre 26-oct (canal orgánico)
 - **Bloques de producto** (marcados `AC-PRODUCTO-INLINE-TOP/MID`, se insertaron sin reemplazar imágenes) en Disautonomía, Migraña, Bariátricos, Bebida isotónica, Creatina y Creatina en mujeres. En Migraña, Isotónica y Creatina en mujeres también se corrigieron placeholders del schema y un link roto.
 - **Regla del usuario:** no se vuelve a editar el body de artículos antiguos. Por eso Magnesio quedó sin tocar.

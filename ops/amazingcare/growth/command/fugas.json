@@ -30,6 +30,21 @@
   "acceso": "ok"
  },
  {
+  "id": "amazingcare.growth.F06",
+  "titulo": "Split por categoría pedido con $3M: el split completo (10 campañas + TikTok) necesita ~$5M/mes",
+  "severidad": 4,
+  "estado": "abierta",
+  "punto_funnel": "trafico",
+  "evidencia": "Propuesta 30-oct: https://claude.ai/artifact/WRgGJosVF96dLd8qCR1WEe",
+  "impacto": "Con $3M repartido en 10 campañas ninguna llega a su mínimo de conversiones (Meta ~43/mes, Google ~30/mes)",
+  "accion": "Presentar al cliente escenario A ($3M, 6 campañas, ~20 creativos) vs B (~$5M, 10 campañas, ~37 creativos) y decidir",
+  "ejecuta": "growth",
+  "via": "manual",
+  "conector": "Meta_Ads",
+  "requiere_ok": true,
+  "acceso": "ok"
+ },
+ {
   "id": "amazingcare.growth.F03",
   "titulo": "6 códigos de descuento sin fecha de término compiten con el cupón del evento",
   "severidad": 3,

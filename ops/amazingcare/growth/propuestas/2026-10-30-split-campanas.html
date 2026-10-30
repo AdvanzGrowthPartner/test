@@ -1,0 +1,160 @@
+<title>Split de campañas AmazingCare</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap">
+<style>
+/* Layout: una columna de lectura; tablas en contenedores con scroll propio */
+:root{
+  --bg:#f6fbfd; --fg:#0a1440; --muted:#4d5a7a; --line:#d5e6ee; --panel:#ffffff;
+  --azul:#020C56; --celeste:#00C3F0; --rosa:#C8004F; --ok:#0a7a4a; --warn:#9a6a00;
+  --font: "Jost","Century Gothic","Futura",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#070d2e; --fg:#e8f4fb; --muted:#a3b3cf; --line:#1f2b5c; --panel:#0d1640;
+  --azul:#8fdcff; --celeste:#00C3F0; --rosa:#ff5c95; --ok:#4fd39a; --warn:#f2c94c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#070d2e; --fg:#e8f4fb; --muted:#a3b3cf; --line:#1f2b5c; --panel:#0d1640;
+  --azul:#8fdcff; --celeste:#00C3F0; --rosa:#ff5c95; --ok:#4fd39a; --warn:#f2c94c; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.55}
+.wrap{max-width:62rem;margin-inline:auto;padding-block:32px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:36px}
+h1{font-size:2rem;font-weight:600;color:var(--azul);margin:0;text-wrap:balance;line-height:1.2}
+h2{font-size:1.3rem;font-weight:600;color:var(--azul);margin:0 0 4px;text-wrap:balance}
+h3{font-size:1.05rem;font-weight:600;margin:12px 0 4px}
+p{margin:0 0 10px;max-width:68ch}
+ul,ol{margin:0 0 10px;padding-left:1.2rem;max-width:68ch}
+li{margin-bottom:4px}
+.eyebrow{text-transform:uppercase;letter-spacing:.08em;font-size:.75rem;color:var(--muted);font-weight:500}
+.lede{font-size:1.1rem}
+.verdict{border-left:4px solid var(--celeste);background:var(--panel);padding:16px 18px;border-radius:0 8px 8px 0}
+.verdict p:last-child{margin:0}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:500;white-space:nowrap}
+td.n,th.n{text-align:right;white-space:nowrap}
+tr.tot td{font-weight:600;border-top:2px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.big{font-size:1.8rem;font-weight:600;color:var(--azul);font-variant-numeric:tabular-nums;line-height:1.1}
+.cap{font-size:.82rem;color:var(--muted)}
+.tag{display:inline-block;font-size:.75rem;padding:1px 8px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+.t-a{color:var(--ok)} .t-b{color:var(--rosa)} .t-w{color:var(--warn)}
+.note{font-size:.85rem;color:var(--muted)}
+</style>
+<div class="wrap">
+<header>
+  <div class="eyebrow">Growth OS · AmazingCare · 30 oct 2026 · borrador interno</div>
+  <h1>Split de campañas por categoría: cuántas campañas, cuántos creativos y cuánta plata</h1>
+  <p class="lede">El cliente quiere separar las campañas por categoría (electrolitos, energía y creatina, más creatina con sabores), en Google, Meta y TikTok, y subir a 30–40 creativos al mes, con $3M de inversión.</p>
+</header>
+
+<section class="verdict">
+  <p><strong>Lectura corta:</strong> con $3M al mes se pueden operar <strong>6 campañas</strong> (Google + Meta), siempre que energía y creatina compartan campaña y se separen por grupo de anuncios. El split completo que pide el cliente (3 categorías × 3 canales, con TikTok) son <strong>10 campañas, ~37 creativos al mes y un piso de ~$5M al mes</strong>. Con $3M ese split deja cada campaña sin conversiones suficientes para que el algoritmo aprenda, y se reparte poco en cada una.</p>
+</section>
+
+<section>
+  <h2>1. Lo que dicen los datos</h2>
+  <div class="grid">
+    <div class="card"><span class="cap">Venta neta por categoría · últimos 90 días · Shopify</span><span class="big">86%</span><span>Electrolitos de sabores y sus packs ($48,3M de $56,2M)</span></div>
+    <div class="card"><span class="cap">Energy (sticks + Pack Energy Boost)</span><span class="big">5%</span><span>$2,8M en 90 días</span></div>
+    <div class="card"><span class="cap">Creatina Creapure (desde el Cyber)</span><span class="big">4%</span><span>$2,1M y 97 órdenes en ~4 semanas; estuvo en el 19% de los pedidos del Cyber</span></div>
+    <div class="card"><span class="cap">Fibra</span><span class="big">3%</span><span>$1,8M en 90 días</span></div>
+  </div>
+  <ul style="margin-top:14px">
+    <li><strong>La demanda está concentrada en electrolitos.</strong> Repartir el presupuesto en partes iguales por categoría le quita plata a lo que vende el 86%.</li>
+    <li><strong>Las audiencias frías de Meta están gastadas.</strong> En 90 días, Prospección tiene frecuencia 6,0 y Retención 9,4. Abrir categorías nuevas (creatina, energía) sí sirve para llegar a gente nueva: es el mejor argumento a favor del split.</li>
+    <li><strong>CPA de compra en Meta (plataforma, 90 días):</strong> Prospección US$9,23 (~$8.800), Adquisición FP US$11,49 (~$10.900), Retención US$10,32 (~$9.800). En el Cyber bajó a US$6,8–7,7.</li>
+    <li><strong>Google:</strong> en sep 1–14, $570K y 69 órdenes (CPA ~$8.300). Brand 9,9×, PMax 3,4×, Categoría 7,5×. En agosto, la campaña de Search por categoría de electrolitos rindió 1,22×: el genérico es caro.</li>
+    <li><strong>Búsqueda orgánica:</strong> "electrolitos" suma ~70K impresiones en posición 6,3; el blog de creatina, 6,8K en posición 11,6. Hay demanda de búsqueda para las dos categorías.</li>
+    <li><strong>Retención ya la cubre el correo:</strong> email fue el 26,9% de la venta de octubre ($9,8M). El retargeting pagado puede ser chico y concentrarse en bundles y venta cruzada.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>2. Las reglas que fijan el mínimo por campaña</h2>
+  <ul>
+    <li><strong>Meta:</strong> un conjunto de anuncios sale de aprendizaje con ~50 conversiones por semana. A este volumen eso no es alcanzable, así que el piso de trabajo es <strong>10 compras por semana por campaña</strong> (~43 al mes) y lo recomendado es 20.</li>
+    <li><strong>Google (PMax y Search con puja automática):</strong> necesita <strong>~30 conversiones en 30 días por campaña</strong> para optimizar con CPA o ROAS objetivo.</li>
+    <li><strong>TikTok:</strong> también aprende con ~50 conversiones por semana por grupo. Con presupuesto de prueba se queda en aprendizaje limitado, así que se mide como prueba de 8 semanas, no como canal de venta.</li>
+    <li><strong>Mínimo = conversiones necesarias × CPA esperado.</strong> Para categorías nuevas (creatina, energía) se asume un CPA ~30% más alto que el de electrolitos, porque todavía no hay histórico.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>3. Escenario A: lo que funciona con $3M <span class="tag t-a">recomendado si no sube el presupuesto</span></h2>
+  <div class="tw"><table>
+    <thead><tr><th>Canal</th><th>Campaña</th><th>Qué lleva adentro</th><th class="n">Presupuesto mes</th><th class="n">Compras esperadas</th></tr></thead>
+    <tbody>
+      <tr><td>Google</td><td>Search Brand</td><td>"amazing care", "amazingcare electrolitos". Captura, se lee aparte</td><td class="n">$150.000</td><td class="n">—</td></tr>
+      <tr><td>Google</td><td>PMax Electrolitos + Packs</td><td>Feed filtrado a electrolitos, packs y bundles. Excluye la marca</td><td class="n">$650.000</td><td class="n">~75</td></tr>
+      <tr><td>Google</td><td>Search Rendimiento</td><td>2 grupos de anuncios: Creatina (creatina, creapure, monohidratada) y Energía (cafeína, pre-entreno natural)</td><td class="n">$350.000</td><td class="n">~29</td></tr>
+      <tr><td>Meta</td><td>Prospección Electrolitos</td><td>Advantage+, packs por avatar (P1, P3, P6), con la creatividad de hidratación</td><td class="n">$850.000</td><td class="n">~95</td></tr>
+      <tr><td>Meta</td><td>Prospección Rendimiento</td><td>Creatina y Energy en la misma campaña, con anuncios separados por producto (P1 Deportista, P2 Profesional)</td><td class="n">$550.000</td><td class="n">~44</td></tr>
+      <tr><td>Meta</td><td>Retargeting y venta cruzada</td><td>Catálogo, bundles (Energy Boost, Wellness), creatina a compradores de electrolitos</td><td class="n">$450.000</td><td class="n">~46</td></tr>
+      <tr class="tot"><td colspan="3">6 campañas · sin TikTok</td><td class="n">$3.000.000</td><td class="n">~290</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Compras esperadas = presupuesto ÷ CPA de plataforma supuesto ($8.300–8.900 en electrolitos, $12.000–12.500 en rendimiento, $9.800 en retargeting). Son compras que reporta la plataforma, no órdenes de Shopify. Ahí el número real es menor.</p>
+  <p><strong>Cuándo se separa creatina en su propia campaña:</strong> cuando la Prospección Rendimiento pase de 20 compras por semana y creatina explique más de la mitad. Con creatina con sabores (llega el 24-nov) es probable que pase en diciembre.</p>
+</section>
+
+<section>
+  <h2>4. Escenario B: el split completo que pide el cliente <span class="tag t-b">piso ~$5M al mes</span></h2>
+  <div class="tw"><table>
+    <thead><tr><th>Canal</th><th>Campaña</th><th class="n">Piso</th><th class="n">Propuesto</th></tr></thead>
+    <tbody>
+      <tr><td>Google</td><td>Search Brand</td><td class="n">$100.000</td><td class="n">$150.000</td></tr>
+      <tr><td>Google</td><td>PMax Electrolitos + Packs</td><td class="n">$250.000</td><td class="n">$650.000</td></tr>
+      <tr><td>Google</td><td>Search Electrolitos genérico</td><td class="n">$360.000</td><td class="n">$360.000</td></tr>
+      <tr><td>Google</td><td>Search Energía</td><td class="n">$360.000</td><td class="n">$360.000</td></tr>
+      <tr><td>Google</td><td>Search Creatina</td><td class="n">$360.000</td><td class="n">$400.000</td></tr>
+      <tr><td>Meta</td><td>Prospección Electrolitos</td><td class="n">$410.000</td><td class="n">$820.000</td></tr>
+      <tr><td>Meta</td><td>Prospección Energy</td><td class="n">$540.000</td><td class="n">$540.000</td></tr>
+      <tr><td>Meta</td><td>Prospección Creatina</td><td class="n">$540.000</td><td class="n">$540.000</td></tr>
+      <tr><td>Meta</td><td>Retargeting y venta cruzada</td><td class="n">$400.000</td><td class="n">$450.000</td></tr>
+      <tr><td>TikTok</td><td>Prueba de 8 semanas (Spark Ads, video)</td><td class="n">$600.000</td><td class="n">$700.000</td></tr>
+      <tr class="tot"><td colspan="2">10 campañas</td><td class="n">$3.920.000</td><td class="n">$4.970.000</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Piso de Google = 30 conversiones × CPA ($8.300 PMax, $12.000 Search genérico, supuesto). Piso de Meta = 43 compras al mes × CPA ($9.500 electrolitos, $12.500 categorías nuevas). En el piso cada campaña opera en aprendizaje limitado. La columna "Propuesto" es la que da margen para que el algoritmo elija.</p>
+  <p><strong>Si los $3M se reparten en estas 10 campañas</strong>, cada una de Meta queda con ~$300K (~30 compras al mes) y cada Search con ~$250K (~20 conversiones). Ninguna llega a su mínimo y la lectura por categoría no va a ser concluyente.</p>
+</section>
+
+<section>
+  <h2>5. Creativos al mes</h2>
+  <p>Regla: en Meta cada campaña de prospección necesita 4–6 anuncios activos. Meta concentra el gasto en 1–2 de ellos, y con la frecuencia actual (6–9) un anuncio dura ~3 semanas. Hay que reponer ~5 por campaña al mes. En TikTok un video dura 7–10 días.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Dónde</th><th class="n">Escenario A ($3M)</th><th class="n">Escenario B ($5M)</th></tr></thead>
+    <tbody>
+      <tr><td>Meta prospección (5 nuevos por campaña)</td><td class="n">10</td><td class="n">15</td></tr>
+      <tr><td>Meta retargeting (bundles, catálogo, venta cruzada)</td><td class="n">3</td><td class="n">4</td></tr>
+      <tr><td>Google PMax (adaptaciones por grupo de recursos)</td><td class="n">4</td><td class="n">6</td></tr>
+      <tr><td>TikTok (3–4 videos activos, 3 rotaciones)</td><td class="n">—</td><td class="n">12</td></tr>
+      <tr class="tot"><td>Total al mes</td><td class="n">~17–20</td><td class="n">~37</td></tr>
+    </tbody>
+  </table></div>
+  <p>Los 20 creativos de hoy alcanzan para el escenario A. Los 30–40 que quiere el cliente son coherentes con el escenario B, pero sin el presupuesto de B la mitad de esos creativos no recibe gasto suficiente para leerse: Meta les da ~$25K a cada uno y se descartan sin dato.</p>
+</section>
+
+<section>
+  <h2>6. El mensaje para el cliente</h2>
+  <ol>
+    <li><strong>El split por categoría tiene sentido</strong>, porque la gente busca "creatina" y "electrolitos" por separado y las audiencias de hoy ya están saturadas.</li>
+    <li><strong>Lo que define cuántas campañas caben es el presupuesto.</strong> Cada campaña necesita un mínimo de compras al mes para aprender.</li>
+    <li><strong>Con $3M:</strong> 6 campañas, con creatina y energía juntas en "Rendimiento", ~20 creativos y sin TikTok.</li>
+    <li><strong>Con ~$5M:</strong> las 10 campañas por categoría y canal, TikTok de prueba y ~37 creativos al mes, con su fee de gestión.</li>
+    <li><strong>Camino intermedio:</strong> partir con A en noviembre y abrir creatina y TikTok cuando creatina con sabores tenga 3–4 semanas de venta.</li>
+  </ol>
+  <p class="note">Black Friday (25–30 nov) se presupuesta aparte. El modelo de saturación del Cyber de octubre ubicó el punto dulce entre $5M y $6M para 10 días de evento.</p>
+</section>
+
+<section>
+  <h2>7. Lo que falta para cerrar los números</h2>
+  <ul>
+    <li><strong>Google Ads por campaña (90 días):</strong> desde la terminal de Matías o por export. Hoy los CPA de Google salen del reporte de septiembre y de la auditoría de agosto; el CPA de Search no-brand es un supuesto.</li>
+    <li><strong>Volumen de búsqueda de "creatina" y "electrolitos" en Chile</strong> (Planificador de Palabras Clave): define si Search Creatina tiene volumen para 30 conversiones.</li>
+    <li><strong>COGS por categoría:</strong> la creatina puede tener otro margen. Sin ese dato, el CPA objetivo por categoría es el mismo para todas.</li>
+    <li><strong>Lectura real en Shopify:</strong> Meta reporta entre 1,5× y 3× más compras de las que ve Shopify. Las compras esperadas de esta página son de plataforma.</li>
+  </ul>
+  <p class="note">Fuentes: Shopify (ventas por producto en 90 días y meses may–oct), Meta Ads cuenta DTC 2911300959169889 (campañas en 90 días), estado de los OS Ads, Email, GEO-SEO y CRO. El command center en amazing-command-center.pages.dev no se pudo leer desde esta sesión (proxy).</p>
+</section>
+</div>

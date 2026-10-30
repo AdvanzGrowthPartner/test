@@ -28,6 +28,7 @@
 - **Cockpit Next.js alternativo:** https://advanz-motor.pages.dev (Diagnóstico con Growth Score 76, Inteligencia por ángulo, Evento FP). Al usuario le pareció "sin valor agregado" y se recalibró el 10-sep. Estado actual sin confirmar.
 
 ## Decisiones tomadas
+- **30-oct · Split de campañas por categoría (pedido del cliente):** propuesta https://claude.ai/artifact/WRgGJosVF96dLd8qCR1WEe (fuente `propuestas/2026-10-30-split-campanas.html`). Mix 90 días Shopify: electrolitos 86% · Energy 5% · Creatina 4% · Fibra 3%. Escenario A $3M = 6 campañas (Google Brand, PMax ELE, Search Rendimiento; Meta Prosp ELE, Prosp Rendimiento, RT) y ~20 creativos. Escenario B ~$5M = 10 campañas + TikTok de prueba y ~37 creativos. Pisos: Meta 43 compras/mes por campaña, Google 30 conv/mes. Pendiente decisión del cliente. Supuesto a validar: CPA Search no-brand ~$12K (sin datos de Google Ads).
 - **21-oct · Command "Growth OS · AmazingCare":** https://claude.ai/artifact/AaQ652nEWo7t2cMSyruyfv (Dashboard privado, solo datos AmazingCare). Datasets = `command/*.json` de `exportar.py`; se refresca en cada cierre.
 - **19-oct · accesos probados (solo lectura):** Shopify, Meta Ads (DTC y Mayorista), Notion y Drive responden. Sin conector: Google Ads, GA4, Cloudflare. Sin probar: Klaviyo, Miro, Ahrefs.
 - **Reportes al cliente:** cortos y estratégicos, sin tecnicismos ni culpas. Los cambios se cuentan como "preparación para el evento", con verbos de mejora. La expectativa se declara, no se promete. Los próximos pasos se separan en **Cliente (estrategia y marca)** y **Advanz (ajustes y publicación)**.
@@ -38,6 +39,7 @@
 - Ahrefs y Semrush quedan fuera (plan insuficiente o sin unidades). SEO se mide con Search Console, Shopify y la grilla de Notion.
 
 ## Pendientes / próximos pasos
+- [ ] Validar el split con Google Ads por campaña (90 días) y volumen de "creatina"/"electrolitos" en el Planificador; luego presentar A vs B al cliente.
 - [ ] **Reporte de cierre del Cyber oct-26** (2–11 oct): no hay data después del 4-oct. Usar el war room y el "Reporte Cierre Cyber" de junio como plantilla, y comparar los 3 eventos en base neta.
 - [ ] Actualizar la skill `event-strategy` con las lecciones del Cyber: neto contra bruto, el gotcha del IVA en ShopifyQL (`gross_sales`/`net_sales` van sin IVA), la calculadora de saturación, las definiciones de CAC y la auditoría de apilamiento de descuentos (Kaching). Se ofreció y no hubo respuesta.
 - [ ] Command Center en vivo: deploy en Cloudflare más secrets (Meta, Klaviyo, Shopify, Google Ads, GSC) en la máquina de Matías. Después, cablear "actualiza el command center con <mes>" y barrer el histórico ene–jul 2026 y 2025.

@@ -8,7 +8,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Shopify",
-  "actualizado": "2026-10-29"
+  "actualizado": "2026-10-30"
  },
  {
   "id": "email_share",
@@ -19,7 +19,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo + Shopify",
-  "actualizado": "2026-10-29"
+  "actualizado": "2026-10-30"
  },
  {
   "id": "rev_campanas",
@@ -30,7 +30,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-29"
+  "actualizado": "2026-10-30"
  },
  {
   "id": "compras_campanas",
@@ -41,7 +41,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-29"
+  "actualizado": "2026-10-30"
  },
  {
   "id": "rev_flujos",
@@ -52,7 +52,7 @@
   "meta": null,
   "estado": "warn",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-29"
+  "actualizado": "2026-10-30"
  },
  {
   "id": "rev_dest_cyber",
@@ -63,7 +63,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-29"
+  "actualizado": "2026-10-30"
  },
  {
   "id": "rev_dest_post",
@@ -74,7 +74,7 @@
   "meta": null,
   "estado": "bad",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-29"
+  "actualizado": "2026-10-30"
  },
  {
   "id": "open_rate",
@@ -85,7 +85,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-29"
+  "actualizado": "2026-10-30"
  },
  {
   "id": "base",
@@ -96,7 +96,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-29"
+  "actualizado": "2026-10-30"
  },
  {
   "id": "popup_vistas",
@@ -107,6 +107,6 @@
   "meta": null,
   "estado": "bad",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-29"
+  "actualizado": "2026-10-30"
  }
 ]

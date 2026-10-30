@@ -45,6 +45,21 @@
   "acceso": "ok"
  },
  {
+  "id": "amazingcare.email.F10",
+  "titulo": "Correos de solo imagen y pesados (0,9–1,9 MB), sin texto vivo ni alt",
+  "severidad": 4,
+  "estado": "en-curso",
+  "punto_funnel": "contenido",
+  "evidencia": "Klaviyo get_images y plantillas: Halloween 3 PNG = 1,86 MB; Valor stick 3 PNG = 0,90 MB; cortes de septiembre de hasta 2,3 MB. Todo el correo enlaza a un solo link.",
+  "impacto": "No hay medición directa del efecto; es un riesgo de carga en móvil (87% del tráfico), de imágenes bloqueadas y de filtros de spam.",
+  "accion": "Regla en cada ficha de noviembre: ≤ 800 KB, JPG 80%, texto vivo en HTML, un link por bloque",
+  "ejecuta": "email",
+  "via": "manual",
+  "conector": "Klaviyo",
+  "requiere_ok": false,
+  "acceso": "ok"
+ },
+ {
   "id": "amazingcare.email.F02",
   "titulo": "Carrito AON: la escalera está invertida y el último correo no convierte",
   "severidad": 3,
@@ -57,6 +72,21 @@
   "via": "mcp",
   "conector": "Klaviyo",
   "requiere_ok": true,
+  "acceso": "ok"
+ },
+ {
+  "id": "amazingcare.email.F04",
+  "titulo": "UTM tipeada a mano en las plantillas: GA4 mezcla campañas",
+  "severidad": 3,
+  "estado": "abierta",
+  "punto_funnel": "medicion",
+  "evidencia": "Las campañas tienen add_tracking_params, pero los links de las imágenes traen la UTM tipeada a mano (Valor stick: utm_campaign=pre-cyber; Halloween: utm_campaign=haloween) y Klaviyo no la pisa.",
+  "impacto": null,
+  "accion": "Revisar UTM en flujos y cruzar con GA4",
+  "ejecuta": "email",
+  "via": "manual",
+  "conector": "Klaviyo",
+  "requiere_ok": false,
   "acceso": "ok"
  },
  {
@@ -103,21 +133,6 @@
   "conector": "Klaviyo",
   "requiere_ok": true,
   "acceso": "sin-conector"
- },
- {
-  "id": "amazingcare.email.F04",
-  "titulo": "UTMs: las campañas ya los llevan, falta confirmar flujos y GA4",
-  "severidad": 2,
-  "estado": "en-curso",
-  "punto_funnel": "medicion",
-  "evidencia": "Las 13 campañas de oct tienen add_tracking_params = true. Falta verificar los flujos y que GA4/Shopify reciban utm_source=klaviyo.",
-  "impacto": null,
-  "accion": "Revisar UTM en flujos y cruzar con GA4",
-  "ejecuta": "email",
-  "via": "manual",
-  "conector": "Klaviyo",
-  "requiere_ok": false,
-  "acceso": "ok"
  },
  {
   "id": "amazingcare.email.F03",

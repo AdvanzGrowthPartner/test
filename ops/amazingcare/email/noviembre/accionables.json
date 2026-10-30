@@ -1,5 +1,27 @@
 [
  {
+  "id": "A17",
+  "prioridad": "P0",
+  "area": "Diseño",
+  "titulo": "Bajar el peso de los correos: de ~1–1,9 MB a menos de 800 KB",
+  "detalle": "Los correos de octubre son 3 cortes de una imagen PNG, sin texto vivo ni alt. Halloween pesó ~1,86 MB y Valor stick ~0,90 MB; en septiembre hubo cortes de hasta 2,3 MB. Regla nueva en cada ficha: JPG 80%, ≤ 200 KB por imagen, ≤ 800 KB por correo, titular, botones y letra chica en HTML.",
+  "impacto": "Carga en móvil y entregabilidad",
+  "fecha_limite": "2026-10-30",
+  "ejecuta": "Diseño",
+  "requiere_ok": false
+ },
+ {
+  "id": "A18",
+  "prioridad": "P1",
+  "area": "Medición",
+  "titulo": "Dejar de tipear UTM en los links de las imágenes",
+  "detalle": "Valor stick llevaba utm_campaign=pre-cyber y Halloween utm_campaign=haloween, escritos a mano. Klaviyo no pisa un UTM existente, así que GA4 mezcla campañas. Links limpios; Klaviyo agrega el UTM solo.",
+  "impacto": "Atribución de Black",
+  "fecha_limite": "2026-11-02",
+  "ejecuta": "Diseño + Email OS",
+  "requiere_ok": false
+ },
+ {
   "id": "A01",
   "prioridad": "P0",
   "area": "Flujos",
@@ -23,12 +45,12 @@
  },
  {
   "id": "A03",
-  "prioridad": "P0",
+  "prioridad": "P1",
   "area": "Grilla",
-  "titulo": "Cargar las 12 piezas de noviembre en la grilla de Notion",
-  "detalle": "Crear N01–N12 en 'Grilla Correos Amazing B2C_8 Spot (+4 Eventos)' y resolver las 5 filas viejas (tabla de la pestaña Grilla).",
+  "titulo": "Resolver las 5 filas viejas de noviembre en la grilla",
+  "detalle": "Las 12 fichas N01–N12 ya están en Notion para diseño (30-oct). Faltan las 5 filas viejas con fecha de noviembre: descartar, fusionar o mover, según la pestaña Grilla.",
   "impacto": "Destraba producción",
-  "fecha_limite": "2026-10-31",
+  "fecha_limite": "2026-11-02",
   "ejecuta": "Email OS",
   "requiere_ok": true
  },

@@ -1,5 +1,11 @@
 [
  {
+  "fecha": "2026-10-30",
+  "cambio": "Notion: 12 páginas nuevas (N01–N12) en \"Grilla Correos Amazing B2C_8 Spot (+4 Eventos)\", con estructura para diseño. Artifact Email Noviembre: loader de email_mes corregido, accionables A17–A18 y reglas de peso",
+  "por_que": "Pedido del usuario: que diseño parta hoy y revisar el peso de los correos",
+  "revertir": "Archivar las páginas en Notion (lista en noviembre/fichas-notion.md)"
+ },
+ {
   "fecha": "2026-10-29",
   "cambio": "Artifact privado \"Email Noviembre · AmazingCare\" (Dashboard) publicado: https://claude.ai/artifact/TyheCMx6pWGUCpiq3c6TEL, con ventas y campañas en vivo (Shopify y Klaviyo), grilla de noviembre, flujos, accionables y reglas. No se tocó Klaviyo, Shopify ni Notion",
   "por_que": "Pedido del usuario: grilla de noviembre y un tablero con correos, flujos, accionables y diagramas",

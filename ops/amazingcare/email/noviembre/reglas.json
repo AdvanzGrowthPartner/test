@@ -202,5 +202,35 @@
   "grupo": "Medición",
   "regla": "Metas: RPR ≥ $100 · CTOR ≥ 4% · apertura ≥ 29% · bajas ≤ 0,35%.",
   "respaldo": ""
+ },
+ {
+  "id": "R35",
+  "grupo": "Peso y extensión",
+  "regla": "Peso: correo completo ≤ 800 KB y cada imagen ≤ 200 KB. Fotos en JPG 80%; PNG solo para piezas planas con pocos colores.",
+  "respaldo": "Oct-26: Halloween ~1,86 MB, Valor stick ~0,90 MB, Pack Mix ~0,93 MB, Creatina AMAZINGWEEN ~0,39 MB (Klaviyo, peso de las imágenes)."
+ },
+ {
+  "id": "R36",
+  "grupo": "Peso y extensión",
+  "regla": "Extensión: 4–5 bloques y alto total máximo de 2.000 px a 600 px de ancho (unas 3 pantallas de celular).",
+  "respaldo": ""
+ },
+ {
+  "id": "R37",
+  "grupo": "Peso y extensión",
+  "regla": "Texto vivo: titular, %, fecha de cierre, botones y letra chica van en HTML. Nunca un correo hecho solo de imágenes.",
+  "respaldo": "Si la imagen no carga o está bloqueada, el correo igual se lee; los filtros de spam penalizan los correos de solo imagen."
+ },
+ {
+  "id": "R38",
+  "grupo": "Peso y extensión",
+  "regla": "Cada bloque enlaza a su propio destino (PDP o colección), con texto alternativo. No todo el correo a un solo link.",
+  "respaldo": "Hoy los 3 cortes llevan al mismo /collections/packs y no se sabe qué bloque recibe el clic."
+ },
+ {
+  "id": "R39",
+  "grupo": "Peso y extensión",
+  "regla": "El HTML debe quedar bajo 102 KB para que Gmail no lo recorte.",
+  "respaldo": "Hoy pesan ~15 KB: no es el problema; el peso está en las imágenes."
  }
 ]

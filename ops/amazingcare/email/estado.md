@@ -3,6 +3,12 @@
 ## Estado actual
 **Último dato leído: 29 oct 2026 (Klaviyo y Shopify, 1–29 oct). Command: ver `command/URL`. Los dashboards anteriores (95qFrTBGfTPqeE8UcJYDZH, por marca, y KEm68mZ8Ezs6RXWkw1cAZc, combinado) quedan congelados · datos en `os-data.json`.**
 
+### 30-oct · Fichas para diseño y peso de los correos
+- **Fichas N01–N12 creadas en la grilla de Notion** con Aprobación final = Producción. N04 queda en Sin empezar porque falta la noticia. Links en `noviembre/fichas-notion.md`. Cada ficha tiene la referencia copiada de la página NOVIEMBRE, la composición con copy y las indicaciones para diseño, en 4–5 bloques. La página NOVIEMBRE no se tocó.
+- **Peso:** los correos de octubre son 3 cortes PNG de una sola imagen, sin texto vivo, sin alt y con un único link. Pesos: Halloween ~1,86 MB, Valor stick ~0,90 MB y Pack Mix ~0,93 MB. En septiembre hubo cortes de hasta 2,3 MB. El HTML pesa ~15 KB, así que Gmail no recorta: el peso está en las imágenes. Regla nueva: ≤ 800 KB por correo, ≤ 200 KB por imagen, JPG 80% y texto clave en HTML (F10).
+- **UTM:** las plantillas traen la UTM tipeada a mano y con errores (utm_campaign=pre-cyber en Valor stick, =haloween en Halloween). F04 se reabre.
+- **Artifact Email Noviembre:** se corrigió la fuente "Venta atribuida a email" (el loader no leía la respuesta) y se agregó el enlace al Panel del Motor de Correo (G4oH1DpezsbDeyfJneiWBx), que sigue siendo el diagnóstico del motor.
+
 ### Corte 29-oct y plan de noviembre
 - **Artifact de trabajo de noviembre:** https://claude.ai/artifact/TyheCMx6pWGUCpiq3c6TEL ("Email Noviembre · AmazingCare"). Es un dashboard con 6 pestañas: resumen de ventas, grilla, flujos con diagramas, campañas, accionables y sistema/claims. Ventas, campañas y flujos se leen en vivo de Shopify y Klaviyo; la grilla, los accionables y las reglas están en `noviembre/*.json`. El Command `command/URL` sigue siendo el tablero del OS.
 - **Ventas octubre (Shopify, al 28-oct):** venta total $36,36M, venta neta $29,51M, 777 órdenes, ticket $37.976 y recompra 41,7%. En septiembre: $16,46M y 381 órdenes.

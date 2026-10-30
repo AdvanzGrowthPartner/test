@@ -2,189 +2,211 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
 <style>
-/* Layout: plan de medios en una columna; respuestas arriba, tablas visuales, apoyo al final. Tema único claro sobre crema, paleta del command center Amazing */
+/* Layout: plan de medios en una columna; cada bloque = visual (mapa de calor o torta) + cuadros de respuesta al cliente. Tema único claro sobre crema, paleta del command center Amazing */
 :root{
   color-scheme:light;
   --bg:#fbf9f4; --card:#ffffff; --line:#ece7dc; --ink:#14111c; --text:#2b2638; --muted:#736c80;
   --violet:#c15dff; --violet-deep:#7b2ff7; --cyan:#22d3ee; --flow:#0891b2; --flow-bg:#e6f6fa;
   --green:#16a34a; --green-bg:#e9f7ee; --amber:#d97706; --amber-bg:#fdf3e4; --red:#dc2626; --red-bg:#fdecec;
-  --grey:#b9b4c6; --grey-bg:#f1eee8; --spot-bg:#f4eeff;
-  --c-est:#7b2ff7; --c-vid:#0891b2; --c-ia:#22d3ee;
+  --grey:#cfcad8; --grey-bg:#f1eee8; --spot-bg:#f4eeff;
   --sh:0 1px 2px rgba(20,17,28,.03),0 10px 24px -20px rgba(20,17,28,.25);
   --f-body:"Poppins",system-ui,sans-serif; --f-num:"Space Grotesk","Poppins",system-ui,sans-serif;
 }
 body{background:var(--bg);color:var(--text);font-family:var(--f-body);font-size:14px;line-height:1.45}
-.wrap{max-width:80rem;margin-inline:auto;padding-block:24px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:18px}
+.wrap{max-width:80rem;margin-inline:auto;padding-block:24px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:16px}
 .hero{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 22px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;box-shadow:var(--sh)}
 .hero .eb{font-size:.74rem;color:var(--muted);letter-spacing:.04em}
 .hero h1{margin:2px 0 0;font-family:var(--f-num);font-size:1.7rem;font-weight:700;line-height:1.15;color:var(--ink)}
 .hero h1 em{font-style:normal;color:var(--violet-deep)}
-.seg-tabs{display:flex;gap:6px;flex-wrap:wrap}
-.seg-tabs button{font:inherit;font-size:.82rem;border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:6px 16px;cursor:pointer;color:var(--text);font-weight:500}
-.seg-tabs button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
-.seg-tabs button:focus-visible{outline:2px solid var(--violet-deep);outline-offset:2px}
-.answers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11.5rem),1fr));gap:12px}
-.ans{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:2px;box-shadow:var(--sh)}
-.ans .q{font-size:.72rem;color:var(--muted)}
-.ans b{font-family:var(--f-num);font-size:1.6rem;line-height:1.1;color:var(--ink)}
-.ans span{font-size:.74rem;color:var(--text)}
-.ans.hl{border-color:var(--violet-deep)} .ans.hl b{color:var(--violet-deep)}
-.sec{font-family:var(--f-num);font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:12px 2px -4px;display:flex;align-items:center;gap:10px}
+.vs{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.pill{border:1px solid var(--line);border-radius:12px;padding:8px 14px;min-width:10rem;background:var(--bg)}
+.pill b{display:block;font-family:var(--f-num);font-size:1.45rem;line-height:1.1;color:var(--ink)}
+.pill span{font-size:.72rem;color:var(--muted)}
+.pill.o{border-color:var(--violet-deep)} .pill.o b{color:var(--violet-deep)}
+.arrow-r{font-size:1.4rem;color:var(--muted)}
+.sec{font-family:var(--f-num);font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:14px 2px -2px;display:flex;align-items:center;gap:10px}
 .sec::after{content:"";flex:1;height:1px;background:var(--line)}
 .grid{display:grid;gap:16px;grid-template-columns:repeat(12,minmax(0,1fr))}
 .c12{grid-column:span 12}.c8{grid-column:span 8}.c7{grid-column:span 7}.c6{grid-column:span 6}.c5{grid-column:span 5}.c4{grid-column:span 4}
 @media (max-width:960px){.c8,.c7,.c6,.c5,.c4{grid-column:span 12}}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--sh);min-width:0;display:flex;flex-direction:column;gap:12px}
 .card h2{margin:0;font-family:var(--f-num);font-size:1rem;font-weight:600;color:var(--ink);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.cap{font-size:.74rem;color:var(--muted)}
+.cap{font-size:.72rem;color:var(--muted)}
 .num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
 .tag{font-family:var(--f-body);font-size:.66rem;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
-.t-a{background:var(--green-bg);color:var(--green)}.t-b{background:var(--spot-bg);color:var(--violet-deep)}.t-r{background:var(--red-bg);color:var(--red)}.t-f{background:var(--flow-bg);color:var(--flow)}.t-m{background:var(--amber-bg);color:var(--amber)}
-.keys{display:flex;flex-wrap:wrap;gap:12px;font-size:.74rem;color:var(--muted)}
+.t-f{background:var(--flow-bg);color:var(--flow)}.t-b{background:var(--spot-bg);color:var(--violet-deep)}.t-m{background:var(--amber-bg);color:var(--amber)}.t-r{background:var(--red-bg);color:var(--red)}.t-a{background:var(--green-bg);color:var(--green)}
+.keys{display:flex;flex-wrap:wrap;gap:12px;font-size:.72rem;color:var(--muted);align-items:center}
 .keys i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
-/* tablas visuales */
+.scale{display:inline-flex;height:10px;width:110px;border-radius:3px;overflow:hidden;vertical-align:-1px;margin:0 4px}
+.scale span{flex:1}
+/* mapas de calor */
 .tw{overflow-x:auto}
-table.t{border-collapse:separate;border-spacing:0;width:100%;font-size:.78rem}
-table.t th{font-weight:500;color:var(--muted);text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);white-space:nowrap;font-size:.72rem}
-table.t td{padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
-table.t td.n,table.t th.n{text-align:right;font-family:var(--f-num);font-variant-numeric:tabular-nums;white-space:nowrap}
-table.t td.c,table.t th.c{text-align:center}
-table.t tr.tot td{font-weight:700;border-top:2px solid var(--ink);border-bottom:none;color:var(--ink)}
-table.t tr.grp td{background:var(--bg);font-family:var(--f-num);font-weight:700;font-size:.74rem;color:var(--ink);letter-spacing:.03em}
-.ch-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
-.chip{font-size:.64rem;padding:1px 7px;border-radius:999px;background:var(--grey-bg);color:var(--text);white-space:nowrap;display:inline-block;margin:1px 2px 1px 0}
+table.hm{border-collapse:separate;border-spacing:3px;width:100%;font-size:.76rem}
+table.hm th{font-weight:500;color:var(--muted);padding:4px 6px;white-space:nowrap;font-size:.7rem;text-align:center}
+table.hm th.l,table.hm td.l{text-align:left}
+table.hm td{padding:7px 8px;border-radius:7px;text-align:center;white-space:nowrap;font-family:var(--f-num);font-variant-numeric:tabular-nums;color:var(--ink)}
+table.hm td.l{font-family:var(--f-body);background:transparent;white-space:normal;min-width:9rem}
+table.hm td.l b{color:var(--ink)}
+table.hm td.na{background:var(--grey-bg);color:var(--grey)}
+table.hm tr.hl td.l b{color:var(--violet-deep)}
+table.hm td.txt{font-family:var(--f-body);background:var(--bg);text-align:left;white-space:normal;color:var(--text);font-size:.72rem;min-width:12rem}
+.chip{font-size:.64rem;padding:1px 7px;border-radius:999px;background:var(--grey-bg);color:var(--text);white-space:nowrap;display:inline-block;margin:1px 2px 1px 0;font-family:var(--f-body)}
 .chip.cbo{background:var(--spot-bg);color:var(--violet-deep);font-weight:600}.chip.abo{background:var(--amber-bg);color:var(--amber);font-weight:600}
-.minibar{position:relative;height:12px;background:var(--grey-bg);border-radius:4px;min-width:7rem}
-.minibar .f{position:absolute;left:0;top:0;bottom:0;border-radius:4px}
-.minibar .fl{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink);opacity:.75}
-.cell{display:inline-grid;place-items:center;min-width:28px;height:24px;border-radius:7px;font-family:var(--f-num);font-weight:600;color:#fff;padding:0 6px}
-.cell.z{background:transparent;color:var(--grey);font-weight:400}
-.score{display:inline-flex;gap:2px}.score i{width:9px;height:9px;border-radius:2px;background:var(--grey-bg)}.score i.on{background:var(--violet-deep)}
-.ev{font-size:.64rem;padding:1px 6px;border-radius:999px;font-weight:600}
-.ev.hi{background:var(--amber-bg);color:var(--amber)}.ev.lo{background:var(--green-bg);color:var(--green)}
-.matrix td.c .m{display:inline-block;width:18px;height:18px;border-radius:50%}
-.m.on{background:var(--violet-deep)}.m.test{background:transparent;border:2px dashed var(--amber)}.m.no{background:var(--grey-bg)}
-/* cobertura de producción */
-.prod{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px}
-.pbox{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--bg);display:flex;flex-direction:column;gap:8px}
-.pbox h3{margin:0;font-family:var(--f-num);font-size:.9rem;color:var(--ink);display:flex;justify-content:space-between;gap:8px;align-items:center}
-.gauge{position:relative;height:22px;background:var(--grey-bg);border-radius:6px;overflow:hidden}
-.gauge .need{position:absolute;top:0;bottom:0;left:0;border-radius:6px}
-.gauge .cap-l{position:absolute;top:-2px;bottom:-2px;width:3px;background:var(--ink)}
-.gauge .lab{position:absolute;inset:0;display:flex;align-items:center;padding:0 8px;font-size:.7rem;font-weight:600;color:#fff}
-.verdict{font-size:.76rem;font-weight:600;padding:4px 8px;border-radius:8px;align-self:flex-start}
-/* barras simples */
-.bars{display:flex;flex-direction:column;gap:7px}
-.bar-row{display:grid;grid-template-columns:minmax(5.5rem,10rem) 1fr auto;gap:10px;align-items:center;font-size:.76rem}
-.bar-row .lbl{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.track{position:relative;height:13px;background:var(--grey-bg);border-radius:5px}
-.fill{position:absolute;left:0;top:0;bottom:0;border-radius:5px}
-.val{font-family:var(--f-num);font-variant-numeric:tabular-nums;font-size:.74rem;white-space:nowrap;text-align:right}
-.split{display:flex;height:30px;border-radius:9px;overflow:hidden;font-size:.7rem;color:#fff;font-weight:600}
-.split div{display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;min-width:0}
-.flow{display:grid;grid-template-columns:1fr 30px 1fr 30px 1fr;align-items:stretch}
-@media (max-width:860px){.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg);height:30px}}
-.fbox{border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:6px;background:var(--bg)}
-.fbox h3{margin:0;font-family:var(--f-num);font-size:.86rem;color:var(--ink)}
-.fbox p{margin:0;font-size:.74rem;color:var(--muted)}
-.arrow{display:grid;place-items:center;color:var(--muted);font-size:1.2rem}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+/* tortas */
+.pies{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:14px}
+.pie{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.pie svg{width:132px;height:132px;flex:none;max-width:100%}
+.pie .lg{display:flex;flex-direction:column;gap:5px;flex:1;min-width:8rem}
+.pie .lg div{display:grid;grid-template-columns:10px 1fr auto;gap:7px;align-items:center;font-size:.74rem}
+.pie .lg i{width:10px;height:10px;border-radius:3px}
+.pie h3{margin:0 0 4px;font-family:var(--f-num);font-size:.84rem;color:var(--ink);width:100%}
+/* cuadros de respuesta */
+.qa{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));gap:10px}
+.q{border:1px solid var(--line);border-left:4px solid var(--violet-deep);border-radius:10px;padding:10px 12px;background:var(--bg);display:flex;flex-direction:column;gap:3px}
+.q .p{font-size:.7rem;color:var(--muted);font-weight:500}
+.q b{font-family:var(--f-num);font-size:1.15rem;color:var(--ink);line-height:1.2}
+.q span{font-size:.75rem}
 .chk{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:10px}
-.ck{border:1px dashed var(--line);border-radius:10px;padding:10px;display:flex;gap:10px;align-items:flex-start;font-size:.78rem}
+.ck{border:1px dashed var(--line);border-radius:10px;padding:10px;display:flex;gap:10px;align-items:flex-start;font-size:.76rem}
 .ck .ic{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font-family:var(--f-num);font-weight:700;flex:none;background:var(--spot-bg);color:var(--violet-deep)}
+.ladder{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+@media (max-width:860px){.ladder{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.step{border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:2px;border:1px solid var(--line);background:var(--bg)}
+.step .s{font-family:var(--f-num);font-weight:700;font-size:.76rem;color:var(--violet-deep)}
+.step b{font-size:.78rem;color:var(--ink)}
+.step span{font-size:.68rem;color:var(--muted)}
+.step.cur{border-color:var(--ink)}.step.cli{border-color:var(--amber);background:var(--amber-bg)}.step.obj{border-color:var(--violet-deep);background:var(--spot-bg)}
 </style>
 
 <div class="wrap">
   <header class="hero">
     <div>
-      <div class="eb">AmazingCare · Growth OS · Plan de medios noviembre 2026</div>
-      <h1>Plan de medios por <em>categoría</em></h1>
-      <div class="cap">Electrolitos · Energy · Creatina (sabores desde el 24-nov) · Google, Meta y TikTok</div>
+      <div class="eb">AmazingCare · Growth OS · Plan de medios · 30 oct 2026</div>
+      <h1>Split por categoría: de lo <em>actual</em> al <em>objetivo</em></h1>
+      <div class="cap">Se agregan campañas y creativos solo mientras la venta marginal sea rentable (ROAS marginal ≥ 2,5)</div>
     </div>
-    <div class="seg-tabs" role="group" aria-label="Escenario">
-      <button type="button" id="sA" aria-pressed="true">Escenario A · $3M</button>
-      <button type="button" id="sB" aria-pressed="false">Escenario B · $5M</button>
-    </div>
+    <div class="vs" id="hero"></div>
   </header>
 
-  <div class="answers" id="answers"></div>
+  <!-- 1 -->
+  <div class="sec">1 · Actual vs objetivo</div>
+  <div class="grid">
+    <section class="card c7">
+      <h2>Comparativo <span class="tag t-f">mensual · ROAS de plataforma</span></h2>
+      <div class="tw"><table class="hm" id="hmCompare"></table></div>
+      <div class="keys">peor<span class="scale" id="sc1"></span>mejor · "Actual escalado" = mismas 5 campañas y mismos creativos con la inversión del objetivo</div>
+    </section>
+    <section class="card c5">
+      <h2>Inversión por canal</h2>
+      <div class="pies" id="piesChannel"></div>
+    </section>
+    <section class="card c12"><div class="qa" id="qa1"></div></section>
+  </div>
 
-  <div class="sec">1 · Campañas y presupuesto</div>
+  <!-- 2 -->
+  <div class="sec">2 · Escalera de apertura: cuándo se suma una campaña</div>
   <div class="grid">
     <section class="card c12">
-      <h2>Campañas, cuánto necesita cada una y cómo se reparte <span class="tag" id="tagScen"></span></h2>
-      <div class="tw"><table class="t" id="tCamp"></table></div>
-      <div class="keys"><span><i style="background:var(--green)"></i>presupuesto sobre el mínimo</span><span><i style="background:var(--ink)"></i>mínimo para que aprenda</span><span>Compras = presupuesto ÷ CPA de plataforma esperado</span></div>
+      <div class="ladder" id="ladder"></div>
+      <div class="tw"><table class="hm" id="hmLadder"></table></div>
+      <div class="keys">peor<span class="scale" id="sc2"></span>mejor · ROAS marginal = venta que agrega la etapa ÷ inversión que agrega. Se avanza si es ≥ 2,5 (punto de equilibrio con margen del 50% y descuentos).</div>
+    </section>
+    <section class="card c12"><div class="qa" id="qa2"></div></section>
+  </div>
+
+  <!-- 3 -->
+  <div class="sec">3 · Campañas del objetivo</div>
+  <div class="grid">
+    <section class="card c8">
+      <h2>Cuánto necesita cada campaña y cuánto debería devolver</h2>
+      <div class="tw"><table class="hm" id="hmCamp"></table></div>
+      <div class="keys">peor<span class="scale" id="sc3"></span>mejor · Mínimo = compras necesarias para que la plataforma aprenda × CPA esperado</div>
+    </section>
+    <section class="card c4">
+      <h2>Reparto del objetivo</h2>
+      <div class="pies" id="piesObj"></div>
+    </section>
+    <section class="card c12"><div class="qa" id="qa3"></div></section>
+  </div>
+
+  <!-- 4 -->
+  <div class="sec">4 · Rentabilidad por categoría: quién merece campaña propia</div>
+  <div class="grid">
+    <section class="card c8">
+      <h2>Venta por pedido, margen y CPA que se puede pagar <span class="tag t-f">Shopify 90 días · margen 50%</span></h2>
+      <div class="tw"><table class="hm" id="hmCat"></table></div>
+      <div class="keys">peor<span class="scale" id="sc4"></span>mejor · Con recompra = CPA máximo × 1,42 (recompra 41,7% en octubre)</div>
+    </section>
+    <section class="card c4">
+      <h2>Venta neta por categoría</h2>
+      <div class="pies" id="pieMix"></div>
+    </section>
+    <section class="card c12"><div class="qa" id="qa4"></div></section>
+  </div>
+
+  <!-- 5 -->
+  <div class="sec">5 · Fatiga creativa</div>
+  <div class="grid">
+    <section class="card c12">
+      <h2>ROAS semanal: cómo se cae cuando no entran creativos nuevos <span class="tag t-f">Meta · ago–oct</span></h2>
+      <div class="tw"><table class="hm" id="hmFat"></table></div>
+      <div class="keys">peor<span class="scale" id="sc5"></span>mejor · gris = campaña pausada esa semana · ★ semana con creativos nuevos</div>
+    </section>
+    <section class="card c12"><div class="qa" id="qa5"></div></section>
+  </div>
+
+  <!-- 6 -->
+  <div class="sec">6 · Audiencias · histórico Meta abr–oct</div>
+  <div class="grid">
+    <section class="card c12">
+      <h2>Qué audiencia rinde mejor <span class="tag t-f">ad sets agrupados</span></h2>
+      <div class="tw"><table class="hm" id="hmAud"></table></div>
+      <div class="keys">peor<span class="scale" id="sc6"></span>mejor · % evento alto = medido en Cyber o Flash Sale, con ROAS inflado por descuento</div>
     </section>
     <section class="card c6">
-      <h2>Reparto por canal</h2>
-      <div class="split" id="chSplit"></div>
-      <div class="keys"><span><i style="background:var(--flow)"></i>Google</span><span><i style="background:var(--violet-deep)"></i>Meta</span><span><i style="background:var(--ink)"></i>TikTok</span></div>
-      <h2 style="margin-top:6px">Reparto por etapa</h2>
-      <div class="split" id="stSplit"></div>
-      <div class="keys"><span><i style="background:var(--violet)"></i>Frío</span><span><i style="background:var(--amber)"></i>Testeo</span><span><i style="background:var(--flow)"></i>Búsqueda</span><span><i style="background:var(--green)"></i>Marca y retargeting</span></div>
+      <h2>Edad × género</h2>
+      <div class="tw"><table class="hm" id="hmDemo"></table></div>
     </section>
     <section class="card c6">
-      <h2>Los $3M metidos en el split completo <span class="tag t-r" id="under"></span></h2>
-      <div class="bars" id="floor3"></div>
-      <div class="cap">Si se abren las 11 campañas de B con $3M, la mayoría queda bajo su mínimo y no aprende.</div>
+      <h2>Qué audiencia va en qué campaña</h2>
+      <div class="tw"><table class="hm" id="hmMatrix"></table></div>
+      <div class="keys"><span><i style="background:var(--violet-deep)"></i>ad set fijo</span><span><i style="background:var(--amber)"></i>en testeo ABO</span></div>
     </section>
+    <section class="card c12"><div class="qa" id="qa6"></div></section>
   </div>
 
-  <div class="sec">2 · Audiencias · histórico Meta abr–oct</div>
+  <!-- 7 -->
+  <div class="sec">7 · Creativos y producción</div>
   <div class="grid">
-    <section class="card c12">
-      <h2>Qué audiencia rinde mejor <span class="tag t-f">ad sets agrupados por audiencia</span></h2>
-      <div class="tw"><table class="t" id="tAud"></table></div>
-      <div class="keys"><span><span class="ev hi">evento</span> mayoría del gasto en Cyber o Flash Sale: ROAS inflado</span><span><span class="ev lo">siempre activo</span> medido fuera de evento</span><span>ROAS y compras de plataforma (Meta)</span></div>
+    <section class="card c8">
+      <h2>Creativos por campaña con fatiga incluida <span class="tag t-b">objetivo</span></h2>
+      <div class="tw"><table class="hm" id="hmCrea"></table></div>
+      <div class="cap">Cada ad set de prospección: 3 anuncios activos (2 estáticos + 1 video); cada 2 semanas se reemplazan los 2 que pierden → 4 nuevos por ad set al mes. Retargeting: 2 por ad set, 1 nuevo cada 2 semanas. TikTok: 4 videos por grupo, 2 nuevos cada 10 días. El ABO reutiliza ganadores y suma 2 ángulos de prueba.</div>
+    </section>
+    <section class="card c4">
+      <h2>Quién produce</h2>
+      <div class="pies" id="piesProd"></div>
     </section>
     <section class="card c12">
-      <h2>Qué audiencia va en qué campaña <span class="tag" id="tagScen2"></span></h2>
-      <div class="tw"><table class="t matrix" id="tMatrix"></table></div>
-      <div class="keys"><span><span class="m on" style="display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:-2px;margin-right:4px"></span>ad set fijo</span><span><span class="m test" style="display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:-2px;margin-right:4px"></span>en ABO de testeo</span></div>
+      <h2>Creativos por etapa</h2>
+      <div class="tw"><table class="hm" id="hmProdStage"></table></div>
     </section>
-    <section class="card c12">
-      <h2>Cómo se mueven las audiencias entre CBO y ABO</h2>
-      <div class="flow">
-        <div class="fbox"><h3><span class="chip abo">ABO</span> Testeo</h3><p>Mismo presupuesto por ad set y los mismos 3 anuncios ganadores, para que lo único que cambie sea la audiencia. Se corta a los 14 días o con 2 CPA gastados.</p></div>
-        <div class="arrow" aria-hidden="true">➜</div>
-        <div class="fbox"><h3><span class="chip cbo">CBO</span> Prospección por categoría</h3><p>La audiencia que gana el test (CPA ≤ $9.500) entra como ad set fijo. Advantage+ abierta es la base. Excluye compradores de 180 días.</p></div>
-        <div class="arrow" aria-hidden="true">➜</div>
-        <div class="fbox"><h3><span class="chip abo">ABO</span> Retargeting</h3><p>Caliente (carrito 14 días), tibio (IG 90 días + email 30 días) y compradores (cross-sell de creatina y bundles). Tope de frecuencia: 3 por semana.</p></div>
-      </div>
-    </section>
+    <section class="card c12"><div class="qa" id="qa7"></div></section>
   </div>
 
-  <div class="sec">3 · Creativos</div>
+  <!-- 8 -->
+  <div class="sec">8 · Ubicaciones y regiones</div>
   <div class="grid">
-    <section class="card c12">
-      <h2>Creativos mínimos por campaña, según sus ad sets <span class="tag" id="tagScen3"></span></h2>
-      <div class="tw"><table class="t" id="tCrea"></table></div>
-      <div class="cap">Regla: cada ad set de prospección lleva 3 anuncios activos de su ángulo (2 estáticos + 1 video). Cada mes se reemplazan los 2 que pierden y el ganador se queda. Retargeting: 2 por ad set y 1 nuevo al mes. El ABO de testeo y PMax reutilizan lo que ya existe. TikTok solo corre video: 4 por grupo, con vida de 7–10 días.</div>
+    <section class="card c6">
+      <h2>Ubicaciones Meta <span class="tag t-f">abr–oct</span></h2>
+      <div class="tw"><table class="hm" id="hmPlc"></table></div>
     </section>
-    <section class="card c12">
-      <h2>Quién produce qué al mes</h2>
-      <div class="prod" id="prod"></div>
+    <section class="card c6">
+      <h2>Regiones <span class="tag t-f">pedidos Shopify · gasto Meta</span></h2>
+      <div class="tw"><table class="hm" id="hmReg"></table></div>
     </section>
-  </div>
-
-  <div class="sec">4 · Apoyo</div>
-  <div class="grid">
-    <section class="card c4">
-      <h2>Venta neta por categoría <span class="tag t-f">90 días</span></h2>
-      <div class="bars" id="mix"></div>
-      <div class="cap">Electrolitos son el 86%: por eso se llevan la mayor parte del presupuesto.</div>
-    </section>
-    <section class="card c4">
-      <h2>Edad y género · costo por compra</h2>
-      <div class="bars" id="demo"></div>
-      <div class="keys"><span><i style="background:var(--violet-deep)"></i>mujeres</span><span><i style="background:var(--flow)"></i>hombres</span><span>US$ · núcleo 25–44</span></div>
-    </section>
-    <section class="card c4">
-      <h2>Ubicaciones y regiones</h2>
-      <div class="bars" id="plc"></div>
-      <div class="bars" id="reg" style="margin-top:6px"></div>
-      <div class="cap">Pedidos Shopify abr–oct. Coquimbo: US$421 en Meta para 22 pedidos, sacar de regiones.</div>
-    </section>
+    <section class="card c12"><div class="qa" id="qa8"></div></section>
     <section class="card c12">
       <h2>Para cerrar los números <span class="tag t-r">pendiente</span></h2>
       <div class="chk" id="chk"></div>
@@ -196,168 +218,234 @@ table.t tr.grp td{background:var(--bg);font-family:var(--f-num);font-weight:700;
 (function(){
   const $ = id => document.getElementById(id);
   const nf0 = v => Math.round(v).toLocaleString('es-CL');
-  const nf1 = v => v.toLocaleString('es-CL',{minimumFractionDigits:1,maximumFractionDigits:1});
-  const fK = v => v >= 1000 ? '$' + nf1(v/1000) + 'M' : '$' + v + 'K';
-  const AOV = 38; // ticket oct-26, miles CLP
+  const nf1 = v => (Math.round(v*10)/10).toLocaleString('es-CL',{minimumFractionDigits:1,maximumFractionDigits:1});
+  const fK = v => v >= 1000 ? '$' + nf1(v/1000) + 'M' : '$' + nf0(v) + 'K';
   const CH = {Google:'--flow', Meta:'--violet-deep', TikTok:'--ink'};
-  const ST = {frio:'--violet', test:'--amber', tibio:'--flow', cal:'--green'};
 
-  // ===== Audiencias históricas (Meta abr–oct, ad sets agrupados) =====
-  // nombre, ad sets incluidos, gasto US$, compras, ROAS ponderado, % gasto en evento, uso
-  const AUD = [
-    ['Runner / isotónica','Intereses isotónica 25–44 (Cyber jun y Flash Sale)',1040,181,8.59,100,'Mejor CPA, pero solo medido en evento. Probar runner explícito en ABO.'],
-    ['Advantage+ abierta','Adv+ estáticos, top 5 regiones, solo IG, Fiestas Patrias',3890,426,5.35,44,'Base de cada CBO. Volumen alto.'],
-    ['Condiciones (P4 Salud)','P4 Salud/Autoridad · POTS, lipedema, migraña',446,52,4.56,0,'Mejor audiencia siempre activa. CTR 1,49%. Ad set fijo en Electrolitos.'],
-    ['Deportista mix (P1)','Deportes 25–45, P1 embajadores, P1 rendimiento, packs deportista',1419,143,4.55,53,'Sólida. Ad set fijo en Energy y Creatina.'],
-    ['Similares (lookalike)','Similar BBDD, compras, IG',853,70,4.15,89,'Solo rinde en evento. Dejar para Black.'],
-    ['Bienestar / cotidiano (P3-P6)','P6 cotidiano, fibra abierta, pack bienestar',1460,116,3.52,0,'CPA más alto. Con pack o valor en Electrolitos; testear con creatina mujeres 35+.'],
-    ['Compradores online','Interés compras web',415,28,3.64,0,'No repetir.']];
-
-  // ===== Campañas =====
-  // canal, nombre, tipo, etapa, presupuesto K, mínimo K, CPA K, ad sets (audiencias), creativos: [anuncios por ad set, nuevos est, nuevos video, reutiliza]
-  const S = {
-    A:[
-      ['Google','Search Brand','','cal',150,100,3.9,['Marca'],[0,0,0,0]],
-      ['Google','PMax Electrolitos + Packs','','tibio',640,250,8.3,['Grupo de recursos ELE'],[0,2,0,1]],
-      ['Google','Search Rendimiento','','tibio',360,360,12,['Grupo Creatina','Grupo Energy'],[0,0,0,0]],
-      ['Meta','Prospección Electrolitos','CBO','frio',650,410,9.5,['Adv+ abierta','Runner','Condiciones'],[3,4,2,0]],
-      ['Meta','Testeo de audiencias','ABO','test',200,120,9.5,['Bienestar','Deportista mix (ELE)'],[3,0,0,1]],
-      ['Meta','Prospección Rendimiento','CBO','frio',550,540,12.5,['Deportista mix','Runner'],[4,3,1,0]],
-      ['Meta','Retargeting + venta cruzada','ABO','cal',450,400,9.8,['Caliente','Tibio','Compradores'],[2,2,1,0]]],
-    B:[
-      ['Google','Search Brand','','cal',150,100,3.9,['Marca'],[0,0,0,0]],
-      ['Google','PMax Electrolitos + Packs','','tibio',650,250,8.3,['Grupo de recursos ELE'],[0,2,0,1]],
-      ['Google','Search Electrolitos','','tibio',360,360,12,['Electrolitos genérico'],[0,0,0,0]],
-      ['Google','Search Energy','','tibio',360,360,12,['Cafeína / pre entreno'],[0,0,0,0]],
-      ['Google','Search Creatina','','tibio',400,360,12,['Creatina / creapure'],[0,0,0,0]],
-      ['Meta','Prospección Electrolitos','CBO','frio',620,410,9.5,['Adv+ abierta','Runner','Condiciones','Bienestar'],[3,5,3,0]],
-      ['Meta','Testeo de audiencias','ABO','test',250,120,9.5,['Similares','Runner explícito','Bienestar 35+ (creatina)'],[3,1,1,1]],
-      ['Meta','Prospección Energy','CBO','frio',540,540,12.5,['Deportista mix','Runner'],[3,3,1,0]],
-      ['Meta','Prospección Creatina','CBO','frio',540,540,12.5,['Deportista mix','Runner','Bienestar 35+'],[3,4,2,0]],
-      ['Meta','Retargeting + venta cruzada','ABO','cal',450,400,9.8,['Caliente','Tibio','Compradores'],[2,2,1,0]],
-      ['TikTok','Prueba 8 semanas','','frio',700,600,13.5,['Runner / deportista','Bienestar / condiciones'],[4,0,12,0]]]};
-
-  // Producción: lo que ofrece cada uno al mes
-  const SUPPLY = {clientVid:[5,10], advEst:[20,30,40]};
-
-  let scen = 'A';
-
-  function calc(rows){
-    return rows.map(r=>{
-      const [ch,n,ty,st,b,f,cpa,ads,[per,ne,nv,reuse]] = r;
-      const act = reuse ? 0 : ads.length * per;
-      return {ch,n,ty,st,b,f,cpa,ads,per,ne,nv,reuse,act,compras:b/cpa};
-    });
+  // ===== Mapa de calor =====
+  function heat(v, lo, hi, higherBetter=true){
+    if (v === null || v === undefined || isNaN(v)) return 'background:var(--grey-bg);color:var(--grey)';
+    let s = hi===lo ? .5 : (v-lo)/(hi-lo); s = Math.max(0,Math.min(1,s)); if(!higherBetter) s = 1-s;
+    if (s >= .5) return `background:color-mix(in srgb, var(--green) ${Math.round((s-.5)*2*62+6)}%, white)`;
+    return `background:color-mix(in srgb, var(--red) ${Math.round((.5-s)*2*52+6)}%, white)`;
   }
+  ['sc1','sc2','sc3','sc4','sc5','sc6'].forEach(id=>{ $(id).innerHTML=[0,.2,.4,.6,.8,1].map(s=>`<span style="${heat(s,0,1)}"></span>`).join(''); });
+  const colRange = (rows, i) => { const v = rows.map(r=>r[i]).filter(x=>x!==null&&!isNaN(x)); return [Math.min(...v), Math.max(...v)]; };
 
-  function render(){
-    const R = calc(S[scen]), tot = R.reduce((a,r)=>a+r.b,0);
-    const comp = R.reduce((a,r)=>a+r.compras,0), est = R.reduce((a,r)=>a+r.ne,0), vid = R.reduce((a,r)=>a+r.nv,0);
-    const adsets = R.filter(r=>r.ch!=='Google').reduce((a,r)=>a+r.ads.length,0);
-    const minTot = R.reduce((a,r)=>a+r.f,0);
-    ['sA','sB'].forEach(id=>$(id).setAttribute('aria-pressed', (id==='sA')===(scen==='A')));
-    const lab = scen==='A' ? ['t-a','A · $3M'] : ['t-b','B · $5M'];
-    ['tagScen','tagScen2','tagScen3'].forEach(id=>{$(id).className='tag '+lab[0]; $(id).textContent=lab[1];});
-
-    // Respuestas
-    $('answers').innerHTML = [
-      ['¿Cuántas campañas?', R.length, `${R.filter(r=>r.ch==='Google').length} Google · ${R.filter(r=>r.ch==='Meta').length} Meta · ${R.filter(r=>r.ch==='TikTok').length} TikTok`, true],
-      ['¿Cuánta inversión?', fK(tot), `mínimo para que corran: ${fK(minTot)}`, true],
-      ['¿Ad sets en Meta/TikTok?', adsets, 'cada uno con su audiencia y su ángulo'],
-      ['¿Creativos nuevos al mes?', est+vid, `${est} estáticos · ${vid} videos`],
-      ['¿Compras esperadas?', '~'+nf0(comp), `de plataforma · ~${fK(Math.round(comp*AOV))} en venta`],
-      ['¿ROAS esperado?', nf1(comp*AOV/tot)+'×', 'de plataforma; Shopify ve menos']]
-      .map(([q,v,s,h])=>`<div class="ans ${h?'hl':''}"><span class="q">${q}</span><b class="num">${v}</b><span>${s}</span></div>`).join('');
-
-    // Tabla de campañas
-    const mx = 800;
-    let html = `<thead><tr><th>Canal</th><th>Campaña</th><th>Tipo</th><th class="n">Presupuesto</th><th class="n">% del total</th><th class="n">Mínimo</th><th>Presupuesto vs mínimo</th><th class="n">CPA esperado</th><th class="n">Compras/mes</th><th class="n">Por día</th></tr></thead><tbody>`;
-    ['Google','Meta','TikTok'].forEach(ch=>{
-      const rs = R.filter(r=>r.ch===ch); if(!rs.length) return;
-      const sub = rs.reduce((a,r)=>a+r.b,0);
-      html += `<tr class="grp"><td colspan="3"><span class="ch-dot" style="background:var(${CH[ch]})"></span>${ch}</td><td class="n">${fK(sub)}</td><td class="n">${nf0(sub/tot*100)}%</td><td colspan="5"></td></tr>`;
-      rs.forEach(r=>{
-        html += `<tr><td></td><td>${r.n}</td><td>${r.ty?`<span class="chip ${r.ty.toLowerCase()}">${r.ty}</span>`:'<span class="cap">auto</span>'}</td><td class="n">${fK(r.b)}</td><td class="n">${nf1(r.b/tot*100)}%</td><td class="n">${fK(r.f)}</td><td><div class="minibar"><div class="f" style="width:${Math.min(r.b/mx,1)*100}%;background:${r.b>=r.f?'var(--green)':'var(--red)'}"></div><div class="fl" style="left:${r.f/mx*100}%"></div></div></td><td class="n">$${nf1(r.cpa)}K</td><td class="n">~${nf0(r.compras)}</td><td class="n">$${nf0(r.b/30)}K</td></tr>`;
-      });
-    });
-    html += `<tr class="tot"><td></td><td>${R.length} campañas</td><td></td><td class="n">${fK(tot)}</td><td class="n">100%</td><td class="n">${fK(minTot)}</td><td></td><td></td><td class="n">~${nf0(comp)}</td><td class="n">$${nf0(tot/30)}K</td></tr></tbody>`;
-    $('tCamp').innerHTML = html;
-
-    // Splits
-    const by = (key,map) => { const o={}; R.forEach(r=>o[r[key]]=(o[r[key]]||0)+r.b); return Object.entries(o).map(([k,v])=>`<div style="width:${v/tot*100}%;background:var(${map[k]})">${fK(v)}</div>`).join(''); };
-    $('chSplit').innerHTML = by('ch',CH); $('stSplit').innerHTML = by('st',ST);
-
-    // Matriz audiencia x campaña (prospección + testeo + TikTok)
-    const camps = R.filter(r=>r.ch!=='Google' && r.st!=='cal');
-    const auds = ['Adv+ abierta','Runner','Deportista mix','Condiciones','Bienestar'];
-    const has = (c,a) => c.ads.some(x=>x.toLowerCase().includes(a.toLowerCase().split(' ')[0]));
-    let mh = `<thead><tr><th>Audiencia</th>${camps.map(c=>`<th class="c">${c.n}<br><span class="cap">${c.ch}${c.ty?' · '+c.ty:''}</span></th>`).join('')}</tr></thead><tbody>`;
-    auds.forEach(a=>{ mh += `<tr><td><b>${a}</b></td>${camps.map(c=>`<td class="c"><span class="m ${has(c,a)?(c.st==='test'?'test':'on'):'no'}"></span></td>`).join('')}</tr>`; });
-    $('tMatrix').innerHTML = mh + '</tbody>';
-
-    // Creativos por campaña
-    const cell = (v,c) => v ? `<span class="cell" style="background:var(${c})">${v}</span>` : `<span class="cell z">·</span>`;
-    let ch2 = `<thead><tr><th>Campaña</th><th>Ad sets</th><th class="c">Anuncios por ad set</th><th class="c">Activos a la vez</th><th class="c">Estáticos nuevos/mes</th><th class="c">Videos nuevos/mes</th><th class="c">Total nuevos</th></tr></thead><tbody>`;
-    R.forEach(r=>{
-      ch2 += `<tr><td><span class="ch-dot" style="background:var(${CH[r.ch]})"></span>${r.n}${r.ty?` <span class="chip ${r.ty.toLowerCase()}">${r.ty}</span>`:''}</td><td>${r.ads.map(a=>`<span class="chip">${a}</span>`).join('')}</td><td class="c num">${r.per||'—'}</td><td class="c num">${r.reuse?'reutiliza':r.act||'—'}</td><td class="c">${cell(r.ne,'--c-est')}</td><td class="c">${cell(r.nv,'--c-vid')}</td><td class="c num"><b>${r.ne+r.nv||'—'}</b></td></tr>`;
-    });
-    const act = R.reduce((a,r)=>a+r.act,0);
-    ch2 += `<tr class="tot"><td>Total</td><td>${adsets} ad sets en Meta/TikTok</td><td></td><td class="c num">${act}</td><td class="c">${cell(est,'--c-est')}</td><td class="c">${cell(vid,'--c-vid')}</td><td class="c num">${est+vid}</td></tr></tbody>`;
-    $('tCrea').innerHTML = ch2;
-
-    // Producción
-    const cMax = SUPPLY.clientVid[1], cMin = SUPPLY.clientVid[0];
-    const vidGap = Math.max(0, vid - cMax);
-    const advPlan = SUPPLY.advEst.find(x=>x>=est) || 40;
-    const g = (need, capv, max, col, txt) => `<div class="gauge"><div class="need" style="width:${Math.min(need/max,1)*100}%;background:var(${col})"></div><div class="cap-l" style="left:${Math.min(capv/max,1)*100}%"></div><div class="lab">${txt}</div></div>`;
-    $('prod').innerHTML = [
-      `<div class="pbox"><h3><span>Cliente · videos UGC, colaboraciones y marca</span><span class="num">${cMin}–${cMax}/mes</span></h3>
-        ${g(Math.min(vid,cMax), cMax, 24, '--c-vid', `necesita ${Math.min(vid,cMax)} de ${vid} videos`)}
-        <span class="cap">Mínimo que debe entregar: <b>${Math.min(vid,cMax)} videos/mes</b>${scen==='A'?' (dentro de su rango de 5–10)':' (el máximo de su rango)'}. Los promoted y colaboraciones cuentan aquí.</span>
-        <span class="verdict" style="background:var(--green-bg);color:var(--green)">${vid<=cMax?'Alcanza':'Alcanza el tope'}</span></div>`,
-      `<div class="pbox"><h3><span>Advanz · estáticos (shooting o IA)</span><span class="num">20 → 30 → 40</span></h3>
-        ${g(est, 20, 44, '--c-est', `necesita ${est} · hoy 20`)}
-        <span class="cap">Con <b>${advPlan}/mes</b> alcanza${advPlan>est?`, y sobran ${advPlan-est} para testear ángulos en el ABO y alimentar PMax`:''}. Los estáticos no son el cuello de botella.</span>
-        <span class="verdict" style="background:var(--green-bg);color:var(--green)">${advPlan===20?'Se mantiene en 20':'Pasar a '+advPlan}</span></div>`,
-      `<div class="pbox"><h3><span>Advanz · videos IA</span><span class="num">opcional</span></h3>
-        ${g(vidGap, 0, 24, '--c-ia', vidGap?`faltan ${vidGap} videos`:'no se necesitan')}
-        <span class="cap">${vidGap?`B necesita ${vid} videos al mes y el cliente entrega hasta ${cMax}: <b>${vidGap} videos IA</b> cubren la diferencia (sobre todo TikTok).`:'Con A, los videos del cliente cubren lo necesario. Los videos IA quedan para probar.'}</span>
-        <span class="verdict" style="background:${vidGap?'var(--amber-bg)':'var(--grey-bg)'};color:${vidGap?'var(--amber)':'var(--muted)'}">${vidGap?'Necesario en B':'No necesario en A'}</span></div>`].join('');
-
-    // Los $3M en el split completo
-    const RB = calc(S.B), tB = RB.reduce((a,r)=>a+r.b,0);
-    const sc = RB.map(r=>({...r, b2: Math.round(r.b*3000/tB)}));
-    $('floor3').innerHTML = sc.map(r=>`<div class="bar-row"><span class="lbl" title="${r.n}">${r.ch[0]} · ${r.n}</span><div class="track"><div class="fill" style="width:${r.b2/800*100}%;background:${r.b2>=r.f?'var(--green)':'var(--red)'}"></div><div class="fl" style="position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink);opacity:.7;left:${r.f/800*100}%"></div></div><span class="val">${fK(r.b2)}</span></div>`).join('');
-    $('under').textContent = `${sc.filter(r=>r.b2<r.f).length} de ${sc.length} bajo el mínimo`;
+  // ===== Torta =====
+  function pie(title, items, center){
+    const t = items.reduce((a,x)=>a+x[1],0), r=46, C=2*Math.PI*r; let off=0, h='';
+    items.forEach(([,v,c])=>{const L=v/t*C; h+=`<circle cx="60" cy="60" r="${r}" fill="none" stroke="var(${c})" stroke-width="22" stroke-dasharray="${L} ${C-L}" stroke-dashoffset="${-off}" transform="rotate(-90 60 60)"></circle>`; off+=L;});
+    h += `<text x="60" y="64" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="15" fill="var(--ink)">${center}</text>`;
+    return `<div class="pie"><h3>${title}</h3><svg viewBox="0 0 120 120" role="img" aria-label="${title}">${h}</svg><div class="lg">${items.map(([k,v,c,lab])=>`<div><i style="background:var(${c})"></i><span>${k}</span><span class="num">${lab||nf0(v/t*100)+'%'}</span></div>`).join('')}</div></div>`;
   }
+  const qa = (id, arr) => $(id).innerHTML = arr.map(([p,b,s])=>`<div class="q"><span class="p">${p}</span><b>${b}</b><span>${s}</span></div>`).join('');
 
-  // ===== Tabla de audiencias (estática) =====
+  // ===== Supuestos de ROAS (plataforma) =====
+  // Prospección Meta con reemplazo cada 2 semanas = promedio semanas 1–2 con creativos nuevos (5,8 y 4,8) = 5,3
+  // Retargeting con reemplazo = 6,5 (sep 6,7–9,1; oct sin reemplazo 3,9–4,5)
+  // Elasticidad venta/inversión sin cambiar estructura = 0,65 (CyberDay jun: +53% inversión → +32% venta)
+
+  // Actual: 5 campañas (Meta y Google activas a oct)
+  const ACT = [
+    ['Google','Search Brand','Marca',150,9.9],
+    ['Google','PMax Principal','Electrolitos',750,3.4],
+    ['Google','Search Categoría Electrolitos','Electrolitos',300,3.5],
+    ['Meta','CBO Prospección','Electrolitos',810,4.76],
+    ['Meta','ABO Retención','Todas',360,5.15]];
+  // Objetivo: [canal, campaña, categoría, etapa, incremento K, ROAS de ese incremento, tipo]
+  const OBJ = [
+    ['Google','Search Brand','Marca',1,150,9.9,''],
+    ['Google','PMax Electrolitos + Packs','Electrolitos',1,650,3.6,''],
+    ['Google','Search Electrolitos','Electrolitos',1,360,3.5,''],
+    ['Meta','Prospección Electrolitos','Electrolitos',1,650,5.3,'CBO'],
+    ['Meta','Testeo de audiencias','Todas',1,200,4.0,'ABO'],
+    ['Meta','Retargeting + venta cruzada','Todas',1,450,6.5,'ABO'],
+    ['Meta','Prospección Creatina (+ Energy con Pack Boost)','Creatina',2,550,4.0,'CBO'],
+    ['Google','Search Rendimiento (Creatina + Energy)','Creatina',3,400,3.2,''],
+    ['Meta','Prospección Electrolitos','Electrolitos',4,250,3.5,'CBO'],
+    ['Google','PMax Electrolitos + Packs','Electrolitos',4,200,2.8,''],
+    ['TikTok','Prueba TikTok (Spark Ads)','Todas',5,700,2.5,'']];
+  const STAGES = [
+    [0,'Actual','5 campañas · creativos se reemplazan tarde'],
+    [1,'Estructura + reemplazo','split Meta, ABO testeo, RT por temperatura, reemplazo cada 2 semanas'],
+    [2,'+ Creatina','campaña propia; Energy entra con Pack Boost'],
+    [3,'+ Search Rendimiento','creatina y energía por búsqueda'],
+    [4,'Escalar ganadores','+30% a Electrolitos y PMax'],
+    [5,'+ TikTok','prueba de 8 semanas']];
+  // creativos nuevos/mes por etapa (acumulado) y videos de esos
+  const CREA_STAGE = {0:[20,6],1:[22,7],2:[34,11],3:[34,11],4:[34,11],5:[46,23]};
+  const MIN = {'Search Brand':100,'PMax Electrolitos + Packs':250,'Search Electrolitos':360,'Prospección Electrolitos':410,'Testeo de audiencias':120,'Retargeting + venta cruzada':400,'Prospección Creatina (+ Energy con Pack Boost)':540,'Search Rendimiento (Creatina + Energy)':360,'Prueba TikTok (Spark Ads)':600};
+
+  const actSpend = ACT.reduce((a,r)=>a+r[3],0), actSales = ACT.reduce((a,r)=>a+r[3]*r[4],0);
+  const stage = n => { const it = OBJ.filter(r=>r[3]<=n); return {spend: it.reduce((a,r)=>a+r[4],0), sales: it.reduce((a,r)=>a+r[4]*r[5],0), camps: new Set(it.map(r=>r[1])).size}; };
+  const L = STAGES.map(([n])=> n===0 ? {spend:actSpend, sales:actSales, camps:ACT.length} : stage(n));
+  const obj = L[5];
+  const scaledSales = actSales * Math.pow(obj.spend/actSpend, 0.65);
+  const AOV = 38;
+
+  // ===== Hero =====
+  $('hero').innerHTML = `<div class="pill"><span>Actual</span><b class="num">${fK(actSpend)}</b><span>${ACT.length} campañas · ~20 creativos/mes · ROAS ${nf1(actSales/actSpend)}×</span></div><span class="arrow-r">→</span><div class="pill o"><span>Objetivo</span><b class="num">${fK(obj.spend)}</b><span>${obj.camps} campañas · ${CREA_STAGE[5][0]} creativos/mes · ROAS ${nf1(obj.sales/obj.spend)}×</span></div>`;
+
+  // ===== 1 · Comparativo =====
   (function(){
-    const maxR = 9;
-    let h = `<thead><tr><th>Audiencia</th><th>Qué ad sets incluye</th><th class="n">Gasto US$</th><th class="n">Compras</th><th class="n">CPA US$</th><th class="n">ROAS</th><th>ROAS</th><th>Medición</th><th>Cómo usarla</th></tr></thead><tbody>`;
-    AUD.forEach(([n,inc,g,c,r,ev,use])=>{
-      const cpa = g/c, col = r>=5?'var(--violet-deep)':r>=4?'var(--violet)':'var(--grey)';
-      h += `<tr><td><b>${n}</b></td><td class="cap">${inc}</td><td class="n">${nf0(g)}</td><td class="n">${c}</td><td class="n">${nf1(cpa)}</td><td class="n"><b>${nf1(r)}×</b></td><td><div class="minibar"><div class="f" style="width:${r/maxR*100}%;background:${col}"></div></div></td><td>${ev>=50?`<span class="ev hi">evento ${ev}%</span>`:`<span class="ev lo">${ev?'mixto '+ev+'%':'siempre activo'}</span>`}</td><td class="cap">${use}</td></tr>`;
-    });
-    $('tAud').innerHTML = h + '</tbody>';
+    const rows = [
+      ['Actual', ACT.length, actSpend, actSales, actSales/actSpend, null, 20, 2],
+      ['Actual escalado (sin split ni más creativos)', ACT.length, obj.spend, scaledSales, scaledSales/obj.spend, (scaledSales-actSales)/(obj.spend-actSpend), 20, 2],
+      ['Con el presupuesto del cliente ($3M · etapa 2)', L[2].camps, L[2].spend, L[2].sales, L[2].sales/L[2].spend, (L[2].sales-actSales)/(L[2].spend-actSpend), CREA_STAGE[2][0], 4],
+      ['Objetivo (etapa 5)', obj.camps, obj.spend, obj.sales, obj.sales/obj.spend, (obj.sales-actSales)/(obj.spend-actSpend), CREA_STAGE[5][0], 6]];
+    const cols = [['Campañas',1,1],['Inversión/mes',2,0,fK],['Venta atribuida/mes',3,1,fK],['ROAS',4,1,v=>nf1(v)+'×'],['ROAS marginal vs actual',5,1,v=>nf1(v)+'×'],['Creativos/mes',6,1],['Plataformas',7,1]];
+    let h = `<thead><tr><th class="l">Escenario</th>${cols.map(c=>`<th>${c[0]}</th>`).join('')}</tr></thead><tbody>`;
+    rows.forEach((r,i)=>{ h += `<tr class="${i===3?'hl':''}"><td class="l"><b>${r[0]}</b></td>${cols.map(([,j,hb,f])=>{const [lo,hi]=colRange(rows,j); const v=r[j]; return `<td style="${j===2||j===1||j===7?'background:var(--bg)':heat(v,lo,hi,hb)}">${v===null?'—':(f?f(v):v)}</td>`;}).join('')}</tr>`; });
+    $('hmCompare').innerHTML = h + '</tbody>';
+    const byCh = rows => { const o={Google:0,Meta:0,TikTok:0}; rows.forEach(r=>o[r[0]]+=r[r.length===5?3:4]); return Object.entries(o).filter(([,v])=>v).map(([k,v])=>[k,v,CH[k],fK(v)]); };
+    $('piesChannel').innerHTML = pie('Actual', byCh(ACT), fK(actSpend)) + pie('Objetivo', byCh(OBJ), fK(obj.spend));
+    qa('qa1',[
+      ['¿Cuántas campañas van a existir?', `${ACT.length} hoy → ${obj.camps} en el objetivo`, `Se suman de a una, por etapa, solo si la anterior es rentable.`],
+      ['¿Cuánto hay que invertir?', `${fK(L[2].spend)} → ${fK(obj.spend)} al mes`, `Con ${fK(L[2].spend)} (lo que propone el cliente) se llega a la etapa 2. El objetivo completo es ${fK(obj.spend)}.`],
+      ['¿Más campañas = más venta?', `${fK(obj.sales)} vs ${fK(scaledSales)}`, `Con la misma plata, el split con reemplazo de creativos vende ${fK(obj.sales-scaledSales)} más que meter todo en las 5 campañas actuales (ROAS ${nf1(obj.sales/obj.spend)}× vs ${nf1(scaledSales/obj.spend)}×).`],
+      ['¿Sigue siendo rentable?', `ROAS marginal ${nf1((obj.sales-actSales)/(obj.spend-actSpend))}×`, `Cada peso que se agrega sobre lo actual devuelve más que el punto de equilibrio (2,5×).`]]);
   })();
 
-  // ===== Apoyo =====
-  const hb = (l,v,m,c,t) => `<div class="bar-row"><span class="lbl">${l}</span><div class="track"><div class="fill" style="width:${Math.min(v/m,1)*100}%;background:${c}"></div></div><span class="val">${t}</span></div>`;
-  $('mix').innerHTML = [['Electrolitos y packs',48.28,'--violet-deep'],['Energy',2.81,'--cyan'],['Creatina',2.14,'--flow'],['Fibra',1.78,'--green'],['Bundles y acc.',1.19,'--grey']].map(([k,v,c])=>hb(k,v,48.28,`var(${c})`,`$${nf1(v)}M · ${nf0(v/56.2*100)}%`)).join('');
-  $('demo').innerHTML = [['18–24',10.07,14.05],['25–34',7.87,9.90],['35–44',9.87,11.27],['45–54',13.00,11.35],['55–64',15.99,16.49],['65+',25.96,40.62]].map(([a,f,m])=>`<div class="bar-row" style="grid-template-columns:3rem 1fr auto"><span class="lbl num">${a}</span><div style="display:flex;flex-direction:column;gap:3px"><div class="track" style="height:9px"><div class="fill" style="width:${f/42*100}%;background:var(--violet-deep)"></div></div><div class="track" style="height:9px"><div class="fill" style="width:${m/42*100}%;background:var(--flow)"></div></div></div><span class="val" style="line-height:1.1">${nf1(f)}<br>${nf1(m)}</span></div>`).join('');
-  $('plc').innerHTML = [['IG stories',4.92],['IG feed',4.62],['IG reels',4.42],['FB feed',3.89],['FB reels',2.56]].map(([k,r])=>hb(k,r,5.5,r>=4.4?'var(--violet-deep)':'var(--grey)',nf1(r)+'×')).join('');
-  $('reg').innerHTML = [['Santiago',2431],['Valparaíso',161],['Biobío',100],['Maule',39],["O'Higgins",38],['Coquimbo',22]].map(([k,v])=>hb(k,Math.sqrt(v),Math.sqrt(2431),k==='Coquimbo'?'var(--red)':'var(--violet-deep)',nf0(v)+' ped.')).join('');
-  $('chk').innerHTML = [
-    ['G','Google Ads por campaña, 90 días','OS Ads · export de Matías. Los CPA de Search son supuestos'],
-    ['KW','Volumen de "creatina" y "electrolitos" en Chile','Planificador de palabras clave'],
-    ['$','COGS por categoría','Cliente · fija el CPA objetivo'],
-    ['R','Audiencia runner explícita','Nunca se probó sola: entra al ABO de testeo'],
-    ['✓','Decisión A o B','Cliente · con fee de gestión']]
-    .map(([i,t,s])=>`<div class="ck"><span class="ic">${i}</span><div><b>${t}</b><div class="cap">${s}</div></div></div>`).join('');
+  // ===== 2 · Escalera =====
+  (function(){
+    $('ladder').innerHTML = STAGES.map(([n,t,d])=>`<div class="step ${n===0?'cur':n===2?'cli':n===5?'obj':''}"><span class="s">Etapa ${n}${n===2?' · $3M':n===5?' · objetivo':''}</span><b>${t}</b><span>${d}</span></div>`).join('');
+    const rows = STAGES.map(([n,t],i)=>{ const p = i?L[i-1]:null, x=L[i]; return [`${n} · ${t}`, x.camps, x.spend, x.sales, x.sales/x.spend, p?(x.sales-p.sales)/(x.spend-p.spend):null, x.sales/AOV, CREA_STAGE[n][0]]; });
+    const cols = [['Campañas',1,1],['Inversión/mes',2,1,fK],['Venta atribuida',3,1,fK],['ROAS total',4,1,v=>nf1(v)+'×'],['ROAS marginal de la etapa',5,1,v=>nf1(v)+'×'],['Compras',6,1,nf0],['Creativos/mes',7,0]];
+    let h = `<thead><tr><th class="l">Etapa</th>${cols.map(c=>`<th>${c[0]}</th>`).join('')}<th>¿Se abre?</th></tr></thead><tbody>`;
+    rows.forEach((r,i)=>{ const m=r[5]; h += `<tr class="${i===5?'hl':''}"><td class="l"><b>${r[0]}</b></td>${cols.map(([,j,hb,f])=>{const [lo,hi]=colRange(rows,j); const v=r[j]; let st = j===5 ? (v===null?'background:var(--bg)':heat(v,2,6)) : heat(v,lo,hi,hb); if(j===7) st='background:var(--bg)'; return `<td style="${st}">${v===null?'—':(f?f(v):v)}</td>`;}).join('')}<td style="background:var(--bg);font-family:var(--f-body)">${i===0?'base':m>=2.49?'<span class="tag t-a">sí, ≥ 2,5</span>':'<span class="tag t-r">no</span>'}</td></tr>`; });
+    $('hmLadder').innerHTML = h + '</tbody>';
+    qa('qa2',[
+      ['¿Cuándo se agrega una campaña nueva?', 'Cuando la etapa anterior cumple', 'ROAS marginal ≥ 2,5 durante 4 semanas y CPA dentro del máximo de su categoría (bloque 4).'],
+      ['¿Por qué la etapa 1 sube el ROAS?', `${nf1(L[0].sales/L[0].spend)}× → ${nf1(L[1].sales/L[1].spend)}×`, 'Casi la misma inversión: el salto viene de reemplazar creativos cada 2 semanas y separar retargeting por temperatura.'],
+      ['¿Qué pasa en la última etapa?', `TikTok entra a ${nf1(L[5].sales/L[5].spend)}× total`, 'TikTok se mide 8 semanas. Si no llega a 2,5× marginal, se apaga y el objetivo queda en la etapa 4.'],
+      ['¿Y si el cliente se queda en $3M?', `Etapa 2 · ${L[2].camps} campañas`, `Vende ~${fK(L[2].sales)} atribuidos con ROAS ${nf1(L[2].sales/L[2].spend)}×. Search Rendimiento y TikTok esperan.`]]);
+  })();
 
-  $('sA').addEventListener('click',()=>{scen='A';render();});
-  $('sB').addEventListener('click',()=>{scen='B';render();});
-  render();
+  // ===== 3 · Campañas del objetivo =====
+  (function(){
+    const agg = {}; OBJ.forEach(([ch,n,cat,st,inc,roas,ty])=>{ const k=n; if(!agg[k]) agg[k]={ch,n,cat,st,b:0,s:0,ty}; agg[k].b+=inc; agg[k].s+=inc*roas; });
+    const R = Object.values(agg), tot = R.reduce((a,r)=>a+r.b,0);
+    const rows = R.map(r=>[r, r.b, r.b/tot*100, MIN[r.n], r.s/r.b, r.s, r.s/AOV, r.b/(r.s/AOV)]);
+    const cols = [['Presupuesto',1,1,fK],['% del total',2,1,v=>nf1(v)+'%'],['Mínimo',3,0,fK],['ROAS esperado',4,1,v=>nf1(v)+'×'],['Venta/mes',5,1,fK],['Compras',6,1,nf0],['CPA',7,0,v=>'$'+nf1(v)+'K']];
+    let h = `<thead><tr><th class="l">Campaña</th><th>Etapa</th>${cols.map(c=>`<th>${c[0]}</th>`).join('')}</tr></thead><tbody>`;
+    rows.forEach(r=>{ const c=r[0]; h += `<tr><td class="l"><span class="dot" style="background:var(${CH[c.ch]})"></span><b>${c.n}</b> ${c.ty?`<span class="chip ${c.ty.toLowerCase()}">${c.ty}</span>`:''}</td><td style="background:var(--bg)">${c.st}</td>${cols.map(([,j,hb,f])=>{const [lo,hi]=colRange(rows,j); let st=heat(r[j],lo,hi,hb); if(j===3) st='background:var(--bg)'; return `<td style="${st}">${f(r[j])}</td>`;}).join('')}</tr>`; });
+    $('hmCamp').innerHTML = h + '</tbody>';
+    const byCat = {}; R.forEach(r=>byCat[r.cat]=(byCat[r.cat]||0)+r.b);
+    const catCol = {Electrolitos:'--violet-deep',Creatina:'--flow',Todas:'--amber',Marca:'--green'};
+    const byStage = {'Frío':0,'Búsqueda':0,'Retargeting y testeo':0,'Marca':0};
+    R.forEach(r=>{ if(r.n.includes('Brand')) byStage['Marca']+=r.b; else if(r.n.includes('Search')||r.n.includes('PMax')) byStage['Búsqueda']+=r.b; else if(r.n.includes('Retargeting')||r.n.includes('Testeo')) byStage['Retargeting y testeo']+=r.b; else byStage['Frío']+=r.b; });
+    $('piesObj').innerHTML = pie('Por categoría', Object.entries(byCat).map(([k,v])=>[k,v,catCol[k]]), fK(tot)) + pie('Por etapa del embudo', Object.entries(byStage).map(([k,v],i)=>[k,v,['--violet','--flow','--amber','--green'][i]]), fK(tot));
+    qa('qa3',[
+      ['¿Cómo se distribuye el presupuesto?', `${nf0(byCat.Electrolitos/tot*100)}% a electrolitos`, 'Sigue a la venta: electrolitos son el 86% de lo que se vende. Creatina entra con su propia campaña.'],
+      ['¿Cuánto necesita cada una?', `mínimo total ${fK(R.reduce((a,r)=>a+MIN[r.n],0))}`, 'Cada campaña tiene un piso para que el algoritmo aprenda. Bajo ese piso, mejor no abrirla.'],
+      ['¿Cuál rinde más?', 'Brand y retargeting', 'Pero capturan demanda que ya existe. La prospección es la que trae clientes nuevos y la que hay que alimentar con creativos.'],
+      ['¿Y Energy?', 'Sin campaña propia', 'Con su venta por pedido no paga un CPA de campaña nueva. Va dentro de Creatina con el Pack Energy Boost (bloque 4).']]);
+  })();
+
+  // ===== 4 · Categorías =====
+  (function(){
+    // categoría, venta 90d (MM), pedidos con la categoría, CPA esperado (K)
+    const C = [['Electrolitos y packs',48.28,1998,9.5],['Creatina',2.14,97,12.5],['Pack Energy Boost',0.86,30,12.5],['Energy (sticks)',1.95,143,12.5],['Fibra',1.78,94,12.5]];
+    const rows = C.map(([k,v,o,cpa])=>{ const aov=v*1000/o, m=aov*.5, mr=m*1.417; return [k, v, aov, m, mr, cpa, mr-cpa]; });
+    const cols = [['Venta 90 días',1,1,v=>'$'+nf1(v)+'M'],['Venta por pedido',2,1,v=>'$'+nf1(v)+'K'],['CPA máx 1ª compra',3,1,v=>'$'+nf1(v)+'K'],['CPA máx con recompra',4,1,v=>'$'+nf1(v)+'K'],['CPA esperado',5,0,v=>'$'+nf1(v)+'K'],['Holgura',6,1,v=>(v>=0?'+':'')+'$'+nf1(v)+'K']];
+    let h = `<thead><tr><th class="l">Categoría</th>${cols.map(c=>`<th>${c[0]}</th>`).join('')}<th>Campaña propia</th></tr></thead><tbody>`;
+    rows.forEach(r=>{ const ok=r[6]>=0; h += `<tr><td class="l"><b>${r[0]}</b></td>${cols.map(([,j,hb,f])=>{const [lo,hi]=colRange(rows,j); return `<td style="${j===6?heat(r[j],-4,4):heat(r[j],lo,hi,hb)}">${f(r[j])}</td>`;}).join('')}<td style="background:var(--bg);font-family:var(--f-body)">${r[0].startsWith('Electro')?'<span class="tag t-a">sí</span>':r[0]==='Creatina'?'<span class="tag t-a">sí, con recompra</span>':r[0]==='Pack Energy Boost'?'<span class="tag t-m">dentro de Creatina</span>':'<span class="tag t-r">no</span>'}</td></tr>`; });
+    $('hmCat').innerHTML = h + '</tbody>';
+    $('pieMix').innerHTML = pie('90 días · Shopify', [['Electrolitos y packs',48.28,'--violet-deep'],['Energy',2.81,'--cyan'],['Creatina',2.14,'--flow'],['Fibra',1.78,'--green'],['Bundles y acc.',1.19,'--grey']], '86%');
+    qa('qa4',[
+      ['¿Qué categoría merece campaña propia?', 'Electrolitos y Creatina', 'Las dos pagan su CPA esperado contando la recompra. Electrolitos incluso en la primera compra.'],
+      ['¿Por qué Energy no?', 'Holgura negativa', 'Un pedido de Energy vende ~$13,6K: el CPA máximo queda bajo lo que cuesta conseguirlo. El Pack Boost ($28,6K) sí lo paga.'],
+      ['¿Y Fibra?', 'Se queda en retargeting', 'CPA máximo ajustado; se vende mejor como cruce y en el Pack Wellness.'],
+      ['¿Qué cambia esto?', 'Los COGS reales', 'Hoy se usa margen 50% parejo. Con el costo por producto, cada techo de CPA se ajusta.']]);
+  })();
+
+  // ===== 5 · Fatiga =====
+  (function(){
+    const W = ['17 ago','24 ago','31 ago','7 sep','14 sep','21 sep','28 sep','5 oct','12 oct','19 oct','26 oct'];
+    const F = [
+      ['CBO Prospección',[1.18,4.78,4.20,5.80,4.77,2.38,5.02,null,null,3.67,4.80],[3,9]],
+      ['ABO Retención (catálogo)',[2.20,7.60,2.51,9.07,7.78,6.70,9.02,4.53,4.39,4.35,3.87],[]],
+      ['CBO Fiestas Patrias',[2.58,3.48,4.28,3.27,5.90,null,null,null,null,null,null],[4]]];
+    let h = `<thead><tr><th class="l">Campaña</th>${W.map(w=>`<th>${w}</th>`).join('')}</tr></thead><tbody>`;
+    F.forEach(([k,v,star])=>{ h += `<tr><td class="l"><b>${k}</b></td>${v.map((x,i)=>`<td style="${heat(x,1.5,8)}">${x===null?'·':nf1(x)+(star.includes(i)?' ★':'')}</td>`).join('')}</tr>`; });
+    $('hmFat').innerHTML = h + '</tbody>';
+    qa('qa5',[
+      ['¿Cuánto dura un creativo?', '~2 semanas en frío', 'Prospección: 5,8× la semana con creativos nuevos → 4,8× → 2,4× a la tercera semana.'],
+      ['¿Cuánto se pierde por no reemplazar?', '−18% a −59%', 'Reemplazando cada 2 semanas el promedio queda en 5,3×; esperando 3 semanas baja a 4,3×.'],
+      ['¿Y el retargeting?', '9,0× → 3,9×', 'Retención corre con el mismo catálogo desde septiembre y perdió más de la mitad del ROAS.'],
+      ['Por eso el objetivo pide más creativos', `${CREA_STAGE[5][0]} al mes`, 'No es volumen por volumen: es lo que hace falta para mantener cada ad set en sus 2 primeras semanas de vida.']]);
+  })();
+
+  // ===== 6 · Audiencias =====
+  (function(){
+    const A = [
+      ['Runner / isotónica',1040,181,8.59,100],['Advantage+ abierta',3890,426,5.35,44],['Condiciones (POTS, lipedema, migraña)',446,52,4.56,0],
+      ['Deportista mix',1419,143,4.55,53],['Similares',853,70,4.15,89],['Bienestar / cotidiano',1460,116,3.52,0],['Compradores online',415,28,3.64,0]];
+    const rows = A.map(([k,g,c,r,e])=>[k,g,c,g/c,r,e]);
+    const cols = [['Gasto US$',1,1,nf0],['Compras',2,1,nf0],['CPA US$',3,0,nf1],['ROAS',4,1,v=>nf1(v)+'×'],['% en evento',5,0,v=>nf0(v)+'%']];
+    let h = `<thead><tr><th class="l">Audiencia</th>${cols.map(c=>`<th>${c[0]}</th>`).join('')}</tr></thead><tbody>`;
+    rows.forEach(r=>{ h += `<tr><td class="l"><b>${r[0]}</b></td>${cols.map(([,j,hb,f])=>{const [lo,hi]=colRange(rows,j); return `<td style="${heat(r[j],lo,hi,hb)}">${f(r[j])}</td>`;}).join('')}</tr>`; });
+    $('hmAud').innerHTML = h + '</tbody>';
+    const D = [['18–24',10.07,3.12,14.05,2.58],['25–34',7.87,5.35,9.90,4.94],['35–44',9.87,4.91,11.27,4.91],['45–54',13.00,3.96,11.35,4.70],['55–64',15.99,3.35,16.49,2.45],['65+',25.96,2.03,40.62,1.00]];
+    let d = `<thead><tr><th class="l">Edad</th><th>Mujeres CPA US$</th><th>Mujeres ROAS</th><th>Hombres CPA US$</th><th>Hombres ROAS</th></tr></thead><tbody>`;
+    D.forEach(r=>{ d += `<tr><td class="l"><b>${r[0]}</b></td><td style="${heat(r[1],7.8,26,false)}">${nf1(r[1])}</td><td style="${heat(r[2],1,5.4)}">${nf1(r[2])}×</td><td style="${heat(r[3],7.8,26,false)}">${nf1(r[3])}</td><td style="${heat(r[4],1,5.4)}">${nf1(r[4])}×</td></tr>`; });
+    $('hmDemo').innerHTML = d + '</tbody>';
+    const camps = ['Prosp. Electrolitos','Prosp. Creatina','Testeo ABO','TikTok'];
+    const M = [['Advantage+ abierta',[1,0,0,0]],['Runner',[1,1,2,1]],['Deportista mix',[0,1,0,1]],['Condiciones',[1,0,0,1]],['Bienestar 35+',[0,1,2,1]],['Similares',[0,0,2,0]]];
+    let m = `<thead><tr><th class="l">Audiencia</th>${camps.map(c=>`<th>${c}</th>`).join('')}</tr></thead><tbody>`;
+    M.forEach(([k,v])=>{ m += `<tr><td class="l"><b>${k}</b></td>${v.map(x=>`<td style="background:${x===1?'var(--violet-deep)':x===2?'color-mix(in srgb, var(--amber) 55%, white)':'var(--grey-bg)'};color:${x===1?'#fff':'var(--ink)'}">${x===1?'fijo':x===2?'test':''}</td>`).join('')}</tr>`; });
+    $('hmMatrix').innerHTML = m + '</tbody>';
+    qa('qa6',[
+      ['¿Qué audiencia rinde mejor?', 'Runner / isotónica · 8,6×', 'Pero se midió solo en eventos. Fuera de evento la mejor es Condiciones (4,6×, CPA US$8,6).'],
+      ['¿Deportista mix?', '4,6× · CPA US$9,9', 'Sólida y estable: es el ad set fijo de Creatina.'],
+      ['¿Bienestar?', '3,5× · CPA US$12,6', 'La más cara. En Electrolitos va con pack o mensaje de valor; con Creatina se prueba en mujeres 35+.'],
+      ['¿A quién no apuntar?', '65+ y 18–24 en frío', 'Mujeres 25–34 tienen el CPA más bajo (US$7,9). Sobre 55 el costo se duplica.']]);
+  })();
+
+  // ===== 7 · Creativos =====
+  (function(){
+    // campaña, ad sets, anuncios por ad set, estáticos nuevos, videos nuevos
+    const C = [['Prospección Electrolitos (CBO)',['Adv+','Runner','Condiciones'],3,8,4],['Prospección Creatina (CBO)',['Deportista mix','Bienestar 35+','Energy + Boost'],3,8,4],['Testeo de audiencias (ABO)',['3 audiencias en prueba'],3,1,1],['Retargeting (ABO)',['Caliente','Tibio','Compradores'],2,4,2],['PMax Electrolitos',['1 grupo de recursos'],0,2,0],['Search ×3',['grupos por palabra clave'],0,0,0],['TikTok',['Runner / deportista','Bienestar / condiciones'],4,0,12]];
+    const rows = C.map(([k,a,p,e,v])=>[k,a,p,a.length*p,e,v,e+v]);
+    let h = `<thead><tr><th class="l">Campaña</th><th class="l">Ad sets</th><th>Anuncios por ad set</th><th>Activos a la vez</th><th>Estáticos nuevos/mes</th><th>Videos nuevos/mes</th><th>Total nuevos/mes</th></tr></thead><tbody>`;
+    rows.forEach(r=>{ h += `<tr><td class="l"><b>${r[0]}</b></td><td class="l">${r[1].map(x=>`<span class="chip">${x}</span>`).join('')}</td>${[2,3,4,5,6].map(j=>{const [lo,hi]=colRange(rows,j); return `<td style="${r[j]?`background:color-mix(in srgb, var(--violet-deep) ${Math.round(r[j]/(hi||1)*55+5)}%, white)`:'background:var(--grey-bg);color:var(--grey)'}">${r[j]||'·'}</td>`;}).join('')}</tr>`; });
+    const te = rows.reduce((a,r)=>a+r[4],0), tv = rows.reduce((a,r)=>a+r[5],0), ta = rows.reduce((a,r)=>a+r[3],0);
+    h += `<tr class="hl"><td class="l"><b>Total</b></td><td class="l"></td><td style="background:var(--bg)"></td><td style="background:var(--bg)"><b>${ta}</b></td><td style="background:var(--bg)"><b>${te}</b></td><td style="background:var(--bg)"><b>${tv}</b></td><td style="background:var(--bg)"><b>${te+tv}</b></td></tr>`;
+    $('hmCrea').innerHTML = h + '</tbody>';
+    const cliente = Math.min(10, tv), ia = tv - cliente;
+    $('piesProd').innerHTML = pie('Objetivo · al mes', [['Advanz · estáticos',te,'--violet-deep',te],['Cliente · videos UGC, colabs y marca',cliente,'--flow',cliente],['Advanz · videos IA',ia,'--cyan',ia]], String(te+tv));
+    const P = [0,1,2,5].map(n=>{ const [t,v]=CREA_STAGE[n]; const est=t-v, cli=Math.min(10,v), iav=Math.max(0,v-10); return [`Etapa ${n}`+(n===0?' · actual':n===2?' · $3M':n===5?' · objetivo':''), t, est, est<=20?20:est<=30?30:40, cli, iav]; });
+    let p = `<thead><tr><th class="l">Etapa</th><th>Creativos nuevos/mes</th><th>Estáticos que se usan</th><th>Plan Advanz estáticos</th><th>Videos del cliente</th><th>Videos IA Advanz</th></tr></thead><tbody>`;
+    P.forEach(r=>{ p += `<tr><td class="l"><b>${r[0]}</b></td><td style="${heat(r[1],15,46)}">${r[1]}</td><td style="background:var(--bg)">${r[2]}</td><td style="background:color-mix(in srgb, var(--violet-deep) ${r[3]===20?12:r[3]===30?30:50}%, white)">${r[3]}</td><td style="background:color-mix(in srgb, var(--flow) ${Math.round(r[4]/10*45+5)}%, white)">${r[4]}${r[4]>=10?' (tope)':''}</td><td style="${r[5]?'background:color-mix(in srgb, var(--cyan) 45%, white)':'background:var(--grey-bg);color:var(--grey)'}">${r[5]||'·'}</td></tr>`; });
+    $('hmProdStage').innerHTML = p + '</tbody>';
+    qa('qa7',[
+      ['¿Cuántos creativos necesita cada campaña?', '4 por ad set de prospección al mes', 'Electrolitos y Creatina: 12 cada una. Retargeting: 6. TikTok: 12 videos.'],
+      ['¿Cuánto me toca producir? (cliente)', `${cliente} videos al mes`, 'UGC, colaboraciones y videos de marca: el tope de su rango de 5–10. En la etapa 2 ($3M) también son 10.'],
+      ['¿Cuánto produce Advanz?', `${te} estáticos + ${ia} videos IA`, 'Con el plan de 30 estáticos alcanza y sobran para probar ángulos. 40 solo si se abren más ad sets.'],
+      ['¿Dónde está el cuello de botella?', 'En video, no en estáticos', `El objetivo pide ${tv} videos al mes. El cliente cubre ${cliente}; la diferencia la cubre IA o más UGC.`]]);
+  })();
+
+  // ===== 8 · Ubicaciones y regiones =====
+  (function(){
+    const P = [['IG stories',7326,784,9.34,4.92],['IG feed',7334,717,10.23,4.62],['IG reels',2221,206,10.78,4.42],['FB feed',1404,103,13.63,3.89],['FB stories',142,6,23.68,2.65],['FB reels',399,20,19.94,2.56]];
+    let h = `<thead><tr><th class="l">Ubicación</th><th>Gasto US$</th><th>Compras</th><th>CPA US$</th><th>ROAS</th></tr></thead><tbody>`;
+    P.forEach(r=>{ h += `<tr><td class="l"><b>${r[0]}</b></td><td style="${heat(r[1],0,7400)}">${nf0(r[1])}</td><td style="${heat(r[2],0,800)}">${nf0(r[2])}</td><td style="${heat(r[3],9,24,false)}">${nf1(r[3])}</td><td style="${heat(r[4],2.5,5)}">${nf1(r[4])}×</td></tr>`; });
+    $('hmPlc').innerHTML = h + '</tbody>';
+    const R = [['Santiago',2431,87.7,16734],['Valparaíso',161,5.6,760],['Biobío',100,3.6,714],['Maule',39,0.64,48],["O'Higgins",38,1.02,65],['Araucanía',30,0.75,123],['Los Lagos',29,1.11,34],['Antofagasta',23,0.68,22],['Coquimbo',22,0.88,421]];
+    let g = `<thead><tr><th class="l">Región</th><th>Pedidos</th><th>Venta neta</th><th>Gasto Meta US$</th><th>Gasto Meta por pedido</th></tr></thead><tbody>`;
+    R.forEach(r=>{ const gp=r[3]/r[1]; g += `<tr><td class="l"><b>${r[0]}</b></td><td style="${heat(Math.log(r[1]),Math.log(20),Math.log(2431))}">${nf0(r[1])}</td><td style="${heat(Math.log(r[2]),Math.log(.6),Math.log(88))}">$${nf1(r[2])}M</td><td style="background:var(--bg)">${nf0(r[3])}</td><td style="${heat(gp,1,19,false)}">US$${nf1(gp)}</td></tr>`; });
+    $('hmReg').innerHTML = g + '</tbody>';
+    qa('qa8',[
+      ['¿Dónde se muestran los anuncios?', 'Instagram', 'Stories, feed y reels de IG concentran el 87% del gasto y rinden 4,4–4,9×. Formato 9:16 primero, 4:5 después.'],
+      ['¿Qué regiones sumar?', 'Valparaíso y Biobío', 'Rinden parecido a Santiago por pedido. Coquimbo gastó US$421 para 22 pedidos: fuera del set de regiones.']]);
+    $('chk').innerHTML = [
+      ['G','Google Ads por campaña, 90 días','OS Ads · export de Matías. Los ROAS de Google son del reporte de septiembre o supuestos'],
+      ['$','COGS por producto','Cliente · ajusta el CPA máximo de cada categoría'],
+      ['KW','Volumen de "creatina" en Chile','Define el techo de Search Rendimiento'],
+      ['R','Runner como audiencia propia','Nunca se probó sola: entra al ABO de testeo'],
+      ['S','Venta real en Shopify','Todo el plan está en ROAS de plataforma; Shopify registra menos']]
+      .map(([i,t,s])=>`<div class="ck"><span class="ic">${i}</span><div><b>${t}</b><div class="cap">${s}</div></div></div>`).join('');
+  })();
 })();
 </script>

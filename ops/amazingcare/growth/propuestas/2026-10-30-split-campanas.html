@@ -1,160 +1,329 @@
 <title>Split de campañas AmazingCare</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
 <style>
-/* Layout: una columna de lectura; tablas en contenedores con scroll propio */
+/* Layout: tablero de una columna con bloques en grilla; paleta del command center Amazing (violeta/cian) */
 :root{
-  --bg:#f6fbfd; --fg:#0a1440; --muted:#4d5a7a; --line:#d5e6ee; --panel:#ffffff;
-  --azul:#020C56; --celeste:#00C3F0; --rosa:#C8004F; --ok:#0a7a4a; --warn:#9a6a00;
-  --font: "Jost","Century Gothic","Futura",system-ui,sans-serif;
+  --bg:#f6f4fb; --card:#ffffff; --line:#e7e2f2; --ink:#12101a; --text:#211c33; --muted:#6b6580;
+  --violet:#c15dff; --violet-deep:#7b2ff7; --cyan:#22d3ee; --flow:#0891b2; --flow-bg:#e3f6fb;
+  --green:#16a34a; --green-bg:#e7f7ee; --amber:#d97706; --amber-bg:#fdf3e4; --red:#dc2626; --red-bg:#fdeaea;
+  --grey:#a3a0b5; --grey-bg:#eeecf6; --spot-bg:#f3ecff;
+  --sh:0 1px 2px rgba(18,16,26,.04),0 12px 28px -20px rgba(18,16,26,.35);
+  --f-body:"Poppins",system-ui,sans-serif; --f-num:"Space Grotesk","Poppins",system-ui,sans-serif;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#070d2e; --fg:#e8f4fb; --muted:#a3b3cf; --line:#1f2b5c; --panel:#0d1640;
-  --azul:#8fdcff; --celeste:#00C3F0; --rosa:#ff5c95; --ok:#4fd39a; --warn:#f2c94c; color-scheme:dark}}
+  --bg:#0f0c18; --card:#1a1626; --line:#2c2640; --ink:#f4f1fb; --text:#e4def3; --muted:#a39cba;
+  --violet:#d08bff; --violet-deep:#a06bff; --cyan:#3fe0f5; --flow:#38bdf8; --flow-bg:#0c2a35;
+  --green:#4ade80; --green-bg:#0f2a1b; --amber:#fbbf24; --amber-bg:#2e2310; --red:#f87171; --red-bg:#2e1414;
+  --grey:#6f6888; --grey-bg:#241f33; --spot-bg:#231a3a; --sh:none; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#070d2e; --fg:#e8f4fb; --muted:#a3b3cf; --line:#1f2b5c; --panel:#0d1640;
-  --azul:#8fdcff; --celeste:#00C3F0; --rosa:#ff5c95; --ok:#4fd39a; --warn:#f2c94c; color-scheme:dark}
-body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.55}
-.wrap{max-width:62rem;margin-inline:auto;padding-block:32px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:36px}
-h1{font-size:2rem;font-weight:600;color:var(--azul);margin:0;text-wrap:balance;line-height:1.2}
-h2{font-size:1.3rem;font-weight:600;color:var(--azul);margin:0 0 4px;text-wrap:balance}
-h3{font-size:1.05rem;font-weight:600;margin:12px 0 4px}
-p{margin:0 0 10px;max-width:68ch}
-ul,ol{margin:0 0 10px;padding-left:1.2rem;max-width:68ch}
-li{margin-bottom:4px}
-.eyebrow{text-transform:uppercase;letter-spacing:.08em;font-size:.75rem;color:var(--muted);font-weight:500}
-.lede{font-size:1.1rem}
-.verdict{border-left:4px solid var(--celeste);background:var(--panel);padding:16px 18px;border-radius:0 8px 8px 0}
-.verdict p:last-child{margin:0}
-.tw{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
-table{border-collapse:collapse;width:100%;font-size:.92rem;font-variant-numeric:tabular-nums}
-th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
-th{color:var(--muted);font-weight:500;white-space:nowrap}
-td.n,th.n{text-align:right;white-space:nowrap}
-tr.tot td{font-weight:600;border-top:2px solid var(--line)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr));gap:16px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:4px;min-width:0}
-.big{font-size:1.8rem;font-weight:600;color:var(--azul);font-variant-numeric:tabular-nums;line-height:1.1}
-.cap{font-size:.82rem;color:var(--muted)}
-.tag{display:inline-block;font-size:.75rem;padding:1px 8px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
-.t-a{color:var(--ok)} .t-b{color:var(--rosa)} .t-w{color:var(--warn)}
-.note{font-size:.85rem;color:var(--muted)}
+  --bg:#0f0c18; --card:#1a1626; --line:#2c2640; --ink:#f4f1fb; --text:#e4def3; --muted:#a39cba;
+  --violet:#d08bff; --violet-deep:#a06bff; --cyan:#3fe0f5; --flow:#38bdf8; --flow-bg:#0c2a35;
+  --green:#4ade80; --green-bg:#0f2a1b; --amber:#fbbf24; --amber-bg:#2e2310; --red:#f87171; --red-bg:#2e1414;
+  --grey:#6f6888; --grey-bg:#241f33; --spot-bg:#231a3a; --sh:none; color-scheme:dark}
+body{background:var(--bg);color:var(--text);font-family:var(--f-body);font-size:14px;line-height:1.45}
+.wrap{max-width:76rem;margin-inline:auto;padding-block:24px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:20px}
+.hero{background:linear-gradient(120deg,var(--violet-deep),var(--violet));color:#fff;border-radius:16px;padding:22px 24px;display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end;justify-content:space-between}
+.hero h1{margin:0;font-family:var(--f-num);font-size:1.7rem;font-weight:700;line-height:1.15;text-wrap:balance}
+.hero .sub{opacity:.85;font-size:.85rem;margin-top:4px}
+.vs{display:flex;gap:10px;flex-wrap:wrap}
+.pill{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:12px;padding:8px 14px;min-width:8.5rem}
+.pill b{display:block;font-family:var(--f-num);font-size:1.5rem;line-height:1.1}
+.pill span{font-size:.75rem;opacity:.9}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(12,minmax(0,1fr))}
+.c12{grid-column:span 12}.c8{grid-column:span 8}.c6{grid-column:span 6}.c4{grid-column:span 4}
+@media (max-width:900px){.c8,.c6,.c4{grid-column:span 12}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--sh);min-width:0;display:flex;flex-direction:column;gap:12px}
+.card h2{margin:0;font-family:var(--f-num);font-size:1.02rem;font-weight:600;color:var(--ink);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.cap{font-size:.75rem;color:var(--muted)}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+.tag{font-family:var(--f-body);font-size:.68rem;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.t-a{background:var(--green-bg);color:var(--green)}.t-b{background:var(--spot-bg);color:var(--violet-deep)}.t-r{background:var(--red-bg);color:var(--red)}.t-f{background:var(--flow-bg);color:var(--flow)}
+/* donut */
+.donut-wrap{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.donut{width:min(170px,100%);aspect-ratio:1;max-width:100%}
+.legend{display:flex;flex-direction:column;gap:6px;flex:1;min-width:10rem}
+.lg{display:grid;grid-template-columns:12px 1fr auto;gap:8px;align-items:center;font-size:.82rem}
+.sw{width:12px;height:12px;border-radius:3px}
+/* bars */
+.bars{display:flex;flex-direction:column;gap:7px}
+.bar-row{display:grid;grid-template-columns:minmax(6rem,11rem) 1fr auto;gap:10px;align-items:center;font-size:.8rem}
+.bar-row .lbl{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.track{position:relative;height:16px;background:var(--grey-bg);border-radius:6px}
+.fill{position:absolute;left:0;top:0;bottom:0;border-radius:6px}
+.floor{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink);opacity:.75}
+.val{font-family:var(--f-num);font-variant-numeric:tabular-nums;font-size:.78rem;white-space:nowrap}
+.vbars{display:flex;align-items:flex-end;gap:10px;height:170px;padding-top:18px;border-bottom:1px solid var(--line)}
+.vb{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:4px;min-width:0}
+.vb .col{width:100%;max-width:46px;border-radius:6px 6px 0 0}
+.vb .v{font-family:var(--f-num);font-size:.72rem}
+.vlabels{display:flex;gap:10px}.vlabels div{flex:1;text-align:center;font-size:.72rem;color:var(--muted)}
+/* scenario map */
+.map{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:700px){.map{grid-template-columns:1fr}}
+.ch{border:1px solid var(--line);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:8px;background:var(--bg)}
+.ch-h{font-family:var(--f-num);font-weight:700;font-size:.85rem;display:flex;justify-content:space-between;align-items:center}
+.node{border-radius:10px;padding:8px 10px;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--grey);display:flex;flex-direction:column;gap:2px}
+.node b{font-size:.8rem;color:var(--ink)}
+.node .m{display:flex;justify-content:space-between;gap:6px;font-size:.72rem;color:var(--muted)}
+.node .chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{font-size:.65rem;padding:1px 6px;border-radius:999px;background:var(--grey-bg);color:var(--text)}
+.s-frio{border-left-color:var(--violet)}.s-tibio{border-left-color:var(--flow)}.s-cal{border-left-color:var(--green)}
+.off{opacity:.38;border-style:dashed}
+.keys{display:flex;flex-wrap:wrap;gap:12px;font-size:.75rem;color:var(--muted)}
+.keys i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+/* funnel */
+.funnel{display:flex;flex-direction:column;gap:6px;align-items:center}
+.fs{border-radius:10px;color:#fff;padding:9px 12px;display:flex;justify-content:space-between;gap:10px;font-size:.8rem;font-weight:500}
+.fs small{opacity:.9;font-weight:400}
+/* timeline */
+.tl{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;position:relative}
+@media (max-width:700px){.tl{grid-template-columns:1fr;gap:10px}}
+.ev{display:flex;flex-direction:column;gap:6px;padding:0 8px;position:relative}
+.ev .dot{width:16px;height:16px;border-radius:50%;border:3px solid var(--card);box-shadow:0 0 0 2px currentColor;background:currentColor}
+.ev .line{position:absolute;top:7px;left:24px;right:-8px;height:2px;background:var(--line)}
+.ev:last-child .line{display:none}
+@media (max-width:700px){.ev .line{display:none}}
+.ev .d{font-family:var(--f-num);font-weight:700;font-size:.8rem;color:var(--ink)}
+.ev .t{font-size:.75rem;color:var(--muted)}
+/* gauge-ish split */
+.split{display:flex;height:34px;border-radius:9px;overflow:hidden;font-size:.7rem;color:#fff;font-weight:600}
+.split div{display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;min-width:0}
+.chk{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:10px}
+.ck{border:1px dashed var(--line);border-radius:10px;padding:10px;display:flex;gap:10px;align-items:flex-start;font-size:.78rem}
+.ck .ic{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font-family:var(--f-num);font-weight:700;flex:none}
 </style>
+
 <div class="wrap">
-<header>
-  <div class="eyebrow">Growth OS · AmazingCare · 30 oct 2026 · borrador interno</div>
-  <h1>Split de campañas por categoría: cuántas campañas, cuántos creativos y cuánta plata</h1>
-  <p class="lede">El cliente quiere separar las campañas por categoría (electrolitos, energía y creatina, más creatina con sabores), en Google, Meta y TikTok, y subir a 30–40 creativos al mes, con $3M de inversión.</p>
-</header>
+  <header class="hero">
+    <div>
+      <div class="sub">AmazingCare · Growth OS · 30 oct 2026</div>
+      <h1>Split de campañas por categoría</h1>
+      <div class="sub">Electrolitos · Energía · Creatina (+ creatina con sabores 24-nov)</div>
+    </div>
+    <div class="vs">
+      <div class="pill"><span>Escenario A</span><b class="num">$3,0M</b><span>6 campañas · ~17 creativos</span></div>
+      <div class="pill"><span>Escenario B</span><b class="num">$5,0M</b><span>10 campañas · ~37 creativos</span></div>
+    </div>
+  </header>
 
-<section class="verdict">
-  <p><strong>Lectura corta:</strong> con $3M al mes se pueden operar <strong>6 campañas</strong> (Google + Meta), siempre que energía y creatina compartan campaña y se separen por grupo de anuncios. El split completo que pide el cliente (3 categorías × 3 canales, con TikTok) son <strong>10 campañas, ~37 creativos al mes y un piso de ~$5M al mes</strong>. Con $3M ese split deja cada campaña sin conversiones suficientes para que el algoritmo aprenda, y se reparte poco en cada una.</p>
-</section>
-
-<section>
-  <h2>1. Lo que dicen los datos</h2>
   <div class="grid">
-    <div class="card"><span class="cap">Venta neta por categoría · últimos 90 días · Shopify</span><span class="big">86%</span><span>Electrolitos de sabores y sus packs ($48,3M de $56,2M)</span></div>
-    <div class="card"><span class="cap">Energy (sticks + Pack Energy Boost)</span><span class="big">5%</span><span>$2,8M en 90 días</span></div>
-    <div class="card"><span class="cap">Creatina Creapure (desde el Cyber)</span><span class="big">4%</span><span>$2,1M y 97 órdenes en ~4 semanas; estuvo en el 19% de los pedidos del Cyber</span></div>
-    <div class="card"><span class="cap">Fibra</span><span class="big">3%</span><span>$1,8M en 90 días</span></div>
+    <section class="card c4">
+      <h2>Venta neta por categoría <span class="tag t-f">90 días · Shopify</span></h2>
+      <div class="donut-wrap"><svg class="donut" id="donut" viewBox="0 0 120 120" role="img" aria-label="Mix de venta por categoría"></svg><div class="legend" id="mix-legend"></div></div>
+    </section>
+
+    <section class="card c4">
+      <h2>Venta neta mensual <span class="tag t-f">Shopify · MM CLP</span></h2>
+      <div class="vbars" id="months"></div><div class="vlabels" id="months-l"></div>
+    </section>
+
+    <section class="card c4">
+      <h2>Audiencias Meta saturadas <span class="tag t-r">frecuencia 90 días</span></h2>
+      <div class="bars" id="freq"></div>
+      <div class="keys"><span><i style="background:var(--ink)"></i>límite sano 3,0</span></div>
+    </section>
+
+    <section class="card c12">
+      <h2>Mapa de campañas <span class="tag t-a">A · $3M</span></h2>
+      <div class="map" id="mapA"></div>
+      <div class="keys"><span><i style="background:var(--violet)"></i>Frío · descubrimiento</span><span><i style="background:var(--flow)"></i>Tibio · intención de búsqueda</span><span><i style="background:var(--green)"></i>Caliente · marca y retargeting</span></div>
+    </section>
+
+    <section class="card c12">
+      <h2>Mapa de campañas <span class="tag t-b">B · ~$5M · split completo</span></h2>
+      <div class="map" id="mapB"></div>
+    </section>
+
+    <section class="card c6">
+      <h2>Presupuesto vs mínimo por campaña <span class="tag t-a">A · $3M</span></h2>
+      <div class="bars" id="floorA"></div>
+      <div class="keys"><span><i style="background:var(--green)"></i>sobre el mínimo</span><span><i style="background:var(--ink)"></i>mínimo para aprender</span></div>
+    </section>
+
+    <section class="card c6">
+      <h2>Si los $3M se reparten en las 10 campañas <span class="tag t-r">7 de 10 bajo el mínimo</span></h2>
+      <div class="bars" id="floor3in10"></div>
+      <div class="keys"><span><i style="background:var(--red)"></i>bajo el mínimo</span><span><i style="background:var(--green)"></i>sobre el mínimo</span></div>
+    </section>
+
+    <section class="card c6">
+      <h2>Reparto por canal</h2>
+      <div class="cap">Escenario A · $3,0M</div><div class="split" id="chA"></div>
+      <div class="cap">Escenario B · $5,0M</div><div class="split" id="chB"></div>
+      <div class="keys"><span><i style="background:var(--flow)"></i>Google</span><span><i style="background:var(--violet-deep)"></i>Meta</span><span><i style="background:var(--ink)"></i>TikTok</span></div>
+    </section>
+
+    <section class="card c6">
+      <h2>Creativos nuevos al mes</h2>
+      <div class="vbars" id="crea" style="height:190px"></div><div class="vlabels" id="crea-l"></div>
+      <div class="keys" id="crea-k"></div>
+    </section>
+
+    <section class="card c6">
+      <h2>Embudo: qué campaña trabaja cada etapa</h2>
+      <div class="funnel" id="funnel"></div>
+    </section>
+
+    <section class="card c6">
+      <h2>Mínimos que fijan el presupuesto</h2>
+      <div class="bars" id="rules"></div>
+      <div class="cap">Mínimo = compras necesarias × costo por compra esperado. CPA Search no-brand supuesto (sin datos de Google Ads).</div>
+    </section>
+
+    <section class="card c12">
+      <h2>Ruta propuesta</h2>
+      <div class="tl" id="tl"></div>
+    </section>
+
+    <section class="card c12">
+      <h2>Para cerrar los números <span class="tag t-r">pendiente</span></h2>
+      <div class="chk" id="chk"></div>
+    </section>
   </div>
-  <ul style="margin-top:14px">
-    <li><strong>La demanda está concentrada en electrolitos.</strong> Repartir el presupuesto en partes iguales por categoría le quita plata a lo que vende el 86%.</li>
-    <li><strong>Las audiencias frías de Meta están gastadas.</strong> En 90 días, Prospección tiene frecuencia 6,0 y Retención 9,4. Abrir categorías nuevas (creatina, energía) sí sirve para llegar a gente nueva: es el mejor argumento a favor del split.</li>
-    <li><strong>CPA de compra en Meta (plataforma, 90 días):</strong> Prospección US$9,23 (~$8.800), Adquisición FP US$11,49 (~$10.900), Retención US$10,32 (~$9.800). En el Cyber bajó a US$6,8–7,7.</li>
-    <li><strong>Google:</strong> en sep 1–14, $570K y 69 órdenes (CPA ~$8.300). Brand 9,9×, PMax 3,4×, Categoría 7,5×. En agosto, la campaña de Search por categoría de electrolitos rindió 1,22×: el genérico es caro.</li>
-    <li><strong>Búsqueda orgánica:</strong> "electrolitos" suma ~70K impresiones en posición 6,3; el blog de creatina, 6,8K en posición 11,6. Hay demanda de búsqueda para las dos categorías.</li>
-    <li><strong>Retención ya la cubre el correo:</strong> email fue el 26,9% de la venta de octubre ($9,8M). El retargeting pagado puede ser chico y concentrarse en bundles y venta cruzada.</li>
-  </ul>
-</section>
-
-<section>
-  <h2>2. Las reglas que fijan el mínimo por campaña</h2>
-  <ul>
-    <li><strong>Meta:</strong> un conjunto de anuncios sale de aprendizaje con ~50 conversiones por semana. A este volumen eso no es alcanzable, así que el piso de trabajo es <strong>10 compras por semana por campaña</strong> (~43 al mes) y lo recomendado es 20.</li>
-    <li><strong>Google (PMax y Search con puja automática):</strong> necesita <strong>~30 conversiones en 30 días por campaña</strong> para optimizar con CPA o ROAS objetivo.</li>
-    <li><strong>TikTok:</strong> también aprende con ~50 conversiones por semana por grupo. Con presupuesto de prueba se queda en aprendizaje limitado, así que se mide como prueba de 8 semanas, no como canal de venta.</li>
-    <li><strong>Mínimo = conversiones necesarias × CPA esperado.</strong> Para categorías nuevas (creatina, energía) se asume un CPA ~30% más alto que el de electrolitos, porque todavía no hay histórico.</li>
-  </ul>
-</section>
-
-<section>
-  <h2>3. Escenario A: lo que funciona con $3M <span class="tag t-a">recomendado si no sube el presupuesto</span></h2>
-  <div class="tw"><table>
-    <thead><tr><th>Canal</th><th>Campaña</th><th>Qué lleva adentro</th><th class="n">Presupuesto mes</th><th class="n">Compras esperadas</th></tr></thead>
-    <tbody>
-      <tr><td>Google</td><td>Search Brand</td><td>"amazing care", "amazingcare electrolitos". Captura, se lee aparte</td><td class="n">$150.000</td><td class="n">—</td></tr>
-      <tr><td>Google</td><td>PMax Electrolitos + Packs</td><td>Feed filtrado a electrolitos, packs y bundles. Excluye la marca</td><td class="n">$650.000</td><td class="n">~75</td></tr>
-      <tr><td>Google</td><td>Search Rendimiento</td><td>2 grupos de anuncios: Creatina (creatina, creapure, monohidratada) y Energía (cafeína, pre-entreno natural)</td><td class="n">$350.000</td><td class="n">~29</td></tr>
-      <tr><td>Meta</td><td>Prospección Electrolitos</td><td>Advantage+, packs por avatar (P1, P3, P6), con la creatividad de hidratación</td><td class="n">$850.000</td><td class="n">~95</td></tr>
-      <tr><td>Meta</td><td>Prospección Rendimiento</td><td>Creatina y Energy en la misma campaña, con anuncios separados por producto (P1 Deportista, P2 Profesional)</td><td class="n">$550.000</td><td class="n">~44</td></tr>
-      <tr><td>Meta</td><td>Retargeting y venta cruzada</td><td>Catálogo, bundles (Energy Boost, Wellness), creatina a compradores de electrolitos</td><td class="n">$450.000</td><td class="n">~46</td></tr>
-      <tr class="tot"><td colspan="3">6 campañas · sin TikTok</td><td class="n">$3.000.000</td><td class="n">~290</td></tr>
-    </tbody>
-  </table></div>
-  <p class="note">Compras esperadas = presupuesto ÷ CPA de plataforma supuesto ($8.300–8.900 en electrolitos, $12.000–12.500 en rendimiento, $9.800 en retargeting). Son compras que reporta la plataforma, no órdenes de Shopify. Ahí el número real es menor.</p>
-  <p><strong>Cuándo se separa creatina en su propia campaña:</strong> cuando la Prospección Rendimiento pase de 20 compras por semana y creatina explique más de la mitad. Con creatina con sabores (llega el 24-nov) es probable que pase en diciembre.</p>
-</section>
-
-<section>
-  <h2>4. Escenario B: el split completo que pide el cliente <span class="tag t-b">piso ~$5M al mes</span></h2>
-  <div class="tw"><table>
-    <thead><tr><th>Canal</th><th>Campaña</th><th class="n">Piso</th><th class="n">Propuesto</th></tr></thead>
-    <tbody>
-      <tr><td>Google</td><td>Search Brand</td><td class="n">$100.000</td><td class="n">$150.000</td></tr>
-      <tr><td>Google</td><td>PMax Electrolitos + Packs</td><td class="n">$250.000</td><td class="n">$650.000</td></tr>
-      <tr><td>Google</td><td>Search Electrolitos genérico</td><td class="n">$360.000</td><td class="n">$360.000</td></tr>
-      <tr><td>Google</td><td>Search Energía</td><td class="n">$360.000</td><td class="n">$360.000</td></tr>
-      <tr><td>Google</td><td>Search Creatina</td><td class="n">$360.000</td><td class="n">$400.000</td></tr>
-      <tr><td>Meta</td><td>Prospección Electrolitos</td><td class="n">$410.000</td><td class="n">$820.000</td></tr>
-      <tr><td>Meta</td><td>Prospección Energy</td><td class="n">$540.000</td><td class="n">$540.000</td></tr>
-      <tr><td>Meta</td><td>Prospección Creatina</td><td class="n">$540.000</td><td class="n">$540.000</td></tr>
-      <tr><td>Meta</td><td>Retargeting y venta cruzada</td><td class="n">$400.000</td><td class="n">$450.000</td></tr>
-      <tr><td>TikTok</td><td>Prueba de 8 semanas (Spark Ads, video)</td><td class="n">$600.000</td><td class="n">$700.000</td></tr>
-      <tr class="tot"><td colspan="2">10 campañas</td><td class="n">$3.920.000</td><td class="n">$4.970.000</td></tr>
-    </tbody>
-  </table></div>
-  <p class="note">Piso de Google = 30 conversiones × CPA ($8.300 PMax, $12.000 Search genérico, supuesto). Piso de Meta = 43 compras al mes × CPA ($9.500 electrolitos, $12.500 categorías nuevas). En el piso cada campaña opera en aprendizaje limitado. La columna "Propuesto" es la que da margen para que el algoritmo elija.</p>
-  <p><strong>Si los $3M se reparten en estas 10 campañas</strong>, cada una de Meta queda con ~$300K (~30 compras al mes) y cada Search con ~$250K (~20 conversiones). Ninguna llega a su mínimo y la lectura por categoría no va a ser concluyente.</p>
-</section>
-
-<section>
-  <h2>5. Creativos al mes</h2>
-  <p>Regla: en Meta cada campaña de prospección necesita 4–6 anuncios activos. Meta concentra el gasto en 1–2 de ellos, y con la frecuencia actual (6–9) un anuncio dura ~3 semanas. Hay que reponer ~5 por campaña al mes. En TikTok un video dura 7–10 días.</p>
-  <div class="tw"><table>
-    <thead><tr><th>Dónde</th><th class="n">Escenario A ($3M)</th><th class="n">Escenario B ($5M)</th></tr></thead>
-    <tbody>
-      <tr><td>Meta prospección (5 nuevos por campaña)</td><td class="n">10</td><td class="n">15</td></tr>
-      <tr><td>Meta retargeting (bundles, catálogo, venta cruzada)</td><td class="n">3</td><td class="n">4</td></tr>
-      <tr><td>Google PMax (adaptaciones por grupo de recursos)</td><td class="n">4</td><td class="n">6</td></tr>
-      <tr><td>TikTok (3–4 videos activos, 3 rotaciones)</td><td class="n">—</td><td class="n">12</td></tr>
-      <tr class="tot"><td>Total al mes</td><td class="n">~17–20</td><td class="n">~37</td></tr>
-    </tbody>
-  </table></div>
-  <p>Los 20 creativos de hoy alcanzan para el escenario A. Los 30–40 que quiere el cliente son coherentes con el escenario B, pero sin el presupuesto de B la mitad de esos creativos no recibe gasto suficiente para leerse: Meta les da ~$25K a cada uno y se descartan sin dato.</p>
-</section>
-
-<section>
-  <h2>6. El mensaje para el cliente</h2>
-  <ol>
-    <li><strong>El split por categoría tiene sentido</strong>, porque la gente busca "creatina" y "electrolitos" por separado y las audiencias de hoy ya están saturadas.</li>
-    <li><strong>Lo que define cuántas campañas caben es el presupuesto.</strong> Cada campaña necesita un mínimo de compras al mes para aprender.</li>
-    <li><strong>Con $3M:</strong> 6 campañas, con creatina y energía juntas en "Rendimiento", ~20 creativos y sin TikTok.</li>
-    <li><strong>Con ~$5M:</strong> las 10 campañas por categoría y canal, TikTok de prueba y ~37 creativos al mes, con su fee de gestión.</li>
-    <li><strong>Camino intermedio:</strong> partir con A en noviembre y abrir creatina y TikTok cuando creatina con sabores tenga 3–4 semanas de venta.</li>
-  </ol>
-  <p class="note">Black Friday (25–30 nov) se presupuesta aparte. El modelo de saturación del Cyber de octubre ubicó el punto dulce entre $5M y $6M para 10 días de evento.</p>
-</section>
-
-<section>
-  <h2>7. Lo que falta para cerrar los números</h2>
-  <ul>
-    <li><strong>Google Ads por campaña (90 días):</strong> desde la terminal de Matías o por export. Hoy los CPA de Google salen del reporte de septiembre y de la auditoría de agosto; el CPA de Search no-brand es un supuesto.</li>
-    <li><strong>Volumen de búsqueda de "creatina" y "electrolitos" en Chile</strong> (Planificador de Palabras Clave): define si Search Creatina tiene volumen para 30 conversiones.</li>
-    <li><strong>COGS por categoría:</strong> la creatina puede tener otro margen. Sin ese dato, el CPA objetivo por categoría es el mismo para todas.</li>
-    <li><strong>Lectura real en Shopify:</strong> Meta reporta entre 1,5× y 3× más compras de las que ve Shopify. Las compras esperadas de esta página son de plataforma.</li>
-  </ul>
-  <p class="note">Fuentes: Shopify (ventas por producto en 90 días y meses may–oct), Meta Ads cuenta DTC 2911300959169889 (campañas en 90 días), estado de los OS Ads, Email, GEO-SEO y CRO. El command center en amazing-command-center.pages.dev no se pudo leer desde esta sesión (proxy).</p>
-</section>
 </div>
+
+<script>
+(function(){
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const fmtM = v => '$' + (v/1000).toLocaleString('es-CL',{minimumFractionDigits:1,maximumFractionDigits:1}) + 'M';
+  const fmtK = v => v >= 1000 ? fmtM(v) : '$' + v + 'K';
+
+  // ---- Datos (Shopify 90 días, Meta cuenta DTC 90 días, supuestos de la propuesta) ----
+  const mix = [
+    {k:'Electrolitos y packs', v:48.28, c:'--violet-deep'},
+    {k:'Energy', v:2.81, c:'--cyan'},
+    {k:'Creatina', v:2.14, c:'--flow'},
+    {k:'Fibra', v:1.78, c:'--green'},
+    {k:'Bundles y accesorios', v:1.19, c:'--grey'}];
+  const months = [['May',17.90],['Jun',17.61],['Jul',9.06],['Ago',13.10],['Sep',13.22],['Oct',29.88]];
+  const freq = [['Retención',9.38],['Cyber ABO RM',6.11],['Prospección',6.03],['Adquisición FP',5.34],['Adquisición CBO',4.32],['Cyber Regiones',2.95]];
+  const A = [
+    {ch:'Google', n:'Search Brand', s:'cal', b:150, f:100, chips:['amazing care']},
+    {ch:'Google', n:'PMax Electrolitos + Packs', s:'tibio', b:640, f:250, chips:['feed ELE','packs','bundles']},
+    {ch:'Google', n:'Search Rendimiento', s:'tibio', b:360, f:360, chips:['grupo Creatina','grupo Energía']},
+    {ch:'Meta', n:'Prospección Electrolitos', s:'frio', b:850, f:410, chips:['P1','P3','P6','Adv+']},
+    {ch:'Meta', n:'Prospección Rendimiento', s:'frio', b:550, f:540, chips:['ads Creatina','ads Energy','P1','P2']},
+    {ch:'Meta', n:'Retargeting + venta cruzada', s:'cal', b:450, f:400, chips:['catálogo','bundles','creatina a compradores']},
+    {ch:'TikTok', n:'Sin TikTok en A', s:'off', b:0, f:0, chips:[]}];
+  const B = [
+    {ch:'Google', n:'Search Brand', s:'cal', b:150, f:100, chips:['amazing care']},
+    {ch:'Google', n:'PMax Electrolitos + Packs', s:'tibio', b:650, f:250, chips:['feed ELE','packs']},
+    {ch:'Google', n:'Search Electrolitos', s:'tibio', b:360, f:360, chips:['electrolitos','hidratación']},
+    {ch:'Google', n:'Search Energía', s:'tibio', b:360, f:360, chips:['cafeína','pre entreno']},
+    {ch:'Google', n:'Search Creatina', s:'tibio', b:400, f:360, chips:['creatina','creapure']},
+    {ch:'Meta', n:'Prospección Electrolitos', s:'frio', b:820, f:410, chips:['P1','P3','P6']},
+    {ch:'Meta', n:'Prospección Energy', s:'frio', b:540, f:540, chips:['P2','P1']},
+    {ch:'Meta', n:'Prospección Creatina', s:'frio', b:540, f:540, chips:['P1','sabores 24-nov']},
+    {ch:'Meta', n:'Retargeting + venta cruzada', s:'cal', b:450, f:400, chips:['catálogo','bundles']},
+    {ch:'TikTok', n:'Prueba 8 semanas', s:'frio', b:700, f:600, chips:['Spark Ads','video']}];
+  const sumB = B.reduce((a,x)=>a+x.b,0);
+  const crea = {cats:[['Meta prospección','--violet-deep'],['Meta retargeting','--violet'],['Google PMax','--flow'],['TikTok','--ink']], A:[10,3,4,0], B:[15,4,6,12]};
+
+  // ---- Donut ----
+  (function(){
+    const svg = document.getElementById('donut'), tot = mix.reduce((a,x)=>a+x.v,0), r=46, C=2*Math.PI*r;
+    let off=0, html='';
+    mix.forEach(m=>{const len=m.v/tot*C; html+=`<circle cx="60" cy="60" r="${r}" fill="none" stroke="var(${m.c})" stroke-width="18" stroke-dasharray="${len} ${C-len}" stroke-dashoffset="${-off}" transform="rotate(-90 60 60)"></circle>`; off+=len;});
+    html += `<text x="60" y="58" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="20" fill="var(--ink)">86%</text><text x="60" y="74" text-anchor="middle" font-size="8.5" fill="var(--muted)">electrolitos</text>`;
+    svg.innerHTML = html;
+    document.getElementById('mix-legend').innerHTML = mix.map(m=>`<div class="lg"><span class="sw" style="background:var(${m.c})"></span><span>${m.k}</span><span class="num">${(m.v/tot*100).toFixed(1).replace('.',',')}%</span></div>`).join('');
+  })();
+
+  // ---- Venta mensual ----
+  (function(){
+    const mx = Math.max(...months.map(m=>m[1]));
+    document.getElementById('months').innerHTML = months.map(([k,v])=>`<div class="vb"><span class="v">${v.toFixed(1).replace('.',',')}</span><div class="col" style="height:${v/mx*100}%;background:${k==='Oct'?'var(--violet-deep)':'var(--violet)'};opacity:${k==='Oct'?1:.55}"></div></div>`).join('');
+    document.getElementById('months-l').innerHTML = months.map(([k])=>`<div>${k}${k==='Oct'?' · Cyber':''}</div>`).join('');
+  })();
+
+  // ---- Frecuencia ----
+  (function(){
+    const mx = 10;
+    document.getElementById('freq').innerHTML = freq.map(([k,v])=>`<div class="bar-row"><span class="lbl">${k}</span><div class="track"><div class="fill" style="width:${v/mx*100}%;background:${v>3?'var(--red)':'var(--green)'}"></div><div class="floor" style="left:30%"></div></div><span class="val">${v.toFixed(1).replace('.',',')}</span></div>`).join('');
+  })();
+
+  // ---- Mapas ----
+  function map(id, rows){
+    const chs = ['Google','Meta','TikTok'];
+    document.getElementById(id).innerHTML = chs.map(ch=>{
+      const rs = rows.filter(r=>r.ch===ch), tot = rs.reduce((a,x)=>a+x.b,0);
+      return `<div class="ch"><div class="ch-h"><span>${ch}</span><span class="num">${tot?fmtK(tot):'—'}</span></div>${rs.map(r=>`<div class="node ${r.s==='off'?'off':'s-'+r.s}"><b>${r.n}</b>${r.b?`<div class="m"><span class="num">${fmtK(r.b)}/mes</span><span>mín ${fmtK(r.f)}</span></div>`:''}${r.chips.length?`<div class="chips">${r.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div>`:''}</div>`).join('')}</div>`;
+    }).join('');
+  }
+  map('mapA', A); map('mapB', B);
+
+  // ---- Barras vs mínimo ----
+  function floorBars(id, rows, mx){
+    document.getElementById(id).innerHTML = rows.map(r=>{
+      const ok = r.b >= r.f;
+      return `<div class="bar-row"><span class="lbl" title="${r.ch} · ${r.n}">${r.ch[0]} · ${r.n}</span><div class="track"><div class="fill" style="width:${r.b/mx*100}%;background:${ok?'var(--green)':'var(--red)'}"></div><div class="floor" style="left:${r.f/mx*100}%"></div></div><span class="val">${fmtK(r.b)}</span></div>`;
+    }).join('');
+  }
+  floorBars('floorA', A.filter(r=>r.b), 900);
+  const scaled = B.map(r=>({...r, b: Math.round(r.b*3000/sumB)}));
+  floorBars('floor3in10', scaled, 900);
+
+  // ---- Reparto por canal ----
+  function split(id, rows){
+    const t = rows.reduce((a,x)=>a+x.b,0), by = {Google:0,Meta:0,TikTok:0}; rows.forEach(r=>by[r.ch]+=r.b);
+    const col = {Google:'--flow',Meta:'--violet-deep',TikTok:'--ink'};
+    document.getElementById(id).innerHTML = Object.entries(by).filter(([,v])=>v).map(([k,v])=>`<div style="width:${v/t*100}%;background:var(${col[k]});color:${k==='TikTok'?'var(--bg)':'#fff'}">${k} ${fmtK(v)}</div>`).join('');
+  }
+  split('chA', A); split('chB', B);
+
+  // ---- Creativos ----
+  (function(){
+    const tA = crea.A.reduce((a,b)=>a+b,0), tB = crea.B.reduce((a,b)=>a+b,0), mx = Math.max(tA,tB,40);
+    const stack = arr => crea.cats.map(([,c],i)=>arr[i]?`<div style="height:${arr[i]/mx*100}%;background:var(${c});width:100%"></div>`:'').reverse().join('');
+    const col = (arr,t) => `<div class="vb"><span class="v">${t}</span><div style="display:flex;flex-direction:column;justify-content:flex-end;height:${t/mx*100}%;width:100%;max-width:70px;border-radius:6px 6px 0 0;overflow:hidden">${stack(arr).replace(/height:([\d.]+)%/g,(m,p)=>`height:${p/(t/mx*100)*100}%`)}</div></div>`;
+    const today = `<div class="vb"><span class="v">20</span><div class="col" style="height:${20/mx*100}%;max-width:70px;background:var(--grey)"></div></div>`;
+    const ask = `<div class="vb"><span class="v">30–40</span><div class="col" style="height:${40/mx*100}%;max-width:70px;background:repeating-linear-gradient(45deg,var(--violet) 0 6px,transparent 6px 12px);border:2px dashed var(--violet)"></div></div>`;
+    document.getElementById('crea').innerHTML = today + col(crea.A,'~'+tA) + col(crea.B,'~'+tB) + ask;
+    document.getElementById('crea-l').innerHTML = '<div>Hoy</div><div>A · $3M</div><div>B · $5M</div><div>Pide el cliente</div>';
+    document.getElementById('crea-k').innerHTML = crea.cats.map(([k,c])=>`<span><i style="background:var(${c})"></i>${k}</span>`).join('');
+  })();
+
+  // ---- Embudo ----
+  (function(){
+    const st = [
+      ['Descubrimiento','Meta prospección · TikTok','--violet',100],
+      ['Búsqueda por categoría','Search Electrolitos / Energía / Creatina · PMax','--flow',82],
+      ['Marca','Search Brand','--violet-deep',64],
+      ['Recompra y cruce','Meta retargeting · Email (27% de la venta oct)','--green',48]];
+    document.getElementById('funnel').innerHTML = st.map(([a,b,c,w])=>`<div class="fs" style="width:${w}%;background:var(${c})"><span>${a}</span><small>${b}</small></div>`).join('');
+  })();
+
+  // ---- Reglas de mínimo ----
+  (function(){
+    const r = [
+      ['Meta · electrolitos','43 compras × $9.500',410],
+      ['Meta · categoría nueva','43 compras × $12.500',540],
+      ['Google · PMax','30 conv × $8.300',250],
+      ['Google · Search genérico','30 conv × $12.000',360],
+      ['TikTok · prueba','~45 conv × $13.500',600]];
+    document.getElementById('rules').innerHTML = r.map(([k,f,v])=>`<div class="bar-row"><span class="lbl" title="${f}">${k}</span><div class="track"><div class="fill" style="width:${v/700*100}%;background:var(--violet)"></div></div><span class="val">${fmtK(v)}</span></div><div class="cap" style="margin:-4px 0 2px">${f}</div>`).join('');
+  })();
+
+  // ---- Ruta ----
+  (function(){
+    const ev = [
+      ['1 nov','Arranca A: 6 campañas, $3M','--green'],
+      ['24 nov','Llega creatina con sabores','--flow'],
+      ['25–30 nov','Black: presupuesto aparte','--amber'],
+      ['Dic','Creatina a campaña propia si Rendimiento > 20 compras/sem','--violet-deep'],
+      ['Ene','TikTok de prueba si se aprueba B','--ink']];
+    document.getElementById('tl').innerHTML = ev.map(([d,t,c])=>`<div class="ev" style="color:var(${c})"><div class="line"></div><span class="dot"></span><span class="d">${d}</span><span class="t">${t}</span></div>`).join('');
+  })();
+
+  // ---- Pendientes ----
+  (function(){
+    const p = [
+      ['G','Google Ads por campaña, 90 días','OS Ads · export de Matías'],
+      ['KW','Volumen "creatina" y "electrolitos" en Chile','Planificador de palabras clave'],
+      ['$','COGS por categoría','Cliente · fija el CPA objetivo'],
+      ['✓','Decisión A o B','Cliente · con fee de gestión']];
+    document.getElementById('chk').innerHTML = p.map(([i,t,s])=>`<div class="ck"><span class="ic" style="background:var(--spot-bg);color:var(--violet-deep)">${i}</span><div><b>${t}</b><div class="cap">${s}</div></div></div>`).join('');
+  })();
+})();
+</script>

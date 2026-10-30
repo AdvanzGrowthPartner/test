@@ -2,180 +2,286 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
 <style>
-/* Layout: tablero de una columna con bloques en grilla; paleta del command center Amazing (violeta/cian) */
+/* Layout: tablero claro de una columna con bloques en grilla de 12; paleta del command center Amazing sobre crema suave (tema único claro, a propósito) */
 :root{
-  --bg:#f6f4fb; --card:#ffffff; --line:#e7e2f2; --ink:#12101a; --text:#211c33; --muted:#6b6580;
-  --violet:#c15dff; --violet-deep:#7b2ff7; --cyan:#22d3ee; --flow:#0891b2; --flow-bg:#e3f6fb;
-  --green:#16a34a; --green-bg:#e7f7ee; --amber:#d97706; --amber-bg:#fdf3e4; --red:#dc2626; --red-bg:#fdeaea;
-  --grey:#a3a0b5; --grey-bg:#eeecf6; --spot-bg:#f3ecff;
-  --sh:0 1px 2px rgba(18,16,26,.04),0 12px 28px -20px rgba(18,16,26,.35);
+  color-scheme:light;
+  --bg:#fbf9f4; --card:#ffffff; --line:#ece7dc; --ink:#14111c; --text:#2b2638; --muted:#736c80;
+  --violet:#c15dff; --violet-deep:#7b2ff7; --cyan:#22d3ee; --flow:#0891b2; --flow-bg:#e6f6fa;
+  --green:#16a34a; --green-bg:#e9f7ee; --amber:#d97706; --amber-bg:#fdf3e4; --red:#dc2626; --red-bg:#fdecec;
+  --grey:#b9b4c6; --grey-bg:#f1eee8; --spot-bg:#f4eeff;
+  --c-shoot:#7b2ff7; --c-ia:#c15dff; --c-promo:#d97706; --c-ugc:#0891b2; --c-clipia:#22d3ee;
+  --sh:0 1px 2px rgba(20,17,28,.03),0 10px 24px -20px rgba(20,17,28,.25);
   --f-body:"Poppins",system-ui,sans-serif; --f-num:"Space Grotesk","Poppins",system-ui,sans-serif;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0f0c18; --card:#1a1626; --line:#2c2640; --ink:#f4f1fb; --text:#e4def3; --muted:#a39cba;
-  --violet:#d08bff; --violet-deep:#a06bff; --cyan:#3fe0f5; --flow:#38bdf8; --flow-bg:#0c2a35;
-  --green:#4ade80; --green-bg:#0f2a1b; --amber:#fbbf24; --amber-bg:#2e2310; --red:#f87171; --red-bg:#2e1414;
-  --grey:#6f6888; --grey-bg:#241f33; --spot-bg:#231a3a; --sh:none; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#0f0c18; --card:#1a1626; --line:#2c2640; --ink:#f4f1fb; --text:#e4def3; --muted:#a39cba;
-  --violet:#d08bff; --violet-deep:#a06bff; --cyan:#3fe0f5; --flow:#38bdf8; --flow-bg:#0c2a35;
-  --green:#4ade80; --green-bg:#0f2a1b; --amber:#fbbf24; --amber-bg:#2e2310; --red:#f87171; --red-bg:#2e1414;
-  --grey:#6f6888; --grey-bg:#241f33; --spot-bg:#231a3a; --sh:none; color-scheme:dark}
 body{background:var(--bg);color:var(--text);font-family:var(--f-body);font-size:14px;line-height:1.45}
-.wrap{max-width:76rem;margin-inline:auto;padding-block:24px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:20px}
-.hero{background:linear-gradient(120deg,var(--violet-deep),var(--violet));color:#fff;border-radius:16px;padding:22px 24px;display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end;justify-content:space-between}
-.hero h1{margin:0;font-family:var(--f-num);font-size:1.7rem;font-weight:700;line-height:1.15;text-wrap:balance}
-.hero .sub{opacity:.85;font-size:.85rem;margin-top:4px}
+.wrap{max-width:78rem;margin-inline:auto;padding-block:24px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:18px}
+.hero{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end;justify-content:space-between;box-shadow:var(--sh)}
+.hero .eb{font-size:.75rem;color:var(--muted);letter-spacing:.04em}
+.hero h1{margin:2px 0 0;font-family:var(--f-num);font-size:1.75rem;font-weight:700;line-height:1.15;color:var(--ink);text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--violet-deep)}
 .vs{display:flex;gap:10px;flex-wrap:wrap}
-.pill{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:12px;padding:8px 14px;min-width:8.5rem}
-.pill b{display:block;font-family:var(--f-num);font-size:1.5rem;line-height:1.1}
-.pill span{font-size:.75rem;opacity:.9}
+.pill{border:1px solid var(--line);border-radius:12px;padding:8px 14px;min-width:9rem;background:var(--bg)}
+.pill b{display:block;font-family:var(--f-num);font-size:1.5rem;line-height:1.1;color:var(--ink)}
+.pill span{font-size:.74rem;color:var(--muted)}
+.pill.a{border-color:var(--green)} .pill.a b{color:var(--green)}
+.pill.b{border-color:var(--violet-deep)} .pill.b b{color:var(--violet-deep)}
+.sec{font-family:var(--f-num);font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:10px 2px -4px;display:flex;align-items:center;gap:10px}
+.sec::after{content:"";flex:1;height:1px;background:var(--line)}
 .grid{display:grid;gap:16px;grid-template-columns:repeat(12,minmax(0,1fr))}
-.c12{grid-column:span 12}.c8{grid-column:span 8}.c6{grid-column:span 6}.c4{grid-column:span 4}
-@media (max-width:900px){.c8,.c6,.c4{grid-column:span 12}}
+.c12{grid-column:span 12}.c8{grid-column:span 8}.c7{grid-column:span 7}.c6{grid-column:span 6}.c5{grid-column:span 5}.c4{grid-column:span 4}
+@media (max-width:960px){.c8,.c7,.c6,.c5,.c4{grid-column:span 12}}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--sh);min-width:0;display:flex;flex-direction:column;gap:12px}
-.card h2{margin:0;font-family:var(--f-num);font-size:1.02rem;font-weight:600;color:var(--ink);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.cap{font-size:.75rem;color:var(--muted)}
+.card h2{margin:0;font-family:var(--f-num);font-size:1rem;font-weight:600;color:var(--ink);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.cap{font-size:.74rem;color:var(--muted)}
 .num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
-.tag{font-family:var(--f-body);font-size:.68rem;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
-.t-a{background:var(--green-bg);color:var(--green)}.t-b{background:var(--spot-bg);color:var(--violet-deep)}.t-r{background:var(--red-bg);color:var(--red)}.t-f{background:var(--flow-bg);color:var(--flow)}
+.tag{font-family:var(--f-body);font-size:.66rem;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.t-a{background:var(--green-bg);color:var(--green)}.t-b{background:var(--spot-bg);color:var(--violet-deep)}.t-r{background:var(--red-bg);color:var(--red)}.t-f{background:var(--flow-bg);color:var(--flow)}.t-m{background:var(--amber-bg);color:var(--amber)}
+.keys{display:flex;flex-wrap:wrap;gap:12px;font-size:.74rem;color:var(--muted)}
+.keys i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
 /* donut */
 .donut-wrap{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-.donut{width:min(170px,100%);aspect-ratio:1;max-width:100%}
+.donut{width:min(160px,100%);aspect-ratio:1}
 .legend{display:flex;flex-direction:column;gap:6px;flex:1;min-width:10rem}
-.lg{display:grid;grid-template-columns:12px 1fr auto;gap:8px;align-items:center;font-size:.82rem}
+.lg{display:grid;grid-template-columns:12px 1fr auto;gap:8px;align-items:center;font-size:.8rem}
 .sw{width:12px;height:12px;border-radius:3px}
-/* bars */
+/* barras horizontales */
 .bars{display:flex;flex-direction:column;gap:7px}
-.bar-row{display:grid;grid-template-columns:minmax(6rem,11rem) 1fr auto;gap:10px;align-items:center;font-size:.8rem}
+.bar-row{display:grid;grid-template-columns:minmax(6.5rem,12rem) 1fr auto;gap:10px;align-items:center;font-size:.78rem}
 .bar-row .lbl{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.track{position:relative;height:16px;background:var(--grey-bg);border-radius:6px}
+.track{position:relative;height:15px;background:var(--grey-bg);border-radius:6px}
 .fill{position:absolute;left:0;top:0;bottom:0;border-radius:6px}
-.floor{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink);opacity:.75}
-.val{font-family:var(--f-num);font-variant-numeric:tabular-nums;font-size:.78rem;white-space:nowrap}
-.vbars{display:flex;align-items:flex-end;gap:10px;height:170px;padding-top:18px;border-bottom:1px solid var(--line)}
+.floor{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink);opacity:.7}
+.val{font-family:var(--f-num);font-variant-numeric:tabular-nums;font-size:.76rem;white-space:nowrap;text-align:right;min-width:3.4rem}
+.ev-tag{font-size:.6rem;padding:0 5px;border-radius:999px;background:var(--amber-bg);color:var(--amber);margin-left:4px;vertical-align:1px}
+/* columnas */
+.vbars{display:flex;align-items:flex-end;gap:10px;height:160px;padding-top:18px;border-bottom:1px solid var(--line)}
 .vb{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:4px;min-width:0}
 .vb .col{width:100%;max-width:46px;border-radius:6px 6px 0 0}
 .vb .v{font-family:var(--f-num);font-size:.72rem}
-.vlabels{display:flex;gap:10px}.vlabels div{flex:1;text-align:center;font-size:.72rem;color:var(--muted)}
-/* scenario map */
+.vlabels{display:flex;gap:10px}.vlabels div{flex:1;text-align:center;font-size:.7rem;color:var(--muted)}
+/* mapa de campañas */
 .map{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-@media (max-width:700px){.map{grid-template-columns:1fr}}
+@media (max-width:760px){.map{grid-template-columns:1fr}}
 .ch{border:1px solid var(--line);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:8px;background:var(--bg)}
-.ch-h{font-family:var(--f-num);font-weight:700;font-size:.85rem;display:flex;justify-content:space-between;align-items:center}
-.node{border-radius:10px;padding:8px 10px;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--grey);display:flex;flex-direction:column;gap:2px}
+.ch-h{font-family:var(--f-num);font-weight:700;font-size:.85rem;display:flex;justify-content:space-between;align-items:center;color:var(--ink)}
+.node{border-radius:10px;padding:8px 10px;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--grey);display:flex;flex-direction:column;gap:3px}
 .node b{font-size:.8rem;color:var(--ink)}
 .node .m{display:flex;justify-content:space-between;gap:6px;font-size:.72rem;color:var(--muted)}
-.node .chips{display:flex;flex-wrap:wrap;gap:4px}
-.chip{font-size:.65rem;padding:1px 6px;border-radius:999px;background:var(--grey-bg);color:var(--text)}
-.s-frio{border-left-color:var(--violet)}.s-tibio{border-left-color:var(--flow)}.s-cal{border-left-color:var(--green)}
-.off{opacity:.38;border-style:dashed}
-.keys{display:flex;flex-wrap:wrap;gap:12px;font-size:.75rem;color:var(--muted)}
-.keys i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
-/* funnel */
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{font-size:.64rem;padding:1px 6px;border-radius:999px;background:var(--grey-bg);color:var(--text)}
+.chip.cbo{background:var(--spot-bg);color:var(--violet-deep);font-weight:600}.chip.abo{background:var(--amber-bg);color:var(--amber);font-weight:600}
+.s-frio{border-left-color:var(--violet)}.s-tibio{border-left-color:var(--flow)}.s-cal{border-left-color:var(--green)}.s-test{border-left-color:var(--amber)}
+.off{opacity:.4;border-style:dashed}
+/* flujo CBO/ABO */
+.flow{display:grid;grid-template-columns:1fr 34px 1fr 34px 1fr;align-items:stretch;gap:0}
+@media (max-width:860px){.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg);height:34px}}
+.fbox{border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px;background:var(--bg)}
+.fbox h3{margin:0;font-family:var(--f-num);font-size:.9rem;color:var(--ink);display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.adset{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 8px;font-size:.74rem;display:flex;justify-content:space-between;gap:8px}
+.adset .r{font-family:var(--f-num);font-weight:600;white-space:nowrap}
+.arrow{display:grid;place-items:center;color:var(--muted);font-size:1.3rem}
+.rule{font-size:.72rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:6px}
+/* mapa Chile */
+.chile{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+.strip{display:flex;flex-direction:column;align-items:center;gap:2px;padding:4px 0}
+.strip .seg{width:20px;border-radius:5px}
+.reg{display:grid;grid-template-columns:7.5rem 1fr auto auto;gap:8px;align-items:center;font-size:.76rem;height:24px}
+.dot{border-radius:50%;background:var(--violet-deep);justify-self:start}
+/* embudo y otros */
 .funnel{display:flex;flex-direction:column;gap:6px;align-items:center}
-.fs{border-radius:10px;color:#fff;padding:9px 12px;display:flex;justify-content:space-between;gap:10px;font-size:.8rem;font-weight:500}
-.fs small{opacity:.9;font-weight:400}
-/* timeline */
-.tl{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;position:relative}
-@media (max-width:700px){.tl{grid-template-columns:1fr;gap:10px}}
-.ev{display:flex;flex-direction:column;gap:6px;padding:0 8px;position:relative}
-.ev .dot{width:16px;height:16px;border-radius:50%;border:3px solid var(--card);box-shadow:0 0 0 2px currentColor;background:currentColor}
-.ev .line{position:absolute;top:7px;left:24px;right:-8px;height:2px;background:var(--line)}
-.ev:last-child .line{display:none}
-@media (max-width:700px){.ev .line{display:none}}
-.ev .d{font-family:var(--f-num);font-weight:700;font-size:.8rem;color:var(--ink)}
-.ev .t{font-size:.75rem;color:var(--muted)}
-/* gauge-ish split */
-.split{display:flex;height:34px;border-radius:9px;overflow:hidden;font-size:.7rem;color:#fff;font-weight:600}
+.fs{border-radius:10px;color:#fff;padding:9px 12px;display:flex;justify-content:space-between;gap:10px;font-size:.78rem;font-weight:500}
+.fs small{opacity:.92;font-weight:400}
+.split{display:flex;height:32px;border-radius:9px;overflow:hidden;font-size:.7rem;color:#fff;font-weight:600}
 .split div{display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;min-width:0}
+.tl{display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+@media (max-width:760px){.tl{grid-template-columns:1fr;gap:10px}}
+.evt{display:flex;flex-direction:column;gap:6px;padding:0 8px;position:relative}
+.evt .dt{width:16px;height:16px;border-radius:50%;border:3px solid var(--card);box-shadow:0 0 0 2px currentColor;background:currentColor}
+.evt .line{position:absolute;top:7px;left:24px;right:-8px;height:2px;background:var(--line)}
+.evt:last-child .line{display:none}
+@media (max-width:760px){.evt .line{display:none}}
+.evt .d{font-family:var(--f-num);font-weight:700;font-size:.8rem;color:var(--ink)}
+.evt .t{font-size:.74rem;color:var(--muted)}
+/* tabla visual de creativos */
+.tw{overflow-x:auto}
+table.cr{border-collapse:separate;border-spacing:0;width:100%;font-size:.76rem;min-width:44rem}
+table.cr th{font-weight:500;color:var(--muted);text-align:center;padding:6px 4px;border-bottom:1px solid var(--line);white-space:nowrap}
+table.cr th:first-child,table.cr td:first-child{text-align:left}
+table.cr td{padding:6px 4px;border-bottom:1px solid var(--line);text-align:center;vertical-align:middle}
+table.cr tr.tot td{font-weight:700;border-top:2px solid var(--ink);border-bottom:none}
+.cell{display:inline-grid;place-items:center;min-width:26px;height:24px;border-radius:7px;font-family:var(--f-num);font-weight:600;color:#fff}
+.cell.z{background:transparent;color:var(--grey);font-weight:400}
+.stackbar{display:flex;height:12px;border-radius:4px;overflow:hidden;min-width:7rem;background:var(--grey-bg)}
 .chk{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:10px}
 .ck{border:1px dashed var(--line);border-radius:10px;padding:10px;display:flex;gap:10px;align-items:flex-start;font-size:.78rem}
-.ck .ic{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font-family:var(--f-num);font-weight:700;flex:none}
+.ck .ic{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font-family:var(--f-num);font-weight:700;flex:none;background:var(--spot-bg);color:var(--violet-deep)}
+.seg-tabs{display:flex;gap:6px}
+.seg-tabs button{font:inherit;font-size:.74rem;border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:3px 12px;cursor:pointer;color:var(--text)}
+.seg-tabs button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.seg-tabs button:focus-visible{outline:2px solid var(--violet-deep);outline-offset:2px}
+.mini{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,9rem),1fr));gap:10px}
+.mini .k{border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--bg)}
+.mini .k b{display:block;font-family:var(--f-num);font-size:1.35rem;color:var(--ink)}
+.mini .k span{font-size:.72rem;color:var(--muted)}
 </style>
 
 <div class="wrap">
   <header class="hero">
     <div>
-      <div class="sub">AmazingCare · Growth OS · 30 oct 2026</div>
-      <h1>Split de campañas por categoría</h1>
-      <div class="sub">Electrolitos · Energía · Creatina (+ creatina con sabores 24-nov)</div>
+      <div class="eb">AmazingCare · Growth OS · 30 oct 2026</div>
+      <h1>Split de campañas por <em>categoría</em></h1>
+      <div class="cap">Electrolitos · Energía · Creatina (+ creatina con sabores, 24-nov) · Google, Meta y TikTok</div>
     </div>
     <div class="vs">
-      <div class="pill"><span>Escenario A</span><b class="num">$3,0M</b><span>6 campañas · ~17 creativos</span></div>
-      <div class="pill"><span>Escenario B</span><b class="num">$5,0M</b><span>10 campañas · ~37 creativos</span></div>
+      <div class="pill a"><span>Escenario A</span><b class="num" id="hA">$3,0M</b><span id="hA2"></span></div>
+      <div class="pill b"><span>Escenario B</span><b class="num" id="hB">$5,0M</b><span id="hB2"></span></div>
     </div>
   </header>
 
+  <div class="sec">Demanda</div>
   <div class="grid">
     <section class="card c4">
       <h2>Venta neta por categoría <span class="tag t-f">90 días · Shopify</span></h2>
       <div class="donut-wrap"><svg class="donut" id="donut" viewBox="0 0 120 120" role="img" aria-label="Mix de venta por categoría"></svg><div class="legend" id="mix-legend"></div></div>
     </section>
-
     <section class="card c4">
       <h2>Venta neta mensual <span class="tag t-f">Shopify · MM CLP</span></h2>
       <div class="vbars" id="months"></div><div class="vlabels" id="months-l"></div>
     </section>
-
     <section class="card c4">
-      <h2>Audiencias Meta saturadas <span class="tag t-r">frecuencia 90 días</span></h2>
+      <h2>Frecuencia Meta por campaña <span class="tag t-r">90 días</span></h2>
       <div class="bars" id="freq"></div>
-      <div class="keys"><span><i style="background:var(--ink)"></i>límite sano 3,0</span></div>
+      <div class="keys"><span><i style="background:var(--ink)"></i>límite sano 3,0</span><span><i style="background:var(--red)"></i>saturada</span></div>
+    </section>
+  </div>
+
+  <div class="sec">Hacia dónde apuntar en Meta · histórico abr–oct</div>
+  <div class="grid">
+    <section class="card c7">
+      <h2>Audiencias de prospección · ROAS de plataforma <span class="tag t-f">ad sets con ≥ US$65</span></h2>
+      <div class="bars" id="aud"></div>
+      <div class="keys"><span><i style="background:var(--violet-deep)"></i>ROAS ≥ 5</span><span><i style="background:var(--violet)"></i>ROAS 3,5–5</span><span><i style="background:var(--grey)"></i>bajo 3,5</span><span><span class="ev-tag">evento</span> medido en Cyber o Flash Sale (infla el ROAS)</span></div>
+    </section>
+    <section class="card c5">
+      <h2>Retargeting · ROAS y frecuencia</h2>
+      <div class="bars" id="rt"></div>
+      <div class="cap">Carrito/checkout 14 días llega a frecuencia 15,9: tope de 7 días y excluir compradores 14 días.</div>
+      <h2 style="margin-top:6px">Formato · ROAS de plataforma</h2>
+      <div class="bars" id="fmt"></div>
+      <div class="cap">Los promoted posts sueltos rinden 1,4–2,4×: van a retargeting como prueba social, no a frío.</div>
+    </section>
+
+    <section class="card c5">
+      <h2>Edad × género · costo por compra <span class="tag t-f">US$</span></h2>
+      <div class="seg-tabs" role="group" aria-label="Métrica"><button type="button" id="m-cpa" aria-pressed="true">Costo por compra</button><button type="button" id="m-roas" aria-pressed="false">ROAS</button></div>
+      <div id="demo"></div>
+      <div class="keys"><span><i style="background:var(--violet-deep)"></i>mujeres</span><span><i style="background:var(--flow)"></i>hombres</span><span>núcleo 25–44 · excluir 65+ en frío</span></div>
+    </section>
+    <section class="card c4">
+      <h2>Mapa de pedidos por región <span class="tag t-f">Shopify abr–oct</span></h2>
+      <div class="chile" id="chile"></div>
+      <div class="cap">Gasto Meta: Valparaíso US$760 y Biobío US$714 rinden. Coquimbo gastó US$421 para 22 pedidos: sacar del set de regiones.</div>
+    </section>
+    <section class="card c3" style="grid-column:span 3">
+      <h2>Ubicaciones</h2>
+      <div class="bars" id="plc"></div>
+      <div class="cap">Instagram concentra el 87% del gasto y rinde mejor. Prioridad 9:16, después 4:5.</div>
+    </section>
+    <style>@media (max-width:960px){.c3{grid-column:span 12!important}}</style>
+  </div>
+
+  <div class="sec">Estructura</div>
+  <div class="grid">
+    <section class="card c12">
+      <h2>Cómo trabajan CBO y ABO en Meta <span class="tag t-m">ABO prueba audiencias</span><span class="tag t-b">CBO escala</span><span class="tag t-a">ABO retargeting</span></h2>
+      <div class="flow">
+        <div class="fbox">
+          <h3><span class="chip abo">ABO</span> Testeo de audiencias</h3>
+          <div class="adset"><span>Intereses Isotónica / hidratación · 25–44</span><span class="r">8,8×</span></div>
+          <div class="adset"><span>Deportes · 25–45</span><span class="r">6,5×</span></div>
+          <div class="adset"><span>P4 Salud / Autoridad · CTR 1,49%</span><span class="r">4,6×</span></div>
+          <div class="adset"><span>Similar compradores · 25–52</span><span class="r">3,7–4,7×</span></div>
+          <div class="rule">Mismo presupuesto por ad set, mismos 3 anuncios ganadores. Corte a los 14 días o 2 CPA gastados.</div>
+        </div>
+        <div class="arrow" aria-hidden="true">➜</div>
+        <div class="fbox">
+          <h3><span class="chip cbo">CBO</span> Prospección por categoría</h3>
+          <div class="adset"><span>Advantage+ abierta · 22–48 · RM</span><span class="r">base</span></div>
+          <div class="adset"><span>Top regiones · Valparaíso + Biobío</span><span class="r">7,0×</span></div>
+          <div class="adset"><span>Ganador del ABO (gradúa)</span><span class="r">CPA ≤ $9.500</span></div>
+          <div class="rule">3 ad sets, 4–6 anuncios únicos por campaña. Excluye compradores de 180 días.</div>
+        </div>
+        <div class="arrow" aria-hidden="true">➜</div>
+        <div class="fbox">
+          <h3><span class="chip abo">ABO</span> Retargeting y venta cruzada</h3>
+          <div class="adset"><span>Caliente · carrito + checkout 14d</span><span class="r">6,3×</span></div>
+          <div class="adset"><span>Tibio · IG 90d + email 30d</span><span class="r">6,7×</span></div>
+          <div class="adset"><span>Compradores 180d · catálogo y creatina</span><span class="r">6,0×</span></div>
+          <div class="rule">Presupuesto fijo por temperatura. Tope de frecuencia: 3 por semana.</div>
+        </div>
+      </div>
     </section>
 
     <section class="card c12">
       <h2>Mapa de campañas <span class="tag t-a">A · $3M</span></h2>
       <div class="map" id="mapA"></div>
-      <div class="keys"><span><i style="background:var(--violet)"></i>Frío · descubrimiento</span><span><i style="background:var(--flow)"></i>Tibio · intención de búsqueda</span><span><i style="background:var(--green)"></i>Caliente · marca y retargeting</span></div>
+      <div class="keys"><span><i style="background:var(--violet)"></i>Frío</span><span><i style="background:var(--amber)"></i>Testeo</span><span><i style="background:var(--flow)"></i>Tibio · búsqueda</span><span><i style="background:var(--green)"></i>Caliente</span></div>
     </section>
-
     <section class="card c12">
       <h2>Mapa de campañas <span class="tag t-b">B · ~$5M · split completo</span></h2>
       <div class="map" id="mapB"></div>
     </section>
+  </div>
 
+  <div class="sec">Creativos</div>
+  <div class="grid">
+    <section class="card c12">
+      <h2>Creativos por campaña y formato
+        <span class="seg-tabs" role="group" aria-label="Escenario"><button type="button" id="cr-a" aria-pressed="true">A · $3M</button><button type="button" id="cr-b" aria-pressed="false">B · $5M</button></span>
+      </h2>
+      <div class="mini" id="cr-kpis"></div>
+      <div class="tw"><table class="cr" id="cr-table"></table></div>
+      <div class="keys" id="cr-keys"></div>
+      <div class="cap">Activos = anuncios únicos corriendo a la vez. Nuevos al mes = reemplazo de los que se fatigan (estático ~3 semanas, clip ~4 semanas en Meta, 7–10 días en TikTok), manteniendo los ganadores. El ABO de testeo reutiliza los ganadores del CBO: no pide creativos propios.</div>
+    </section>
+    <section class="card c6">
+      <h2>Total de creativos nuevos al mes por origen</h2>
+      <div class="vbars" id="crea" style="height:190px"></div><div class="vlabels" id="crea-l"></div>
+      <div class="keys" id="crea-k"></div>
+    </section>
+    <section class="card c6">
+      <h2>Quién produce qué</h2>
+      <div class="bars" id="who"></div>
+      <div class="cap">Promoted posts los entrega el cliente. Estáticos: shooting (mayo y julio en Drive) o IA directa. Clips UGC y clips IA son los que dan volumen.</div>
+    </section>
+  </div>
+
+  <div class="sec">Presupuesto</div>
+  <div class="grid">
     <section class="card c6">
       <h2>Presupuesto vs mínimo por campaña <span class="tag t-a">A · $3M</span></h2>
       <div class="bars" id="floorA"></div>
       <div class="keys"><span><i style="background:var(--green)"></i>sobre el mínimo</span><span><i style="background:var(--ink)"></i>mínimo para aprender</span></div>
     </section>
-
     <section class="card c6">
-      <h2>Si los $3M se reparten en las 10 campañas <span class="tag t-r">7 de 10 bajo el mínimo</span></h2>
-      <div class="bars" id="floor3in10"></div>
+      <h2>Los $3M repartidos en el split completo <span class="tag t-r" id="under"></span></h2>
+      <div class="bars" id="floor3"></div>
       <div class="keys"><span><i style="background:var(--red)"></i>bajo el mínimo</span><span><i style="background:var(--green)"></i>sobre el mínimo</span></div>
     </section>
-
     <section class="card c6">
       <h2>Reparto por canal</h2>
-      <div class="cap">Escenario A · $3,0M</div><div class="split" id="chA"></div>
-      <div class="cap">Escenario B · $5,0M</div><div class="split" id="chB"></div>
+      <div class="cap">Escenario A</div><div class="split" id="chA"></div>
+      <div class="cap">Escenario B</div><div class="split" id="chB"></div>
       <div class="keys"><span><i style="background:var(--flow)"></i>Google</span><span><i style="background:var(--violet-deep)"></i>Meta</span><span><i style="background:var(--ink)"></i>TikTok</span></div>
     </section>
-
-    <section class="card c6">
-      <h2>Creativos nuevos al mes</h2>
-      <div class="vbars" id="crea" style="height:190px"></div><div class="vlabels" id="crea-l"></div>
-      <div class="keys" id="crea-k"></div>
-    </section>
-
     <section class="card c6">
       <h2>Embudo: qué campaña trabaja cada etapa</h2>
       <div class="funnel" id="funnel"></div>
     </section>
-
-    <section class="card c6">
-      <h2>Mínimos que fijan el presupuesto</h2>
-      <div class="bars" id="rules"></div>
-      <div class="cap">Mínimo = compras necesarias × costo por compra esperado. CPA Search no-brand supuesto (sin datos de Google Ads).</div>
-    </section>
-
     <section class="card c12">
       <h2>Ruta propuesta</h2>
       <div class="tl" id="tl"></div>
     </section>
-
     <section class="card c12">
       <h2>Para cerrar los números <span class="tag t-r">pendiente</span></h2>
       <div class="chk" id="chk"></div>
@@ -185,145 +291,190 @@ body{background:var(--bg);color:var(--text);font-family:var(--f-body);font-size:
 
 <script>
 (function(){
-  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
-  const fmtM = v => '$' + (v/1000).toLocaleString('es-CL',{minimumFractionDigits:1,maximumFractionDigits:1}) + 'M';
-  const fmtK = v => v >= 1000 ? fmtM(v) : '$' + v + 'K';
+  const nf1 = v => v.toLocaleString('es-CL',{minimumFractionDigits:1,maximumFractionDigits:1});
+  const fmtK = v => v >= 1000 ? '$' + nf1(v/1000) + 'M' : '$' + v + 'K';
+  const $ = id => document.getElementById(id);
 
-  // ---- Datos (Shopify 90 días, Meta cuenta DTC 90 días, supuestos de la propuesta) ----
-  const mix = [
-    {k:'Electrolitos y packs', v:48.28, c:'--violet-deep'},
-    {k:'Energy', v:2.81, c:'--cyan'},
-    {k:'Creatina', v:2.14, c:'--flow'},
-    {k:'Fibra', v:1.78, c:'--green'},
-    {k:'Bundles y accesorios', v:1.19, c:'--grey'}];
+  // ===== Datos =====
+  const mix = [['Electrolitos y packs',48.28,'--violet-deep'],['Energy',2.81,'--cyan'],['Creatina',2.14,'--flow'],['Fibra',1.78,'--green'],['Bundles y accesorios',1.19,'--grey']];
   const months = [['May',17.90],['Jun',17.61],['Jul',9.06],['Ago',13.10],['Sep',13.22],['Oct',29.88]];
   const freq = [['Retención',9.38],['Cyber ABO RM',6.11],['Prospección',6.03],['Adquisición FP',5.34],['Adquisición CBO',4.32],['Cyber Regiones',2.95]];
-  const A = [
-    {ch:'Google', n:'Search Brand', s:'cal', b:150, f:100, chips:['amazing care']},
-    {ch:'Google', n:'PMax Electrolitos + Packs', s:'tibio', b:640, f:250, chips:['feed ELE','packs','bundles']},
-    {ch:'Google', n:'Search Rendimiento', s:'tibio', b:360, f:360, chips:['grupo Creatina','grupo Energía']},
-    {ch:'Meta', n:'Prospección Electrolitos', s:'frio', b:850, f:410, chips:['P1','P3','P6','Adv+']},
-    {ch:'Meta', n:'Prospección Rendimiento', s:'frio', b:550, f:540, chips:['ads Creatina','ads Energy','P1','P2']},
-    {ch:'Meta', n:'Retargeting + venta cruzada', s:'cal', b:450, f:400, chips:['catálogo','bundles','creatina a compradores']},
-    {ch:'TikTok', n:'Sin TikTok en A', s:'off', b:0, f:0, chips:[]}];
-  const B = [
-    {ch:'Google', n:'Search Brand', s:'cal', b:150, f:100, chips:['amazing care']},
-    {ch:'Google', n:'PMax Electrolitos + Packs', s:'tibio', b:650, f:250, chips:['feed ELE','packs']},
-    {ch:'Google', n:'Search Electrolitos', s:'tibio', b:360, f:360, chips:['electrolitos','hidratación']},
-    {ch:'Google', n:'Search Energía', s:'tibio', b:360, f:360, chips:['cafeína','pre entreno']},
-    {ch:'Google', n:'Search Creatina', s:'tibio', b:400, f:360, chips:['creatina','creapure']},
-    {ch:'Meta', n:'Prospección Electrolitos', s:'frio', b:820, f:410, chips:['P1','P3','P6']},
-    {ch:'Meta', n:'Prospección Energy', s:'frio', b:540, f:540, chips:['P2','P1']},
-    {ch:'Meta', n:'Prospección Creatina', s:'frio', b:540, f:540, chips:['P1','sabores 24-nov']},
-    {ch:'Meta', n:'Retargeting + venta cruzada', s:'cal', b:450, f:400, chips:['catálogo','bundles']},
-    {ch:'TikTok', n:'Prueba 8 semanas', s:'frio', b:700, f:600, chips:['Spark Ads','video']}];
-  const sumB = B.reduce((a,x)=>a+x.b,0);
-  const crea = {cats:[['Meta prospección','--violet-deep'],['Meta retargeting','--violet'],['Google PMax','--flow'],['TikTok','--ink']], A:[10,3,4,0], B:[15,4,6,12]};
+  // Meta ad sets abr–oct (ROAS de plataforma, gasto US$, evento)
+  const aud = [
+    ['Intereses Isotónica 25–44',8.83,823,1],['Adv+ abierta · estáticos',8.75,742,1],['Adv+ top 5 regiones',6.95,982,1],
+    ['Intereses Deportes 25–45',6.55,554,1],['P6 Cotidiano · pack',6.46,128,0],['P1 Deportista embajadores',5.06,192,0],
+    ['Similar IG hombres',4.70,193,1],['P4 Salud / Autoridad',4.56,446,0],['Advantage solo IG',4.00,682,0],
+    ['Similar BBDD mujeres',3.96,347,1],['Similar compras',3.73,217,1],['Fiestas Patrias abierta',3.61,1078,0],
+    ['Compradores online',3.64,415,0],['P6 Cotidiano RM+regiones',3.40,322,0],['Abierta excluye BBDD',2.05,321,0]];
+  const rt = [['Tibio · IG 90d + email 30d',6.72,4.5],['Caliente · carrito 14d',6.35,15.9],['Catálogo retención',6.03,8.5],['Remarketing 90 días',3.48,9.4]];
+  const fmt = [['Estáticos Adv+',8.75,'--c-shoot'],['Videos Adv+',7.17,'--c-clipia'],['Clips UGC (ventas)',5.21,'--c-ugc'],['Promoted posts',2.40,'--c-promo'],['UGC con objetivo tráfico',0.38,'--grey']];
+  const demo = [ // edad, F cpa, F roas, F gasto, M cpa, M roas, M gasto
+    ['18–24',10.07,3.12,413,14.05,2.58,183],['25–34',7.87,5.35,4626,9.90,4.94,1267],['35–44',9.87,4.91,5418,11.27,4.91,1634],
+    ['45–54',13.00,3.96,2586,11.35,4.70,806],['55–64',15.99,3.35,879,16.49,2.45,363],['65+',25.96,2.03,363,40.62,1.00,244]];
+  const regions = [['Antofagasta',23],['Atacama',11],['Coquimbo',22],['Valparaíso',161],['Santiago',2431],["O'Higgins",38],['Maule',39],['Biobío',100],['Araucanía',30],['Los Lagos',29],['Magallanes',9]];
+  const plc = [['IG stories',4.92,7326],['IG feed',4.62,7334],['IG reels',4.42,2221],['FB feed',3.89,1404],['FB stories',2.65,142],['FB reels',2.56,399]];
 
-  // ---- Donut ----
+  // Campañas: ch, nombre, etapa, presupuesto K, mínimo K, tipo, chips
+  const A = [
+    ['Google','Search Brand','cal',150,100,'',['amazing care']],
+    ['Google','PMax Electrolitos + Packs','tibio',640,250,'',['feed ELE','packs','bundles']],
+    ['Google','Search Rendimiento','tibio',360,360,'',['grupo Creatina','grupo Energía']],
+    ['Meta','Prospección Electrolitos','frio',650,410,'CBO',['Adv+','top regiones','ganador ABO']],
+    ['Meta','Testeo de audiencias','test',200,120,'ABO',['3 ad sets','reusa ganadores']],
+    ['Meta','Prospección Rendimiento','frio',550,540,'CBO',['ads Creatina','ads Energy']],
+    ['Meta','Retargeting + venta cruzada','cal',450,400,'ABO',['caliente','tibio','compradores']],
+    ['TikTok','Sin TikTok en A','off',0,0,'',[]]];
+  const B = [
+    ['Google','Search Brand','cal',150,100,'',['amazing care']],
+    ['Google','PMax Electrolitos + Packs','tibio',650,250,'',['feed ELE','packs']],
+    ['Google','Search Electrolitos','tibio',360,360,'',['electrolitos','hidratación']],
+    ['Google','Search Energía','tibio',360,360,'',['cafeína','pre entreno']],
+    ['Google','Search Creatina','tibio',400,360,'',['creatina','creapure']],
+    ['Meta','Prospección Electrolitos','frio',620,410,'CBO',['Adv+','top regiones']],
+    ['Meta','Testeo de audiencias','test',250,120,'ABO',['3–4 ad sets','ángulos']],
+    ['Meta','Prospección Energy','frio',540,540,'CBO',['P2 Profesional','P1']],
+    ['Meta','Prospección Creatina','frio',540,540,'CBO',['P1','sabores 24-nov']],
+    ['Meta','Retargeting + venta cruzada','cal',450,400,'ABO',['caliente','tibio','compradores']],
+    ['TikTok','Prueba 8 semanas','frio',700,600,'',['Spark Ads','video']]];
+  const tot = rows => rows.reduce((a,r)=>a+r[3],0);
+  const live = rows => rows.filter(r=>r[3]);
+
+  // Creativos: campaña, activos, [shoot, estIA, promoted, UGC, clipIA] nuevos al mes
+  const FMT = [['Estático shooting','--c-shoot'],['Estático IA','--c-ia'],['Promoted (cliente)','--c-promo'],['Clip UGC','--c-ugc'],['Clip IA','--c-clipia']];
+  const CR = {
+    A:[['Meta · Prospección Electrolitos (CBO)',6,[1,1,1,1,1]],['Meta · Testeo de audiencias (ABO)',3,[0,0,0,0,0]],['Meta · Prospección Rendimiento (CBO)',6,[1,1,1,1,1]],['Meta · Retargeting (ABO)',6,[0,1,2,0,0]],['Google · PMax Electrolitos',8,[0,2,0,0,1]],['Google · Search (Brand, Rendimiento)',0,[0,0,0,0,0]]],
+    B:[['Meta · Prospección Electrolitos (CBO)',6,[1,1,1,1,1]],['Meta · Testeo de audiencias (ABO)',4,[0,1,0,1,0]],['Meta · Prospección Energy (CBO)',5,[1,1,0,1,1]],['Meta · Prospección Creatina (CBO)',5,[2,1,0,1,1]],['Meta · Retargeting (ABO)',6,[0,1,2,1,0]],['Google · PMax Electrolitos',8,[0,2,0,0,1]],['Google · Search (×4)',0,[0,0,0,0,0]],['TikTok · Prueba',4,[0,0,0,7,5]]]};
+  const crTot = s => { const t=[0,0,0,0,0]; let act=0; CR[s].forEach(([,a,v])=>{act+=a; v.forEach((x,i)=>t[i]+=x);}); return {t, act, n:t.reduce((a,b)=>a+b,0)}; };
+
+  // ===== Encabezado =====
+  const nA = live(A).length, nB = live(B).length, cA = crTot('A'), cB = crTot('B');
+  $('hA').textContent = fmtK(tot(A)); $('hB').textContent = fmtK(tot(B));
+  $('hA2').textContent = `${nA} campañas · ${cA.n} creativos/mes`; $('hB2').textContent = `${nB} campañas · ${cB.n} creativos/mes`;
+
+  // ===== Donut =====
   (function(){
-    const svg = document.getElementById('donut'), tot = mix.reduce((a,x)=>a+x.v,0), r=46, C=2*Math.PI*r;
-    let off=0, html='';
-    mix.forEach(m=>{const len=m.v/tot*C; html+=`<circle cx="60" cy="60" r="${r}" fill="none" stroke="var(${m.c})" stroke-width="18" stroke-dasharray="${len} ${C-len}" stroke-dashoffset="${-off}" transform="rotate(-90 60 60)"></circle>`; off+=len;});
-    html += `<text x="60" y="58" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="20" fill="var(--ink)">86%</text><text x="60" y="74" text-anchor="middle" font-size="8.5" fill="var(--muted)">electrolitos</text>`;
-    svg.innerHTML = html;
-    document.getElementById('mix-legend').innerHTML = mix.map(m=>`<div class="lg"><span class="sw" style="background:var(${m.c})"></span><span>${m.k}</span><span class="num">${(m.v/tot*100).toFixed(1).replace('.',',')}%</span></div>`).join('');
+    const t = mix.reduce((a,x)=>a+x[1],0), r=46, C=2*Math.PI*r; let off=0, h='';
+    mix.forEach(([,v,c])=>{const L=v/t*C; h+=`<circle cx="60" cy="60" r="${r}" fill="none" stroke="var(${c})" stroke-width="18" stroke-dasharray="${L} ${C-L}" stroke-dashoffset="${-off}" transform="rotate(-90 60 60)"></circle>`; off+=L;});
+    h += `<text x="60" y="58" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="20" fill="var(--ink)">86%</text><text x="60" y="74" text-anchor="middle" font-size="8.5" fill="var(--muted)">electrolitos</text>`;
+    $('donut').innerHTML = h;
+    $('mix-legend').innerHTML = mix.map(([k,v,c])=>`<div class="lg"><span class="sw" style="background:var(${c})"></span><span>${k}</span><span class="num">${nf1(v/t*100)}%</span></div>`).join('');
   })();
 
-  // ---- Venta mensual ----
+  // ===== Mensual =====
   (function(){
     const mx = Math.max(...months.map(m=>m[1]));
-    document.getElementById('months').innerHTML = months.map(([k,v])=>`<div class="vb"><span class="v">${v.toFixed(1).replace('.',',')}</span><div class="col" style="height:${v/mx*100}%;background:${k==='Oct'?'var(--violet-deep)':'var(--violet)'};opacity:${k==='Oct'?1:.55}"></div></div>`).join('');
-    document.getElementById('months-l').innerHTML = months.map(([k])=>`<div>${k}${k==='Oct'?' · Cyber':''}</div>`).join('');
+    $('months').innerHTML = months.map(([k,v])=>`<div class="vb"><span class="v">${nf1(v)}</span><div class="col" style="height:${v/mx*100}%;background:var(--violet-deep);opacity:${k==='Oct'?1:.45}"></div></div>`).join('');
+    $('months-l').innerHTML = months.map(([k])=>`<div>${k}${k==='Oct'?' · Cyber':''}</div>`).join('');
   })();
 
-  // ---- Frecuencia ----
+  // ===== Barras genéricas =====
+  const hbar = (label, val, max, color, txt, extra='') => `<div class="bar-row"><span class="lbl" title="${label}">${label}${extra}</span><div class="track"><div class="fill" style="width:${Math.min(val/max,1)*100}%;background:${color}"></div></div><span class="val">${txt}</span></div>`;
+  $('freq').innerHTML = freq.map(([k,v])=>`<div class="bar-row"><span class="lbl">${k}</span><div class="track"><div class="fill" style="width:${v/10*100}%;background:${v>3?'var(--red)':'var(--green)'}"></div><div class="floor" style="left:30%"></div></div><span class="val">${nf1(v)}</span></div>`).join('');
+  $('aud').innerHTML = aud.map(([k,r,s,e])=>hbar(k, r, 9.5, r>=5?'var(--violet-deep)':r>=3.5?'var(--violet)':'var(--grey)', `${nf1(r)}× · US$${s}`, e?'<span class="ev-tag">evento</span>':'')).join('');
+  $('rt').innerHTML = rt.map(([k,r,f])=>hbar(k, r, 9.5, r>=5?'var(--green)':'var(--grey)', `${nf1(r)}× · frec ${nf1(f)}`)).join('');
+  $('fmt').innerHTML = fmt.map(([k,r,c])=>hbar(k, r, 9.5, `var(${c})`, `${nf1(r)}×`)).join('');
+  $('plc').innerHTML = plc.map(([k,r,s])=>hbar(k, r, 6, r>=4.4?'var(--violet-deep)':'var(--grey)', `${nf1(r)}×`)).join('');
+
+  // ===== Demografía =====
+  function drawDemo(m){
+    const isC = m==='cpa', mx = isC ? 42 : 6;
+    $('demo').innerHTML = `<div class="bars">${demo.map(([a,fc,fr,fs,mc,mr,ms])=>{
+      const fv = isC?fc:fr, mv = isC?mc:mr, f = v=>isC?'US$'+nf1(v):nf1(v)+'×';
+      return `<div class="bar-row" style="grid-template-columns:3.2rem 1fr auto"><span class="lbl num">${a}</span><div style="display:flex;flex-direction:column;gap:3px"><div class="track" style="height:10px"><div class="fill" style="width:${fv/mx*100}%;background:var(--violet-deep)"></div></div><div class="track" style="height:10px"><div class="fill" style="width:${mv/mx*100}%;background:var(--flow)"></div></div></div><span class="val" style="line-height:1.15">${f(fv)}<br>${f(mv)}</span></div>`;}).join('')}</div>`;
+    $('m-cpa').setAttribute('aria-pressed', isC); $('m-roas').setAttribute('aria-pressed', !isC);
+  }
+  $('m-cpa').addEventListener('click',()=>drawDemo('cpa')); $('m-roas').addEventListener('click',()=>drawDemo('roas')); drawDemo('cpa');
+
+  // ===== Mapa Chile =====
   (function(){
-    const mx = 10;
-    document.getElementById('freq').innerHTML = freq.map(([k,v])=>`<div class="bar-row"><span class="lbl">${k}</span><div class="track"><div class="fill" style="width:${v/mx*100}%;background:${v>3?'var(--red)':'var(--green)'}"></div><div class="floor" style="left:30%"></div></div><span class="val">${v.toFixed(1).replace('.',',')}</span></div>`).join('');
+    const mx = Math.max(...regions.map(r=>r[1]));
+    const seg = regions.map(([k,v])=>`<div class="seg" style="height:22px;background:var(--violet-deep);opacity:${0.12+0.88*Math.sqrt(v/mx)}"></div>`).join('');
+    const rows = regions.map(([k,v])=>{const d = 6+22*Math.sqrt(v/mx); return `<div class="reg"><span>${k}</span><span class="dot" style="width:${d}px;height:${d}px;opacity:${k==='Coquimbo'?.35:1};background:${k==='Coquimbo'?'var(--red)':'var(--violet-deep)'}"></span><span class="num">${v.toLocaleString('es-CL')}</span><span class="cap">ped.</span></div>`;}).join('');
+    $('chile').innerHTML = `<div class="strip" aria-hidden="true">${seg}</div><div style="display:flex;flex-direction:column;gap:2px">${rows}</div>`;
   })();
 
-  // ---- Mapas ----
+  // ===== Mapas de campañas =====
   function map(id, rows){
-    const chs = ['Google','Meta','TikTok'];
-    document.getElementById(id).innerHTML = chs.map(ch=>{
-      const rs = rows.filter(r=>r.ch===ch), tot = rs.reduce((a,x)=>a+x.b,0);
-      return `<div class="ch"><div class="ch-h"><span>${ch}</span><span class="num">${tot?fmtK(tot):'—'}</span></div>${rs.map(r=>`<div class="node ${r.s==='off'?'off':'s-'+r.s}"><b>${r.n}</b>${r.b?`<div class="m"><span class="num">${fmtK(r.b)}/mes</span><span>mín ${fmtK(r.f)}</span></div>`:''}${r.chips.length?`<div class="chips">${r.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div>`:''}</div>`).join('')}</div>`;
+    $(id).innerHTML = ['Google','Meta','TikTok'].map(ch=>{
+      const rs = rows.filter(r=>r[0]===ch), t = tot(rs);
+      return `<div class="ch"><div class="ch-h"><span>${ch}</span><span class="num">${t?fmtK(t):'—'}</span></div>${rs.map(([,n,s,b,f,ty,chips])=>`<div class="node ${s==='off'?'off':'s-'+s}"><b>${n}</b>${b?`<div class="m"><span class="num">${fmtK(b)}/mes</span><span>mín ${fmtK(f)}</span></div>`:''}<div class="chips">${ty?`<span class="chip ${ty.toLowerCase()}">${ty}</span>`:''}${chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div></div>`).join('')}</div>`;
     }).join('');
   }
   map('mapA', A); map('mapB', B);
 
-  // ---- Barras vs mínimo ----
-  function floorBars(id, rows, mx){
-    document.getElementById(id).innerHTML = rows.map(r=>{
-      const ok = r.b >= r.f;
-      return `<div class="bar-row"><span class="lbl" title="${r.ch} · ${r.n}">${r.ch[0]} · ${r.n}</span><div class="track"><div class="fill" style="width:${r.b/mx*100}%;background:${ok?'var(--green)':'var(--red)'}"></div><div class="floor" style="left:${r.f/mx*100}%"></div></div><span class="val">${fmtK(r.b)}</span></div>`;
-    }).join('');
+  // ===== Creativos por campaña =====
+  function drawCR(s){
+    const {t, act, n} = crTot(s);
+    $('cr-kpis').innerHTML = [[n,'creativos nuevos al mes'],[act,'anuncios activos a la vez'],[t[2],'promoted del cliente'],[t[0]+t[1],'estáticos (shooting + IA)'],[t[3]+t[4],'clips (UGC + IA)']].map(([v,l])=>`<div class="k"><b>${v}</b><span>${l}</span></div>`).join('');
+    const cell = (v,c) => v ? `<span class="cell" style="background:var(${c})">${v}</span>` : `<span class="cell z">·</span>`;
+    const head = `<tr><th>Campaña</th><th>Activos</th>${FMT.map(([k])=>`<th>${k}</th>`).join('')}<th>Nuevos/mes</th><th>Mix</th></tr>`;
+    const body = CR[s].map(([k,a,v])=>{const sum=v.reduce((x,y)=>x+y,0); return `<tr><td>${k}</td><td class="num">${a}</td>${v.map((x,i)=>`<td>${cell(x,FMT[i][1])}</td>`).join('')}<td class="num"><b>${sum}</b></td><td><div class="stackbar">${v.map((x,i)=>x?`<div style="width:${x/6*100}%;background:var(${FMT[i][1]})"></div>`:'').join('')}</div></td></tr>`;}).join('');
+    const foot = `<tr class="tot"><td>Total</td><td class="num">${act}</td>${t.map((x,i)=>`<td>${cell(x,FMT[i][1])}</td>`).join('')}<td class="num">${n}</td><td></td></tr>`;
+    $('cr-table').innerHTML = `<thead>${head}</thead><tbody>${body}${foot}</tbody>`;
+    $('cr-a').setAttribute('aria-pressed', s==='A'); $('cr-b').setAttribute('aria-pressed', s==='B');
   }
-  floorBars('floorA', A.filter(r=>r.b), 900);
-  const scaled = B.map(r=>({...r, b: Math.round(r.b*3000/sumB)}));
-  floorBars('floor3in10', scaled, 900);
+  $('cr-a').addEventListener('click',()=>drawCR('A')); $('cr-b').addEventListener('click',()=>drawCR('B')); drawCR('A');
+  $('cr-keys').innerHTML = FMT.map(([k,c])=>`<span><i style="background:var(${c})"></i>${k}</span>`).join('');
 
-  // ---- Reparto por canal ----
+  // ===== Columnas apiladas de creativos =====
+  (function(){
+    const mx = 40;
+    const col = (arr, n, lbl) => `<div class="vb"><span class="v">${lbl}</span><div style="display:flex;flex-direction:column-reverse;height:${n/mx*100}%;width:100%;max-width:70px;border-radius:6px 6px 0 0;overflow:hidden">${arr.map((x,i)=>x?`<div style="height:${x/n*100}%;background:var(${FMT[i][1]})"></div>`:'').join('')}</div></div>`;
+    const today = `<div class="vb"><span class="v">~20</span><div class="col" style="height:${20/mx*100}%;max-width:70px;background:var(--grey)"></div></div>`;
+    const ask = `<div class="vb"><span class="v">30–40</span><div class="col" style="height:${40/mx*100}%;max-width:70px;background:repeating-linear-gradient(45deg,var(--spot-bg) 0 6px,transparent 6px 12px);border:2px dashed var(--violet)"></div></div>`;
+    $('crea').innerHTML = today + col(cA.t, cA.n, cA.n) + col(cB.t, cB.n, cB.n) + ask;
+    $('crea-l').innerHTML = '<div>Hoy</div><div>A · $3M</div><div>B · $5M</div><div>Pide el cliente</div>';
+    $('crea-k').innerHTML = FMT.map(([k,c])=>`<span><i style="background:var(${c})"></i>${k}</span>`).join('');
+  })();
+
+  // ===== Quién produce =====
+  (function(){
+    const who = [['Cliente · promoted posts',cA.t[2],cB.t[2],'--c-promo'],['Shooting (fotos de producto)',cA.t[0],cB.t[0],'--c-shoot'],['IA · estáticos',cA.t[1],cB.t[1],'--c-ia'],['Creadores · clips UGC',cA.t[3],cB.t[3],'--c-ugc'],['IA · clips',cA.t[4],cB.t[4],'--c-clipia']];
+    $('who').innerHTML = who.map(([k,a,b,c])=>`<div class="bar-row" style="grid-template-columns:minmax(6.5rem,12rem) 1fr auto"><span class="lbl">${k}</span><div style="display:flex;flex-direction:column;gap:3px"><div class="track" style="height:10px"><div class="fill" style="width:${a/12*100}%;background:var(${c});opacity:.55"></div></div><div class="track" style="height:10px"><div class="fill" style="width:${b/12*100}%;background:var(${c})"></div></div></div><span class="val" style="line-height:1.15">A ${a}<br>B ${b}</span></div>`).join('');
+  })();
+
+  // ===== Presupuesto vs mínimo =====
+  function floorBars(id, rows){
+    $(id).innerHTML = rows.map(([ch,n,,b,f])=>`<div class="bar-row"><span class="lbl" title="${ch} · ${n}">${ch[0]} · ${n}</span><div class="track"><div class="fill" style="width:${b/900*100}%;background:${b>=f?'var(--green)':'var(--red)'}"></div><div class="floor" style="left:${f/900*100}%"></div></div><span class="val">${fmtK(b)}</span></div>`).join('');
+  }
+  floorBars('floorA', live(A));
+  const tB = tot(B), scaled = B.map(r=>{const x=[...r]; x[3]=Math.round(r[3]*3000/tB); return x;});
+  floorBars('floor3', scaled);
+  $('under').textContent = `${scaled.filter(r=>r[3]<r[4]).length} de ${scaled.length} bajo el mínimo`;
+
+  // ===== Reparto por canal =====
   function split(id, rows){
-    const t = rows.reduce((a,x)=>a+x.b,0), by = {Google:0,Meta:0,TikTok:0}; rows.forEach(r=>by[r.ch]+=r.b);
+    const t = tot(rows), by = {Google:0,Meta:0,TikTok:0}; rows.forEach(r=>by[r[0]]+=r[3]);
     const col = {Google:'--flow',Meta:'--violet-deep',TikTok:'--ink'};
-    document.getElementById(id).innerHTML = Object.entries(by).filter(([,v])=>v).map(([k,v])=>`<div style="width:${v/t*100}%;background:var(${col[k]});color:${k==='TikTok'?'var(--bg)':'#fff'}">${k} ${fmtK(v)}</div>`).join('');
+    $(id).innerHTML = Object.entries(by).filter(([,v])=>v).map(([k,v])=>`<div style="width:${v/t*100}%;background:var(${col[k]})">${k} ${fmtK(v)}</div>`).join('');
   }
   split('chA', A); split('chB', B);
 
-  // ---- Creativos ----
-  (function(){
-    const tA = crea.A.reduce((a,b)=>a+b,0), tB = crea.B.reduce((a,b)=>a+b,0), mx = Math.max(tA,tB,40);
-    const stack = arr => crea.cats.map(([,c],i)=>arr[i]?`<div style="height:${arr[i]/mx*100}%;background:var(${c});width:100%"></div>`:'').reverse().join('');
-    const col = (arr,t) => `<div class="vb"><span class="v">${t}</span><div style="display:flex;flex-direction:column;justify-content:flex-end;height:${t/mx*100}%;width:100%;max-width:70px;border-radius:6px 6px 0 0;overflow:hidden">${stack(arr).replace(/height:([\d.]+)%/g,(m,p)=>`height:${p/(t/mx*100)*100}%`)}</div></div>`;
-    const today = `<div class="vb"><span class="v">20</span><div class="col" style="height:${20/mx*100}%;max-width:70px;background:var(--grey)"></div></div>`;
-    const ask = `<div class="vb"><span class="v">30–40</span><div class="col" style="height:${40/mx*100}%;max-width:70px;background:repeating-linear-gradient(45deg,var(--violet) 0 6px,transparent 6px 12px);border:2px dashed var(--violet)"></div></div>`;
-    document.getElementById('crea').innerHTML = today + col(crea.A,'~'+tA) + col(crea.B,'~'+tB) + ask;
-    document.getElementById('crea-l').innerHTML = '<div>Hoy</div><div>A · $3M</div><div>B · $5M</div><div>Pide el cliente</div>';
-    document.getElementById('crea-k').innerHTML = crea.cats.map(([k,c])=>`<span><i style="background:var(${c})"></i>${k}</span>`).join('');
-  })();
+  // ===== Embudo =====
+  $('funnel').innerHTML = [
+    ['Descubrimiento','Meta CBO por categoría · TikTok','--violet',100],
+    ['Testeo','Meta ABO de audiencias','--amber',90],
+    ['Búsqueda por categoría','Search Electrolitos / Energía / Creatina · PMax','--flow',78],
+    ['Marca','Search Brand','--violet-deep',64],
+    ['Recompra y cruce','Meta ABO retargeting · Email (27% de la venta oct)','--green',50]]
+    .map(([a,b,c,w])=>`<div class="fs" style="width:${w}%;background:var(${c})"><span>${a}</span><small>${b}</small></div>`).join('');
 
-  // ---- Embudo ----
-  (function(){
-    const st = [
-      ['Descubrimiento','Meta prospección · TikTok','--violet',100],
-      ['Búsqueda por categoría','Search Electrolitos / Energía / Creatina · PMax','--flow',82],
-      ['Marca','Search Brand','--violet-deep',64],
-      ['Recompra y cruce','Meta retargeting · Email (27% de la venta oct)','--green',48]];
-    document.getElementById('funnel').innerHTML = st.map(([a,b,c,w])=>`<div class="fs" style="width:${w}%;background:var(${c})"><span>${a}</span><small>${b}</small></div>`).join('');
-  })();
+  // ===== Ruta =====
+  $('tl').innerHTML = [
+    ['1 nov','Arranca A: CBO por categoría + ABO de testeo','--green'],
+    ['24 nov','Creatina con sabores: nuevo shooting','--flow'],
+    ['25–30 nov','Black: presupuesto aparte','--amber'],
+    ['Dic','Creatina a CBO propia si supera 20 compras/sem','--violet-deep'],
+    ['Ene','TikTok de prueba si se aprueba B','--ink']]
+    .map(([d,t,c])=>`<div class="evt" style="color:var(${c})"><div class="line"></div><span class="dt"></span><span class="d">${d}</span><span class="t">${t}</span></div>`).join('');
 
-  // ---- Reglas de mínimo ----
-  (function(){
-    const r = [
-      ['Meta · electrolitos','43 compras × $9.500',410],
-      ['Meta · categoría nueva','43 compras × $12.500',540],
-      ['Google · PMax','30 conv × $8.300',250],
-      ['Google · Search genérico','30 conv × $12.000',360],
-      ['TikTok · prueba','~45 conv × $13.500',600]];
-    document.getElementById('rules').innerHTML = r.map(([k,f,v])=>`<div class="bar-row"><span class="lbl" title="${f}">${k}</span><div class="track"><div class="fill" style="width:${v/700*100}%;background:var(--violet)"></div></div><span class="val">${fmtK(v)}</span></div><div class="cap" style="margin:-4px 0 2px">${f}</div>`).join('');
-  })();
-
-  // ---- Ruta ----
-  (function(){
-    const ev = [
-      ['1 nov','Arranca A: 6 campañas, $3M','--green'],
-      ['24 nov','Llega creatina con sabores','--flow'],
-      ['25–30 nov','Black: presupuesto aparte','--amber'],
-      ['Dic','Creatina a campaña propia si Rendimiento > 20 compras/sem','--violet-deep'],
-      ['Ene','TikTok de prueba si se aprueba B','--ink']];
-    document.getElementById('tl').innerHTML = ev.map(([d,t,c])=>`<div class="ev" style="color:var(${c})"><div class="line"></div><span class="dot"></span><span class="d">${d}</span><span class="t">${t}</span></div>`).join('');
-  })();
-
-  // ---- Pendientes ----
-  (function(){
-    const p = [
-      ['G','Google Ads por campaña, 90 días','OS Ads · export de Matías'],
-      ['KW','Volumen "creatina" y "electrolitos" en Chile','Planificador de palabras clave'],
-      ['$','COGS por categoría','Cliente · fija el CPA objetivo'],
-      ['✓','Decisión A o B','Cliente · con fee de gestión']];
-    document.getElementById('chk').innerHTML = p.map(([i,t,s])=>`<div class="ck"><span class="ic" style="background:var(--spot-bg);color:var(--violet-deep)">${i}</span><div><b>${t}</b><div class="cap">${s}</div></div></div>`).join('');
-  })();
+  // ===== Pendientes =====
+  $('chk').innerHTML = [
+    ['G','Google Ads por campaña, 90 días','OS Ads · export de Matías'],
+    ['KW','Volumen "creatina" y "electrolitos" en Chile','Planificador de palabras clave'],
+    ['$','COGS por categoría','Cliente · fija el CPA objetivo'],
+    ['PP','Cuántos promoted posts entrega el cliente al mes','Cliente · cuota mínima A 3 / B 4'],
+    ['✓','Decisión A o B','Cliente · con fee de gestión']]
+    .map(([i,t,s])=>`<div class="ck"><span class="ic">${i}</span><div><b>${t}</b><div class="cap">${s}</div></div></div>`).join('');
 })();
 </script>

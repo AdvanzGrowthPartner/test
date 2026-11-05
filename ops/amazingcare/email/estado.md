@@ -3,6 +3,11 @@
 ## Estado actual
 **Último dato leído: 29 oct 2026 (Klaviyo y Shopify, 1–29 oct). Command: ver `command/URL`. Los dashboards anteriores (95qFrTBGfTPqeE8UcJYDZH, por marca, y KEm68mZ8Ezs6RXWkw1cAZc, combinado) quedan congelados · datos en `os-data.json`.**
 
+### 05-nov · Flujo de recompra (aviso de AC - GEO/SEO OS, verificado en Klaviyo)
+- **Cómo está VNCVuB, solo lectura:** espera 20 días → "Recompra_Email 1 - Dia 20" → espera 15 días → "Winback Email 2 - Dia 45". El segundo correo sale el **día 35**, no el 45 que dice su nombre. El flujo no se toca desde el 18-ago.
+- **Propuesta de GEO/SEO al usuario:** cambiar las esperas a 35 y 40 días (correos el día 35 y el 75). Es un cambio manual: el MCP de Klaviyo no edita esperas.
+- **Criterio del Email OS:** una espera fija, sea de 20 o de 35 días, no sirve para todos los formatos. A quien compra 30 sticks se le acaba el producto cerca del día 30, así que un primer correo el día 35 llega tarde. Lo correcto es ramificar por formato (A06): Energy 10 → día 8 · 12 sticks → día 10 · 30 sticks → día 25 · Pack Mix 60 → día 50 · Súper Pack 150 → día 130. Si se elige un arreglo rápido sin ramas, que sea 25 y 35 días (cubre el formato más vendido por órdenes, Berries 30) y renombrar el segundo correo como "Día 60". Cualquier cambio necesita OK y se anota en el CHANGELOG.
+
 ### 30-oct · Fichas para diseño y peso de los correos
 - **Fichas N01–N12 creadas en la grilla de Notion** con Aprobación final = Producción. N04 queda en Sin empezar porque falta la noticia. Links en `noviembre/fichas-notion.md`. Cada ficha tiene la referencia copiada de la página NOVIEMBRE, la composición con copy y las indicaciones para diseño, en 4–5 bloques. La página NOVIEMBRE no se tocó.
 - **Peso:** los correos de octubre son 3 cortes PNG de una sola imagen, sin texto vivo, sin alt y con un único link. Pesos: Halloween ~1,86 MB, Valor stick ~0,90 MB y Pack Mix ~0,93 MB. En septiembre hubo cortes de hasta 2,3 MB. El HTML pesa ~15 KB, así que Gmail no recorta: el peso está en las imágenes. Regla nueva: ≤ 800 KB por correo, ≤ 200 KB por imagen, JPG 80% y texto clave en HTML (F10).

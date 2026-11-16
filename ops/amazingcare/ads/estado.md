@@ -3,6 +3,14 @@
 > **2026-10-21:** el tablero del área ahora es **Ads OS · Command** (https://claude.ai/artifact/FfZgya6fwoGvMNqcJ2kbjB), con las dos marcas. El dashboard anterior por marca queda congelado.
 
 ## Estado actual
+**Diagnóstico 16-nov · ROAS bajo (lectura Meta 17-oct/15-nov, sin cambios en plataforma):**
+- Cuenta: US$1.440 en 30 días, 125 compras, ROAS de plataforma 3,9× y costo por compra de US$11,5 (~$11K CLP). El CAC máximo es $8.000. Históricamente Shopify ve ~1/3 de lo que reporta Meta, así que el ROAS real probablemente está bajo el breakeven de 2,5.
+- **F06 (sev 5):** Prospección (CBO US$40/día) está repartida en 7 adsets activos. 6 están con aprendizaje fallido, con 2 a 22 compras en 30 días. Frecuencia de campaña 7,9. El adset "13. Creatina" apunta a "Interactuaron IG 90D": es remarketing dentro de Prospección.
+- **F07:** el gasto de prospección se va a videos del 20–25 ago, con CTR de 0,79%. Retención depende de un solo anuncio de catálogo (5,4×, frecuencia 6,8).
+- **F08:** la tasa de carritos sobre visitas a la página cayó de 14–15% en septiembre a 5–11% en noviembre (CRO).
+- **F09:** hay ventanas de atribución distintas entre adsets.
+- Propuesta (requiere OK): consolidar en 2 adsets amplios, mover el público de IG a Retención, pausar los anuncios bajo 2× (VID-0021 0,57×) y unificar la atribución en 7d clic + 1d vista.
+
 **Actualización 21-oct (lectura Meta, sin cambios desde este OS):**
 - El 20-oct a las 21:33 el equipo de Advanz reactivó `AC | CBO - Prospeccion` y `AC | CBO - Trafico to web` desde Ads Manager. Pack_P6 Cotidiano volvió a entregar. Histórico de P6: US$66,7 · 7,71× · 9 compras · frecuencia 3,56. Como muestra es chica, se lee de nuevo el 27-oct.
 - Command del OS: **Ads OS · AmazingCare** → https://claude.ai/artifact/TqGTThsQCy2zoCAomDkt5k (URL en `command/URL`). El dashboard anterior "AmazingCare · OS Ads" queda congelado.

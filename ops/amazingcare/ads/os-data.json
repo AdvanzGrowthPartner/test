@@ -4,10 +4,50 @@
   "grupo": "amazingcare",
   "area": "ads",
   "marca": "AmazingCare",
-  "actualizado": "2026-10-21",
+  "actualizado": "2026-11-16",
   "fuente": "os",
   "artifact_url": "https://claude.ai/artifact/TqGTThsQCy2zoCAomDkt5k",
   "kpis": [
+    {
+      "id": "roas_meta_30d",
+      "nombre": "ROAS Meta (plataforma) · 30 días",
+      "valor": 3.92,
+      "unidad": "x",
+      "periodo": "2026-10-17/2026-11-15",
+      "meta": 2.5,
+      "estado": "warn",
+      "fuente": "Meta_Ads"
+    },
+    {
+      "id": "cpa_meta_30d",
+      "nombre": "Costo por compra Meta · 30 días",
+      "valor": 11.5,
+      "unidad": "USD",
+      "periodo": "2026-10-17/2026-11-15",
+      "meta": 8.4,
+      "estado": "bad",
+      "fuente": "Meta_Ads"
+    },
+    {
+      "id": "freq_prosp",
+      "nombre": "Frecuencia Prospección · 30 días",
+      "valor": 7.94,
+      "unidad": "x",
+      "periodo": "2026-10-17/2026-11-15",
+      "meta": 3,
+      "estado": "bad",
+      "fuente": "Meta_Ads"
+    },
+    {
+      "id": "spend_meta_30d",
+      "nombre": "Inversión Meta · 30 días",
+      "valor": 1439.6,
+      "unidad": "USD",
+      "periodo": "2026-10-17/2026-11-15",
+      "meta": null,
+      "estado": "ok",
+      "fuente": "Meta_Ads"
+    },
     {
       "id": "roas_meta",
       "nombre": "ROAS Meta (plataforma) · Cyber completo",
@@ -15,36 +55,6 @@
       "unidad": "x",
       "periodo": "2026-10-02/2026-10-11",
       "meta": 2.5,
-      "estado": "ok",
-      "fuente": "Meta_Ads"
-    },
-    {
-      "id": "spend_meta",
-      "nombre": "Inversión Meta · Cyber",
-      "valor": 3375.69,
-      "unidad": "USD",
-      "periodo": "2026-10-02/2026-10-11",
-      "meta": null,
-      "estado": "ok",
-      "fuente": "Meta_Ads"
-    },
-    {
-      "id": "compras_meta",
-      "nombre": "Compras atribuidas Meta · Cyber",
-      "valor": 441,
-      "unidad": "compras",
-      "periodo": "2026-10-02/2026-10-11",
-      "meta": null,
-      "estado": "ok",
-      "fuente": "Meta_Ads"
-    },
-    {
-      "id": "freq_meta",
-      "nombre": "Frecuencia Meta · Cyber",
-      "valor": 2.36,
-      "unidad": "x",
-      "periodo": "2026-10-02/2026-10-11",
-      "meta": null,
       "estado": "ok",
       "fuente": "Meta_Ads"
     },
@@ -148,8 +158,8 @@
       "severidad": 2,
       "impacto_clp_mes": null,
       "impacto_nota": "Sobre el breakeven (2,5×) pero con muestra chica (9 compras)",
-      "evidencia": "Activity log Meta: 'AC | CBO - Prospeccion' y 'AC | CBO - Trafico to web' pasaron a activas el 20-oct 21:33 (Ads Manager, equipo Advanz). Pack_P6 histórico: US$66,7, 7,71×, 9 compras, frecuencia 3,56",
-      "estado": "en-curso",
+      "evidencia": "Absorbida por F06: Pack_P6 se pausó de nuevo (adset 4 en PAUSED, 30d: US$97, 4,0×)",
+      "estado": "resuelta",
       "depende_de": [],
       "afecta_os": [
         "creative"
@@ -185,6 +195,98 @@
         "conector": "Shopify",
         "requiere_ok": false,
         "acceso": "sin-probar"
+      }
+    },
+    {
+      "id": "amazingcare.ads.F06",
+      "titulo": "Prospección fragmentada: US$40/día repartidos en 7 adsets, todos en aprendizaje limitado",
+      "etapa": "acquisition",
+      "punto_funnel": "trafico",
+      "severidad": 5,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Costo por compra US$11,5 (~$11K CLP) contra un CAC máximo de $8.000",
+      "evidencia": "Meta 17-oct/15-nov: 6 de 7 adsets activos con aprendizaje 'FAIL' (2–22 compras en 30 días); frecuencia de campaña 7,9; adset Creatina usa como público 'Interactuaron IG 90D' dentro de Prospección",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Consolidar Prospección en 2 adsets amplios (Hidratación y Creatina), sacar el público de IG a Retención y pausar los anuncios bajo 2×",
+        "os_ejecutor": "ads",
+        "via": "mcp",
+        "conector": "Meta_Ads",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.ads.F07",
+      "titulo": "Creatividades de prospección con 3 meses al aire y frecuencia alta",
+      "etapa": "acquisition",
+      "punto_funnel": "contenido",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": "CTR de prospección 0,79%; el gasto se concentra en videos del 20–25 ago",
+      "evidencia": "Top gasto 30d: AC-VID-0028 (2,83×), VID-0019 (4,0×), VID-0021 (0,57×). Retención: el anuncio de catálogo hace el 90% con frecuencia 6,8",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "creative"
+      ],
+      "accion": {
+        "descripcion": "Pedir a Creative 4–6 piezas nuevas por semana partiendo de las ganadoras (Creatina estático 12,9×, VID-0031 9,0×, VID-0027 7,6×)",
+        "os_ejecutor": "creative",
+        "via": "manual",
+        "conector": "Meta_Ads",
+        "requiere_ok": false,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.ads.F08",
+      "titulo": "Tasa de agregar al carrito cayó después del Cyber",
+      "etapa": "acquisition",
+      "punto_funnel": "pdp",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Mismo tráfico que llega a la página pero menos carritos: problema de oferta o PDP, no de anuncios",
+      "evidencia": "Carritos / visitas a la página (Meta): 14–15% en septiembre, 4,8% (3–9 nov) y 10,9% (10–15 nov)",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "cro"
+      ],
+      "accion": {
+        "descripcion": "Handoff a CRO: revisar precio post-Cyber, escalera de packs y PDP de destino",
+        "os_ejecutor": "cro",
+        "via": "mcp",
+        "conector": "Shopify",
+        "requiere_ok": false,
+        "acceso": "sin-probar"
+      }
+    },
+    {
+      "id": "amazingcare.ads.F09",
+      "titulo": "Ventanas de atribución mezcladas entre adsets",
+      "etapa": "systems",
+      "punto_funnel": "medicion",
+      "severidad": 2,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Los ROAS de distintos adsets no se pueden comparar; 'engaged view' infla el número",
+      "evidencia": "Adsets con 7d_click_1d_ev, 1d_view_7d_click_1d_ev y 1d_view_7d_click en la misma cuenta",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Unificar en 7 días clic + 1 día vista al consolidar (F06)",
+        "os_ejecutor": "ads",
+        "via": "mcp",
+        "conector": "Meta_Ads",
+        "requiere_ok": true,
+        "acceso": "ok"
       }
     }
   ],

@@ -1,5 +1,20 @@
 [
  {
+  "id": "amazingcare.ads.F06",
+  "titulo": "Prospección fragmentada: US$40/día repartidos en 7 adsets, todos en aprendizaje limitado",
+  "severidad": 5,
+  "estado": "abierta",
+  "punto_funnel": "trafico",
+  "evidencia": "Meta 17-oct/15-nov: 6 de 7 adsets activos con aprendizaje 'FAIL' (2–22 compras en 30 días); frecuencia de campaña 7,9; adset Creatina usa como público 'Interactuaron IG 90D' dentro de Prospección",
+  "impacto": "Costo por compra US$11,5 (~$11K CLP) contra un CAC máximo de $8.000",
+  "accion": "Consolidar Prospección en 2 adsets amplios (Hidratación y Creatina), sacar el público de IG a Retención y pausar los anuncios bajo 2×",
+  "ejecuta": "ads",
+  "via": "mcp",
+  "conector": "Meta_Ads",
+  "requiere_ok": true,
+  "acceso": "ok"
+ },
+ {
   "id": "amazingcare.ads.F01",
   "titulo": "Solo el 59% de los clics de Meta llega a ver la página",
   "severidad": 4,
@@ -28,6 +43,36 @@
   "conector": "Google_Ads",
   "requiere_ok": true,
   "acceso": "sin-conector"
+ },
+ {
+  "id": "amazingcare.ads.F07",
+  "titulo": "Creatividades de prospección con 3 meses al aire y frecuencia alta",
+  "severidad": 4,
+  "estado": "abierta",
+  "punto_funnel": "contenido",
+  "evidencia": "Top gasto 30d: AC-VID-0028 (2,83×), VID-0019 (4,0×), VID-0021 (0,57×). Retención: el anuncio de catálogo hace el 90% con frecuencia 6,8",
+  "impacto": "CTR de prospección 0,79%; el gasto se concentra en videos del 20–25 ago",
+  "accion": "Pedir a Creative 4–6 piezas nuevas por semana partiendo de las ganadoras (Creatina estático 12,9×, VID-0031 9,0×, VID-0027 7,6×)",
+  "ejecuta": "creative",
+  "via": "manual",
+  "conector": "Meta_Ads",
+  "requiere_ok": false,
+  "acceso": "ok"
+ },
+ {
+  "id": "amazingcare.ads.F08",
+  "titulo": "Tasa de agregar al carrito cayó después del Cyber",
+  "severidad": 4,
+  "estado": "abierta",
+  "punto_funnel": "pdp",
+  "evidencia": "Carritos / visitas a la página (Meta): 14–15% en septiembre, 4,8% (3–9 nov) y 10,9% (10–15 nov)",
+  "impacto": "Mismo tráfico que llega a la página pero menos carritos: problema de oferta o PDP, no de anuncios",
+  "accion": "Handoff a CRO: revisar precio post-Cyber, escalera de packs y PDP de destino",
+  "ejecuta": "cro",
+  "via": "mcp",
+  "conector": "Shopify",
+  "requiere_ok": false,
+  "acceso": "sin-probar"
  },
  {
   "id": "amazingcare.ads.F03",
@@ -60,12 +105,27 @@
   "acceso": "sin-probar"
  },
  {
+  "id": "amazingcare.ads.F09",
+  "titulo": "Ventanas de atribución mezcladas entre adsets",
+  "severidad": 2,
+  "estado": "abierta",
+  "punto_funnel": "medicion",
+  "evidencia": "Adsets con 7d_click_1d_ev, 1d_view_7d_click_1d_ev y 1d_view_7d_click en la misma cuenta",
+  "impacto": "Los ROAS de distintos adsets no se pueden comparar; 'engaged view' infla el número",
+  "accion": "Unificar en 7 días clic + 1 día vista al consolidar (F06)",
+  "ejecuta": "ads",
+  "via": "mcp",
+  "conector": "Meta_Ads",
+  "requiere_ok": true,
+  "acceso": "ok"
+ },
+ {
   "id": "amazingcare.ads.F04",
   "titulo": "Pack_P6 reactivado el 20-oct con la CBO Prospección: vigilar sin escalar todavía",
   "severidad": 2,
-  "estado": "en-curso",
+  "estado": "resuelta",
   "punto_funnel": "trafico",
-  "evidencia": "Activity log Meta: 'AC | CBO - Prospeccion' y 'AC | CBO - Trafico to web' pasaron a activas el 20-oct 21:33 (Ads Manager, equipo Advanz). Pack_P6 histórico: US$66,7, 7,71×, 9 compras, frecuencia 3,56",
+  "evidencia": "Absorbida por F06: Pack_P6 se pausó de nuevo (adset 4 en PAUSED, 30d: US$97, 4,0×)",
   "impacto": "Sobre el breakeven (2,5×) pero con muestra chica (9 compras)",
   "accion": "Leer P6 a los 7 días (27-oct) y proponer presupuesto si sostiene ≥2,5×; P2/P3 siguen sin decisión",
   "ejecuta": "ads",

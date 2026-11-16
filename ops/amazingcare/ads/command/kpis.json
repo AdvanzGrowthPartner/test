@@ -1,5 +1,49 @@
 [
  {
+  "id": "roas_meta_30d",
+  "nombre": "ROAS Meta (plataforma) · 30 días",
+  "valor": 3.92,
+  "unidad": "x",
+  "periodo": "2026-10-17/2026-11-15",
+  "meta": 2.5,
+  "estado": "warn",
+  "fuente": "Meta_Ads",
+  "actualizado": "2026-11-16"
+ },
+ {
+  "id": "cpa_meta_30d",
+  "nombre": "Costo por compra Meta · 30 días",
+  "valor": 11.5,
+  "unidad": "USD",
+  "periodo": "2026-10-17/2026-11-15",
+  "meta": 8.4,
+  "estado": "bad",
+  "fuente": "Meta_Ads",
+  "actualizado": "2026-11-16"
+ },
+ {
+  "id": "freq_prosp",
+  "nombre": "Frecuencia Prospección · 30 días",
+  "valor": 7.94,
+  "unidad": "x",
+  "periodo": "2026-10-17/2026-11-15",
+  "meta": 3,
+  "estado": "bad",
+  "fuente": "Meta_Ads",
+  "actualizado": "2026-11-16"
+ },
+ {
+  "id": "spend_meta_30d",
+  "nombre": "Inversión Meta · 30 días",
+  "valor": 1439.6,
+  "unidad": "USD",
+  "periodo": "2026-10-17/2026-11-15",
+  "meta": null,
+  "estado": "ok",
+  "fuente": "Meta_Ads",
+  "actualizado": "2026-11-16"
+ },
+ {
   "id": "roas_meta",
   "nombre": "ROAS Meta (plataforma) · Cyber completo",
   "valor": 6.27,
@@ -8,40 +52,7 @@
   "meta": 2.5,
   "estado": "ok",
   "fuente": "Meta_Ads",
-  "actualizado": "2026-10-21"
- },
- {
-  "id": "spend_meta",
-  "nombre": "Inversión Meta · Cyber",
-  "valor": 3375.69,
-  "unidad": "USD",
-  "periodo": "2026-10-02/2026-10-11",
-  "meta": null,
-  "estado": "ok",
-  "fuente": "Meta_Ads",
-  "actualizado": "2026-10-21"
- },
- {
-  "id": "compras_meta",
-  "nombre": "Compras atribuidas Meta · Cyber",
-  "valor": 441,
-  "unidad": "compras",
-  "periodo": "2026-10-02/2026-10-11",
-  "meta": null,
-  "estado": "ok",
-  "fuente": "Meta_Ads",
-  "actualizado": "2026-10-21"
- },
- {
-  "id": "freq_meta",
-  "nombre": "Frecuencia Meta · Cyber",
-  "valor": 2.36,
-  "unidad": "x",
-  "periodo": "2026-10-02/2026-10-11",
-  "meta": null,
-  "estado": "ok",
-  "fuente": "Meta_Ads",
-  "actualizado": "2026-10-21"
+  "actualizado": "2026-11-16"
  },
  {
   "id": "roas_meta_shop",
@@ -52,7 +63,7 @@
   "meta": 2.5,
   "estado": "warn",
   "fuente": "Shopify",
-  "actualizado": "2026-10-21"
+  "actualizado": "2026-11-16"
  },
  {
   "id": "pmax",
@@ -63,6 +74,6 @@
   "meta": 3.0,
   "estado": "bad",
   "fuente": "Google_Ads",
-  "actualizado": "2026-10-21"
+  "actualizado": "2026-11-16"
  }
 ]

@@ -29,6 +29,29 @@
   - Tendencia: may 14 → jun 14 → jul 12 → ago 22 → sep 24 (en 14 días).
 - **Señales GEO:** autoría ✅ · schema ✅ · FAQ parcial · Wikidata y `llms.txt` pendientes · AggregateRating sin verificar · AI Citation Score sin línea base.
 
+## Blogs nuevos de Antonia en Notion (revisión 16-nov)
+Tres filas creadas el 2-nov en la grilla de blogs. Ninguna está lista para publicar.
+- **Cafeína y electrolitos antes de entrenar** → Estado *Cambios*. Riesgo medio. Ya tiene título SEO, meta, handle (`cafeina-electrolitos-antes-de-entrenar`) y keywords. Falta:
+  - Aclarar que la dosis estudiada (3–6 mg/kg, 210–420 mg a 70 kg) es mayor que los 80 mg del stick.
+  - Verificar 500 mg Na / 250 mg K / 60 mg Mg contra la etiqueta.
+  - Decir "stick", no "sachet".
+  - Agregar el límite EFSA (400 mg/día, 200 mg por toma).
+  - Agregar 3 FAQ.
+- **Cafeína y concentración** → Estado *Cambios*. Riesgo bajo. Handle `cafeina-concentracion-efectos-cerebro`. Falta:
+  - Diferenciarlo del artículo de abril sobre cafeína y enlazar los dos.
+  - "Sin crash" no está en la bibliografía.
+  - Agregar el dato EFSA y FAQ.
+- **Energy: cafeína e hidratación en 1 stick** → Estado *Pendiente*. La página está vacía.
+- **Plan para escalarlos:**
+  - Armar un cluster Energy con 4 piezas: los 2 nuevos, el artículo de abril sobre cafeína y energy-vs-bebidas-energeticas.
+  - Todo el cluster enlaza a la PDP Energy y al Pack Energy Boost.
+  - Publicar antes del 25-nov (Black Friday, Energy -35%).
+  - Distribuirlo con el correo N04 [Energy] (Email OS) y con los reels de Antonia.
+  - Escribir con respuesta directa al inicio + FAQ schema, pensando en GEO.
+  - Ojo: la demanda actual es baja (energy-vs: 12 sesiones en 90 días; artículo de abril: 1), así que el tráfico tiene que venir de enlaces internos y del email.
+- **Search Console:** no se leyó, porque esta sesión cloud no tiene navegador. Opciones: correrlo desde la app Desktop, o exportar el CSV de Rendimiento (Consultas y Páginas, 3 meses vs 3 meses anteriores).
+- Esperando OK: cambiar el link de los bloques de producto de los 6 blogs a los packs. Toca el cuerpo de artículos antiguos, así que va solo con confirmación.
+
 ## Tablero SEO y GEO (29-oct)
 - **Link:** https://claude.ai/artifact/VNJoyyeG48NcU67u9X1Qj2 (tipo Dashboard). Es la versión nueva del reporte de oct-26, que queda como foto de octubre.
 - **Datos en vivo de Shopify:** orgánico, IA, blog, pedidos por búsqueda, entradas y artículos. El resto son copias fijas: Search Console (export del 11-sep), palancas, plan de noviembre, panel de preguntas para IAs y bitácora de cambios.

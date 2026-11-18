@@ -1,7 +1,13 @@
 # AmazingCare · OS Email (Klaviyo, CRM, retención)
 
 ## Estado actual
-**Último dato leído: 29 oct 2026 (Klaviyo y Shopify, 1–29 oct). Command: ver `command/URL`. Los dashboards anteriores (95qFrTBGfTPqeE8UcJYDZH, por marca, y KEm68mZ8Ezs6RXWkw1cAZc, combinado) quedan congelados · datos en `os-data.json`.**
+**Último dato leído: 16 nov 2026 (Klaviyo; Shopify al 16-nov). Panel de Klaviyo actualizado: https://claude.ai/artifact/G4oH1DpezsbDeyfJneiWBx (pestañas Hoy, Entrega, Flujos, Campañas y Acciones; el corte del 21-sep queda como archivo). Command: ver `command/URL` · datos en `os-data.json`.**
+
+### 16-nov · Cómo venimos en Klaviyo y el problema de entrega
+- **30 días (17-oct→16-nov):** CLP 2,63M atribuidos a email (campañas 2,33M, flujos 0,29M). Noviembre al 16: 4 envíos, todos a la base completa (~10,9k), con apertura de 23,3%, clic de 0,22% y RPR de CLP 23, el peor mes del registro. Ninguno es de la grilla N01–N12.
+- **Entrega:** la parte técnica está sana: entrega 99,7%, rebote 0,27%, spam 0,009% y bajas 0,15%. El problema es la **bandeja**. La apertura bajó de ~28% en septiembre a 24,6% el 10-nov, aunque la base creció 2,5× (los que abren se estancaron en ~2,6k). En noviembre, las aperturas en Office 365 caen 55% y las de Gmail 18%. En sep y oct, Smart Sending saltó 23,5k envíos (7,9k en Precyber clon del 2-oct y 7,3k en el Concurso del 14-sep). Las semanas del 5-oct y el 9-nov tuvieron 3 envíos por perfil. Entre 74% y 87% de los clics de sep y oct fueron bots. Nuevas fugas: F11 y F12.
+- **Flujos:** Welcome sigue en borrador. Carritos AON es el único rentable (CLP 257k; SEC2 con RPR 5.057). Recompra email 2, SEC3 y SEC1 variación tienen 0 clics. Post-compra: 1 venta. Nutrikit «NO USAR» sigue vivo.
+- **Propuesto, espera OK:** encender Welcome; revisar los 3 correos sin clics; segmento engaged para envíos de base antes de Black; tope de 2 envíos por semana; Carritos Black desde Carritos Cyber; apagar Nutrikit; revisar DMARC y Postmaster (DNS); sunset en diciembre.
 
 ### 05-nov · Flujo de recompra (aviso de AC - GEO/SEO OS, verificado en Klaviyo)
 - **Cómo está VNCVuB, solo lectura:** espera 20 días → "Recompra_Email 1 - Dia 20" → espera 15 días → "Winback Email 2 - Dia 45". El segundo correo sale el **día 35**, no el 45 que dice su nombre. El flujo no se toca desde el 18-ago.

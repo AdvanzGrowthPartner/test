@@ -1,5 +1,11 @@
 [
  {
+  "fecha": "2026-11-18",
+  "cambio": "Artifact \"Panel del Motor de Correo\" (G4oH1DpezsbDeyfJneiWBx) republicado al 16-nov, en la misma URL: pestañas nuevas Hoy, Entrega, Flujos, Campañas y Acciones; el corte del 21-sep queda como archivo. Solo lectura en Klaviyo, nada cambiado",
+  "por_que": "Pedido del usuario: panel de Klaviyo con rendimiento, flujos y el problema de entrega",
+  "revertir": "Volver a la versión 1790033967-63f3 desde el historial del artifact"
+ },
+ {
   "fecha": "2026-10-30",
   "cambio": "Notion: 12 páginas nuevas (N01–N12) en \"Grilla Correos Amazing B2C_8 Spot (+4 Eventos)\", con estructura para diseño. Artifact Email Noviembre: loader de email_mes corregido, accionables A17–A18 y reglas de peso",
   "por_que": "Pedido del usuario: que diseño parta hoy y revisar el peso de los correos",

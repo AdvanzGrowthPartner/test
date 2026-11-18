@@ -8,7 +8,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Shopify",
-  "actualizado": "2026-10-30"
+  "actualizado": "2026-11-18"
  },
  {
   "id": "email_share",
@@ -19,7 +19,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo + Shopify",
-  "actualizado": "2026-10-30"
+  "actualizado": "2026-11-18"
  },
  {
   "id": "rev_campanas",
@@ -30,7 +30,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-30"
+  "actualizado": "2026-11-18"
  },
  {
   "id": "compras_campanas",
@@ -41,7 +41,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-30"
+  "actualizado": "2026-11-18"
  },
  {
   "id": "rev_flujos",
@@ -52,7 +52,7 @@
   "meta": null,
   "estado": "warn",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-30"
+  "actualizado": "2026-11-18"
  },
  {
   "id": "rev_dest_cyber",
@@ -63,7 +63,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-30"
+  "actualizado": "2026-11-18"
  },
  {
   "id": "rev_dest_post",
@@ -74,7 +74,7 @@
   "meta": null,
   "estado": "bad",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-30"
+  "actualizado": "2026-11-18"
  },
  {
   "id": "open_rate",
@@ -85,7 +85,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-30"
+  "actualizado": "2026-11-18"
  },
  {
   "id": "base",
@@ -96,7 +96,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-30"
+  "actualizado": "2026-11-18"
  },
  {
   "id": "popup_vistas",
@@ -107,6 +107,50 @@
   "meta": null,
   "estado": "bad",
   "fuente": "Klaviyo",
-  "actualizado": "2026-10-30"
+  "actualizado": "2026-11-18"
+ },
+ {
+  "id": "rev_email_30d",
+  "nombre": "Venta atribuida a email (campañas + flujos), 30 días",
+  "valor": 2625516,
+  "unidad": "CLP",
+  "periodo": "2026-10-17/2026-11-16",
+  "meta": null,
+  "estado": "alerta",
+  "fuente": "Klaviyo",
+  "actualizado": "2026-11-18"
+ },
+ {
+  "id": "open_rate_nov",
+  "nombre": "Apertura de campañas, noviembre",
+  "valor": 23.3,
+  "unidad": "%",
+  "periodo": "2026-11-01/2026-11-16",
+  "meta": 28,
+  "estado": "alerta",
+  "fuente": "Klaviyo",
+  "actualizado": "2026-11-18"
+ },
+ {
+  "id": "delivery_rate_nov",
+  "nombre": "Entrega de campañas, noviembre",
+  "valor": 99.73,
+  "unidad": "%",
+  "periodo": "2026-11-01/2026-11-16",
+  "meta": 98,
+  "estado": "ok",
+  "fuente": "Klaviyo",
+  "actualizado": "2026-11-18"
+ },
+ {
+  "id": "destinatarios_nov",
+  "nombre": "Destinatarios de campañas, noviembre al 16 (tope 80k/mes)",
+  "valor": 43694,
+  "unidad": "envíos",
+  "periodo": "2026-11-01/2026-11-16",
+  "meta": 80000,
+  "estado": "alerta",
+  "fuente": "Klaviyo",
+  "actualizado": "2026-11-18"
  }
 ]

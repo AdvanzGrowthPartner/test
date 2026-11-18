@@ -4,7 +4,7 @@
   "grupo": "amazingcare",
   "area": "email",
   "marca": "AmazingCare",
-  "actualizado": "2026-10-30",
+  "actualizado": "2026-11-18",
   "fuente": "os",
   "artifact_url": "https://claude.ai/artifact/RhKD7ygrYif6epFeNkYgtA",
   "kpis": [
@@ -106,6 +106,46 @@
       "periodo": "2026-09-28/2026-10-18",
       "meta": null,
       "estado": "bad",
+      "fuente": "Klaviyo"
+    },
+    {
+      "id": "rev_email_30d",
+      "nombre": "Venta atribuida a email (campañas + flujos), 30 días",
+      "valor": 2625516,
+      "unidad": "CLP",
+      "periodo": "2026-10-17/2026-11-16",
+      "meta": null,
+      "estado": "alerta",
+      "fuente": "Klaviyo"
+    },
+    {
+      "id": "open_rate_nov",
+      "nombre": "Apertura de campañas, noviembre",
+      "valor": 23.3,
+      "unidad": "%",
+      "periodo": "2026-11-01/2026-11-16",
+      "meta": 28,
+      "estado": "alerta",
+      "fuente": "Klaviyo"
+    },
+    {
+      "id": "delivery_rate_nov",
+      "nombre": "Entrega de campañas, noviembre",
+      "valor": 99.73,
+      "unidad": "%",
+      "periodo": "2026-11-01/2026-11-16",
+      "meta": 98,
+      "estado": "ok",
+      "fuente": "Klaviyo"
+    },
+    {
+      "id": "destinatarios_nov",
+      "nombre": "Destinatarios de campañas, noviembre al 16 (tope 80k/mes)",
+      "valor": 43694,
+      "unidad": "envíos",
+      "periodo": "2026-11-01/2026-11-16",
+      "meta": 80000,
+      "estado": "alerta",
       "fuente": "Klaviyo"
     }
   ],
@@ -344,6 +384,36 @@
         "requiere_ok": false,
         "acceso": "ok"
       }
+    },
+    {
+      "id": "amazingcare.email.F11",
+      "titulo": "Llegada a bandeja en baja: apertura de ~28% a 24,6% y 3 envíos por semana a la base completa",
+      "etapa": "acquisition",
+      "punto_funnel": "entrega",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Entrega técnica sana (99,7%, rebote 0,27%, spam 0,009%). Lo que cae es la apertura, y Office 365 baja 55% en noviembre. Riesgo alto para Black Friday si la base completa sigue recibiendo todo.",
+      "evidencia": "Klaviyo: open rate por envío 25-ago→16-nov; Received Email semanal (33,7k y 33,0k recepciones, 3 por perfil, en las semanas del 5-oct y el 9-nov); Skipped Send 10,5k en sep y 13,0k en oct; Opened por Inbox Provider; Clicked con 74–87% de bots en sep y oct.",
+      "estado": "abierta",
+      "depende_de": [
+        "amazingcare.email.F10"
+      ],
+      "afecta_os": [
+        "creative"
+      ]
+    },
+    {
+      "id": "amazingcare.email.F12",
+      "titulo": "3 correos de flujo con 0 clics: Recompra email 2, Carrito SEC3 y SEC1 variación",
+      "etapa": "retention",
+      "punto_funnel": "flujos",
+      "severidad": 3,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Más de 600 entregas en 30 días sin un clic. Lo más probable es un link roto o una pieza sin zona clickeable.",
+      "evidencia": "Klaviyo get_flow_report 17-oct→16-nov: Recompra email 2, 534 dest y 174 aperturas; SEC3, 52 dest; SEC1 variación, 54 dest.",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": []
     }
   ],
   "accesos": [

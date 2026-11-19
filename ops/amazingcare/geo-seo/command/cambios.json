@@ -1,5 +1,17 @@
 [
  {
+  "fecha": "2026-11-19",
+  "cambio": "Fotos de los blogs nuevos: 13 imágenes de Notion subidas a Shopify Files (con alt text) + 1 ya existente (AMAZING_MAYO33836). Portada puesta como imagen destacada y fotos insertadas en el cuerpo de `cafeina-electrolitos-antes-de-entrenar` y `cafeina-concentracion-efectos-cerebro` (siguen OCULTOS). Recuadro de autora con la foto de Antonia.",
+  "por_que": "El usuario pidió que Advanz suba portada y fotos, no Antonia",
+  "revertir": "Volver al cuerpo anterior (sin `<img>`); borrar los archivos en Contenido › Archivos"
+ },
+ {
+  "fecha": "2026-11-19",
+  "cambio": "Nuevo artículo **OCULTO** `electrolitos-verano-hidratacion` (Article/635451998504), texto de Antonia (Notion 17-nov), con portada, 4 fotos, title/meta SEO, 3 FAQ + schema, enlaces a la colección electrolitos. \"sachet\"→\"stick\". Notion → Revisión (Oculto).",
+  "por_que": "Tercer blog nuevo de Antonia",
+  "revertir": "Borrar el artículo (nunca se publicó)"
+ },
+ {
   "fecha": "2026-11-17",
   "cambio": "Nuevo artículo **OCULTO** `cafeina-electrolitos-antes-de-entrenar` (Article/635431420200), autora Antonia Quezada Zavala, con title/meta SEO, FAQ + schema Article/Breadcrumb/FAQPage, enlaces a Energy y Pack Energy Boost. Sobre el texto de Antonia: \"sachet\"→\"stick\", aclaración de dosis 80 mg vs estudios, límite EFSA + referencia. Fotos marcadas con `<!-- FOTO n -->`. Notion → Revisión (Oculto).",
   "por_que": "Revisión de Antonia antes de publicar; cluster Energy para Black Friday",

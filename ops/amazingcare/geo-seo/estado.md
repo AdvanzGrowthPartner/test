@@ -30,6 +30,7 @@
 - **Señales GEO:** autoría ✅ · schema ✅ · FAQ parcial · Wikidata y `llms.txt` pendientes · AggregateRating sin verificar · AI Citation Score sin línea base.
 
 ## Blogs nuevos de Antonia en Notion (revisión 16-nov)
+- **19-nov:** los 3 blogs listos y **ocultos** en Shopify, con portada y fotos subidas por Advanz: cafeína antes de entrenar (635431420200), cafeína y concentración (635439251752) y electrolitos y verano (635451998504, nuevo, subido por Antonia el 17-nov). Notion en *Revisión (Oculto)*. La página "Energy en 1 stick" sigue vacía (no cuenta como blog). Falta: OK de Antonia → publicar con OK del usuario → pedir indexación en GSC (sesión con navegador).
 - **17-nov:** los 2 con texto se subieron **ocultos** a Shopify (635431420200 y 635439251752) y quedaron en Notion como *Revisión (Oculto)*. Falta que Antonia: confirme los mg de minerales, decida sobre "sin crash" y suba las fotos (o las mande). Después: publicar (con OK) y pedir indexación en Search Console desde una sesión con navegador (Cowork).
 Tres filas creadas el 2-nov en la grilla de blogs. Ninguna está lista para publicar.
 - **Cafeína y electrolitos antes de entrenar** → Estado *Cambios*. Riesgo medio. Ya tiene título SEO, meta, handle (`cafeina-electrolitos-antes-de-entrenar`) y keywords. Falta:

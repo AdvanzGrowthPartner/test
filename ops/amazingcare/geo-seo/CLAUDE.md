@@ -20,6 +20,8 @@ Si una herramienta no está conectada o falla, dilo y propone la alternativa (ex
 ## Skills
 `anthropic-skills:advanz-seo-geo-engine` · `anthropic-skills:advanz-shopify-blog-publisher` · `anthropic-skills:advanz-shopify-blog-api` · `marketing:seo-audit` · `advanz-paid-media:ai-seo` · `advanz-paid-media:schema-markup`
 
+**Blogs Notion → Shopify:** usar siempre el "Flujo rápido" de `.claude/skills/advanz-shopify-blog-api/SKILL.md` (versión del repo, manda sobre la de la cuenta). Las fotos y la portada las sube Advanz.
+
 ## KPIs
 clics e impresiones orgánicas, posiciones top-10, CTR, páginas indexadas, menciones/citas en IA, ventas orgánicas
 

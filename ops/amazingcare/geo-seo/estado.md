@@ -29,6 +29,12 @@
   - Tendencia: may 14 → jun 14 → jul 12 → ago 22 → sep 24 (en 14 días).
 - **Señales GEO:** autoría ✅ · schema ✅ · FAQ parcial · Wikidata y `llms.txt` pendientes · AggregateRating sin verificar · AI Citation Score sin línea base.
 
+## Métricas al 19-nov (Shopify)
+- Orgánico: nov 1.747 visitas al día 19 (ritmo ~2.750, igual a oct) y 52 compras (3,0%, oct 8% por Cyber).
+- Blog: 382 visitas en nov (ritmo ~600, récord) y 0 compras directas. Los 5 más leídos (isotónica, disautonomía, migraña, creatina mujeres, sodio) tuvieron 239 visitas en 30 días y no generaron compras.
+- IA: 15 visitas en nov (43 en oct); 117 desde agosto, 5 compras. ChatGPT es todo el canal.
+- Tablero SEO y GEO actualizado el 19-nov: plan de noviembre, cambios y oportunidades.
+
 ## Blogs nuevos de Antonia en Notion (revisión 16-nov)
 - **19-nov:** los 3 blogs listos y **ocultos** en Shopify, con portada y fotos subidas por Advanz: cafeína antes de entrenar (635431420200), cafeína y concentración (635439251752) y electrolitos y verano (635451998504, nuevo, subido por Antonia el 17-nov). Notion en *Revisión (Oculto)*. La página "Energy en 1 stick" sigue vacía (no cuenta como blog). Falta: OK de Antonia → publicar con OK del usuario → pedir indexación en GSC (sesión con navegador).
 - **17-nov:** los 2 con texto se subieron **ocultos** a Shopify (635431420200 y 635439251752) y quedaron en Notion como *Revisión (Oculto)*. Falta que Antonia: confirme los mg de minerales, decida sobre "sin crash" y suba las fotos (o las mande). Después: publicar (con OK) y pedir indexación en Search Console desde una sesión con navegador (Cowork).

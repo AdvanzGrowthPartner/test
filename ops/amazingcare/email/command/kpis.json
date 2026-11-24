@@ -199,12 +199,12 @@
  },
  {
   "id": "campanas_black_2026",
-  "nombre": "Campañas de Black 2026 creadas en Klaviyo",
-  "valor": 0,
-  "unidad": "campañas",
+  "nombre": "Correos de Black 2026 enviados (2 de 4 aprobados)",
+  "valor": 1,
+  "unidad": "de 4",
   "periodo": "2026-11-24",
   "meta": null,
-  "estado": "bad",
+  "estado": "alerta",
   "fuente": "Klaviyo",
   "actualizado": "2026-11-24"
  },

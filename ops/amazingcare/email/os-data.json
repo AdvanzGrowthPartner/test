@@ -190,12 +190,12 @@
     },
     {
       "id": "campanas_black_2026",
-      "nombre": "Campañas de Black 2026 creadas en Klaviyo",
-      "valor": 0,
-      "unidad": "campañas",
+      "nombre": "Correos de Black 2026 enviados (2 de 4 aprobados)",
+      "valor": 1,
+      "unidad": "de 4",
       "periodo": "2026-11-24",
       "meta": null,
-      "estado": "bad",
+      "estado": "alerta",
       "fuente": "Klaviyo"
     },
     {
@@ -360,6 +360,31 @@
       ]
     },
     {
+      "id": "amazingcare.email.F14",
+      "titulo": "Reputación: Klaviyo marca 81,6% de la base sin interacción en 30 días (~8.900 de ~10.900)",
+      "etapa": "retention",
+      "punto_funnel": "entrega",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Excluirlos deja ~2.000 perfiles; seguir enviándoles baja la reputación con cada push de venta.",
+      "evidencia": "Alerta «Mejora de la reputación» en Klaviyo, 24-nov. PreBlack 1 (24-nov): 3,1% de apertura en las primeras horas.",
+      "estado": "abierta",
+      "depende_de": [
+        "amazingcare.email.F11"
+      ],
+      "afecta_os": [
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Plan de diciembre: correos con motivo no comercial (beneficios, sorteos, concursos), beneficio de adquisición más fuerte, capitalizar la base nueva en 30 días y limpiar la audiencia muerta.",
+        "os_ejecutor": "email",
+        "via": "mcp",
+        "conector": "Klaviyo",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
       "id": "amazingcare.email.F02",
       "titulo": "Carrito AON: la escalera está invertida y el último correo no convierte",
       "etapa": "workflows",
@@ -478,16 +503,24 @@
     },
     {
       "id": "amazingcare.email.F12",
-      "titulo": "3 correos de flujo con 0 clics: Recompra email 2, Carrito SEC3 y SEC1 variación",
+      "titulo": "Recompra 2 es la plantilla por defecto de Klaviyo en inglés y Carrito SEC3 no tiene botón al checkout",
       "etapa": "retention",
       "punto_funnel": "flujos",
       "severidad": 3,
       "impacto_clp_mes": null,
       "impacto_nota": "Más de 600 entregas en 30 días sin un clic. Lo más probable es un link roto o una pieza sin zona clickeable.",
-      "evidencia": "Klaviyo get_flow_report 17-oct→16-nov: Recompra email 2, 534 dest y 174 aperturas; SEC3, 52 dest; SEC1 variación, 54 dest.",
+      "evidencia": "Plantilla XwryDG (Recompra email 2): «[automation] Shopify Win Back», texto en inglés («Since you've been gone…», «Visit the store»), productos automáticos. Plantilla RpjNfV (SEC3): copia de SEC2, 3 imágenes sin link y sin botón al checkout. 30 días: 507 y 47 entregas con 0 clics.",
       "estado": "abierta",
       "depende_de": [],
-      "afecta_os": []
+      "afecta_os": [],
+      "accion": {
+        "descripcion": "Recompra 2: pieza en español con el producto comprado, razón para reponer y código. SEC3: botón al checkout_url y links en imágenes.",
+        "os_ejecutor": "email",
+        "via": "mcp",
+        "conector": "Klaviyo",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
     },
     {
       "id": "amazingcare.email.F03",

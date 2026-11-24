@@ -3,6 +3,15 @@
 ## Estado actual
 **Último dato leído: 24 nov 2026 (Klaviyo y Shopify). Panel único del OS: https://claude.ai/artifact/G4oH1DpezsbDeyfJneiWBx («Panel del Motor de Correo»). Desde el 24-nov reemplaza al Command «Email OS · AmazingCare» (RhKD7ygrYif6epFeNkYgtA), que queda congelado sin borrar. `command/URL` apunta al panel, y en cada cierre se republica con los datos de `os-data.json` · datos en `os-data.json`.**
 
+### 24-nov (tarde) · Panel rehecho con 9 tabs y bases de Black
+- **Panel** (misma URL, nombre «Email OS - AmazingCare»). Tabs fijos: Resumen, Eventos (foco Black), Anual, Campañas, Flujos, Entrega, Captura, Base y Retención. Tiene gráficos temporales, la proyección de Black y la comparativa con Black 2025 y los Cyber. El generador quedó en `panel/gen.py`, junto con `head.html`.
+- **Lo que confirmó el usuario.** El PreBlack 1, «Se acabó la espera», salió el 24-nov a 10.895 personas (3,1% de apertura en las primeras horas). Hay 2 de 4 correos aprobados. La mecánica es hasta 40% off. Carritos Black se activa, pero falta el diseño. El pop-up no aplica en evento, y en Black no se segmenta porque no hubo precalentamiento.
+- **Proyección de Black 2026 (27-nov→1-dic):** piso de CLP 16,9M (igual que en 2025), base de 18,7M (+11%, lo que creció el Cyber de octubre comparando 8 días contra 8) y techo de 20,2M (+20%, lo que creció octubre completo). El escenario de riesgo es 13,5M. El email pesa 32–37% en los eventos.
+- **Comparativa de eventos** (venta neta): Black 2025, 16,9M en 5 días; Cyber oct 2026, 21,2M en 7 días; Cyber jun 2026, 23,6M en 6 días; Cyber oct 2025, 17,9M; Flash jul 2026, 6,1M.
+- **Qué tienen Recompra 2 y SEC3:** Recompra 2 es la plantilla por defecto de Klaviyo, en inglés. SEC3 es una copia de SEC2, sin botón al checkout y con imágenes sin link. Queda como fuga F12.
+- **Reputación:** Klaviyo sugiere excluir al 81,6% de la base, que no interactuó en 30 días (queda como F14). Para el cierre de diciembre van el Plan 1 de Patricio (motivo no comercial: beneficios, sorteos, concursos) y el Plan 2 (adquisición, capitalizar la base en 30 días y limpiar). Nacho confirma que las piezas no comerciales de la grilla (N01–N08) no salieron.
+- **Command Center de Black** (amazing-command-center.pages.dev): no se pudo leer desde esta sesión por un error de DNS o de red. Las bases salieron de Shopify y Klaviyo.
+
 ### 24-nov · Black: estado y panel único
 - **Klaviyo al 24-nov: 0 campañas de Black 2026 creadas** (solo existen las de 2025). El último envío fue el 16-nov, así que van 8 días sin campañas. La grilla N01–N09 no salió: 0 de 9 piezas. Quedan N10 (25), N11 (27) y N12 (30). Nueva fuga: F13.
 - **La vara de Black 2025:** semana 27-nov→1-dic con CLP 16,87M y 480 órdenes. Tres correos atribuyeron CLP 6,59M; el Inicio (27-nov) solo, 4,35M con RPR 482. Salieron a 13–15 audiencias apiladas, incluidas MAYORISTAS y Preview List.

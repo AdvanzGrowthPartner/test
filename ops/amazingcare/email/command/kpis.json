@@ -8,7 +8,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Shopify",
-  "actualizado": "2026-11-18"
+  "actualizado": "2026-11-24"
  },
  {
   "id": "email_share",
@@ -19,7 +19,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo + Shopify",
-  "actualizado": "2026-11-18"
+  "actualizado": "2026-11-24"
  },
  {
   "id": "rev_campanas",
@@ -30,7 +30,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-11-18"
+  "actualizado": "2026-11-24"
  },
  {
   "id": "compras_campanas",
@@ -41,7 +41,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-11-18"
+  "actualizado": "2026-11-24"
  },
  {
   "id": "rev_flujos",
@@ -52,7 +52,7 @@
   "meta": null,
   "estado": "warn",
   "fuente": "Klaviyo",
-  "actualizado": "2026-11-18"
+  "actualizado": "2026-11-24"
  },
  {
   "id": "rev_dest_cyber",
@@ -63,7 +63,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-11-18"
+  "actualizado": "2026-11-24"
  },
  {
   "id": "rev_dest_post",
@@ -74,7 +74,7 @@
   "meta": null,
   "estado": "bad",
   "fuente": "Klaviyo",
-  "actualizado": "2026-11-18"
+  "actualizado": "2026-11-24"
  },
  {
   "id": "open_rate",
@@ -85,7 +85,7 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-11-18"
+  "actualizado": "2026-11-24"
  },
  {
   "id": "base",
@@ -96,61 +96,138 @@
   "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-11-18"
+  "actualizado": "2026-11-24"
  },
  {
   "id": "popup_vistas",
-  "nombre": "Vistas del pop-up de captura",
-  "valor": 18,
+  "nombre": "Vistas del pop-up de captura, noviembre",
+  "valor": 15,
   "unidad": "vistas",
-  "periodo": "2026-09-28/2026-10-18",
+  "periodo": "2026-11-01/2026-11-24",
   "meta": null,
   "estado": "bad",
   "fuente": "Klaviyo",
-  "actualizado": "2026-11-18"
+  "actualizado": "2026-11-24"
  },
  {
-  "id": "rev_email_30d",
-  "nombre": "Venta atribuida a email (campañas + flujos), 30 días",
-  "valor": 2625516,
+  "id": "venta_tienda_nov",
+  "nombre": "Venta neta de la tienda, noviembre al 24",
+  "valor": 7415146,
   "unidad": "CLP",
-  "periodo": "2026-10-17/2026-11-16",
+  "periodo": "2026-11-01/2026-11-24",
+  "meta": null,
+  "estado": "alerta",
+  "fuente": "Shopify",
+  "actualizado": "2026-11-24"
+ },
+ {
+  "id": "black_2025",
+  "nombre": "Venta neta Black 2025 (27-nov→1-dic), la vara",
+  "valor": 16868446,
+  "unidad": "CLP",
+  "periodo": "2025-11-27/2025-12-01",
+  "meta": null,
+  "estado": "ok",
+  "fuente": "Shopify",
+  "actualizado": "2026-11-24"
+ },
+ {
+  "id": "email_black_2025",
+  "nombre": "Venta atribuida a los 3 correos de Black 2025",
+  "valor": 6594844,
+  "unidad": "CLP",
+  "periodo": "2025-11-24/2025-12-01",
+  "meta": null,
+  "estado": "ok",
+  "fuente": "Klaviyo",
+  "actualizado": "2026-11-24"
+ },
+ {
+  "id": "rev_campanas_nov",
+  "nombre": "Venta atribuida a campañas, noviembre",
+  "valor": 1093253,
+  "unidad": "CLP",
+  "periodo": "2026-11-01/2026-11-24",
   "meta": null,
   "estado": "alerta",
   "fuente": "Klaviyo",
-  "actualizado": "2026-11-18"
+  "actualizado": "2026-11-24"
+ },
+ {
+  "id": "rev_flujos_30d",
+  "nombre": "Venta atribuida a flujos, 30 días",
+  "valor": 469042,
+  "unidad": "CLP",
+  "periodo": "2026-10-25/2026-11-24",
+  "meta": null,
+  "estado": "alerta",
+  "fuente": "Klaviyo",
+  "actualizado": "2026-11-24"
  },
  {
   "id": "open_rate_nov",
   "nombre": "Apertura de campañas, noviembre",
-  "valor": 23.3,
+  "valor": 25.2,
   "unidad": "%",
-  "periodo": "2026-11-01/2026-11-16",
-  "meta": 28,
+  "periodo": "2026-11-01/2026-11-24",
+  "meta": null,
   "estado": "alerta",
   "fuente": "Klaviyo",
-  "actualizado": "2026-11-18"
+  "actualizado": "2026-11-24"
+ },
+ {
+  "id": "click_rate_nov",
+  "nombre": "Clic de campañas, noviembre",
+  "valor": 0.24,
+  "unidad": "%",
+  "periodo": "2026-11-01/2026-11-24",
+  "meta": null,
+  "estado": "bad",
+  "fuente": "Klaviyo",
+  "actualizado": "2026-11-24"
  },
  {
   "id": "delivery_rate_nov",
   "nombre": "Entrega de campañas, noviembre",
-  "valor": 99.73,
+  "valor": 99.7,
   "unidad": "%",
-  "periodo": "2026-11-01/2026-11-16",
-  "meta": 98,
+  "periodo": "2026-11-01/2026-11-24",
+  "meta": null,
   "estado": "ok",
   "fuente": "Klaviyo",
-  "actualizado": "2026-11-18"
+  "actualizado": "2026-11-24"
  },
  {
-  "id": "destinatarios_nov",
-  "nombre": "Destinatarios de campañas, noviembre al 16 (tope 80k/mes)",
-  "valor": 43694,
-  "unidad": "envíos",
-  "periodo": "2026-11-01/2026-11-16",
-  "meta": 80000,
-  "estado": "alerta",
+  "id": "campanas_black_2026",
+  "nombre": "Campañas de Black 2026 creadas en Klaviyo",
+  "valor": 0,
+  "unidad": "campañas",
+  "periodo": "2026-11-24",
+  "meta": null,
+  "estado": "bad",
   "fuente": "Klaviyo",
-  "actualizado": "2026-11-18"
+  "actualizado": "2026-11-24"
+ },
+ {
+  "id": "dias_sin_envio",
+  "nombre": "Días sin campañas (último envío 16-nov)",
+  "valor": 8,
+  "unidad": "días",
+  "periodo": "2026-11-16/2026-11-24",
+  "meta": null,
+  "estado": "bad",
+  "fuente": "Klaviyo",
+  "actualizado": "2026-11-24"
+ },
+ {
+  "id": "altas_nov",
+  "nombre": "Suscripciones nuevas a email, noviembre (sep: 641)",
+  "valor": 32,
+  "unidad": "perfiles",
+  "periodo": "2026-11-01/2026-11-24",
+  "meta": null,
+  "estado": "bad",
+  "fuente": "Klaviyo",
+  "actualizado": "2026-11-24"
  }
 ]

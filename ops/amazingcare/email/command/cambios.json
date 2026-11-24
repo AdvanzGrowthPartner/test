@@ -1,5 +1,11 @@
 [
  {
+  "fecha": "2026-11-24",
+  "cambio": "\"Panel del Motor de Correo\" (G4oH1DpezsbDeyfJneiWBx) republicado al 24-nov como panel único del OS, con pestañas Black, Hoy, Entrega, Flujos, Campañas, Captura, Email OS (KPIs, fugas, pedidos, accesos, cambios) y Acciones; el corte del 21-sep queda como archivo. `command/URL` y `artifact_url` apuntan al panel; el Command RhKD7ygrYif6epFeNkYgtA queda congelado. En Klaviyo no se cambió nada",
+  "por_que": "Pedido del usuario: un solo panel con toda la data para Black",
+  "revertir": "Volver a la versión 1795038437-23c3 del panel y restaurar `command/URL` a RhKD7ygrYif6epFeNkYgtA"
+ },
+ {
   "fecha": "2026-11-18",
   "cambio": "Artifact \"Panel del Motor de Correo\" (G4oH1DpezsbDeyfJneiWBx) republicado al 16-nov, en la misma URL: pestañas nuevas Hoy, Entrega, Flujos, Campañas y Acciones; el corte del 21-sep queda como archivo. Solo lectura en Klaviyo, nada cambiado",
   "por_que": "Pedido del usuario: panel de Klaviyo con rendimiento, flujos y el problema de entrega",

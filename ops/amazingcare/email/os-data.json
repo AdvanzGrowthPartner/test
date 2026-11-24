@@ -4,9 +4,9 @@
   "grupo": "amazingcare",
   "area": "email",
   "marca": "AmazingCare",
-  "actualizado": "2026-11-18",
+  "actualizado": "2026-11-24",
   "fuente": "os",
-  "artifact_url": "https://claude.ai/artifact/RhKD7ygrYif6epFeNkYgtA",
+  "artifact_url": "https://claude.ai/artifact/G4oH1DpezsbDeyfJneiWBx",
   "kpis": [
     {
       "id": "venta_tienda",
@@ -100,20 +100,60 @@
     },
     {
       "id": "popup_vistas",
-      "nombre": "Vistas del pop-up de captura",
-      "valor": 18,
+      "nombre": "Vistas del pop-up de captura, noviembre",
+      "valor": 15,
       "unidad": "vistas",
-      "periodo": "2026-09-28/2026-10-18",
+      "periodo": "2026-11-01/2026-11-24",
       "meta": null,
       "estado": "bad",
       "fuente": "Klaviyo"
     },
     {
-      "id": "rev_email_30d",
-      "nombre": "Venta atribuida a email (campañas + flujos), 30 días",
-      "valor": 2625516,
+      "id": "venta_tienda_nov",
+      "nombre": "Venta neta de la tienda, noviembre al 24",
+      "valor": 7415146,
       "unidad": "CLP",
-      "periodo": "2026-10-17/2026-11-16",
+      "periodo": "2026-11-01/2026-11-24",
+      "meta": null,
+      "estado": "alerta",
+      "fuente": "Shopify"
+    },
+    {
+      "id": "black_2025",
+      "nombre": "Venta neta Black 2025 (27-nov→1-dic), la vara",
+      "valor": 16868446,
+      "unidad": "CLP",
+      "periodo": "2025-11-27/2025-12-01",
+      "meta": null,
+      "estado": "ok",
+      "fuente": "Shopify"
+    },
+    {
+      "id": "email_black_2025",
+      "nombre": "Venta atribuida a los 3 correos de Black 2025",
+      "valor": 6594844,
+      "unidad": "CLP",
+      "periodo": "2025-11-24/2025-12-01",
+      "meta": null,
+      "estado": "ok",
+      "fuente": "Klaviyo"
+    },
+    {
+      "id": "rev_campanas_nov",
+      "nombre": "Venta atribuida a campañas, noviembre",
+      "valor": 1093253,
+      "unidad": "CLP",
+      "periodo": "2026-11-01/2026-11-24",
+      "meta": null,
+      "estado": "alerta",
+      "fuente": "Klaviyo"
+    },
+    {
+      "id": "rev_flujos_30d",
+      "nombre": "Venta atribuida a flujos, 30 días",
+      "valor": 469042,
+      "unidad": "CLP",
+      "periodo": "2026-10-25/2026-11-24",
       "meta": null,
       "estado": "alerta",
       "fuente": "Klaviyo"
@@ -121,31 +161,61 @@
     {
       "id": "open_rate_nov",
       "nombre": "Apertura de campañas, noviembre",
-      "valor": 23.3,
+      "valor": 25.2,
       "unidad": "%",
-      "periodo": "2026-11-01/2026-11-16",
-      "meta": 28,
+      "periodo": "2026-11-01/2026-11-24",
+      "meta": null,
       "estado": "alerta",
+      "fuente": "Klaviyo"
+    },
+    {
+      "id": "click_rate_nov",
+      "nombre": "Clic de campañas, noviembre",
+      "valor": 0.24,
+      "unidad": "%",
+      "periodo": "2026-11-01/2026-11-24",
+      "meta": null,
+      "estado": "bad",
       "fuente": "Klaviyo"
     },
     {
       "id": "delivery_rate_nov",
       "nombre": "Entrega de campañas, noviembre",
-      "valor": 99.73,
+      "valor": 99.7,
       "unidad": "%",
-      "periodo": "2026-11-01/2026-11-16",
-      "meta": 98,
+      "periodo": "2026-11-01/2026-11-24",
+      "meta": null,
       "estado": "ok",
       "fuente": "Klaviyo"
     },
     {
-      "id": "destinatarios_nov",
-      "nombre": "Destinatarios de campañas, noviembre al 16 (tope 80k/mes)",
-      "valor": 43694,
-      "unidad": "envíos",
-      "periodo": "2026-11-01/2026-11-16",
-      "meta": 80000,
-      "estado": "alerta",
+      "id": "campanas_black_2026",
+      "nombre": "Campañas de Black 2026 creadas en Klaviyo",
+      "valor": 0,
+      "unidad": "campañas",
+      "periodo": "2026-11-24",
+      "meta": null,
+      "estado": "bad",
+      "fuente": "Klaviyo"
+    },
+    {
+      "id": "dias_sin_envio",
+      "nombre": "Días sin campañas (último envío 16-nov)",
+      "valor": 8,
+      "unidad": "días",
+      "periodo": "2026-11-16/2026-11-24",
+      "meta": null,
+      "estado": "bad",
+      "fuente": "Klaviyo"
+    },
+    {
+      "id": "altas_nov",
+      "nombre": "Suscripciones nuevas a email, noviembre (sep: 641)",
+      "valor": 32,
+      "unidad": "perfiles",
+      "periodo": "2026-11-01/2026-11-24",
+      "meta": null,
+      "estado": "bad",
       "fuente": "Klaviyo"
     }
   ],
@@ -158,7 +228,7 @@
       "severidad": 5,
       "impacto_clp_mes": null,
       "impacto_nota": "Cuando se ve, convierte (12 envíos sobre 18 vistas). El problema es que no se muestra, no la oferta.",
-      "evidencia": "Viewed Form SQLn6z: 2 / 13 / 3 por semana (28 sep–18 oct). Submitted Form WrC97x: 0 / 9 / 3. En el CyberDay jun-26 ya pasaba (0–6 vistas al día).",
+      "evidencia": "Viewed Form SQLn6z: 2 / 13 / 3 por semana (28 sep–18 oct). Submitted Form WrC97x: 0 / 9 / 3. En el CyberDay jun-26 ya pasaba (0–6 vistas al día). Al 24-nov: vistas del formulario 9.784 en sep, 33 en oct y 15 en nov; suscripciones nuevas 641, 216 y 32.",
       "estado": "abierta",
       "depende_de": [],
       "afecta_os": [
@@ -173,6 +243,121 @@
         "requiere_ok": true,
         "acceso": "ok"
       }
+    },
+    {
+      "id": "amazingcare.email.F08",
+      "titulo": "Welcome_AON en borrador desde el 4-oct: quien se suscribe no recibe nada",
+      "etapa": "workflows",
+      "punto_funnel": "captura",
+      "severidad": 5,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Septiembre: $278K y 6 compras por el welcome. Octubre: $0.",
+      "evidencia": "get_flows: S8bwJx status draft, updated 2026-10-04. Placed Order atribuido a S8bwJx: sep $278.157, oct $0.",
+      "estado": "abierta",
+      "depende_de": [
+        "amazingcare.email.F01"
+      ],
+      "afecta_os": [
+        "growth",
+        "cro"
+      ],
+      "accion": {
+        "descripcion": "Encender con espera de 5 min, sin el split con links nulos, A/B cerrado y correo de cierre con vencimiento",
+        "os_ejecutor": "email",
+        "via": "mcp",
+        "conector": "Klaviyo",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.email.F13",
+      "titulo": "Black 2026 sin nada armado en Klaviyo: 0 campañas creadas y 8 días sin enviar",
+      "etapa": "acquisition",
+      "punto_funnel": "campañas",
+      "severidad": 5,
+      "impacto_clp_mes": 5100000,
+      "impacto_nota": "En Black 2025 los correos Inicio y Cierre atribuyeron CLP 5,1M (30% de la semana). Si no salen, ese ingreso está en riesgo.",
+      "evidencia": "Klaviyo get_campaigns al 24-nov: solo existen las campañas de Black 2025; no hay borradores 2026. Último envío: Push_Tropical week 3x2_3, 16-nov. La grilla N05–N09 (16 al 24-nov) no salió.",
+      "estado": "abierta",
+      "depende_de": [
+        "amazingcare.email.F09"
+      ],
+      "afecta_os": [
+        "creative"
+      ],
+      "accion": {
+        "descripcion": "Crear hoy los borradores de N09–N12 con las piezas que tenga diseño y audiencias segmentadas; mostrar preview para el OK.",
+        "os_ejecutor": "email",
+        "via": "mcp",
+        "requiere_ok": true,
+        "conector": "Klaviyo",
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.email.F09",
+      "titulo": "Sin carrito de evento para Black: Carritos_Cyber quedó en borrador",
+      "etapa": "workflows",
+      "punto_funnel": "carrito",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": "CyberDay jun-26: $565K y 13 compras con el carrito de evento (CR 5,5%). En el Cyber de octubre no se encendió.",
+      "evidencia": "QSHsP9 status draft desde 2026-06-01; Placed Order atribuido: jun $565.400, oct $0.",
+      "estado": "abierta",
+      "depende_de": [],
+      "afecta_os": [
+        "ads",
+        "growth"
+      ],
+      "accion": {
+        "descripcion": "Clonar como Carritos_Black (Smart Sending OFF, UTMs, precios Black) y encender del 25-nov 10:00 al 30-nov 23:59",
+        "os_ejecutor": "email",
+        "via": "mcp",
+        "conector": "Klaviyo",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.email.F10",
+      "titulo": "Correos de solo imagen y pesados (0,9–1,9 MB), sin texto vivo ni alt",
+      "etapa": "systems",
+      "punto_funnel": "contenido",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": "No hay medición directa del efecto; es un riesgo de carga en móvil (87% del tráfico), de imágenes bloqueadas y de filtros de spam.",
+      "evidencia": "Klaviyo get_images y plantillas: Halloween 3 PNG = 1,86 MB; Valor stick 3 PNG = 0,90 MB; cortes de septiembre de hasta 2,3 MB. Todo el correo enlaza a un solo link.",
+      "estado": "en-curso",
+      "depende_de": [],
+      "afecta_os": [
+        "creative"
+      ],
+      "accion": {
+        "descripcion": "Regla en cada ficha de noviembre: ≤ 800 KB, JPG 80%, texto vivo en HTML, un link por bloque",
+        "os_ejecutor": "email",
+        "via": "manual",
+        "conector": "Klaviyo",
+        "requiere_ok": false,
+        "acceso": "ok"
+      }
+    },
+    {
+      "id": "amazingcare.email.F11",
+      "titulo": "Llegada a bandeja en baja: apertura de ~28% (sep) a ~25% (nov) y 3 envíos por semana a la base completa",
+      "etapa": "acquisition",
+      "punto_funnel": "entrega",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": "Entrega técnica sana (99,7%, rebote 0,27%, spam 0,009%). Lo que cae es la apertura, y Office 365 baja 55% en noviembre. Riesgo alto para Black Friday si la base completa sigue recibiendo todo.",
+      "evidencia": "Klaviyo: open rate por envío 25-ago→16-nov; Received Email semanal (33,7k y 33,0k recepciones, 3 por perfil, en las semanas del 5-oct y el 9-nov); Skipped Send 10,5k en sep y 13,0k en oct; Opened por Inbox Provider; Clicked con 74–87% de bots en sep y oct. Al 24-nov los envíos de noviembre cerraron en ~25% de apertura (el 16-nov subió de 20% a 25,1% al madurar).",
+      "estado": "abierta",
+      "depende_de": [
+        "amazingcare.email.F10"
+      ],
+      "afecta_os": [
+        "creative"
+      ]
     },
     {
       "id": "amazingcare.email.F02",
@@ -190,27 +375,6 @@
       ],
       "accion": {
         "descripcion": "Rehacer el primer correo del carrito y evaluar sumar WhatsApp",
-        "os_ejecutor": "email",
-        "via": "mcp",
-        "conector": "Klaviyo",
-        "requiere_ok": true,
-        "acceso": "ok"
-      }
-    },
-    {
-      "id": "amazingcare.email.F03",
-      "titulo": "'¡COMENZÓ!' llegó solo al 28% de la base",
-      "etapa": "retention",
-      "punto_funnel": "recompra",
-      "severidad": 4,
-      "impacto_clp_mes": null,
-      "impacto_nota": null,
-      "evidencia": "Resuelta: desde el 3 oct los envíos a base completa llegan a 10,5–10,9K perfiles (Precyber 3-oct: 10.834 entregados, 31 compras, $1,80M).",
-      "estado": "resuelta",
-      "depende_de": [],
-      "afecta_os": [],
-      "accion": {
-        "descripcion": "Incluir lista Captura_Welcome_Popup 10% y segmento de compradores en cada envío a base",
         "os_ejecutor": "email",
         "via": "mcp",
         "conector": "Klaviyo",
@@ -313,96 +477,6 @@
       }
     },
     {
-      "id": "amazingcare.email.F08",
-      "titulo": "Welcome_AON en borrador desde el 4-oct: quien se suscribe no recibe nada",
-      "etapa": "workflows",
-      "punto_funnel": "captura",
-      "severidad": 5,
-      "impacto_clp_mes": null,
-      "impacto_nota": "Septiembre: $278K y 6 compras por el welcome. Octubre: $0.",
-      "evidencia": "get_flows: S8bwJx status draft, updated 2026-10-04. Placed Order atribuido a S8bwJx: sep $278.157, oct $0.",
-      "estado": "abierta",
-      "depende_de": [
-        "amazingcare.email.F01"
-      ],
-      "afecta_os": [
-        "growth",
-        "cro"
-      ],
-      "accion": {
-        "descripcion": "Encender con espera de 5 min, sin el split con links nulos, A/B cerrado y correo de cierre con vencimiento",
-        "os_ejecutor": "email",
-        "via": "mcp",
-        "conector": "Klaviyo",
-        "requiere_ok": true,
-        "acceso": "ok"
-      }
-    },
-    {
-      "id": "amazingcare.email.F09",
-      "titulo": "Sin carrito de evento para Black: Carritos_Cyber quedó en borrador",
-      "etapa": "workflows",
-      "punto_funnel": "carrito",
-      "severidad": 4,
-      "impacto_clp_mes": null,
-      "impacto_nota": "CyberDay jun-26: $565K y 13 compras con el carrito de evento (CR 5,5%). En el Cyber de octubre no se encendió.",
-      "evidencia": "QSHsP9 status draft desde 2026-06-01; Placed Order atribuido: jun $565.400, oct $0.",
-      "estado": "abierta",
-      "depende_de": [],
-      "afecta_os": [
-        "ads",
-        "growth"
-      ],
-      "accion": {
-        "descripcion": "Clonar como Carritos_Black (Smart Sending OFF, UTMs, precios Black) y encender del 25-nov 10:00 al 30-nov 23:59",
-        "os_ejecutor": "email",
-        "via": "mcp",
-        "conector": "Klaviyo",
-        "requiere_ok": true,
-        "acceso": "ok"
-      }
-    },
-    {
-      "id": "amazingcare.email.F10",
-      "titulo": "Correos de solo imagen y pesados (0,9–1,9 MB), sin texto vivo ni alt",
-      "etapa": "systems",
-      "punto_funnel": "contenido",
-      "severidad": 4,
-      "impacto_clp_mes": null,
-      "impacto_nota": "No hay medición directa del efecto; es un riesgo de carga en móvil (87% del tráfico), de imágenes bloqueadas y de filtros de spam.",
-      "evidencia": "Klaviyo get_images y plantillas: Halloween 3 PNG = 1,86 MB; Valor stick 3 PNG = 0,90 MB; cortes de septiembre de hasta 2,3 MB. Todo el correo enlaza a un solo link.",
-      "estado": "en-curso",
-      "depende_de": [],
-      "afecta_os": [
-        "creative"
-      ],
-      "accion": {
-        "descripcion": "Regla en cada ficha de noviembre: ≤ 800 KB, JPG 80%, texto vivo en HTML, un link por bloque",
-        "os_ejecutor": "email",
-        "via": "manual",
-        "conector": "Klaviyo",
-        "requiere_ok": false,
-        "acceso": "ok"
-      }
-    },
-    {
-      "id": "amazingcare.email.F11",
-      "titulo": "Llegada a bandeja en baja: apertura de ~28% a 24,6% y 3 envíos por semana a la base completa",
-      "etapa": "acquisition",
-      "punto_funnel": "entrega",
-      "severidad": 4,
-      "impacto_clp_mes": null,
-      "impacto_nota": "Entrega técnica sana (99,7%, rebote 0,27%, spam 0,009%). Lo que cae es la apertura, y Office 365 baja 55% en noviembre. Riesgo alto para Black Friday si la base completa sigue recibiendo todo.",
-      "evidencia": "Klaviyo: open rate por envío 25-ago→16-nov; Received Email semanal (33,7k y 33,0k recepciones, 3 por perfil, en las semanas del 5-oct y el 9-nov); Skipped Send 10,5k en sep y 13,0k en oct; Opened por Inbox Provider; Clicked con 74–87% de bots en sep y oct.",
-      "estado": "abierta",
-      "depende_de": [
-        "amazingcare.email.F10"
-      ],
-      "afecta_os": [
-        "creative"
-      ]
-    },
-    {
       "id": "amazingcare.email.F12",
       "titulo": "3 correos de flujo con 0 clics: Recompra email 2, Carrito SEC3 y SEC1 variación",
       "etapa": "retention",
@@ -414,6 +488,27 @@
       "estado": "abierta",
       "depende_de": [],
       "afecta_os": []
+    },
+    {
+      "id": "amazingcare.email.F03",
+      "titulo": "'¡COMENZÓ!' llegó solo al 28% de la base",
+      "etapa": "retention",
+      "punto_funnel": "recompra",
+      "severidad": 4,
+      "impacto_clp_mes": null,
+      "impacto_nota": null,
+      "evidencia": "Resuelta: desde el 3 oct los envíos a base completa llegan a 10,5–10,9K perfiles (Precyber 3-oct: 10.834 entregados, 31 compras, $1,80M).",
+      "estado": "resuelta",
+      "depende_de": [],
+      "afecta_os": [],
+      "accion": {
+        "descripcion": "Incluir lista Captura_Welcome_Popup 10% y segmento de compradores en cada envío a base",
+        "os_ejecutor": "email",
+        "via": "mcp",
+        "conector": "Klaviyo",
+        "requiere_ok": true,
+        "acceso": "ok"
+      }
     }
   ],
   "accesos": [

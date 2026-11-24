@@ -1,7 +1,15 @@
 # AmazingCare · OS Email (Klaviyo, CRM, retención)
 
 ## Estado actual
-**Último dato leído: 16 nov 2026 (Klaviyo; Shopify al 16-nov). Panel de Klaviyo actualizado: https://claude.ai/artifact/G4oH1DpezsbDeyfJneiWBx (pestañas Hoy, Entrega, Flujos, Campañas y Acciones; el corte del 21-sep queda como archivo). Command: ver `command/URL` · datos en `os-data.json`.**
+**Último dato leído: 24 nov 2026 (Klaviyo y Shopify). Panel único del OS: https://claude.ai/artifact/G4oH1DpezsbDeyfJneiWBx («Panel del Motor de Correo»). Desde el 24-nov reemplaza al Command «Email OS · AmazingCare» (RhKD7ygrYif6epFeNkYgtA), que queda congelado sin borrar. `command/URL` apunta al panel, y en cada cierre se republica con los datos de `os-data.json` · datos en `os-data.json`.**
+
+### 24-nov · Black: estado y panel único
+- **Klaviyo al 24-nov: 0 campañas de Black 2026 creadas** (solo existen las de 2025). El último envío fue el 16-nov, así que van 8 días sin campañas. La grilla N01–N09 no salió: 0 de 9 piezas. Quedan N10 (25), N11 (27) y N12 (30). Nueva fuga: F13.
+- **La vara de Black 2025:** semana 27-nov→1-dic con CLP 16,87M y 480 órdenes. Tres correos atribuyeron CLP 6,59M; el Inicio (27-nov) solo, 4,35M con RPR 482. Salieron a 13–15 audiencias apiladas, incluidas MAYORISTAS y Preview List.
+- **Noviembre 2026 al 24:** venta neta de CLP 7,42M con 193 órdenes; CLP 1,59M atribuidos a email. Las campañas de noviembre cerraron con 25,2% de apertura (el 16-nov subió a 25,1% al madurar), clic de 0,24% y RPR de 25.
+- **Flujos, 30 días:** CLP 469 mil, de los que Carritos AON pone 360 mil. Recompra 2 y SEC3 siguen con 0 clics. Welcome sigue en borrador y Carritos Black no existe.
+- **Captura:** el pop-up tuvo 9.784 vistas en septiembre, 33 en octubre y 15 en noviembre; las altas bajaron de 641 a 216 y a 32. El pedido a CRO sigue abierto.
+- **Plan propuesto, espera OK:** encender Welcome; Carritos Black clonado de Cyber; borradores de N09/N10 (25), Inicio (27, base sin MAYORISTAS), reenvío a no abridores (28) y Últimas horas (30, engaged + carrito). Mecánica de Black por definir con Frani.
 
 ### 16-nov · Cómo venimos en Klaviyo y el problema de entrega
 - **30 días (17-oct→16-nov):** CLP 2,63M atribuidos a email (campañas 2,33M, flujos 0,29M). Noviembre al 16: 4 envíos, todos a la base completa (~10,9k), con apertura de 23,3%, clic de 0,22% y RPR de CLP 23, el peor mes del registro. Ninguno es de la grilla N01–N12.

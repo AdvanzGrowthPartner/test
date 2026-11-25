@@ -3,6 +3,10 @@
 ## Estado actual
 **Último dato leído: 24 nov 2026 (Klaviyo y Shopify). Panel único del OS: https://claude.ai/artifact/G4oH1DpezsbDeyfJneiWBx («Panel del Motor de Correo»). Desde el 24-nov reemplaza al Command «Email OS · AmazingCare» (RhKD7ygrYif6epFeNkYgtA), que queda congelado sin borrar. `command/URL` apunta al panel, y en cada cierre se republica con los datos de `os-data.json` · datos en `os-data.json`.**
 
+### 25-nov · PreBlack a 24 h
+- Push_PreBlack_1 («Se acabó la espera», 24-nov 16:30, 10.929 destinatarios), leído a 24 horas: abre 19,6%, clic 0,85% (3,5× el promedio de noviembre), 0 ventas, bajas 0,11%, rebote 0,19%. Salió a la misma audiencia de siempre: popup + compradores + SUSCRIPTORES, sin los que compraron en 14 días.
+- «Black inició» se está armando; todavía no aparece en Klaviyo.
+
 ### 24-nov (tarde) · Panel rehecho con 9 tabs y bases de Black
 - **Panel** (misma URL, nombre «Email OS - AmazingCare»). Tabs fijos: Resumen, Eventos (foco Black), Anual, Campañas, Flujos, Entrega, Captura, Base y Retención. Tiene gráficos temporales, la proyección de Black y la comparativa con Black 2025 y los Cyber. El generador quedó en `panel/gen.py`, junto con `head.html`.
 - **Lo que confirmó el usuario.** El PreBlack 1, «Se acabó la espera», salió el 24-nov a 10.895 personas (3,1% de apertura en las primeras horas). Hay 2 de 4 correos aprobados. La mecánica es hasta 40% off. Carritos Black se activa, pero falta el diseño. El pop-up no aplica en evento, y en Black no se segmenta porque no hubo precalentamiento.

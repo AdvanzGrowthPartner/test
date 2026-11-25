@@ -1,5 +1,11 @@
 [
  {
+  "fecha": "2026-11-25",
+  "cambio": "Panel G4oH1DpezsbDeyfJneiWBx: el tab Eventos se actualizó con los resultados del PreBlack a 24 h y con «Black inició» en armado. En Klaviyo no se cambió nada",
+  "por_que": "Seguimiento de Black",
+  "revertir": "Volver a la versión 1795549440-23f5 del panel"
+ },
+ {
   "fecha": "2026-11-24",
   "cambio": "Panel G4oH1DpezsbDeyfJneiWBx («Email OS - AmazingCare») rehecho: 9 tabs fijos (Resumen, Eventos, Anual, Campañas, Flujos, Entrega, Captura, Base, Retención), gráficos temporales, proyección de Black y comparativas de eventos. Sale el archivo del corte del 21-sep. Generador en `panel/gen.py`. En Klaviyo no se cambió nada",
   "por_que": "Pedido del usuario: tabs fijos, gráficos claros y foco en Black",

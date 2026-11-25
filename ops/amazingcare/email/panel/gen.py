@@ -128,25 +128,25 @@ projtab = hbars([
     ('Riesgo', '−20%: bandeja débil, sin precalentar', 13.5e6, '13,5M · email 3,4M', 'bad'),
 ], 150)
 cal = '<div class="tl">' + ''.join(f'<div class="d {c}"><b>{d}</b><span>{t}</span>{chip(s, k)}</div>' for d, t, s, k, c in [
-    ('lun 24', 'PreBlack 1 · «Se acabó la espera»', 'enviado', 'ok', 'on'),
-    ('por programar', 'Correo 2', 'aprobado', 'ok', ''),
+    ('lun 24', 'PreBlack 1 · «Se acabó la espera» · abre 19,6%', 'enviado', 'ok', ''),
+    ('mié 25', 'Black inició', 'en armado', 'warn', 'on'),
     ('jue 27 · grilla', 'Black Friday · hasta 40% off', 'por aprobar', 'warn', 'ev'),
     ('lun 30 · grilla', 'Últimas horas', 'por aprobar', 'warn', 'ev'),
     ('jue–lun', 'Carritos Black (flujo)', 'falta diseño', 'bad', 'ev'),
 ]) + '</div>'
 pre = hbars([
-    ('PreBlack 1 · 24-nov', '10.895 dest · primeras horas', 3.1, 'abre 3,1%', 'warn'),
+    ('PreBlack 1 · 24-nov', '10.929 dest · a 24 h · clic 0,85%', 19.6, 'abre 19,6%', 'warn'),
     ('Black Friday aviso · 24-nov-2025', '8.972 dest · cerrado', 29.97, 'abre 30,0%', ''),
     ('Promedio campañas nov 2026', '4 envíos cerrados', 25.2, 'abre 25,2%', ''),
 ], 190, 32)
 P.append(('ev', 'Eventos', 'bad', ''.join([
     card('ev-kpis', 12, 'Black 2026', '24-nov · Black Friday el viernes 27', kpis([
-        ('1 de 4', 'Correos de Black enviados', '2 de 4 aprobados', 'warn'),
+        ('1 de 4', 'Correos de Black enviados', 'Black inició en armado', 'warn'),
         ('hasta 40%', 'Mecánica', 'descuento de Black 2026', ''),
         ('18,7M', 'Proyección base (CLP)', 'piso 16,9M · techo 20,2M', ''),
         ('16,9M', 'Black 2025 (CLP)', '5 días · 480 órdenes', ''),
         ('37%', 'Peso del email en Black 2025', '6,2M atribuidos', 'ok'),
-        ('3,1%', 'Apertura PreBlack 1', 'primeras horas', 'warn'),
+        ('19,6%', 'Apertura PreBlack 1', 'clic 0,85% · a 24 h', 'warn'),
     ])),
     card('ev-calendario', 12, 'Calendario de envíos', 'semana de Black', cal),
     card('ev-curvas', 8, 'Venta diaria por evento', 'Shopify · CLP · día 1 = inicio', ev_chart + legend([
@@ -157,7 +157,7 @@ P.append(('ev', 'Eventos', 'bad', ''.join([
     card('ev-proy-dias', 7, 'Proyección día a día', 'escenarios sobre la curva de Black 2025', proj_chart + legend([
         ('Riesgo', C5, True), ('Piso = Black 2025', C3), ('Base', C1), ('Techo', C4)])),
     card('ev-preblack', 5, 'PreBlack 1 contra la vara', 'apertura', pre,
-        'Se lee a las 48 h. Si cierra bajo 20%, la bandeja ya está cobrando los envíos de noviembre.'),
+        'Abre bajo la vara, pero <b>el clic (0,85%) es 3,5× el de noviembre</b>: quien lo ve, se interesa. 0 ventas es esperable en un aviso sin descuento.'),
     card('ev-comparativa', 12, 'Comparativa de eventos', 'Shopify + Klaviyo (Placed Order atribuido)', evcmp),
 ])))
 
